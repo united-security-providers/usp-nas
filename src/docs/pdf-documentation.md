@@ -3,7 +3,6 @@
 - [NAS Users Guide]
 - [NAS Installation Guide]
 - [NAS Migration Guide]
-- [What's New]
 
 
 [NAS Users Guide]: files/%NAS_VERSION%/nas-guide.pdf
