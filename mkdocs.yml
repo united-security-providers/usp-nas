@@ -31,7 +31,7 @@ markdown_extensions:
   - pymdownx.superfences
 nav:
   - Welcome: 'index.md'
-  - Release Notes: 'nas-release-notes.html'
+  - Release Notes: 'release-notes.md'
   - NAS Documentation:
     - HTML: 'html-documentation.md'
     - PDF: 'pdf-documentation.md'
