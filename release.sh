@@ -121,7 +121,9 @@ cd $DIR
 
 # Copy base markdown files from sources
 cp -R src/docs ./docs
-####################cp build/nas-docs/releasenotes.md ./docs/
+cp build/nas-docs/nas-release-notes.html ./docs/
+
+######wget --no-check-certificate https://appliance-builder.u-s-p.local/releases/index.json
 
 #########prepareChangelog build/waap-$CORE_Authenticate_VERSION-changelog.md ./docs/waap-CHANGELOG.md
 
