@@ -107,7 +107,7 @@ cd nas-docs
 downloadFromNexus $NAS_VERSION com.usp.nas nas-docs zip bundle
 
 # Download "What's New" doc
-##downloadFromNexus $NAS_VERSION com.usp.nas nas-docs jar whatsnew
+downloadFromNexus $NAS_VERSION com.usp.nas nas-docs jar whatsnew
 
 rm -f *.zip
 rm -f *.jar
