@@ -123,10 +123,6 @@ cd $DIR
 cp -R src/docs ./docs
 cp build/nas-docs/nas-release-notes.html ./docs/
 
-######wget --no-check-certificate https://appliance-builder.u-s-p.local/releases/index.json
-
-#########prepareChangelog build/waap-$CORE_Authenticate_VERSION-changelog.md ./docs/waap-CHANGELOG.md
-
 mkdir -p ./docs/files/$NAS_VERSION
 cp -r ./build/nas-docs/* ./docs/files/$NAS_VERSION/
 
