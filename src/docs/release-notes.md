@@ -1,6 +1,6 @@
 # USP Network Authentication System &reg; 15.0
 
-Released 3 March 2025
+Released 30 March 2025
 
 ## Platform Compatibility
 
@@ -34,11 +34,15 @@ This release is compatible with the following platforms:
 * **New GUI**: Server certificate can be changed in the new GUI (#290391)
 * **New GUI:** Add option to reload NAS core directly after configuration value change (#290318)
 * **New GUI:** Added maintenance page with options to restart USP NAS services or reboot the system (#286317)
+* **New GUI:** Added possibility to update software image in new GUI, via maintenance page. (#289900)
 * **New GUI:** Login with an LDAP-backed user is now possible via the modern GUI. (#289805)
 * **New GUI:** The operating mode ("daemon mode") can be easily changed from the dashboard of the new GUI. A notification is shown in the sidebar if the mode is set to off. (#289662)
 * Added an interface for scheduled jython scripts to send emails. See the related template for an example. (#290233)
+* Added option to limit the number of scheduled script history log entries to keep (#290302)
+* Added registered endpoint asset ID to Endpoint REST API response (#290630)
 * Added scheduled script template for netdevice import, demonstrating how entries can be generated which use SNMPv2 or SNMPv3 credentials (#290197)
 * Hardware vendor name is now included in connection event (#289793)
+* Improved RADIUS connection chart in dashboard, showing more data points by default (#290437)
 * Include assigned portgroup names in interface REST API response (#290249)
 * Include netport flag in interface REST API response (#289792)
 * On the page where netdevices can be  added to a portgroup, show the netdevice location if available. (#290185)
@@ -52,6 +56,8 @@ This release is compatible with the following platforms:
 * Emails (scheduled reports) are being sent directly by the USP NAS application instead of using the operating system mail service (postfix). (#289866)
 * In the netdevice REST API, the query filter parameter  `snmpVersion` has been replaced by `snmpAccessProfileId` which references the assigned SNMP access profile. The response will now contain the fields `snmpAccessProfileId`, `snmpAccessProfileName`, `snmpVersion`, `snmpAuthenticationAlgorithm`, `snmpEncryptionAlgorithm`. (#290220)
 * It is now possible to change the NAS Core daemon mode without requiring workspace activation (#290355)
+* Remove various tools from the USP Appliance OS base image to reduce space: postfix, gdb, ethtool, hwinfo, dstat, wpa_supplicant (eapol_test), sysstat, tmux (#212698)
+* Standardized SAB CLI API log file names to be similar to NAC application logs (debug.log, info.log, ...) (#290628)
 * The menu entry "Core configuration" is now called "Application configuration" (#5688)
 * Updated Angular UI framework to version 18 (#258137)
 * Updated several third-party libraries to fix reported security vulnerabilities (CVE-2024-52317, CVE-2023-5072, CVE-2024-38821, CVE-2024-1597, CVE-2024-22243, CVE-2024-22259, CVE-2024-22262, CVE-2024-38809) (#290248)
@@ -60,16 +66,27 @@ This release is compatible with the following platforms:
 
 * **New GUI**: Allow RADIUS authentication netdevices to be assigned to a portgropup, instead of switches only (#290373)
 * **New GUI:** Fixed an issue where filter criteria info is lost on page refresh (#289853)
-* Added check to import profiler default datasets only when needed (#289969)
-* Fixed an issue where data sources of deleted inventoried endpoints where shown as an option in the table filter on the registered endpoints page (#290584)
+* **New GUI:** Improved performance of endpoint view (last connection event time is now stored in endpoint node table) (#290372)
+* Added 'Generic RADIUS Device' to the list of selectable switch adapters in netdevice filter (#289962)
+* Correct network type is shown in connection event in case the netdevice is of type RADIUS authentication type (#290012)
+* Fixed an error which occurred when processing a RADIUS request belonging to a soft-deleted auto-inventoried RADIUS authentication device. (#290597)
+* Fixed an issue where a "Switch adaptor class loading failed (GenericRadiusAdaptor)" message was logged for generic RADIUS authentication devices (#289962)
+* Fixed an issue where certain regular expressions for uplink detection could not be read correctly from the configuration when scanning netdevices (#290647)
+* Fixed an issue where data sources of deleted inventoried endpoints were shown as an option in the table filter on the registered endpoints page (#290584)
 * Fixed an issue which prevented Netdevices from correctly being written to CSV import files in scheduled scripts which are using the "netdevice" import type (#290147)
+* Fixed an issue with properly updating the table ID sequence when restoring a backup. (#290662)
 * Fixed event log message MAC_IN_MULTIPLE_VLANS being logged unnecessarily. (#290519)
+* Fixed some issues in data import event log messages (prevent nested messages, always show simple filename without path) (#290610)
+* Improved exception handling in connection event logger (#290649)
 * In case no DNS servers for zone transfer are configured, don't show a warning (WARN_DNS_IMPORT_FAILED) in the log file. (#290406)
+* In case of an invalid uplink regex configuration, log error and continue, instead of crashing the entire netdevice scanner task. (#290646)
+* Profiler default datasets are only imported when really needed (license module enabled and table empty) (#289969)
 * When configuring a network interface statically via console, set default gateway and DNS servers to static as well, if they have been previously configured to use DHCP. (#289789)
-* Whitespace is now removed from interface alias when scanning switches and storing switch interface information into the database. This should prevent issues with uplink detection from port tags. (#290587)
+* Whitespace is now removed from interface alias when scanning switches and storing switch interface information into the database. This should prevent certain issues with uplink detection from port tags. (#290587)
 
 ### Documentation
 
 * Added USP NAS Quick Setup Guide (#290511)
+* Added list of known compatible network equipment vendors and models to documentation (#289957)
 * The USP NAS Migration guide, which describes how to handle potentially breaking changes during major upgrades, can now be accessed from the NAS WebGUI (#290171)
 
