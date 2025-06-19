@@ -139,6 +139,10 @@ if [ "$2" == "deploy" ]; then
     echo "Deploying to GitHub pages..."
     mkdocs gh-deploy --force
     echo "Successfully deployed to to GitHub pages"
+else
+    echo "Building website locally in 'generated' subfolder..."
+    mkdocs build
+    echo "Website generated."
 fi
 
 trap - ERR
