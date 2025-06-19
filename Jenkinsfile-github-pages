@@ -2,5 +2,5 @@
 
 @Library('SES-Library@master') _
 
-bashBuildPipeline {
+githubPagesBuildPipeline {
 }
