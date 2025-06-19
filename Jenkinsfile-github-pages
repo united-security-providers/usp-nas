@@ -1,6 +1,0 @@
-#!groovy
-
-@Library('SES-Library@master') _
-
-githubPagesBuildPipeline {
-}
