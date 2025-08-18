@@ -609,8 +609,8 @@
 <li>Fixed a regression which prevented a proper system configuration and network interface name migration, when upgrading directly from older USP NAS releases (&lt;14.0) (#290859)</li>
 <li>Fixed an issue where a workspace change was created when restoring policy or full backups, due to an accidentally emptied profile rule table. Newly created backup files will no longer have this issue. (#290835)</li>
 </ul>
-<h1 id="usp-network-authentication-system-150">USP Network Authentication System &reg; 15.0</h1>
-<p>Released 30 March 2025</p>
+<h1 id="usp-network-authentication-system-151">USP Network Authentication System &reg; 15.1</h1>
+<p>Released 30 April 2025</p>
 <h2 id="platform-compatibility_3">Platform Compatibility</h2>
 <p>This release is compatible with the following platforms:</p>
 <ul>
@@ -621,6 +621,49 @@
 <li>Oracle VirtualBox</li>
 </ul>
 <h2 id="changelog_3">Changelog</h2>
+<h3 id="enhancements_3">Enhancements</h3>
+<ul>
+<li><strong>New GUI:</strong> Added link to regex online reference documentation on application settings page (#290737)</li>
+<li><strong>New GUI:</strong> Extended the SNMP trap input form description on the application settings page to clarify that empty SNMP trap communities are allowed (in such a case, all traps will be accepted). (#290794)</li>
+<li>Avoid system reboot when restoring app backup; only reboot automatically when restoring full or system settings backup (#290690)</li>
+<li>Include access mode / access rule related to the netdevice in the endpoint REST API response (#290790)</li>
+<li>Include assigned portgroup names in netdevice REST API response (#290788)</li>
+<li>Paginate certificate list after 25 entries instead of 10 (traditional GUI) (#290756)</li>
+<li>RADIUS auth. devices are included in the 'number of switches' graph on the status page. A dedicated graph for the number of WLAN access points has been added as well. (#290797)</li>
+<li>Regex-based uplink-detection is now case-insensitive by default (#290737)</li>
+</ul>
+<h3 id="bugfixes_3">Bugfixes</h3>
+<ul>
+<li><strong>New GUI:</strong> Allow to set empty SNMP trap community string in application settings page (#290796)</li>
+<li><strong>New GUI:</strong> Fixed a display issue on the dashboard with the HA authenticator name on smaller screens (#290782)</li>
+<li><strong>New GUI:</strong> Fixed an issue where table filter presets could not be saved for LDAP-based users (#290738)</li>
+<li><strong>New GUI:</strong> Fixed an issue with changing the scheduled script history retention setting in the configuration page (#290800)</li>
+<li><strong>New GUI:</strong> Fixed display issues on the scheduled script overview page caused by invalid cron schedule expressions (#290777)</li>
+<li><strong>New GUI:</strong> Fixed various table scroll issues on radius subnets, certificates, scheduled scripts overview and data import pages (#290780)</li>
+<li><strong>New GUI:</strong> Shorten long location string, if needed, on netdevice overview page to avoid display issues (#290781)</li>
+<li>Added housekeeping mechanism to delete old SAB job logs (backup/restore/update) in order to not grow indefinitely (#290823)</li>
+<li>Exclude keep-alive requests (HA authenticator, probe user) from RADIUS statistics charts and counters (#290439)</li>
+<li>Fixed a data migration issue which may occur during upgrade to version 15.0 when CA certificates with non-unique aliases have been configured. Also, if multiple CA certificate entries have the same actual certificate data, their properties are now merged into one entry instead of keeping separate entries. (#290756)</li>
+<li>Fixed a dependency issue which prevented the tshark command line tool to work properly (#290792)</li>
+<li>Fixed an issue related to scheduled scripts with type "inventory importer" where the value for the changed-by field was written incorrectly in the resulting CSV file (#290795)</li>
+<li>Fixed an issue with processing RADIUS packets with segmented EAP message attributes (#290727)</li>
+<li>Fixed an issue with reading script contents in the script editor when different line endings were used (#290774)</li>
+<li>Improved Excel/CSV export memory consumption and set record limits to avoid Web GUI crashes when dealing with large tables (#290776)</li>
+<li>Improved memory usage of interface REST API query with large datasets (#290846)</li>
+<li>When setting up a new system, no alert should be generated for license change, as it's the first time a license is loaded (#290729)</li>
+</ul>
+<h1 id="usp-network-authentication-system-150">USP Network Authentication System &reg; 15.0</h1>
+<p>Released 30 March 2025</p>
+<h2 id="platform-compatibility_4">Platform Compatibility</h2>
+<p>This release is compatible with the following platforms:</p>
+<ul>
+<li>Dell PowerEdge R650/R640/R630/R620/R610</li>
+<li>VMware ESXi / Workstation</li>
+<li>Microsoft Hyper-V</li>
+<li>QEMU/KVM</li>
+<li>Oracle VirtualBox</li>
+</ul>
+<h2 id="changelog_4">Changelog</h2>
 <h3 id="features">Features</h3>
 <ul>
 <li><strong>New GUI:</strong> Add possibility to download data tables as Excel and CSV files in new GUI (#289554)</li>
@@ -630,7 +673,7 @@
 <li><strong>New GUI:</strong> SNMP access profiles can be configured in the new GUI and assigned to netdevices. (#289672)</li>
 <li><strong>New GUI:</strong> Scheduled scripts can be added, edited and run in the new GUI. It is no longer required to edit script contents via command line. Script files which were stored in the file system are automatically migrated to the database. (#289637)</li>
 </ul>
-<h3 id="enhancements_3">Enhancements</h3>
+<h3 id="enhancements_4">Enhancements</h3>
 <ul>
 <li><strong>New GUI</strong>: A new SNMP access profile can be defined on-the-fly when adding/editing a netdevice (#290322)</li>
 <li><strong>New GUI</strong>: ARP table is now available on netdevice detail page if device class is router (#290177)</li>
@@ -669,7 +712,7 @@
 <li>Updated Angular UI framework to version 18 (#258137)</li>
 <li>Updated several third-party libraries to fix reported security vulnerabilities (CVE-2024-52317, CVE-2023-5072, CVE-2024-38821, CVE-2024-1597, CVE-2024-22243, CVE-2024-22259, CVE-2024-22262, CVE-2024-38809) (#290248)</li>
 </ul>
-<h3 id="bugfixes_3">Bugfixes</h3>
+<h3 id="bugfixes_4">Bugfixes</h3>
 <ul>
 <li><strong>New GUI</strong>: Allow RADIUS authentication netdevices to be assigned to a portgropup, instead of switches only (#290373)</li>
 <li><strong>New GUI:</strong> Fixed an issue where filter criteria info is lost on page refresh (#289853)</li>
