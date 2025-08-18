@@ -121,6 +121,54 @@ This release is compatible with the following platforms:
 
 
 
+# USP Network Authentication System &reg; 15.1
+
+Released 30 April 2025
+
+## Platform Compatibility
+
+This release is compatible with the following platforms:
+
+* Dell PowerEdge R650/R640/R630/R620/R610
+* VMware ESXi / Workstation
+* Microsoft Hyper-V
+* QEMU/KVM
+* Oracle VirtualBox
+
+## Changelog
+
+### Enhancements
+
+* **New GUI:** Added link to regex online reference documentation on application settings page (#290737)
+* **New GUI:** Extended the SNMP trap input form description on the application settings page to clarify that empty SNMP trap communities are allowed (in such a case, all traps will be accepted). (#290794)
+* Avoid system reboot when restoring app backup; only reboot automatically when restoring full or system settings backup (#290690)
+* Include access mode / access rule related to the netdevice in the endpoint REST API response (#290790)
+* Include assigned portgroup names in netdevice REST API response (#290788)
+* Paginate certificate list after 25 entries instead of 10 (traditional GUI) (#290756)
+* RADIUS auth. devices are included in the 'number of switches' graph on the status page. A dedicated graph for the number of WLAN access points has been added as well. (#290797)
+* Regex-based uplink-detection is now case-insensitive by default (#290737)
+
+### Bugfixes
+
+* **New GUI:** Allow to set empty SNMP trap community string in application settings page (#290796)
+* **New GUI:** Fixed a display issue on the dashboard with the HA authenticator name on smaller screens (#290782)
+* **New GUI:** Fixed an issue where table filter presets could not be saved for LDAP-based users (#290738)
+* **New GUI:** Fixed an issue with changing the scheduled script history retention setting in the configuration page (#290800)
+* **New GUI:** Fixed display issues on the scheduled script overview page caused by invalid cron schedule expressions (#290777)
+* **New GUI:** Fixed various table scroll issues on radius subnets, certificates, scheduled scripts overview and data import pages (#290780)
+* **New GUI:** Shorten long location string, if needed, on netdevice overview page to avoid display issues (#290781)
+* Added housekeeping mechanism to delete old SAB job logs (backup/restore/update) in order to not grow indefinitely (#290823)
+* Exclude keep-alive requests (HA authenticator, probe user) from RADIUS statistics charts and counters (#290439)
+* Fixed a data migration issue which may occur during upgrade to version 15.0 when CA certificates with non-unique aliases have been configured. Also, if multiple CA certificate entries have the same actual certificate data, their properties are now merged into one entry instead of keeping separate entries. (#290756)
+* Fixed a dependency issue which prevented the tshark command line tool to work properly (#290792)
+* Fixed an issue related to scheduled scripts with type "inventory importer" where the value for the changed-by field was written incorrectly in the resulting CSV file (#290795)
+* Fixed an issue with processing RADIUS packets with segmented EAP message attributes (#290727)
+* Fixed an issue with reading script contents in the script editor when different line endings were used (#290774)
+* Improved Excel/CSV export memory consumption and set record limits to avoid Web GUI crashes when dealing with large tables (#290776)
+* Improved memory usage of interface REST API query with large datasets (#290846)
+* When setting up a new system, no alert should be generated for license change, as it's the first time a license is loaded (#290729)
+
+
 
 
 # USP Network Authentication System &reg; 15.0
