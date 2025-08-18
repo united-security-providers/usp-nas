@@ -1,16 +1,13 @@
-# USP Core WAAP
+# USP NAS
 
-Welcome to the USP Core WAAP (Web Application and API Protection) customers repository. This repository contains
-the scripts required to build the USP Core WAAP website:
+Welcome to the USP NAS (Web Application and API Protection) customers repository. This repository contains
+the scripts required to build the USP NAS website:
 
-* https://united-security-providers.github.io/usp-core-waap/
+* https://united-security-providers.github.io/usp-nas/
 
 ## Requirements
 
 - `mkdocs` to generate the website and deploy it to GitHub pages.
-- `helm` command used for pulling the Helm charts to process the "values.yaml" file.
-- `helm-docs` to generate markdown from a values YAML file: https://github.com/norwoodj/helm-docs
-- `crdoc` to generate the CRD documentation: https://github.com/fybrik/crdoc
 
 
 ### mkdocs notes
