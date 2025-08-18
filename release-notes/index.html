@@ -534,8 +534,7 @@
 <ul>
 <li><em>Data import:</em> When importing netdevices via CSV, the switch adapter is no longer reset. This prevents extended switch scans after each full import. (#291249)</li>
 <li><em>Legacy GUI:</em> Fixed broken icon link to add an endpoint temporarily in the connection events table (#291227)</li>
-<li><em>Modern GUI:</em> Fix downloading server certificate file a</li>
-<li>s well as creating CSRs when using a certificate based on a elliptic curve private key. (#291287)</li>
+<li><em>Modern GUI:</em> Fix downloading server certificate file as well as creating CSRs when using a certificate based on a elliptic curve private key. (#291287)</li>
 <li><em>RADIUS:</em> Fix reading and writing elliptic curve-based private key files when updating the FreeRADIUS configuration during USP NAS Core startup. (#291287)</li>
 <li><em>RADIUS:</em> Fixed an issue in RADIUS request processing where a connection abort event with error type "Object missing in context" was logged when the related netdevice was of class SWITCH and had no netports assigned. Now the proper error type "No netport defined" will be logged and shown in connection events. (#291231)</li>
 <li><em>RADIUS:</em> Fixed an issue where no connection abort events were shown for EAP requests in case of a RADIUS secret mismatch (#291220)</li>
