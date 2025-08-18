@@ -1,6 +1,6 @@
-# USP Network Authentication System &reg; 15.3
+# USP Network Authentication System &reg; 15.4
 
-Released 18 August 2025
+Released 13 August 2025
 
 ## Platform Compatibility
 
@@ -16,27 +16,23 @@ This release is compatible with the following platforms:
 
 ### Enhancements
 
-* **New GUI:** The data import failure report download button is also shown for successful imports, in case some entries contain failures (#290858)
-* Added duration value to CSV data import success event log message (#290878)
-* Improved CSV data import error messages: Event CSV_IMPORT_NOT_VALID ("Too many erroneous entries, CSV import aborted") now contains the threshold value used, event CSV_IMPORT_NOT_PERFORMED ("Record count is too low compared to last import from same source") contains the current count, last count and validation threshold used, and the event message is no longer nested into a CSV_IMPORT_ERROR error.  (#290858)
+* *RADIUS:* Added log event `RADIUS_NETDEVICE_ADDED (1935)` which is triggered when a new netdevice from a RADIUS subnet is automatically added to the inventory (#291230)
 
 ### Changes
 
-* Ensured that syslog messages sent by USP NAS applications have a trailing newline at the end, to ensure proper processing by certain syslog servers. The newline was removed in release 14.0 due to a replacement of the logging framework. If you are using USP NAS with a remote syslog server, we advise to validate the proper reception of log message sent by USP NAS. (#290890)
-* If a WLAN AP/controller is being auto-added via RADIUS request subnet match, it will now get the device class WLAN instead of Generic RADIUS auth. device. This will ensure it is scanned in the correct way in case an SNMP access profile is defined. (#290840)
-* When auto-adding via RADIUS request subnet match, no "fake" Generic Radius adapter is set anymore. The adapter will be set by the normal switch scan process, and the WebGUI will now show the correct status of the newly added netdevice. (#290068)
+* *Logging:* **CAUTION** Added missing vendor name and event exception to connection event message which is sent to syslog, email and SNMP trap receivers. The message contains two new fields `exceptiontype` and `vendor`, so existing log collection systems might need to be adapted. (#291246)
+* *Logging:* Added an optional trace log file for USP NAS Core and changed the log level of certain log statements (e.g. task start/finish) to "trace" in order to reduce verbosity. This will significantly reduce the size of the debug log and  make it easier to find relevant entries when debugging an issue. The trace log can be enabled by starting USP NAS core with the Java option `-Dtrace.logging.enabled=true`. The debug log events `CONFIG_UPDATED (1009)`, `START_CMDQUEUE_CHECK (1925)` and `CMDQUEUE_CHECK_COMPLETED (1926)` have been removed. (#291232)
+* *REST-API:* **CAUTION** Soft-deleted netdevices are no longer included in the netdevice REST API response. The related filter parameters `deletedBefore` and `deletedAfter` have been removed. The interface REST API response will also no longer contain records belonging to soft-deleted netdevices. (#290834)
 
 ### Bugfixes
 
-* **New GUI:** Improved the performance of bulk-deleting large amounts of soft-deleted netdevices via the web GUI ("Deleted Netdevices" page) (#290985)
-* Changed the id column of the endpoint details table to be an identity column instead of using global ids, in order to avoid conflicts and race conditions when dealing with large data imports. (#290955)
-* Fixed a data migration issue during release upgrade which occurred when no RADIUS subnets were defined (#290906)
-* Fixed an issue in the portgroup mapping CSV data importer where a mapping was unintentionally assigned to an single interface by interface index, when using a wildcard character as interface name (%) to assign the portgroup to the entire netdevice. (#291001)
-* Fixed an issue where an EAP cache registered endpoint did not get removed, as intended, when an invalid certificate was supplied (#290841)
-* Fixed an issue which caused some syslog server settings (protocol, format) to be reset to their default value during release upgrade (#290891)
-* Fixed an issue which prevented the interface alias uplink matcher to work correctly with multiple devices. It is now also ensured that manually defined netports are never overwritten or removed by the uplink matcher. (#290954)
-* Fixed an issue with scanning netdevices using SNMPv3 when multiple users with different credentials are configured (#291108)
-* Fixed event log message RADIUS_SERVER_REJECT(1171) so that it does again contain proper information on why a certificate was rejected by the internal RADIUS server during authentication. (#241761)
-* Fixed incorrect error count in data import. This could happed under certain circumstances when dealing with duplicate entries in the import file (#290878)
-* Fixed the netdevice CSV data importer so that the default SNMP access profile is assigned to an entry if it requires SNMP but has empty community/username fields (#290877)
+* *Data import:* When importing netdevices via CSV, the switch adapter is no longer reset. This prevents extended switch scans after each full import. (#291249)
+* *Legacy GUI:* Fixed broken icon link to add an endpoint temporarily in the connection events table (#291227)
+* *Modern GUI:* Fix downloading server certificate file as well as creating CSRs when using a certificate based on a elliptic curve private key. (#291287)
+* *RADIUS:* Fix reading and writing elliptic curve-based private key files when updating the FreeRADIUS configuration during USP NAS Core startup. (#291287)
+* *RADIUS:* Fixed an issue in RADIUS request processing where a connection abort event with error type "Object missing in context" was logged when the related netdevice was of class SWITCH and had no netports assigned. Now the proper error type "No netport defined" will be logged and shown in connection events. (#291231)
+* *RADIUS:* Fixed an issue where no connection abort events were shown for EAP requests in case of a RADIUS secret mismatch (#291220)
+* *RADIUS:* Fixed an logging issue in the RADIUS message authentication validator in case of a shared secret mismatch. It no longer fails silently without creating a connection abort event when it is the first time a client device gets connected to a specific interface. When the netdevice is unknown and not part of a configured RADIUS subnet or out of scope, a RADIUS_AUTHENTICATOR_OUT_OF_SCOPE log event is created instead. (#291172)
+* *REST-API:* If a netdevice has been soft-deleted, its ID and the related interface index are no longer included in the results of the endpoint REST API query (#291203)
+* *Upgrade:* Fixed an issue in properly assigning AES + SHA-2 SNMP access profiles during database migration when upgrading from USP NAS < 15.x (#291244)
 
