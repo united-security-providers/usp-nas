@@ -73,13 +73,13 @@ if [ "$#" -lt 1 ]
 then
   echo "Not enough arguments supplied. Usage:"
   echo ""
-  echo "./release.sh <core-authentication-version, e.g. 5.19.0.4> [deploy]"
+  echo "./release.sh <nas version, e.g. 15.3.2> [deploy]"
   echo ""
   echo "If the optional 'deploy' argument is set, the website will be deployed to Github and made public!"
   echo ""
   echo "Example for creating the website without deployment:"
   echo ""
-  echo "./release.sh 5.19.0.4"
+  echo "./release.sh 15.3.2"
   exit 1
 fi
 
@@ -108,6 +108,9 @@ downloadFromNexus $NAS_VERSION com.usp.nas nas-docs zip bundle
 
 # Download "What's New" doc
 downloadFromNexus $NAS_VERSION com.usp.nas nas-docs jar whatsnew
+
+# Download release notes markdown
+downloadFromNexus $NAS_VERSION com.usp.nas nas-docs md releasenotes
 
 rm -f *.zip
 rm -f *.jar
