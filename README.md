@@ -55,7 +55,7 @@ The site has then been generated within the "build" directory (Markdown source f
 Generate the site locally as described above, then run `mkdocs` to serve it locally:
 
 ```
-$ ./release.sh
+$ ./release.sh {nas-version}
 $ mkdocs serve
 ```
 

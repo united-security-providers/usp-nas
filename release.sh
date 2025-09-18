@@ -128,6 +128,7 @@ cp build/nas-docs/nas-release-notes.html ./docs/
 
 mkdir -p ./docs/files/$NAS_VERSION
 cp -r ./build/nas-docs/* ./docs/files/$NAS_VERSION/
+cp ./build/nas-docs/nas-docs-$NAS_VERSION-releasenotes.md ./docs/release-notes.md
 
 # Replace version placeholders in all markdown files
 for file in ./docs/*; do
