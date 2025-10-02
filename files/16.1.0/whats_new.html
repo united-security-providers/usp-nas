@@ -1,0 +1,131 @@
+<h2 id="16.0-17september2025">16.0 - 17 September 2025</h2>
+
+<h3 id="features">Features</h3>
+
+<ul>
+<li><em>Modern GUI:</em> Added a restricted demo mode which allows to test the functionality of USP NAS without the need to provide a license. (#290510)</li>
+<li><em>Modern GUI:</em> Added event log viewer including full-text search (#289904)</li>
+<li><em>Modern GUI:</em> Added log file viewer (#213829)</li>
+<li><em>REST API:</em> Added the possibility to import the inventory (endpoints, netdevices, &#8230;) via REST API. See the online REST API documentation for details. (#291501)</li>
+</ul>
+
+<h3 id="enhancements">Enhancements</h3>
+
+<ul>
+<li><em>Core:</em> Added support for enabling scanning of LAG interfaces (disabled by default). If enabled, these interface will be treated automatically as netport, except if their interface alias matches a customizable regular expression. (#290688)</li>
+<li><em>Core:</em> Added support for monitoring of ring infrastructures / highly redundant networks by adding an option to mark endpoints as double attached nodes (DAN) in the inventory and to mark network ports on switches as HSR ports. In either a case, no event log 1101 &#8220;MAC found on multiple devices&#8221; will be emitted when a device is seen as active on two different ports. (#290552)</li>
+<li><em>Core:</em> The switch scan now also detects the type of each interface. The type can be seen in the web GUI in the interface table on the netdevice details table, and is also included in the interface REST API response. (#291515)</li>
+<li><em>Core:</em> The time needed to scan a netdevice is now recorded and can be seen in the netdevice details page in the modern GUI and in the netdevice REST API response. (#291485)</li>
+<li><em>Data import:</em> When importing netdevice entries with SNMPv3 credentials using the CSV file importer, password(s) can now be omitted in the import file if a SNMP access profile matching the username is configured. (#290884)</li>
+<li><em>Logging:</em> A new event message 1185 is emitted when an endpoint has been automatically added to the inventory when performing a valid EAP authentication. (#291479)</li>
+<li><em>Logging:</em> Added a new informative event 1978 &#8220;Netdevice is assigned to multiple portgroups&#8221; when a user assigns a switch to more than one portgroups via the Web GUI (#291500)</li>
+<li><em>Logging:</em> If an SNMP scan fails, the log event entry now contains more details about the SNMP version and credentials (username/community) used to perform the scan (#290964)</li>
+<li><em>Logging:</em> When a new MAC address was found in the network, the event log message &#8220;New mac found&#8221; (1109) now also contains the location of the netdevice. (#291007)</li>
+<li><em>Modern GUI:</em> Added DNS zone transfer settings to application config management page (#289916)</li>
+<li><em>Modern GUI:</em> Added LDAP connection configuration page (#289917)</li>
+<li><em>Modern GUI:</em> Added VLAN table to netdevice detail view, listing the VLANs configured on each switch (#290186)</li>
+<li><em>Modern GUI:</em> Added a configuration setting to enable TLS 1.0/1.1 in the internal RADIUS server for backwards compatibility. (#290875)</li>
+<li><em>Modern GUI:</em> Added commonly used pre-defined filter presets for connection events, endpoints and netdevices overview pages (#291360)</li>
+<li><em>Modern GUI:</em> Added mechanism to detect when different users try to change settings on a specific page at the same time and prevent unintentional modifications (#290860)</li>
+<li><em>Modern GUI:</em> Added monitoring and alarming page which allows to define forwarding destinations for each log event (#289919)</li>
+<li><em>Modern GUI:</em> Added new tab for updating netport assignments on the netdevice detail page (#290202)</li>
+<li><em>Modern GUI:</em> Added option to bulk-edit and bulk-delete netdevices (#289801)</li>
+<li><em>Modern GUI:</em> Added option to configure OCSP settings of the internal RADIUS server. The OCSP configuration will now also allow to enable OCSP without overriding the certificate URL, so that different responders could be used based on the URL provided in the certificate. (#290876)</li>
+<li><em>Modern GUI:</em> Added option to define asset types and asset classes on-the-fly when adding/editing endpoints (#291276)</li>
+<li><em>Modern GUI:</em> Added option to export filtered table data to Excel/CSV based on the currently active filter, if available, or all data (#290740)</li>
+<li><em>Modern GUI:</em> Added possibility to configure alarming thresholds for selected events (#290319)</li>
+<li><em>Modern GUI:</em> Added possibility to create, restore and manage backups and schedule backup jobs (#289896)</li>
+<li><em>Modern GUI:</em> Added possibility to test DNS zone transfer configuration (#124146)</li>
+<li><em>Modern GUI:</em> Added remote system configuration page, which offers options to configure file servers, syslog server, mail server and SNMP trap receivers in one place. (#289897)</li>
+<li><em>Modern GUI:</em> Added system and network settings configuration page (#289922)</li>
+<li><em>Modern GUI:</em> Added user management page (#289923)</li>
+<li><em>Modern GUI:</em> Added vendor code update settings to application config management page (#290514)</li>
+<li><em>Modern GUI:</em> Ordered columns in Excel/CSV exports in a more sensible way (#290739)</li>
+<li><em>Modern GUI:</em> RADIUS probe user settings can be configured on the application settings page (#290793)</li>
+<li><em>Modern GUI:</em> Related log events can now be seen in a tab on endpoint and netdevice details pages (#290956)</li>
+<li><em>Monitoring:</em> Added SSL/TLS support to mail server settings used for scheduled reports and alarming (#290667)</li>
+<li><em>RADIUS:</em> Added configuration setting to enable checks against an expired CRL when using the internal RADIUS server. (#291478)</li>
+<li><em>RADIUS:</em> Added option to send disconnect request to selected endpoints in order to trigger RADIUS re-authentication (#291032)</li>
+<li><em>RADIUS:</em> Added support for configuring ECDH curves for the internal RADIUS server. The curves prime256v1, secp384r1, secp521r1 are now enabled by default and can be configured on the application configuration page. (#291439)</li>
+<li><em>RADIUS:</em> When a RADIUS accounting request contains information about the current IP address of the endpoint (Attribute 8 Framed-IP-Address) the record in the database will be updated accordingly. Similarly, the VLAN ID will be updated if the RADIUS accounting request contains the related VLAN information (Attributes Tunnel-Type, Tunnel-Medium-Type, Tunnel-Private-Group-ID). The event &#8220;Radius Accounting Endpoint updated&#8221; (1151) will contain this information if provided. (#290963)</li>
+<li><em>RADIUS:</em> When auto-adding a new RADIUS netdevice to the inventory based on its subnet, the device name is set according to the <code>NAS-Identifier</code> RADIUS attribute, if provided in the authentication request packet, if it is a valid hostname, and a netdevice with this name not already exists. (#289791)</li>
+<li><em>REST API:</em> Added new REST API properties for port group, access rule, access mode and many more and as well extended filter possibilities in endpoint, interface and netdevice APIs (#291205)</li>
+<li><em>REST API:</em> Added possibility to block endpoints through the REST API, enabling better integration into third-party inventory and security systems (#290701)</li>
+<li><em>REST API:</em> Added possibility to bulk-import endpoint details via REST API (#290470)</li>
+<li><em>REST API:</em> Added possibility to bulk-import endpoint inventory via REST API (#290672)</li>
+<li><em>REST API:</em> Added possibility to bulk-import netdevices via REST API (#290216)</li>
+<li><em>REST API:</em> Added possibility to bulk-import netports via REST API (#290217)</li>
+<li><em>REST API:</em> Added possibility to bulk-import portgroup assignments via REST API (#290218)</li>
+<li><em>REST API:</em> Added possibility to temporarily register and authorize an endpoint through the REST API (#290716)</li>
+<li><em>REST API:</em> Added status change timestamp to endpoint REST API response (#290872)</li>
+<li><em>REST API:</em> Improved endpoint REST API performance (#291204)</li>
+<li><em>Traditional GUI:</em> Netdevice scan fine-tuning options are now available on the application configuration page in the SNMP section. (#291470)</li>
+<li><em>Traditional GUI:</em> The VLAN ID is now shown on access profile configuration pages (#289593)</li>
+<li><em>Traditional GUI:</em> The global access control setting is now displayed in the policy widget in the dashboard (#289593)</li>
+</ul>
+
+<h3 id="changes">Changes</h3>
+
+<ul>
+<li><em>Backup:</em> Backup/restore handling is now directly implemented in the USP NAS app and no longer requires dedicated support and scheduling in the operating system (#290671)</li>
+<li><em>Backup:</em> Backups and scheduled reports are copied to configured remote servers using a Java-based SSH library instead of using programs from the underlying operating system. (#289868)</li>
+<li><em>Core:</em> Added a dedicated <code>updated</code> field to interface table in order to keep an accurate timestamp of when the entry was last updated. In the past, the last scan time was used which is not always the correct value for this use case. (#291526)</li>
+<li><em>Core:</em> On new installations, only switch interfaces of the standard &#8220;Ethernet CSMA/CD&#8221; type are scanned during a switch scan; other types can be enabled via configuration property <code>nas.core.snmp.iftype.whitelist</code> as needed. (#291515)</li>
+<li><em>Core:</em> Removed leftover code and database fields related to obsolete endpoint VLAN settings and asset status (#289594)</li>
+<li><em>Core:</em> Removed leftover database fields related to obsolete guest, default, MAC-bypass and VoIP VLAN configuration in access profiles, as well as guest VLAN setting in temporary endpoint register dialog. (#289593)</li>
+<li><em>Core:</em> When setting up a new USP NAS instance, the DNS zone transfer configuration no longer contains any default zones to avoid unnecessary error events in the log. (#290133)</li>
+<li><em>Data import:</em> Removed obsolete, broken feature &#8220;Assign import data source as tenant of the endpoint&#8221; (#291148)</li>
+<li><em>Licensing:</em> Activating the internal RADIUS server no longer requires a license module. In the traditional GUI, the option to enable the internal RADIUS server has been moved to the &#8220;RADIUS / 802.1X&#8221; section of the application configuration page. (#291147)</li>
+<li><em>Licensing:</em> License module checks have been cleaned up: Scheduled report and CSV export no longer need a dedicated license option, obsolete MobileIron, XML Webservice and NAS Basic modules have been removed. (#290072)</li>
+<li><em>Licensing:</em> Removed license module check for VLAN management feature, it is now enabled by default (#291148)</li>
+<li><em>Licensing:</em> Updated license count algorithm for endpoints (need to be registered and active within last 90 days) and enforce check for maximum licensed endpoints in the modern GUI. (#290733)</li>
+<li><em>Logging:</em> Removed log event NO_TRAPS_FROM_DEVICE (1214) and related monitoring configuration. There are many cases where switches do not (regularly) receive traps, and this notification just unnecessarily fills the log files. (#291304)</li>
+<li><em>Modern GUI:</em> Removed option to assign portgroups to netdevices directly in the netdevice overview (for UI performance reasons) (#291425)</li>
+<li><em>REST-API:</em> <strong>BREAKING</strong> The naming in the data structure of the <em>netdevices</em>, <em>interfaces</em> and <em>endpoints REST APIs</em> has been standardized. All property names and filter parameters are now written in <em>camel case</em> instead of a mix of snake case and camel case. Also, some properties have been renamed to more sensible names. Please consult the migration guide and the online REST API documentation for more details. (#291205)</li>
+<li><em>Traditional GUI:</em> &#8220;Last jobs&#8221; are no longer displayed on the system state page in the traditional GUI. Instead, a link is provided to see the last appliance related events in the new log viewer. (#290979)</li>
+<li><em>Traditional GUI:</em> Removed manual DNS zone transfer button from legacy GUI dashboard (#289916)</li>
+</ul>
+
+<h3 id="bugfixes">Bugfixes</h3>
+
+<ul>
+<li><em>Core</em>: Fixed an issue where the netdevice status was set to OK (green indicator in the Web GUI) when it received an SNMP trap or RADIUS request, even though an SNMP scan issue exists at that time, and the error status should be visible with a red indicator in the Web GUI. (#291487)</li>
+<li><em>Core:</em> Fixed an error log message which occurred when attempting to check a node whose netdevice no longer exists in the inventory (#291152)</li>
+<li><em>Core:</em> Fixed an issue where VLAN names were not stored in the database during switch scan (#291076)</li>
+<li><em>Core:</em> Fixed an issue where the error status &#8220;OID Scan error&#8221; was set instead of &#8220;no matching adapter&#8221; during switch scan when no matching adapter was found. (#291490)</li>
+<li><em>Core:</em> Fixed an issue where the warning event 2030 &#8220;No layer 3 information found on device&#8221; was logged erroneously during ARP scan of a newly added router device. If a router adapter cannot be determined (due to connection issue or missing support), a error event 3009 &#8220;No matching adaptor found for device&#8221; will now be logged. (#291497)</li>
+<li><em>Core:</em> The &#8220;last scan&#8221; time of a netdevice will now be updated even when a &#8220;missing netports&#8221; error is reported, as the actual scan was concluded successfully. (#291115)</li>
+<li><em>Core:</em> When the USP NAS Core service is restarted during an active switch scan, the scan status flag of netdevices where a scan was in progress is now properly reset, in order to not indicate an incorrect scan status in the web GUI. (#291496)</li>
+<li><em>Data import:</em> Auto-generated WLAN netdevice records are now replaced in case of a data import entry with the same IP address, analogous to RADIUS authentication devices. This fixes a regression introduced in USP NAS 15.3. (#291523)</li>
+<li><em>Logging:</em> <strong>CAUTION</strong> The event and alert NO_NETPORT_DEFINED_ON_NETDEVICE (2090) is now only emitted the first time such an issue has been detected on a netdevice during switch scan, and not every time a device is scanned. The Web GUI and REST API offer appropriate filters to find out which devices currently are lacking a netport configuration. (#291486)</li>
+<li><em>Logging:</em> The log event NO_SNMP_COMMUNICATION_WITH_DEVICE is no longer triggered for netdevices with status &#8220;Missing netports&#8221;, as the SNMP communication was actually successful in this case. The severity level of this event has been changed from INFO to WARNING. (#291239)</li>
+<li><em>Modern GUI:</em> Add missing event log handler for events triggered in the new GUI (e.g. user login/logout) so that the logs are correctly written to the database (#291182)</li>
+<li><em>Modern GUI:</em> Fixed a display issue with long values in the first-time setup wizard summary view (#289854)</li>
+<li><em>Modern GUI:</em> Fixed an issue where certain licensable features did not appear in the GUI when updating a license which contains this feature (#290722)</li>
+<li><em>Modern GUI:</em> Fixed an issue where endpoints appeared again multiple times in the overview if multiple port groups were assigned. (#291441)</li>
+<li><em>Modern GUI:</em> Quick filter on endpoint, connection events and netdevice overview pages does now search in all applicable records (#290320)</li>
+<li><em>RADIUS:</em> A VLAN enforcement via RADIUS will no longer update the default VLAN set in the interface table in the USP NAS database as VLAN assignment via RADIUS are session-based and do not alter the configuration on the switch itself. (#291525)</li>
+<li><em>RADIUS:</em> Added missing configuration setting to enable checks against the local CRL file when using the internal RADIUS server. (#291467)</li>
+<li><em>RADIUS:</em> Fixed an issue which prevented endpoints authenticating with certificates from being auto-inventoried when a previously deleted related MAC based entry was still in the database. (#290728)</li>
+<li><em>RADIUS:</em> Removed unnecessary check for configured netport on switch when performing RADIUS authentication (#291512)</li>
+<li><em>SAB:</em> Improved system service status detection in the SAB API, which in some rare instances has led to false-positive alerts when checking the NAS Core service status check via SNMP (#291187)</li>
+</ul>
+<h2 id="16.1-25september2025">16.1 - 25 September 2025</h2>
+
+<h3 id="features">Features</h3>
+
+<ul>
+<li><em>SNMP:</em> Added the possibility to receive SNMPv3 traps from netdevices which have SNMPv3 credentials configured for scanning. (#235235)</li>
+</ul>
+
+<h3 id="enhancements">Enhancements</h3>
+
+<ul>
+<li><em>RADIUS:</em> Added an option to enable auto-conversion from MAC to EAP identities when authenticating with a valid certificate and a related MAC identity already exists (#291457)</li>
+</ul>
+
+<h3 id="bugfixes">Bugfixes</h3>
+
+<ul>
+<li><em>Modern GUI:</em> Fixed a data refresh issue on the netdevice overview page which occurred when too many entries have been fetched. (#290791)</li>
+</ul>
