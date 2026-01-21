@@ -223,6 +223,147 @@
 				<h1 class="title">USP Network Authentication System<sup>&reg;</sup> Release Notes</h1>
 			</header>
 			<div id="content">
+<h1 id="uspnetworkauthenticationsystemreg16.5">USP Network Authentication System &reg; 16.5</h1>
+
+<p>Released 20 January 2026</p>
+
+<h2 id="platformcompatibility">Platform Compatibility</h2>
+
+<p>This release is compatible with the following platforms:</p>
+
+<ul>
+<li>Dell PowerEdge R660/R650/R640/R630/R620/R610</li>
+<li>VMware ESXi / Workstation</li>
+<li>Microsoft Hyper-V</li>
+<li>QEMU/KVM</li>
+<li>Oracle VirtualBox</li>
+</ul>
+
+<h2 id="changelog">Changelog</h2>
+
+<h3 id="enhancements">Enhancements</h3>
+
+<ul>
+<li><em>RADIUS:</em> Added RADIUS enforcement configuration for Alcatel Q-Bridge MIB adaptor (#291977)</li>
+</ul>
+
+<h3 id="changes">Changes</h3>
+
+<ul>
+<li><em>Modern GUI:</em> Updated Apache Tika content detection library (used during file uploads) to address a vulnerability reported as critical (CVE&#8211;2025&#8211;66516) (#291968)</li>
+</ul>
+
+<h3 id="bugfixes">Bugfixes</h3>
+
+<ul>
+<li><em>Backup:</em> Fixed an issue preventing large backup files to be restored via GUI (process was aborted due to max. process runtime of one minute). This is a regression introduced in 16.0 (#291964)</li>
+<li><em>Modern GUI:</em> Fixed an issue on the LDAP configuration page which did not update LDAP system settings properly. (#291967)</li>
+</ul>
+
+<h1 id="uspnetworkauthenticationsystemreg16.4">USP Network Authentication System &reg; 16.4</h1>
+
+<p>Released 12 January 2026</p>
+
+<h2 id="platformcompatibility">Platform Compatibility</h2>
+
+<p>This release is compatible with the following platforms:</p>
+
+<ul>
+<li>Dell PowerEdge R660/R650/R640/R630/R620/R610</li>
+<li>VMware ESXi / Workstation</li>
+<li>Microsoft Hyper-V</li>
+<li>QEMU/KVM</li>
+<li>Oracle VirtualBox</li>
+</ul>
+
+<h2 id="changelog">Changelog</h2>
+
+<h3 id="enhancements">Enhancements</h3>
+
+<ul>
+<li><em>RADIUS:</em> Added RADIUS enforcement configuration for Alcatel 8021Q Bridge MIB adaptor (#291905)</li>
+<li><em>RADIUS:</em> Added more MAC address patterns to the dynamic RADIUS enforcement disconnect adapter, in order to support a wider variant of switch models. (#291902)</li>
+</ul>
+
+<h1 id="uspnetworkauthenticationsystemreg16.3">USP Network Authentication System &reg; 16.3</h1>
+
+<p>Released 18 December 2025</p>
+
+<h2 id="platformcompatibility">Platform Compatibility</h2>
+
+<p>This release is compatible with the following platforms:</p>
+
+<ul>
+<li>Dell PowerEdge R660/R650/R640/R630/R620/R610</li>
+<li>VMware ESXi / Workstation</li>
+<li>Microsoft Hyper-V</li>
+<li>QEMU/KVM</li>
+<li>Oracle VirtualBox</li>
+</ul>
+
+<h2 id="changelog">Changelog</h2>
+
+<h3 id="enhancements">Enhancements</h3>
+
+<ul>
+<li><em>Data import:</em> Added a configuration option to allow/dissalow the creation of SNMP access profiles during netdevice import for records which have the same SNMPv3 username but different passwords. By default this is allowed (current behaviour). In some circumstances, it may be desired to prevent this, e.g. when importing records without passwords. In this case, they need to match an existing profile. If during the same import new profiles get created which share the same username but have different passwords, importing subsequent records without password might fail. (#291861)</li>
+<li><em>Monitoring:</em> Added monitoring datastores and graphs for FreeRADIUS server as well as PostgreSQL database memory and CPU time. Additionally, the graphs for NAS Core and WebUI heap memory are now shown in the GUI as well. (#291829)</li>
+</ul>
+
+<h3 id="bugfixes">Bugfixes</h3>
+
+<ul>
+<li><em>Core:</em> Added a workaround for detecting 802.1X RADIUS ports on Extreme 200 switches to mitigate a bug in the switch MIB (#291806)</li>
+<li><em>Core:</em> Fixed RADIUS 802.1X detection on Dell EMC N-Series switches by adding a dedicated switch adapter for these models (#291817)</li>
+<li><em>Core:</em> OnWay switch adaptor is now also compatible with newer versions of CarlOS switch firmware (4 and later) (#291818)</li>
+<li><em>RADIUS:</em> When a RADIUS accounting requests includes a VLAN ID (contained in a <code>Tunnel-Private-Group-ID</code> attribute) it will be registered in the endpoint database record regardless if the <code>Tunnel-Type</code> and <code>Tunnel-Medium-Type</code> attributes are present or not, as certain switches only send the <code>Tunnel-Private-Group-ID</code>. (#291819)</li>
+<li><em>Reporting:</em> In the &#8220;Switch operational report&#8221; updated the description of the parameter &#8220;Maximum number of records&#8221; to &#8220;Maximum number of records (ports)&#8221; to indicate that this relates to the number of ports/interfaces queried, and not to the number of switches. (#291813)</li>
+</ul>
+
+<h1 id="uspnetworkauthenticationsystemreg16.2">USP Network Authentication System &reg; 16.2</h1>
+
+<p>Released 3 December 2025</p>
+
+<h2 id="platformcompatibility">Platform Compatibility</h2>
+
+<p>This release is compatible with the following platforms:</p>
+
+<ul>
+<li>Dell PowerEdge R660/R650/R640/R630/R620/R610</li>
+<li>VMware ESXi / Workstation</li>
+<li>Microsoft Hyper-V</li>
+<li>QEMU/KVM</li>
+<li>Oracle VirtualBox</li>
+</ul>
+
+<h2 id="changelog">Changelog</h2>
+
+<h3 id="enhancements">Enhancements</h3>
+
+<ul>
+<li><em>Monitoring:</em> Added options to make forwarding system authentication and local RADIUS server logs optional when configuring remote syslog server. This can be configured in the modern GUI on the &#8220;Peripheral Systems&#8221; configuration page. (#289779)</li>
+<li><em>RADIUS:</em> Add a new config property for setting the 802.1X Auth Fail VLAN configured on switches. This can be used for updating the endpoint record in the database in case of a RADIUS REJECT. (#291737)</li>
+<li><em>RADIUS:</em> Certificate authentication failures can now be logged to a dedicated log file when using the internal FreeRADIUS server (new option, off by default). The new logfile is located at <code>/var/log/radius/tls_failures.log</code> and will be rotated weekly for up to four weeks. If syslog is enabled, this information will be forwarded to a remote syslog server as well. (#291772)</li>
+</ul>
+
+<h3 id="changes">Changes</h3>
+
+<ul>
+<li><em>Monitoring:</em> Removed non-functional NAS application count monitoring metric, graph and alerting (event 3301), including sending of the non-descriptive, not standardized trap SNMP trap .1.3.6.1.4.1.26458.7419.3.1, as it was not reliably possible for the NAC application to monitor itself and send events if it is not working properly. New separate, informative-only monitoring graphs for the USP NAS Core and WebUI services have been added to the GUI. (#291716)</li>
+</ul>
+
+<h3 id="bugfixes">Bugfixes</h3>
+
+<ul>
+<li><em>Backup:</em> Ensured that scheduled backups and file server settings are NOT synchronized during an authenticator synchronization, as it was in past releases. This is a regression introduced in release 16.0 (#291723)</li>
+<li><em>Logging:</em> <strong>CAUTION</strong> Fixed format of RADIUS server log lines whenthey are sent to a remote syslog server, as they contained duplicated date/time strings and had incorrect syslog program and facility values. This could lead to parsing errors on the receiving log collector. The program property is now set to <code>radiusd</code> and the facility is set to <code>daemon</code>. If you are using this feature and rely on the current format, you might need to adapt the parsing rules in your log collection system. (#291778)</li>
+<li><em>Modern GUI:</em> In the monitoring destination configuration page, events of debug severity or internal category are not shown anymore, as they are not intended to be configurable. (#291714)</li>
+<li><em>RADIUS:</em> Do not send automatic RADIUS disconnect messages as part of the policy decider check task in order to avoid policy handler abort connection events (#291802)</li>
+<li><em>RADIUS:</em> Fixed an issue where the endpoint node VLAN ID in the database was set to 0 during RADIUS MAC authentication (#291514)</li>
+<li><em>RADIUS:</em> Fixed some issues related to sending correct RADIUS disconnect messages (#291805)</li>
+<li><em>WebGUI:</em> Fixed an issue which made it possible to delete asset classes or asset types even if they were still used in an access rule policy. Such policies would not shown related entries anymore, which could potentially lead to confusing VLAN assignments. (#291733)</li>
+</ul>
+
 <h1 id="uspnetworkauthenticationsystemreg16.1">USP Network Authentication System &reg; 16.1</h1>
 
 <p>Released 25 September 2025</p>
@@ -2337,6 +2478,143 @@
 <li>Bugfix: Beim Löschen eines Netports werden die daran betroffenen Nodes auf DISCONNECTED gesetzt</li>
 <li>Bugfix: Blocking Time kann angepasst werden</li>
 <li>Bugfix: Versenden von Alerting Traps/E-mails gefixt</li>
+</ul>
+<h1 id="uspnetworkauthenticationsystemreg16.5">USP Network Authentication System &reg; 16.5</h1>
+
+<p>Released 20 January 2026</p>
+
+<h2 id="platformcompatibility">Platform Compatibility</h2>
+
+<p>This release is compatible with the following platforms:</p>
+
+<ul>
+<li>Dell PowerEdge R660/R650/R640/R630/R620/R610</li>
+<li>VMware ESXi / Workstation</li>
+<li>Microsoft Hyper-V</li>
+<li>QEMU/KVM</li>
+<li>Oracle VirtualBox</li>
+</ul>
+
+<h2 id="changelog">Changelog</h2>
+
+<h3 id="enhancements">Enhancements</h3>
+
+<ul>
+<li><em>RADIUS:</em> Added RADIUS enforcement configuration for Alcatel Q-Bridge MIB adaptor (#291977)</li>
+</ul>
+
+<h3 id="changes">Changes</h3>
+
+<ul>
+<li><em>Modern GUI:</em> Updated Apache Tika content detection library (used during file uploads) to address a vulnerability reported as critical (CVE&#8211;2025&#8211;66516) (#291968)</li>
+</ul>
+
+<h3 id="bugfixes">Bugfixes</h3>
+
+<ul>
+<li><em>Backup:</em> Fixed an issue preventing large backup files to be restored via GUI (process was aborted due to max. process runtime of one minute). This is a regression introduced in 16.0 (#291964)</li>
+<li><em>Modern GUI:</em> Fixed an issue on the LDAP configuration page which did not update LDAP system settings properly. (#291967)</li>
+</ul>
+<h1 id="uspnetworkauthenticationsystemreg16.4">USP Network Authentication System &reg; 16.4</h1>
+
+<p>Released 12 January 2026</p>
+
+<h2 id="platformcompatibility">Platform Compatibility</h2>
+
+<p>This release is compatible with the following platforms:</p>
+
+<ul>
+<li>Dell PowerEdge R660/R650/R640/R630/R620/R610</li>
+<li>VMware ESXi / Workstation</li>
+<li>Microsoft Hyper-V</li>
+<li>QEMU/KVM</li>
+<li>Oracle VirtualBox</li>
+</ul>
+
+<h2 id="changelog">Changelog</h2>
+
+<h3 id="enhancements">Enhancements</h3>
+
+<ul>
+<li><em>RADIUS:</em> Added RADIUS enforcement configuration for Alcatel 8021Q Bridge MIB adaptor (#291905)</li>
+<li><em>RADIUS:</em> Added more MAC address patterns to the dynamic RADIUS enforcement disconnect adapter, in order to support a wider variant of switch models. (#291902)</li>
+</ul>
+<h1 id="uspnetworkauthenticationsystemreg16.3">USP Network Authentication System &reg; 16.3</h1>
+
+<p>Released 18 December 2025</p>
+
+<h2 id="platformcompatibility">Platform Compatibility</h2>
+
+<p>This release is compatible with the following platforms:</p>
+
+<ul>
+<li>Dell PowerEdge R660/R650/R640/R630/R620/R610</li>
+<li>VMware ESXi / Workstation</li>
+<li>Microsoft Hyper-V</li>
+<li>QEMU/KVM</li>
+<li>Oracle VirtualBox</li>
+</ul>
+
+<h2 id="changelog">Changelog</h2>
+
+<h3 id="enhancements">Enhancements</h3>
+
+<ul>
+<li><em>Data import:</em> Added a configuration option to allow/dissalow the creation of SNMP access profiles during netdevice import for records which have the same SNMPv3 username but different passwords. By default this is allowed (current behaviour). In some circumstances, it may be desired to prevent this, e.g. when importing records without passwords. In this case, they need to match an existing profile. If during the same import new profiles get created which share the same username but have different passwords, importing subsequent records without password might fail. (#291861)</li>
+<li><em>Monitoring:</em> Added monitoring datastores and graphs for FreeRADIUS server as well as PostgreSQL database memory and CPU time. Additionally, the graphs for NAS Core and WebUI heap memory are now shown in the GUI as well. (#291829)</li>
+</ul>
+
+<h3 id="bugfixes">Bugfixes</h3>
+
+<ul>
+<li><em>Core:</em> Added a workaround for detecting 802.1X RADIUS ports on Extreme 200 switches to mitigate a bug in the switch MIB (#291806)</li>
+<li><em>Core:</em> Fixed RADIUS 802.1X detection on Dell EMC N-Series switches by adding a dedicated switch adapter for these models (#291817)</li>
+<li><em>Core:</em> OnWay switch adaptor is now also compatible with newer versions of CarlOS switch firmware (4 and later) (#291818)</li>
+<li><em>RADIUS:</em> When a RADIUS accounting requests includes a VLAN ID (contained in a <code>Tunnel-Private-Group-ID</code> attribute) it will be registered in the endpoint database record regardless if the <code>Tunnel-Type</code> and <code>Tunnel-Medium-Type</code> attributes are present or not, as certain switches only send the <code>Tunnel-Private-Group-ID</code>. (#291819)</li>
+<li><em>Reporting:</em> In the &#8220;Switch operational report&#8221; updated the description of the parameter &#8220;Maximum number of records&#8221; to &#8220;Maximum number of records (ports)&#8221; to indicate that this relates to the number of ports/interfaces queried, and not to the number of switches. (#291813)</li>
+</ul>
+<h1 id="uspnetworkauthenticationsystemreg16.2">USP Network Authentication System &reg; 16.2</h1>
+
+<p>Released 3 December 2025</p>
+
+<h2 id="platformcompatibility">Platform Compatibility</h2>
+
+<p>This release is compatible with the following platforms:</p>
+
+<ul>
+<li>Dell PowerEdge R660/R650/R640/R630/R620/R610</li>
+<li>VMware ESXi / Workstation</li>
+<li>Microsoft Hyper-V</li>
+<li>QEMU/KVM</li>
+<li>Oracle VirtualBox</li>
+</ul>
+
+<h2 id="changelog">Changelog</h2>
+
+<h3 id="enhancements">Enhancements</h3>
+
+<ul>
+<li><em>Monitoring:</em> Added options to make forwarding system authentication and local RADIUS server logs optional when configuring remote syslog server. This can be configured in the modern GUI on the &#8220;Peripheral Systems&#8221; configuration page. (#289779)</li>
+<li><em>RADIUS:</em> Add a new config property for setting the 802.1X Auth Fail VLAN configured on switches. This can be used for updating the endpoint record in the database in case of a RADIUS REJECT. (#291737)</li>
+<li><em>RADIUS:</em> Certificate authentication failures can now be logged to a dedicated log file when using the internal FreeRADIUS server (new option, off by default). The new logfile is located at <code>/var/log/radius/tls_failures.log</code> and will be rotated weekly for up to four weeks. If syslog is enabled, this information will be forwarded to a remote syslog server as well. (#291772)</li>
+</ul>
+
+<h3 id="changes">Changes</h3>
+
+<ul>
+<li><em>Monitoring:</em> Removed non-functional NAS application count monitoring metric, graph and alerting (event 3301), including sending of the non-descriptive, not standardized trap SNMP trap .1.3.6.1.4.1.26458.7419.3.1, as it was not reliably possible for the NAC application to monitor itself and send events if it is not working properly. New separate, informative-only monitoring graphs for the USP NAS Core and WebUI services have been added to the GUI. (#291716)</li>
+</ul>
+
+<h3 id="bugfixes">Bugfixes</h3>
+
+<ul>
+<li><em>Backup:</em> Ensured that scheduled backups and file server settings are NOT synchronized during an authenticator synchronization, as it was in past releases. This is a regression introduced in release 16.0 (#291723)</li>
+<li><em>Logging:</em> <strong>CAUTION</strong> Fixed format of RADIUS server log lines whenthey are sent to a remote syslog server, as they contained duplicated date/time strings and had incorrect syslog program and facility values. This could lead to parsing errors on the receiving log collector. The program property is now set to <code>radiusd</code> and the facility is set to <code>daemon</code>. If you are using this feature and rely on the current format, you might need to adapt the parsing rules in your log collection system. (#291778)</li>
+<li><em>Modern GUI:</em> In the monitoring destination configuration page, events of debug severity or internal category are not shown anymore, as they are not intended to be configurable. (#291714)</li>
+<li><em>RADIUS:</em> Do not send automatic RADIUS disconnect messages as part of the policy decider check task in order to avoid policy handler abort connection events (#291802)</li>
+<li><em>RADIUS:</em> Fixed an issue where the endpoint node VLAN ID in the database was set to 0 during RADIUS MAC authentication (#291514)</li>
+<li><em>RADIUS:</em> Fixed some issues related to sending correct RADIUS disconnect messages (#291805)</li>
+<li><em>WebGUI:</em> Fixed an issue which made it possible to delete asset classes or asset types even if they were still used in an access rule policy. Such policies would not shown related entries anymore, which could potentially lead to confusing VLAN assignments. (#291733)</li>
 </ul>
 <h1 id="uspnetworkauthenticationsystemreg16.1">USP Network Authentication System &reg; 16.1</h1>
 
