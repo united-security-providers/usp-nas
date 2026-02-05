@@ -24,11 +24,11 @@ prepareChangelog() {
 
   # Remove footer section with all link URLs from changelog
 #######################  sed -n '/linksnurls/q;p' $1 > changelog-tmp/CHANGELOG2.md
-  # Until a new operator release is made with the "linksnurls" footer marker, the
+  # Until a new nsd release is made with the "linksnurls" footer marker, the
   # following line has to be used to cut off the footer instead:
   sed -n '/redmine/q;p' $sourceFile > changelog-tmp/CHANGELOG2.md
 
-  # Remove all link brackets from operator changelog
+  # Remove all link brackets from nas changelog
   sed 's|[\[,]||g' changelog-tmp/CHANGELOG2.md > changelog-tmp/CHANGELOG3.md
   sed 's|[],]||g' changelog-tmp/CHANGELOG3.md > $targetFile
 
@@ -105,9 +105,6 @@ cd nas-docs
 
 # Download generated docs bundle (PDFs and HTML)
 downloadFromNexus $NAS_VERSION com.usp.nas nas-docs zip bundle
-
-# Download "What's New" doc
-downloadFromNexus $NAS_VERSION com.usp.nas nas-docs jar whatsnew
 
 # Download release notes markdown
 downloadFromNexus $NAS_VERSION com.usp.nas nas-docs md releasenotes
