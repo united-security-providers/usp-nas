@@ -223,6 +223,106 @@
 				<h1 class="title">USP Network Authentication System<sup>&reg;</sup> Release Notes</h1>
 			</header>
 			<div id="content">
+<h1 id="uspnetworkauthenticationsystemreg17.0">USP Network Authentication System &reg; 17.0</h1>
+
+<p>Released 12 February 2026</p>
+
+<h2 id="platformcompatibility">Platform Compatibility</h2>
+
+<p>This release is compatible with the following platforms:</p>
+
+<ul>
+<li>Dell PowerEdge R660/R650/R640/R630/R620/R610</li>
+<li>VMware ESXi / Workstation</li>
+<li>Microsoft Hyper-V</li>
+<li>QEMU/KVM</li>
+<li>Oracle VirtualBox</li>
+</ul>
+
+<h2 id="changelog">Changelog</h2>
+
+<h3 id="features">Features</h3>
+
+<ul>
+<li><em>Modern GUI:</em> Added pages to manage the new policy engine (policy groups, rules, endpoint profiles). On the netdevice details page, added an option to assign a netdevice or any of its interfaces to a policy group. (#290771)</li>
+<li><em>Policy:</em> Added new, simplified policy engine for RADIUS authentication requests. (#290635)</li>
+</ul>
+
+<h3 id="enhancements">Enhancements</h3>
+
+<ul>
+<li><em>Logging:</em> Client certificate subject and issuer common name are now stored in connection events when performing EAP authentication using the internal RADIUS server. This information is also forwarded to syslog in the new fields <code>certcn</code> and <code>certissuercn</code> of <code>CONNECTION_EVENT</code> (1180) messages. (#290635)</li>
+<li><em>Logging:</em> WLAN SSID and access point MAC address are now stored in connection events. This information is also forwarded to syslog in the new fields <code>ssid</code> and <code>apmacaddress</code> of <code>CONNECTION_EVENT</code> (1180) messages. (#290831)</li>
+<li><em>Logging:</em> When using the internal RADIUS server and a client is rejected because of an invalid certificate, the reason as well as the certificate common name are now included in the related connection block event. The parameter <code>exceptiontype</code> in the syslog message will contain an appropriate exception identifier. Refer to the USP NAS user manual for a complete list of possible exceptions. (#291811)</li>
+<li><em>Modern GUI:</em> Add option to delete all unused SNMP access profiles (#291862)</li>
+<li><em>Modern GUI:</em> Added option to configure EAP-Username patterns for auto-assigning asset type and asset classes to inventory entries (#256421)</li>
+<li><em>Modern GUI:</em> Added option to configure SSH transfer user on application settings page (#291641)</li>
+<li><em>Modern GUI:</em> Added option to configure the local SNMP service on the system settings page. This includes a new option to enable/disable the local SNMPD service. On new installations, it is disabled by default. (#291642)</li>
+<li><em>Modern GUI:</em> Added option to define if and when non-inventoried endpoint records should be cleaned up. This can be configured on the application settings page. A new log event 1936 &#8220;Automatic cleanup of inactive nodes complete.&#8221; has been added, which is emitted whenever endpoint records are cleaned up. (#291858)</li>
+<li><em>Modern GUI:</em> Added option to define labels for each VLAN used in policies or observed on netdevices (#289906)</li>
+<li><em>Modern GUI:</em> Added page for creating and scheduling of PDF, CSV and HTML reports related to the operation, configuration and inventory of USP NAS. (#291366)</li>
+<li><em>Modern GUI:</em> Added page for defining the high availability (master-authenticator) configuration and synchronization (#291372)</li>
+<li><em>Modern GUI:</em> Added possibility to create a system dump file for support purposes on the maintenance page (#228593)</li>
+<li><em>Modern GUI:</em> Added system information section to maintenance page (#286314)</li>
+<li><em>Modern GUI:</em> Endpoints which are currently active are now marked with a small status indicator in the endpoint overview table, and the tooltip indicates the current status type. (#291931)</li>
+<li><em>REST API:</em> Added <code>policyGroupName</code> property to Netdevice, Interface and Endpoint REST-API responses, to indicate the relevant policy group linked to each record. (#291765)</li>
+</ul>
+
+<h3 id="changes">Changes</h3>
+
+<ul>
+<li><em>Core:</em> Removed obsolete SNMP trap forwarder feature (#291664)</li>
+<li><em>Core:</em> Removed support for soft-deleted netdevices and netports to simplify data structure and code base. The column <code>deleted</code> have been removed from the <code>netdevice</code> and <code>netport</code> database tables. The &#8220;Trashed netdevices&#8221; page has been removed from the Web GUI. <strong>CAUTION</strong> If you use any custom SQL in scripts, verify that these columns are not used anymore. (#291668)</li>
+<li><em>Core:</em> Upgraded Bouncy Castle open-source cryptographic APIs to version 1.83 to address CVE&#8211;2025&#8211;8916, a vulnerability with medium severity. (#291885)</li>
+<li><em>Logging:</em> <strong>CAUTION</strong> When a client performing EAP authentication is rejected by the server (e.g. invalid certificate), the related connection event is now a <code>CONNECTION_BLOCKING_EVENT</code> of type <code>RADIUS_SERVER_REJECT</code> instead of a <code>CONNECTION_EVENT</code> with type <code>POLICY_HANDLER_ABORT</code>. If log messages are forwarded via syslog and evaluated on a thirty-party log collector, some changes might be needed when using dedicated queries to analyze this data. (#292081)</li>
+<li><em>Modern GUI:</em> A netdevice scan for multiple devices can now be triggered by selecting the desired entries from the netdevice table, and then clicking the scan button in the bulk action bar. The scan button at the top of the page has been removed. (#291822)</li>
+<li><em>Modern GUI:</em> Consolidated port and netport tabs on the netdevice details page. A new &#8220;Edit&#8221; button on top of the interface table enters edit mode, where netports and other interface settings can be changed. (#291792)</li>
+<li><em>Modern GUI:</em> Removed option to set RADIUS flag setting in interface table on the netdevice details page. This flag is set automatically on every switch scan. Resetting the netdevice using the related button will now also reset the RADIUS flag before the next scan. (#291959)</li>
+<li><em>Modern GUI:</em> The login page of the modern GUI is now shown by default (#291666)</li>
+<li><em>Modern GUI:</em> The pages &#8220;SNMP access profiles&#8221; and &#8220;RADIUS subnets&#8221; are now part of a new &#8220;Netdevice settings&#8221; page, along with the new &#8220;VLAN mapping&#8221; feature. (#292072)</li>
+<li><em>Modern GUI:</em> Updated Apache POI library (the Java API for Microsoft Documents) to address a potential vulnerability classified as medium (CVE&#8211;2025&#8211;31672) (#291873)</li>
+<li><em>Modern GUI:</em> Updated Apache Tika content detection library to address a vulnerability reported as critical (CVE&#8211;2025&#8211;66516) (#291863)</li>
+<li><em>RADIUS:</em> The setting &#8220;Enable autorisation by eap-username&#8221; / &#8220;Automatically add endpoints to inventory if certificate is valid&#8221; is now on by default for new installations. (#292108)</li>
+</ul>
+
+<h3 id="bugfixes">Bugfixes</h3>
+
+<ul>
+<li><em>Logging:</em> Fixed invalid arguments in event &#8220;Netport will be overwritten by new source&#8221; (1532). The event will now contain the device name, interface index and interface name as proper key=value arguments. (#291544)</li>
+<li><em>Modern GUI:</em> Enforce login after Web GUI restarts, in order to fetch new user permissions after system upgrade. (#292102)</li>
+<li><em>Monitoring:</em> <strong>CAUTION</strong> Due to an underlying change in how the operating systems represents information about the system memory, some values which can be fetched via SNMP for monitoring had their purpose changed. The values returned did not match anymore what their label said. The USP Appliance MIB has been adapted as follows to fix this: <code>.1.3.6.1.4.1.26458.7419.11.3.5.0</code> is now labeled <code>memoryBufferedCached</code> instead of <code>memoryBuffered</code>, and OID <code>.1.3.6.1.4.1.26458.7419.11.3.6.0</code> is now labeled <code>memoryAvailable</code> instead of <code>memoryCached</code>. (#291766)</li>
+<li><em>RADIUS:</em> When a RADIUS MAC authentication request is rejected, the log event 1153 &#8220;Radius enabled endpoint was refused to access the network (reject).&#8221; is now being emitted. Previously, this was only done for EAP authentication requests. Therefore, the report &#8220;Blocked endpoints&#8221; will now also include rejected enpoints which used RADIUS MAC authentication. (#291925)</li>
+<li><em>Reporting:</em> Allow to request up to 999&#8217;999 max records in the &#8216;Endpoint&#8217; report and fix input validation and error messages for max records parameters in other reports (#291932)</li>
+<li><em>Reporting:</em> Fixed broken SQL query in report &#8220;Blocked endpoints&#8221; (#291627)</li>
+<li><em>SAB:</em> Fixed error in system configuration updater which occurred after appliance upgrade when static routes have been configured (#291926)</li>
+</ul>
+
+<h1 id="uspnetworkauthenticationsystemreg16.6">USP Network Authentication System &reg; 16.6</h1>
+
+<p>Released 9 February 2026</p>
+
+<h2 id="platformcompatibility">Platform Compatibility</h2>
+
+<p>This release is compatible with the following platforms:</p>
+
+<ul>
+<li>Dell PowerEdge R660/R650/R640/R630/R620/R610</li>
+<li>VMware ESXi / Workstation</li>
+<li>Microsoft Hyper-V</li>
+<li>QEMU/KVM</li>
+<li>Oracle VirtualBox</li>
+</ul>
+
+<h2 id="changelog">Changelog</h2>
+
+<h3 id="bugfixes">Bugfixes</h3>
+
+<ul>
+<li><em>Legacy GUI:</em> Fixed permission check for user with role &#8220;Support&#8221; so that it is now allowed to reset a switch adapter if needed. (#292096)</li>
+<li><em>REST API:</em> Fixed an issue where endpoint details were not included in the REST API for endpoints which have not yet been seen in the network. (#292095)</li>
+<li><em>REST API:</em> Fixed an issue where endpoint details were not included in the REST API in case of MAC authenticated endpoints (#292079)</li>
+</ul>
+
 <h1 id="uspnetworkauthenticationsystemreg16.5">USP Network Authentication System &reg; 16.5</h1>
 
 <p>Released 20 January 2026</p>
@@ -2152,7 +2252,7 @@
 
 <ul>
 <li>Feature: Forecast Drill-Down für Regeln und Geräte</li>
-<li>Feature: Cisco Port Channels werden wie Netports behandelt. Alle MAC Adressen der Port Channels (und allen VLAN&#8217;s)
+<li>Feature: Cisco Port Channels werden wie Netports behandelt. Alle MAC-Adressen der Port Channels (und allen VLAN&#8217;s)
  werden nicht mehr in den Reports angezeigt und berücksichtigt. Ein aktives Setzen des Port Channels als Netport ist
  nicht notwendig.</li>
 <li>Feature: Globale Konfiguration zum Ein- und Ausschalten von mehrmaligem temporären Freigaben in der Supportübersicht</li>
@@ -2162,7 +2262,7 @@
 <li>Bugfix: HP Switch Adapter entfernt einen Port nun automatisch aus der VLAN Egress Liste (tagged VLAN&#8217;s) beim VLAN
  Setzen.</li>
 <li>Bugfix: MAC Bypass wird auch auf einem Port ohne konfiguriertes Voice VLAN und mit Control Direction All erstellt</li>
-<li>Bugfix: Log Meldung MAC_ON_MULTIPLE_DEVICES zeigt anstatt der NetdeviceId den Namen und IP Adresse des Netdevices an</li>
+<li>Bugfix: Log Meldung MAC_ON_MULTIPLE_DEVICES zeigt anstatt der NetdeviceId den Namen und IP-Adresse des Netdevices an</li>
 <li>Bugfix: EPC Monitoring wird nur durchgeführt, wenn das Modul aktiviert wurde</li>
 <li>Bugfix: Monitoring optionen werden nur angezeigt, wenn das Modul aktiviert wurde</li>
 </ul>
@@ -2399,7 +2499,7 @@
 <li>Report: Nicht-autorisierte Geräte am Netz: Auflistung aller Systeme, die abgewiesen wurden (Mac, Netzkomponente, Port,
  Zeitpunkt).</li>
 <li>Reporting: Gesperrte Ports über einen selektiven Zeitraum</li>
-<li>Reporting: &#8220;Unused Ports&#8221;: Sämtliche Ports, die im Scope sind, aber an denen keine MAC Adresse gesehen wird</li>
+<li>Reporting: &#8220;Unused Ports&#8221;: Sämtliche Ports, die im Scope sind, aber an denen keine MAC-Adresse gesehen wird</li>
 <li>Bugfix: Verbesserte Webserver Stabilität</li>
 <li>Bugfix: Persistente Passwort änderungen</li>
 </ul>
@@ -2479,6 +2579,104 @@
 <li>Bugfix: Blocking Time kann angepasst werden</li>
 <li>Bugfix: Versenden von Alerting Traps/E-mails gefixt</li>
 </ul>
+<h1 id="uspnetworkauthenticationsystemreg17.0">USP Network Authentication System &reg; 17.0</h1>
+
+<p>Released 12 February 2026</p>
+
+<h2 id="platformcompatibility">Platform Compatibility</h2>
+
+<p>This release is compatible with the following platforms:</p>
+
+<ul>
+<li>Dell PowerEdge R660/R650/R640/R630/R620/R610</li>
+<li>VMware ESXi / Workstation</li>
+<li>Microsoft Hyper-V</li>
+<li>QEMU/KVM</li>
+<li>Oracle VirtualBox</li>
+</ul>
+
+<h2 id="changelog">Changelog</h2>
+
+<h3 id="features">Features</h3>
+
+<ul>
+<li><em>Modern GUI:</em> Added pages to manage the new policy engine (policy groups, rules, endpoint profiles). On the netdevice details page, added an option to assign a netdevice or any of its interfaces to a policy group. (#290771)</li>
+<li><em>Policy:</em> Added new, simplified policy engine for RADIUS authentication requests. (#290635)</li>
+</ul>
+
+<h3 id="enhancements">Enhancements</h3>
+
+<ul>
+<li><em>Logging:</em> Client certificate subject and issuer common name are now stored in connection events when performing EAP authentication using the internal RADIUS server. This information is also forwarded to syslog in the new fields <code>certcn</code> and <code>certissuercn</code> of <code>CONNECTION_EVENT</code> (1180) messages. (#290635)</li>
+<li><em>Logging:</em> WLAN SSID and access point MAC address are now stored in connection events. This information is also forwarded to syslog in the new fields <code>ssid</code> and <code>apmacaddress</code> of <code>CONNECTION_EVENT</code> (1180) messages. (#290831)</li>
+<li><em>Logging:</em> When using the internal RADIUS server and a client is rejected because of an invalid certificate, the reason as well as the certificate common name are now included in the related connection block event. The parameter <code>exceptiontype</code> in the syslog message will contain an appropriate exception identifier. Refer to the USP NAS user manual for a complete list of possible exceptions. (#291811)</li>
+<li><em>Modern GUI:</em> Add option to delete all unused SNMP access profiles (#291862)</li>
+<li><em>Modern GUI:</em> Added option to configure EAP-Username patterns for auto-assigning asset type and asset classes to inventory entries (#256421)</li>
+<li><em>Modern GUI:</em> Added option to configure SSH transfer user on application settings page (#291641)</li>
+<li><em>Modern GUI:</em> Added option to configure the local SNMP service on the system settings page. This includes a new option to enable/disable the local SNMPD service. On new installations, it is disabled by default. (#291642)</li>
+<li><em>Modern GUI:</em> Added option to define if and when non-inventoried endpoint records should be cleaned up. This can be configured on the application settings page. A new log event 1936 &#8220;Automatic cleanup of inactive nodes complete.&#8221; has been added, which is emitted whenever endpoint records are cleaned up. (#291858)</li>
+<li><em>Modern GUI:</em> Added option to define labels for each VLAN used in policies or observed on netdevices (#289906)</li>
+<li><em>Modern GUI:</em> Added page for creating and scheduling of PDF, CSV and HTML reports related to the operation, configuration and inventory of USP NAS. (#291366)</li>
+<li><em>Modern GUI:</em> Added page for defining the high availability (master-authenticator) configuration and synchronization (#291372)</li>
+<li><em>Modern GUI:</em> Added possibility to create a system dump file for support purposes on the maintenance page (#228593)</li>
+<li><em>Modern GUI:</em> Added system information section to maintenance page (#286314)</li>
+<li><em>Modern GUI:</em> Endpoints which are currently active are now marked with a small status indicator in the endpoint overview table, and the tooltip indicates the current status type. (#291931)</li>
+<li><em>REST API:</em> Added <code>policyGroupName</code> property to Netdevice, Interface and Endpoint REST-API responses, to indicate the relevant policy group linked to each record. (#291765)</li>
+</ul>
+
+<h3 id="changes">Changes</h3>
+
+<ul>
+<li><em>Core:</em> Removed obsolete SNMP trap forwarder feature (#291664)</li>
+<li><em>Core:</em> Removed support for soft-deleted netdevices and netports to simplify data structure and code base. The column <code>deleted</code> have been removed from the <code>netdevice</code> and <code>netport</code> database tables. The &#8220;Trashed netdevices&#8221; page has been removed from the Web GUI. <strong>CAUTION</strong> If you use any custom SQL in scripts, verify that these columns are not used anymore. (#291668)</li>
+<li><em>Core:</em> Upgraded Bouncy Castle open-source cryptographic APIs to version 1.83 to address CVE&#8211;2025&#8211;8916, a vulnerability with medium severity. (#291885)</li>
+<li><em>Logging:</em> <strong>CAUTION</strong> When a client performing EAP authentication is rejected by the server (e.g. invalid certificate), the related connection event is now a <code>CONNECTION_BLOCKING_EVENT</code> of type <code>RADIUS_SERVER_REJECT</code> instead of a <code>CONNECTION_EVENT</code> with type <code>POLICY_HANDLER_ABORT</code>. If log messages are forwarded via syslog and evaluated on a thirty-party log collector, some changes might be needed when using dedicated queries to analyze this data. (#292081)</li>
+<li><em>Modern GUI:</em> A netdevice scan for multiple devices can now be triggered by selecting the desired entries from the netdevice table, and then clicking the scan button in the bulk action bar. The scan button at the top of the page has been removed. (#291822)</li>
+<li><em>Modern GUI:</em> Consolidated port and netport tabs on the netdevice details page. A new &#8220;Edit&#8221; button on top of the interface table enters edit mode, where netports and other interface settings can be changed. (#291792)</li>
+<li><em>Modern GUI:</em> Removed option to set RADIUS flag setting in interface table on the netdevice details page. This flag is set automatically on every switch scan. Resetting the netdevice using the related button will now also reset the RADIUS flag before the next scan. (#291959)</li>
+<li><em>Modern GUI:</em> The login page of the modern GUI is now shown by default (#291666)</li>
+<li><em>Modern GUI:</em> The pages &#8220;SNMP access profiles&#8221; and &#8220;RADIUS subnets&#8221; are now part of a new &#8220;Netdevice settings&#8221; page, along with the new &#8220;VLAN mapping&#8221; feature. (#292072)</li>
+<li><em>Modern GUI:</em> Updated Apache POI library (the Java API for Microsoft Documents) to address a potential vulnerability classified as medium (CVE&#8211;2025&#8211;31672) (#291873)</li>
+<li><em>Modern GUI:</em> Updated Apache Tika content detection library to address a vulnerability reported as critical (CVE&#8211;2025&#8211;66516) (#291863)</li>
+<li><em>RADIUS:</em> The setting &#8220;Enable autorisation by eap-username&#8221; / &#8220;Automatically add endpoints to inventory if certificate is valid&#8221; is now on by default for new installations. (#292108)</li>
+</ul>
+
+<h3 id="bugfixes">Bugfixes</h3>
+
+<ul>
+<li><em>Logging:</em> Fixed invalid arguments in event &#8220;Netport will be overwritten by new source&#8221; (1532). The event will now contain the device name, interface index and interface name as proper key=value arguments. (#291544)</li>
+<li><em>Modern GUI:</em> Enforce login after Web GUI restarts, in order to fetch new user permissions after system upgrade. (#292102)</li>
+<li><em>Monitoring:</em> <strong>CAUTION</strong> Due to an underlying change in how the operating systems represents information about the system memory, some values which can be fetched via SNMP for monitoring had their purpose changed. The values returned did not match anymore what their label said. The USP Appliance MIB has been adapted as follows to fix this: <code>.1.3.6.1.4.1.26458.7419.11.3.5.0</code> is now labeled <code>memoryBufferedCached</code> instead of <code>memoryBuffered</code>, and OID <code>.1.3.6.1.4.1.26458.7419.11.3.6.0</code> is now labeled <code>memoryAvailable</code> instead of <code>memoryCached</code>. (#291766)</li>
+<li><em>RADIUS:</em> When a RADIUS MAC authentication request is rejected, the log event 1153 &#8220;Radius enabled endpoint was refused to access the network (reject).&#8221; is now being emitted. Previously, this was only done for EAP authentication requests. Therefore, the report &#8220;Blocked endpoints&#8221; will now also include rejected enpoints which used RADIUS MAC authentication. (#291925)</li>
+<li><em>Reporting:</em> Allow to request up to 999&#8217;999 max records in the &#8216;Endpoint&#8217; report and fix input validation and error messages for max records parameters in other reports (#291932)</li>
+<li><em>Reporting:</em> Fixed broken SQL query in report &#8220;Blocked endpoints&#8221; (#291627)</li>
+<li><em>SAB:</em> Fixed error in system configuration updater which occurred after appliance upgrade when static routes have been configured (#291926)</li>
+</ul>
+<h1 id="uspnetworkauthenticationsystemreg16.6">USP Network Authentication System &reg; 16.6</h1>
+
+<p>Released 9 February 2026</p>
+
+<h2 id="platformcompatibility">Platform Compatibility</h2>
+
+<p>This release is compatible with the following platforms:</p>
+
+<ul>
+<li>Dell PowerEdge R660/R650/R640/R630/R620/R610</li>
+<li>VMware ESXi / Workstation</li>
+<li>Microsoft Hyper-V</li>
+<li>QEMU/KVM</li>
+<li>Oracle VirtualBox</li>
+</ul>
+
+<h2 id="changelog">Changelog</h2>
+
+<h3 id="bugfixes">Bugfixes</h3>
+
+<ul>
+<li><em>Legacy GUI:</em> Fixed permission check for user with role &#8220;Support&#8221; so that it is now allowed to reset a switch adapter if needed. (#292096)</li>
+<li><em>REST API:</em> Fixed an issue where endpoint details were not included in the REST API for endpoints which have not yet been seen in the network. (#292095)</li>
+<li><em>REST API:</em> Fixed an issue where endpoint details were not included in the REST API in case of MAC authenticated endpoints (#292079)</li>
+</ul>
 <h1 id="uspnetworkauthenticationsystemreg16.5">USP Network Authentication System &reg; 16.5</h1>
 
 <p>Released 20 January 2026</p>
@@ -4375,7 +4573,7 @@
 
 <ul>
 <li>Feature: Forecast Drill-Down für Regeln und Geräte</li>
-<li>Feature: Cisco Port Channels werden wie Netports behandelt. Alle MAC Adressen der Port Channels (und allen VLAN&#8217;s)
+<li>Feature: Cisco Port Channels werden wie Netports behandelt. Alle MAC-Adressen der Port Channels (und allen VLAN&#8217;s)
  werden nicht mehr in den Reports angezeigt und berücksichtigt. Ein aktives Setzen des Port Channels als Netport ist
  nicht notwendig.</li>
 <li>Feature: Globale Konfiguration zum Ein- und Ausschalten von mehrmaligem temporären Freigaben in der Supportübersicht</li>
@@ -4385,7 +4583,7 @@
 <li>Bugfix: HP Switch Adapter entfernt einen Port nun automatisch aus der VLAN Egress Liste (tagged VLAN&#8217;s) beim VLAN
  Setzen.</li>
 <li>Bugfix: MAC Bypass wird auch auf einem Port ohne konfiguriertes Voice VLAN und mit Control Direction All erstellt</li>
-<li>Bugfix: Log Meldung MAC_ON_MULTIPLE_DEVICES zeigt anstatt der NetdeviceId den Namen und IP Adresse des Netdevices an</li>
+<li>Bugfix: Log Meldung MAC_ON_MULTIPLE_DEVICES zeigt anstatt der NetdeviceId den Namen und IP-Adresse des Netdevices an</li>
 <li>Bugfix: EPC Monitoring wird nur durchgeführt, wenn das Modul aktiviert wurde</li>
 <li>Bugfix: Monitoring optionen werden nur angezeigt, wenn das Modul aktiviert wurde</li>
 </ul>
@@ -4622,7 +4820,7 @@
 <li>Report: Nicht-autorisierte Geräte am Netz: Auflistung aller Systeme, die abgewiesen wurden (Mac, Netzkomponente, Port,
  Zeitpunkt).</li>
 <li>Reporting: Gesperrte Ports über einen selektiven Zeitraum</li>
-<li>Reporting: &#8220;Unused Ports&#8221;: Sämtliche Ports, die im Scope sind, aber an denen keine MAC Adresse gesehen wird</li>
+<li>Reporting: &#8220;Unused Ports&#8221;: Sämtliche Ports, die im Scope sind, aber an denen keine MAC-Adresse gesehen wird</li>
 <li>Bugfix: Verbesserte Webserver Stabilität</li>
 <li>Bugfix: Persistente Passwort änderungen</li>
 </ul>
