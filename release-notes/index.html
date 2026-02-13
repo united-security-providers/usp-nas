@@ -588,7 +588,7 @@
 
 
 <h1 id="usp-network-authentication-system-170">USP Network Authentication System &reg; 17.0</h1>
-<p>Released 12 February 2026</p>
+<p>Released 13 February 2026</p>
 <h2 id="platform-compatibility">Platform Compatibility</h2>
 <p>This release is compatible with the following platforms:</p>
 <ul>
@@ -640,7 +640,6 @@
 <h3 id="bugfixes">Bugfixes</h3>
 <ul>
 <li><em>Logging:</em> Fixed invalid arguments in event "Netport will be overwritten by new source" (1532). The event will now contain the device name, interface index and interface name as proper key=value arguments. (#291544)</li>
-<li><em>Modern GUI:</em> Enforce login after Web GUI restarts, in order to fetch new user permissions after system upgrade. (#292102)</li>
 <li><em>Monitoring:</em> <strong>CAUTION</strong> Due to an underlying change in how the operating systems represents information about the system memory, some values which can be fetched via SNMP for monitoring had their purpose changed. The values returned did not match anymore what their label said. The USP Appliance MIB has been adapted as follows to fix this: <code>.1.3.6.1.4.1.26458.7419.11.3.5.0</code> is now labeled <code>memoryBufferedCached</code> instead of <code>memoryBuffered</code>, and OID <code>.1.3.6.1.4.1.26458.7419.11.3.6.0</code> is now labeled <code>memoryAvailable</code> instead of <code>memoryCached</code>. (#291766)</li>
 <li><em>RADIUS:</em> When a RADIUS MAC authentication request is rejected, the log event 1153 "Radius enabled endpoint was refused to access the network (reject)." is now being emitted. Previously, this was only done for EAP authentication requests. Therefore, the report "Blocked endpoints" will now also include rejected enpoints which used RADIUS MAC authentication. (#291925)</li>
 <li><em>Reporting:</em> Allow to request up to 999'999 max records in the 'Endpoint' report and fix input validation and error messages for max records parameters in other reports (#291932)</li>
