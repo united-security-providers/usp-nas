@@ -71,9 +71,10 @@ This will make it available locally (URL visible in output on the shell, typical
 
 ## Generate site and publish it via GitHub
 
-To generate the site and deploy it to GitHub pages, run:
+To generate the site and deploy it to GitHub pages, and mark it as the new default, run:
 
 ```
-$ ./release.sh {nas-version} deploy
+$ ./release.sh {nas-version} deploy --latest
 ```
 
+You can re-deploy an older version by omitting the "--latest" parameter.
