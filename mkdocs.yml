@@ -18,6 +18,10 @@ plugins:
   - swagger-ui-tag:
       supportedSubmitMethods: []
       validatorUrl: none
+  - mike:
+      deploy_prefix: aero-waap
+      canonical_version: latest
+      version_selector: true
 
 markdown_extensions:
   - pymdownx.superfences:

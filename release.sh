@@ -136,14 +136,27 @@ done
 
 echo "Successfully generated site (Markdown) at ./docs."
 
-if [ "$2" == "deploy" ]; then
-    echo "Deploying to GitHub pages..."
-    mkdocs gh-deploy --force
+echo "Deployment version: ${version}"
+
+[ "$2" == "deploy" ] && DEPLOY=true && shift
+[ "$2" == "--latest" ] && RELEASE_ALIAS=latest && shift
+
+if [ $DEPLOY ]; then
+    version=$(echo "$NAS_VERSION" | sed -E 's/^v?([0-9]+)\.([0-9]+)\.[0-9]+$/\1.x/')
+    echo "Deploying to GitHub pages with version ${version}..."
+    mike deploy --update-aliases --push "${version}" $RELEASE_ALIAS
     echo "Successfully deployed to to GitHub pages"
 else
     echo "Building website locally in 'generated' subfolder..."
     mkdocs build
     echo "Website generated."
+fi
+
+if [[ $DEPLOY && "${RELEASE_ALIAS}" == "latest" ]]; then
+    echo "Setting default latest..."
+    sleep 120
+    mike set-default --push --allow-empty "${RELEASE_ALIAS}"
+    echo "Set default latest."
 fi
 
 trap - ERR
