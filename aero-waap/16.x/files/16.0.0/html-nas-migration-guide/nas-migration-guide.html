@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>USP Network Authentication System®</title><link rel="stylesheet" type="text/css" href="docbook-xsl.css" /><link rel="stylesheet" type="text/css" href="docbook-xsl-nas.css" /><meta name="generator" content="DocBook XSL Stylesheets Vsnapshot" /></head><body><div xml:lang="en" class="book" lang="en"><div class="titlepage"><div><div><h1 class="title"><a id="idm1"></a>USP Network Authentication System®</h1></div><div><h2 class="subtitle">Migration Guide</h2></div><div><p class="copyright">Copyright © 2025 United Security Providers AG</p></div><div><div class="legalnotice"><a id="idm9"></a><p>
+    This document is protected by copyright under the applicable laws and
+    international treaties. No part of this document may be reproduced in any
+    form and distributed to third parties by any means without prior written
+    authorization of United Security Providers AG.
+  </p><p>
+    DOCUMENTATION IS PROVIDED "AS IS" AND ALL EXPRESSED OR
+    IMPLIED REPRESENTATIONS AND WARRANTIES, INCLUDING BUT
+    NOT LIMITED TO ANY IMPLIED WARRANTY OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE OR NON-INFRINGEMENT,
+    ARE DISCLAIMED TO THE EXTENT PERMISSIBLE UNDER THE
+    APPLICABLE LAWS.
+  </p></div></div></div><hr /></div><div class="toc"><p><strong>Table of Contents</strong></p><dl class="toc"><dt><span class="chapter"><a href="#_usp_nas_16_0">1. USP NAS 16.0</a></span></dt><dd><dl><dt><span class="section"><a href="#_summary">1.1. Summary</a></span></dt><dt><span class="section"><a href="#_changes_in_the_rest_api">1.2. Changes in the REST API</a></span></dt><dt><span class="section"><a href="#_migration_of_sab_functionality_to_java">1.3. Migration of SAB functionality to Java</a></span></dt><dt><span class="section"><a href="#_deprecation_notice">1.4. Deprecation notice</a></span></dt></dl></dd><dt><span class="chapter"><a href="#_usp_nas_15_0">2. USP NAS 15.0</a></span></dt><dd><dl><dt><span class="section"><a href="#_summary_2">2.1. Summary</a></span></dt><dt><span class="section"><a href="#_introduction_of_snmp_access_profiles">2.2. Introduction of SNMP Access Profiles</a></span></dt><dt><span class="section"><a href="#_changes_in_the_rest_api_2">2.3. Changes in the REST API</a></span></dt><dt><span class="section"><a href="#_migration_of_sab_functionality_to_java_2">2.4. Migration of SAB functionality to Java</a></span></dt><dt><span class="section"><a href="#_mobileiron_integration_removed">2.5. MobileIron integration removed</a></span></dt></dl></dd></dl></div><div class="chapter"><div class="titlepage"><div><div><h1 class="title"><a id="_usp_nas_16_0"></a>Chapter 1. USP NAS 16.0</h1></div></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="_summary"></a>1.1. Summary</h2></div></div></div><p>This migration guide provides a set of guidelines to migrate the USP Network Authentication System<sup>®</sup> from versions 15.x to the latest version 16.0.</p><p>In most cases, no actions are required and all changes are done automatically.
+However, some minor manual changes might be required by the update.
+Consult the migration guide carefully prior the update and apply any steps required before or after the update.</p><p>When upgrading existing installations, please follow the recommended upgrade procedure outlined in the "USP NAS Installation Guide".</p><p>If you are updating from a Network Authentication System<sup>®</sup> Appliance older than version 15.0, please consult also the migration guides for all intermediate versions, as this migration guide only outlines the changes between the new and the previous USP Network Authentication System<sup>®</sup> version.</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="_changes_in_the_rest_api"></a>1.2. Changes in the REST API</h2></div></div></div><p>The naming in the data structure of the <span class="strong"><strong>netdevices</strong></span>, <span class="strong"><strong>interfaces</strong></span> and <span class="strong"><strong>endpoints REST APIs</strong></span> has been standardized.
+All property names and filter parameters are now written in <span class="strong"><strong>camel case</strong></span> instead of a mix of snake case and camel case.
+For example, a property like <span class="strong"><strong>netdevice_id</strong></span> has been renamed to <span class="strong"><strong>netdeviceId</strong></span>.</p><p>Additionally, many more properties and filter parameters have been added, and the performance with large data sets has been improved.
+Properties are now also ordered in a more logical way.</p><p>Please consult the online REST API documentation in the USP NAS Web GUI for mode details.</p><p>Here are some examples on the differences in the REST API response between release 15.x and 16.0:</p><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="_netdevices"></a>1.2.1. Netdevices</h3></div></div></div><div class="informaltable"><table class="informaltable" cellpadding="4px" style="border-collapse: collapse;border-top: 3px solid #527bbd; border-bottom: 3px solid #527bbd; border-left: 3px solid #527bbd; border-right: 3px solid #527bbd; "><colgroup><col class="col_1" /><col class="col_2" /></colgroup><thead><tr><th style="border-right: 1px solid #527bbd; border-bottom: 1px solid #527bbd; " align="left" valign="top">Version 15.4 </th><th style="border-bottom: 1px solid #527bbd; " align="left" valign="top"> Version 16.0</th></tr></thead><tbody><tr><td style="border-right: 1px solid #527bbd; " align="left" valign="top"><pre class="screen">[
+  {
+    "id": 1002004,
+    "device_name": "cisco-c-1300",
+    "device_ip": "10.15.1.20",
+    "device_class": "SWITCH",
+    "portgroups": [
+        "Main building"
+    ],
+    "errorcode": 0,
+    "source": "testlab",
+    "inscope": 1,
+    "updated": "2025-08-21T12:08:50.574+00:00",
+    "created": "2025-08-21T12:01:48.442+00:00",
+    "location": "Datacenter East",
+    "devicetype": "GenericQBridgeMibAdaptor",
+    "description": "Catalyst 1300 Series Managed Switch (C1300-8P-E-2G)",
+    "snmpAccessProfileId": "52f36b8b-4d6c-45b1-80b9-3c2cb4852073",
+    "snmpAccessProfileName": null,
+    "snmpVersion": "SNMPV3",
+    "snmpAuthenticationAlgorithm": "SHA512",
+    "snmpEncryptionAlgorithm": "AES128"
+  }
+]</pre></td><td style="" align="left" valign="top"><pre class="screen">[
+  {
+    "id": 1002004,
+    "deviceName": "cisco-c-1300",
+    "deviceIp": "10.15.1.20",
+    "deviceClass": "SWITCH",
+    "deviceType": "GenericQBridgeMibAdaptor",
+    "inScope": "IN_SCOPE",
+    "location": "Datacenter East",
+    "description": "Catalyst 1300 Series Managed Switch (C1300-8P-E-2G)",
+    "accessControl": "SYSTEMDEFAULT",
+    "accounting": "ACCOUNTING_ENABLED_ALL",
+    "snmpAccessProfileId": "52f36b8b-4d6c-45b1-80b9-3c2cb4852073",
+    "snmpAccessProfileName": null,
+    "snmpVersion": "SNMPV3",
+    "snmpAuthenticationAlgorithm": "SHA512",
+    "snmpEncryptionAlgorithm": "AES128",
+    "errorCode": "NO_ERROR",
+    "portGroup": "Main building",
+    "accessRule": "BASEACCESSRULE",
+    "accessMode": "RESTRICTIVE",
+    "hasNetports": true,
+    "source": "testlab",
+    "created": "2025-08-21T12:01:48.442Z",
+    "updated": "2025-08-21T12:25:52.539Z",
+    "lastScan": "2025-08-21T12:25:52.529Z"
+  }
+]</pre></td></tr></tbody></table></div><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+Previously, the response contained an array <code class="literal">portgroups</code> for the assigned portgroups.
+It has been replaced with a property <code class="literal">portGroup</code> indicating the effective portgroup in use, based on its priority.
+</li><li class="listitem">
+New properties <code class="literal">accessControl</code>, <code class="literal">accounting</code>, <code class="literal">accessRule</code>, <code class="literal">accessMode</code>, <code class="literal">hasNetports</code>, <code class="literal">lastScan</code> have been added.
+</li><li class="listitem">
+New filters for <code class="literal">description</code>, <code class="literal">accessControl</code>, <code class="literal">snmpAccessProfileName</code>, <code class="literal">portGroup</code>, <code class="literal">accessRule</code>, <code class="literal">hasNetports</code>, <code class="literal">lastScan</code> have been added.
+</li><li class="listitem">
+Numeric values of properties <code class="literal">errorCode</code> and <code class="literal">inScope</code> have been replaced with a descriptive name.
+This also affects the respective filters.
+</li></ul></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="_interfaces"></a>1.2.2. Interfaces</h3></div></div></div><div class="informaltable"><table class="informaltable" cellpadding="4px" style="border-collapse: collapse;border-top: 3px solid #527bbd; border-bottom: 3px solid #527bbd; border-left: 3px solid #527bbd; border-right: 3px solid #527bbd; "><colgroup><col class="col_1" /><col class="col_2" /></colgroup><thead><tr><th style="border-right: 1px solid #527bbd; border-bottom: 1px solid #527bbd; " align="left" valign="top">Version 15.4 </th><th style="border-bottom: 1px solid #527bbd; " align="left" valign="top"> Version 16.0</th></tr></thead><tbody><tr><td style="border-right: 1px solid #527bbd; " align="left" valign="top"><pre class="screen">[
+  {
+    "id": 1002231,
+    "netdevice_id": 1002004,
+    "portgroups": [
+      "Main building"
+    ],
+    "ifname": "gi1",
+    "ifindex": 1,
+    "ifalias": "uplink",
+    "dot1xstate": 1,
+    "defaultvlan": 1,
+    "netport": true
+  },
+  {
+    "id": 1002232,
+    "netdevice_id": 1002004,
+    "portgroups": [
+      "Main building"
+    ],
+    "ifname": "gi2",
+    "ifindex": 2,
+    "ifalias": "access",
+    "dot1xstate": 0,
+    "defaultvlan": 1,
+    "netport": false
+  }
+]</pre></td><td style="" align="left" valign="top"><pre class="screen">[
+  {
+    "id": 1002231,
+    "netdeviceId": 1002004,
+    "netdeviceName": "cisco-c-1300",
+    "netdeviceIp": "10.15.1.20",
+    "ifName": "gi1",
+    "ifIndex": 1,
+    "ifAlias": "uplink",
+    "nodeCount": 14,
+    "dot1xEnabled": false,
+    "defaultVlan": 1,
+    "netportType": "NETPORT",
+    "portGroup": "Main building",
+    "accessRule": "BASEACCESSRULE",
+    "accessMode": "RESTRICTIVE",
+    "updated": "2025-08-21T13:07:44.441327Z"
+  },
+  {
+    "id": 1002232,
+    "netdeviceId": 1002004,
+    "netdeviceName": "cisco-c-1300",
+    "netdeviceIp": "10.15.1.20",
+    "ifName": "gi2",
+    "ifIndex": 2,
+    "ifAlias": "access",
+    "nodeCount": 0,
+    "dot1xEnabled": true,
+    "defaultVlan": 1,
+    "netportType": null,
+    "portGroup": "Main building",
+    "accessRule": "BASEACCESSRULE",
+    "accessMode": "RESTRICTIVE",
+    "updated": "2025-08-21T13:07:44.441327Z"
+  }
+]</pre></td></tr></tbody></table></div><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+Previously, the response contained an array <code class="literal">portgroups</code> for the assigned portgroups.
+It has been replaced with a property <code class="literal">portGroup</code> indicating the effective portgroup in use, based on its priority.
+</li><li class="listitem">
+New properties <code class="literal">netdeviceName</code>, <code class="literal">netdeviceIp</code>, <code class="literal">nodeCount</code>, <code class="literal">accessRule</code>, <code class="literal">accessMode</code>, <code class="literal">updated</code> have been added.
+</li><li class="listitem">
+Numeric property <code class="literal">dot1xstate</code> has been replaced with boolean property <code class="literal">dot1xEnabled</code>.
+</li><li class="listitem">
+Boolean property <code class="literal">netport</code> has been replaced with property <code class="literal">netportType</code> since there exist more than one netport types.
+A value of <code class="literal">null</code> indicates that no netport of any kind is configured.
+</li><li class="listitem">
+New filters for <code class="literal">netdeviceName</code>, <code class="literal">netdeviceIp</code>, <code class="literal">dot1xEnabled</code>, <code class="literal">defaultVlan</code>, <code class="literal">isNetport</code>, <code class="literal">portGroup</code>, <code class="literal">accessRule</code> have been added.
+</li></ul></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="_endpoints"></a>1.2.3. Endpoints</h3></div></div></div><div class="informaltable"><table class="informaltable" cellpadding="4px" style="border-collapse: collapse;border-top: 3px solid #527bbd; border-bottom: 3px solid #527bbd; border-left: 3px solid #527bbd; border-right: 3px solid #527bbd; "><colgroup><col class="col_1" /><col class="col_2" /></colgroup><thead><tr><th style="border-right: 1px solid #527bbd; border-bottom: 1px solid #527bbd; " align="left" valign="top">Version 15.4 </th><th style="border-bottom: 1px solid #527bbd; " align="left" valign="top"> Version 16.0</th></tr></thead><tbody><tr><td style="border-right: 1px solid #527bbd; " align="left" valign="top"><pre class="screen">[
+  {
+    "macAddress": "00012e703675",
+    "macVendor": "PC Partner Ltd.",
+    "status": "ACTIVE",
+    "netdevice_id": 1002000,
+    "ifname": "gi8",
+    "ifindex": 8,
+    "ifalias": "8021x",
+    "vlan": 1,
+    "defaultvlan": 1,
+    "clientip": "192.168.100.53",
+    "clientip_updated": "2025-08-21T12:25:33.360+00:00",
+    "client_router_name": "fortigate-80e",
+    "client_router_ip": "192.168.100.99",
+    "clientname": null,
+    "clientname_inventory": null,
+    "eap_username": "host/zotac-zbox",
+    "eap_username_inventory": "zotac-zbox",
+    "location": null,
+    "source": "EAP_CACHE",
+    "changedBy": null,
+    "inventoried": true,
+    "assetId": "n/a",
+    "assettype": null,
+    "assetclass": null,
+    "lastcheck": "2025-08-21T12:23:40.231+00:00",
+    "updated": "2025-08-21T12:25:34.140+00:00",
+    "created": "2025-08-21T12:02:35.922+00:00",
+    "devicename": "cisco-cbs-250",
+    "deviceip": "192.168.100.100",
+    "portGroup": "Global",
+    "accessMode": "ALLOWED",
+    "accessRule": "BASEACCESSRULE",
+    "endpointDetails": [
+      {
+        "source": "EAP",
+        "key": "subject.commonName",
+        "value": "zotac-zbox"
+      }
+    ]
+  }
+]</pre></td><td style="" align="left" valign="top"><pre class="screen">[
+  {
+    "macAddress": "00012e703675",
+    "macVendor": "PC Partner Ltd.",
+    "eapUsername": "host/zotac-zbox",
+    "clientIp": "192.168.100.53",
+    "clientIpUpdated": "2025-08-21T12:25:33.360Z",
+    "clientNameDns": null,
+    "vlan": 1,
+    "status": "ACTIVE",
+    "authType": "IEEE802DOT1X",
+    "firstSeen": "2025-08-21T12:02:35.922Z",
+    "lastSeen": "2025-08-21T13:07:26.915Z",
+    "lastCheck": "2025-08-21T12:23:40.231Z",
+    "lastEvent": "2025-08-21T12:23:40.243Z",
+    "lastStatusChange": "2025-08-21T12:23:40.227089Z",
+    "netdeviceId": 1002000,
+    "netdeviceName": "cisco-cbs-250",
+    "netdeviceIp": "192.168.100.100",
+    "ifName": "gi8",
+    "ifIndex": 8,
+    "ifAlias": "8021x",
+    "defaultVlan": 1,
+    "portGroup": "Global",
+    "accessRule": "BASEACCESSRULE",
+    "accessMode": "ALLOWED",
+    "routerName": "fortigate-80e",
+    "routerIp": "192.168.100.99",
+    "inventoried": true,
+    "authorized": true,
+    "identityType": "EAP_LAN",
+    "eapUsernameInventory": "zotac-zbox",
+    "clientNameInventory": null,
+    "location": null,
+    "owner": null,
+    "assetType": null,
+    "assetClass": null,
+    "tenant": null,
+    "doubleAttached": false,
+    "assetId": null,
+    "changedBy": null,
+    "source": "EAP_CACHE",
+    "inventoryCreated": "2025-08-21T12:23:40.221Z",
+    "inventoryUpdated": "2025-08-21T12:23:40.221Z",
+    "inventoryValidUntil": null,
+    "endpointDetails": [
+      {
+        "source": "EAP",
+        "key": "issuer.commonName",
+        "value": "ca.test.usp-nas.internal"
+      }
+    ]
+  }
+]</pre></td></tr></tbody></table></div><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+Properties have been ordered according to <span class="emphasis"><em>Node in network</em></span> → <span class="emphasis"><em>Netdevice</em></span> → <span class="emphasis"><em>Inventory record</em></span>.
+</li><li class="listitem">
+New properties <code class="literal">authType</code>, <code class="literal">lastEvent</code>, <code class="literal">lastStatusChange</code>, <code class="literal">authorized</code>, <code class="literal">identityType</code>, <code class="literal">owner</code>, <code class="literal">tenant</code>, <code class="literal">doubleAttached</code>, <code class="literal">inventoryCreated</code>, <code class="literal">inventoryUpdated</code>, <code class="literal">inventoryValidUntil</code> have been added.
+</li><li class="listitem">
+<code class="literal">clientname</code> has been renamed to <code class="literal">clientNameDns</code>.
+</li><li class="listitem">
+<code class="literal">client_router_name</code> and <code class="literal">client_router_ip</code> have been renamed to <code class="literal">routerName</code> and <code class="literal">routerIp</code> respectively.
+</li><li class="listitem">
+<code class="literal">created</code> has been renamed to <code class="literal">firstSeen</code>, and <code class="literal">updated</code> has been renamed to <code class="literal">lastSeen</code>.
+</li><li class="listitem">
+New filters have been added for almost all properties.
+</li><li class="listitem">
+Filters for <code class="literal">eapUsername</code> and <code class="literal">clientName</code> now check both network and inventory record.
+</li><li class="listitem">
+If a netdevice has been deleted, the related values will be set to <code class="literal">null</code>.
+</li></ul></div></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="_migration_of_sab_functionality_to_java"></a>1.3. Migration of SAB functionality to Java</h2></div></div></div><p>Backup-related functionality of the SAB CLI API tool has been migrated into the USP NAS core daemon Java code.
+As a consequence the following SAB function can no longer be used directly on the CLI:</p><pre class="screen">sab backup:set_backup
+sab backup:get_backup
+sab backup:del_backup
+sab backup:run_backup
+sab backup:do_backup
+sab backup:do_validate
+sab backup:do_restore</pre></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="_deprecation_notice"></a>1.4. Deprecation notice</h2></div></div></div><p>The following functionality is considered deprecated/obsolete and will be removed or replaced with an alternative implementation in the next USP NAS major release 17.0:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+SNMP trap forwarder
+</li><li class="listitem">
+VLAN Zones/WLAN ACL Zones (to be replaced by new policy management implementation)
+</li><li class="listitem">
+Netdevice classes WTP/ACCOUNTING (to be replaced by new policy management implementation)
+</li><li class="listitem">
+Soft-deleted netdevices/netports
+</li><li class="listitem">
+Soft-deleted endpoints
+</li></ul></div><p></p></div></div><div class="chapter"><div class="titlepage"><div><div><h1 class="title"><a id="_usp_nas_15_0"></a>Chapter 2. USP NAS 15.0</h1></div></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="_summary_2"></a>2.1. Summary</h2></div></div></div><p>This migration guide provides a set of guidelines to migrate the USP Network Authentication System<sup>®</sup> from versions prior to 14.0 to the latest version 15.0.</p><p>In most cases, no actions are required and all changes are done automatically.
+However, some minor manual changes might be required by the update.
+Consult the migration guide carefully prior the update and apply any steps required before or after the update.</p><p>When upgrading existing installations, please follow the recommended upgrade procedure outlined in the "USP NAS Installation Guide".</p><p>If you are updating from a Network Authentication System<sup>®</sup> Appliance older than version 14.0, please consult also the migration guides for all intermediate versions, as this migration guide only outlines the changes between the new and the previous USP Network Authentication System<sup>®</sup> version.</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="_introduction_of_snmp_access_profiles"></a>2.2. Introduction of SNMP Access Profiles</h2></div></div></div><p>Starting from this release, SNMP access profiles are being used to store credentials for accessing switches and routers via SNMP for network mapping, monitoring and enforcement (if SNMP MAC authentication is used).
+SNMP access profiles define the SNMP version to be used as well as the read/write community (in case of Version 1 and 2) or username, passwords and encryption algorithms (in case of version 3).
+These profiles can be managed at a dedicated location in the WebGUI, and therefore SNMP credentials no longer have to be defined for each netdevice; an SNMP access profile must be chosen instead.
+Every netdevice which should be monitored by SNMP must be assigned an SNMP access profile.
+There is no default SNMP community/username/password settings anymore in the global configuration.</p><p>SNMP access profile can be given a unique name; if omitted, an auto-generated name based on the stored data is created.</p><p>Due to the redesigned user interface for managing these profiles, new SNMPv3 authentication and encryption algorithm combinations are now supported, which increase security and compatibility in communicating with your netdevices.</p><p>During USP NAS Appliance update, existing entries are migrated automatically, and SNMP access profiles are created as needed.
+This applies as well to netdevices which use the global configured credentials in the past.</p><p><span class="strong"><strong>CSV data imports</strong></span> make use of the new profiles as well: for each record in an import file, it is checked if a profile matching the provided data exists, and it is assigned, or a new profile will be created.
+Therefore, existing import mechanisms don’t need to be adapted.
+Optional, named SNMP access profiles can be specified directly as a new column in the import file.
+Please see the dedicated data import specification document for details.</p><p>If you use <span class="strong"><strong>scheduled scripts</strong></span> to create netdevice entries in the database, some manual changes might be needed.
+Please refer to the newly added scrip template <code class="literal">NetdeviceGenerater.jy</code> to see an example on how this can be used.</p><p><span class="strong"><strong>RADIUS subnet</strong></span> definitions make use of the new profiles too.
+This enables the possibility to auto-inventorize netdevices with SNMPv3 credentials configured.</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="_changes_in_the_rest_api_2"></a>2.3. Changes in the REST API</h2></div></div></div><p>In the netdevice REST API, the query filter parameter <code class="literal">snmpVersion</code> has been replaced by <code class="literal">snmpAccessProfileId</code> which references the assigned SNMP access profile.
+The response will now contain the fields <code class="literal">snmpAccessProfileId</code>, <code class="literal">snmpAccessProfileName</code>, <code class="literal">snmpVersion</code> (which can now be <code class="literal">SNMPV1</code>, <code class="literal">SNMPV2C</code> or <code class="literal">snmpv3</code>), <code class="literal">snmpAuthenticationAlgorithm</code> and <code class="literal">snmpEncryptionAlgorithm</code>.</p><p>Therefore, a REST API response for netdevices, which previously looked like this:</p><pre class="literallayout">{
+    "id": 1055600,
+    "device_name": "cisco250",
+    "device_ip": "192.168.100.100",
+    "device_class": "SWITCH",
+    "errorcode": 0,
+    "source": "WEBGUI",
+    "inscope": 1,
+    "updated": "2024-11-18T11:26:34.653+00:00",
+    "created": "2024-11-18T11:24:53.841+00:00",
+    "deleted": null,
+    "location": "USP Lab",
+    "snmpVersion": "V2C",
+    "devicetype": "GenericQBridgeMibAdaptor",
+    "description": "CBS250-8T-D 8-Port Gigabit Smart Switch"
+},
+{
+    "id": 1056000,
+    "device_name": "v3test",
+    "device_ip": "1.2.3.4",
+    "device_class": "SWITCH",
+    "errorcode": null,
+    "source": "WEBGUI",
+    "inscope": 1,
+    "updated": "2024-11-18T14:14:39.278+00:00",
+    "created": "2024-11-18T14:14:39.278+00:00",
+    "deleted": null,
+    "location": null,
+    "snmpVersion": "V3_PRIV_AES_SHA512",
+    "devicetype": null,
+    "description": null
+}</pre><p>will now look like in release 15.0:</p><pre class="literallayout">{
+    "id": 1086800,
+    "device_name": "cisco250",
+    "device_ip": "192.168.100.100",
+    "device_class": "SWITCH",
+    "errorcode": 0,
+    "source": "WEBGUI",
+    "inscope": 1,
+    "updated": "2025-01-06T10:44:44.609+00:00",
+    "created": "2025-01-06T07:24:01.525+00:00",
+    "deleted": null,
+    "location": "USP Lab",
+    "devicetype": "GenericQBridgeMibAdaptor",
+    "description": "CBS250-8T-D 8-Port Gigabit Smart Switch",
+    "snmpAccessProfileId": "9b9f8e1e-2239-4599-8d36-94e5ffa3791e",
+    "snmpAccessProfileName": "SNMPv2 default profile",
+    "snmpVersion": "SNMPV2C",
+    "snmpAuthenticationAlgorithm": null,
+    "snmpEncryptionAlgorithm": null
+},
+{
+    "id": 1089000,
+    "device_name": "v3test",
+    "device_ip": "1.2.3.4",
+    "device_class": "SWITCH",
+    "errorcode": 1,
+    "source": "WEBGUI",
+    "inscope": 1,
+    "updated": "2025-01-06T10:46:04.034+00:00",
+    "created": "2025-01-06T10:40:34.565+00:00",
+    "deleted": null,
+    "location": null,
+    "devicetype": null,
+    "description": null,
+    "snmpAccessProfileId": "728500ae-e051-4ab2-a846-67b0f8acac63",
+    "snmpAccessProfileName": "v3 Test Profile",
+    "snmpVersion": "SNMPV3",
+    "snmpAuthenticationAlgorithm": "SHA512",
+    "snmpEncryptionAlgorithm": "AES128"
+}</pre></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="_migration_of_sab_functionality_to_java_2"></a>2.4. Migration of SAB functionality to Java</h2></div></div></div><p>Some mail-related functionality of the SAB CLI API tool has been migrated into the USP NAS core daemon Java code.
+As a consequence the following SAB function can no longer be used in custom scripts to send emails:</p><pre class="screen">sab monitoring:alerting:send_mail
+sab tools:send_mail</pre><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="_jython_script_mail_interface"></a>2.4.1. Jython Script Mail Interface</h3></div></div></div><p>Instead of using the SAB commandline tool, it is now possible to send mails using custom Jython scripts.
+The command for this is:</p><pre class="screen">mail.sendMail(String recipient, String subject, String body)
+mail.sendMail(String recipient, String subject, String body, String attachmentFilePath)</pre><p>It will send a mail using the mail server settings configured in the GUI.</p></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="_mobileiron_integration_removed"></a>2.5. MobileIron integration removed</h2></div></div></div><p>We removed support for the <span class="strong"><strong>MobileIron</strong></span> MDM solution, a company and product which has been <a class="ulink" href="https://www.ivanti.com/company/history/mobileiron" target="_top">acquired by Ivanti</a> and integrated into their "Ivanti Neurons for MDM" solution a few years ago.
+If by any chance you are still using MobileIron in connection with USP NAS to obtain endpoint inventory details, please contact USP product support, as it might be possible be re-implemented this functionality using the scheduled script engine built into USP NAS.</p><p></p></div></div></div></body></html>
