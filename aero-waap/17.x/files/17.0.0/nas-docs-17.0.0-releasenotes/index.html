@@ -1,0 +1,2394 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
+    
+    
+      
+        <title>USP Network Authentication System ® 17.0 - USP NAS documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.e53b48f4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#usp-network-authentication-system-170" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="USP NAS documentation" class="md-header__button md-logo" aria-label="USP NAS documentation" data-md-component="logo">
+      
+  <img src="../../../assets/images/USP-Logo-2023-ohne-claim-lang-white1.webp" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            USP NAS documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              USP Network Authentication System &reg; 17.0
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="USP NAS documentation" class="md-nav__button md-logo" aria-label="USP NAS documentation" data-md-component="logo">
+      
+  <img src="../../../assets/images/USP-Logo-2023-ohne-claim-lang-white1.webp" alt="logo">
+
+    </a>
+    USP NAS documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Welcome
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../release-notes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Release Notes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    NAS Documentation
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            NAS Documentation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../html-documentation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HTML
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pdf-documentation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PDF
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#platform-compatibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      Platform Compatibility
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changelog" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changelog
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Changelog">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enhancements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enhancements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bugfixes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bugfixes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="usp-network-authentication-system-170">USP Network Authentication System &reg; 17.0</h1>
+<p>Released 26 January 2026</p>
+<h2 id="platform-compatibility">Platform Compatibility</h2>
+<p>This release is compatible with the following platforms:</p>
+<ul>
+<li>Dell PowerEdge R660/R650/R640/R630/R620/R610</li>
+<li>VMware ESXi / Workstation</li>
+<li>Microsoft Hyper-V</li>
+<li>QEMU/KVM</li>
+<li>Oracle VirtualBox</li>
+</ul>
+<h2 id="changelog">Changelog</h2>
+<h3 id="features">Features</h3>
+<ul>
+<li><em>Modern GUI:</em> Added new Policy rule manager page (#289909)</li>
+<li><em>Modern GUI:</em> Added new policy management page (#290771)</li>
+<li><em>Policy:</em> Added new, simplified policy engine for RADIUS authentication requests (#290635)</li>
+</ul>
+<h3 id="enhancements">Enhancements</h3>
+<ul>
+<li><em>Modern GUI:</em> Add option to delete all unused SNMP access profiles (#291862)</li>
+<li><em>Modern GUI:</em> Added VLAN mapping management page (#289906)</li>
+<li><em>Modern GUI:</em> Added application settings option to configure automatic node cleanup days and interval. A new log event 1936 "Automatic clean-up of inactive nodes complete." has been added which is emitted whenever endpoints are cleaned up. (#291858)</li>
+<li><em>Modern GUI:</em> Added endpoint profile manager for the new policy engine (#291847)</li>
+<li><em>Modern GUI:</em> Added option to assign interfaces to a policy group (#291680)</li>
+<li><em>Modern GUI:</em> Added option to assign netdevices to a policy group (#290766)</li>
+<li><em>Modern GUI:</em> Added option to configure EAP-Username patterns for auto-assigning asset type and asset classes to inventory entries (#256421)</li>
+<li><em>Modern GUI:</em> Added option to configure SSH transfer user on application settings page (#291641)</li>
+<li><em>Modern GUI:</em> Added page for creating reports about the operation, configuration and inventory of USP NAS. (#291366)</li>
+<li><em>Modern GUI:</em> Added possibility to create a system dump file for support purposes on the maintenance page (#228593)</li>
+<li><em>Modern GUI:</em> Added possibility to define RADIUS attributes in policy rule (#289908)</li>
+<li><em>Modern GUI:</em> Added system information section to maintenance page (#286314)</li>
+<li><em>Modern GUI:</em> Added the possibility to configure High Availability configuration and synchronization on a dedicated page. (#291372)</li>
+<li><em>Modern GUI:</em> Endpoints which are currently active are now marked with a small status indicator in the endpoint overview table, and the tooltip indicates the current status type. (#291931)</li>
+<li><em>Modern GUI:</em> Local SNMP server configuration can be configured on the system settings page (#291642)</li>
+<li><em>Monitoring:</em> Add option to enable/disable the local SNMPD service. On new installations, it is disabled by default. (#291643)</li>
+<li><em>Policy:</em> Added config option to switch between legacy and modern, simplified policy engine (enabled by default for new installations) (#291648)</li>
+</ul>
+<h3 id="changes">Changes</h3>
+<ul>
+<li><em>Core:</em> Removed obsolete SNMP trap forwarder feature (#291664)</li>
+<li><em>Core:</em> Upgraded Bouncy Castle open-source cryptographic APIs to version 1.83 to address CVE-2025-8916, a vulnerability with medium severity. (#291885)</li>
+<li><em>Database:</em> Removed support for soft-deleted netdevices and netports to simplify data structure and code base. The columns 'deleted' have been removed from the 'netdevice' and 'netport' database tables. <strong>CAUTION</strong> If you use any custom SQL in scripts, verify that these columns are not used. (#291668)</li>
+<li><em>Modern GUI:</em> A netdevice scan for multiple devices can now be triggered by selecting the desired entries from the netdevice table, and then clicking the scan button in the bulk action bar. The scan button at the top of the page has been removed. (#291822)</li>
+<li><em>Modern GUI:</em> Consolidated port and netport tabs in netdevice default view. A new "Edit" button on top of the interface table enters edit mode, where netports and other interface settings can be changed. (#291792)</li>
+<li><em>Modern GUI:</em> Removed option to set RADIUS flag setting in interface table on the netdevice details page. This flag is set automatically on every switch scan. Resetting the netdevice using the related button will now also reset the RADIUS flag before the next scan. (#291959)</li>
+<li><em>Modern GUI:</em> The login page of the modern GUI is now shown by default (#291666)</li>
+<li><em>Modern GUI:</em> Updated Apache POI library (the Java API for Microsoft Documents) to address a potential vulnerability classified as medium (CVE-2025-31672) (#291873)</li>
+<li><em>Modern GUI:</em> Updated Apache Tika content detection library to address a vulnerability reported as critical (CVE-2025-66516) (#291863)</li>
+</ul>
+<h3 id="bugfixes">Bugfixes</h3>
+<ul>
+<li><em>Logging:</em> Fixed invalid arguments in event "Netport will be overwritten by new source" (1532). The event will now contain the device name, interface index and interface name as proper key=value arguments. (#291544)</li>
+<li><em>Monitoring:</em> <strong>CAUTION</strong> Due to an underlying change in how the operating systems represents information about the system memory, some values which can be fetched via SNMP for monitoring had their purpose changed. The values returned did not match anymore what their label said. The USP Appliance MIB has been adapted as follows to fix this: @.1.3.6.1.4.1.26458.7419.11.3.5.0@ is now labelled @memoryBufferedCached@ instead of @memoryBuffered@, and OID @.1.3.6.1.4.1.26458.7419.11.3.6.0@ is now labelled @memoryAvailable@ instead of @memoryCached@ (#291766)</li>
+<li><em>RADIUS:</em> When a RADIUS MAC authentication request is rejected, the log event 1153 " Radius enabled endpoint was refused to access the network (reject)." is now being emitted. (#291925)</li>
+<li><em>Reporting:</em> Allow to request up to 999'999 max records in the 'Endpoint' report and fix input validation and error messages for max records parameters in other reports (#291932)</li>
+<li><em>Reporting:</em> Fixed broken SQL query in report "Blocked endpoints" (#291627)</li>
+<li><em>SAB:</em> Fixed error in system configuration updater which occurred after appliance upgrade when static routes have been configured (#291926)</li>
+</ul>
+<h1 id="usp-network-authentication-system-165">USP Network Authentication System &reg; 16.5</h1>
+<p>Released 20 January 2026</p>
+<h2 id="platform-compatibility_1">Platform Compatibility</h2>
+<p>This release is compatible with the following platforms:</p>
+<ul>
+<li>Dell PowerEdge R660/R650/R640/R630/R620/R610</li>
+<li>VMware ESXi / Workstation</li>
+<li>Microsoft Hyper-V</li>
+<li>QEMU/KVM</li>
+<li>Oracle VirtualBox</li>
+</ul>
+<h2 id="changelog_1">Changelog</h2>
+<h3 id="enhancements_1">Enhancements</h3>
+<ul>
+<li><em>RADIUS:</em> Added RADIUS enforcement configuration for Alcatel Q-Bridge MIB adaptor (#291977)</li>
+</ul>
+<h3 id="changes_1">Changes</h3>
+<ul>
+<li><em>Modern GUI:</em> Updated Apache Tika content detection library (used during file uploads) to address a vulnerability reported as critical (CVE-2025-66516) (#291968)</li>
+</ul>
+<h3 id="bugfixes_1">Bugfixes</h3>
+<ul>
+<li><em>Backup:</em> Fixed an issue preventing large backup files to be restored via GUI (process was aborted due to max. process runtime of one minute). This is a regression introduced in 16.0 (#291964)</li>
+<li><em>Modern GUI:</em> Fixed an issue on the LDAP configuration page which did not update LDAP system settings properly. (#291967)</li>
+</ul>
+<h1 id="usp-network-authentication-system-164">USP Network Authentication System &reg; 16.4</h1>
+<p>Released 12 January 2026</p>
+<h2 id="platform-compatibility_2">Platform Compatibility</h2>
+<p>This release is compatible with the following platforms:</p>
+<ul>
+<li>Dell PowerEdge R660/R650/R640/R630/R620/R610</li>
+<li>VMware ESXi / Workstation</li>
+<li>Microsoft Hyper-V</li>
+<li>QEMU/KVM</li>
+<li>Oracle VirtualBox</li>
+</ul>
+<h2 id="changelog_2">Changelog</h2>
+<h3 id="enhancements_2">Enhancements</h3>
+<ul>
+<li><em>RADIUS:</em> Added RADIUS enforcement configuration for Alcatel 8021Q Bridge MIB adaptor (#291905)</li>
+<li><em>RADIUS:</em> Added more MAC address patterns to the dynamic RADIUS enforcement disconnect adapter, in order to support a wider variant of switch models. (#291902)</li>
+</ul>
+<h1 id="usp-network-authentication-system-163">USP Network Authentication System &reg; 16.3</h1>
+<p>Released 18 December 2025</p>
+<h2 id="platform-compatibility_3">Platform Compatibility</h2>
+<p>This release is compatible with the following platforms:</p>
+<ul>
+<li>Dell PowerEdge R660/R650/R640/R630/R620/R610</li>
+<li>VMware ESXi / Workstation</li>
+<li>Microsoft Hyper-V</li>
+<li>QEMU/KVM</li>
+<li>Oracle VirtualBox</li>
+</ul>
+<h2 id="changelog_3">Changelog</h2>
+<h3 id="enhancements_3">Enhancements</h3>
+<ul>
+<li><em>Data import:</em> Added a configuration option to allow/dissalow the creation of SNMP access profiles during netdevice import for records which have the same SNMPv3 username but different passwords. By default this is allowed (current behaviour). In some circumstances, it may be desired to prevent this, e.g. when importing records without passwords. In this case, they need to match an existing profile. If during the same import new profiles get created which share the same username but have different passwords, importing subsequent records without password might fail. (#291861)</li>
+<li><em>Monitoring:</em> Added monitoring datastores and graphs for FreeRADIUS server as well as PostgreSQL database memory and CPU time. Additionally, the graphs for NAS Core and WebUI heap memory are now shown in the GUI as well. (#291829)</li>
+</ul>
+<h3 id="bugfixes_2">Bugfixes</h3>
+<ul>
+<li><em>Core:</em> Added a workaround for detecting 802.1X RADIUS ports on Extreme 200 switches to mitigate a bug in the switch MIB (#291806)</li>
+<li><em>Core:</em> Fixed RADIUS 802.1X detection on Dell EMC N-Series switches by adding a dedicated switch adapter for these models (#291817)</li>
+<li><em>Core:</em> OnWay switch adaptor is now also compatible with newer versions of CarlOS switch firmware (4 and later) (#291818)</li>
+<li><em>RADIUS:</em> When a RADIUS accounting requests includes a VLAN ID (contained in a <code>Tunnel-Private-Group-ID</code> attribute) it will be registered in the endpoint database record regardless if the <code>Tunnel-Type</code> and <code>Tunnel-Medium-Type</code> attributes are present or not, as certain switches only send the <code>Tunnel-Private-Group-ID</code>. (#291819)</li>
+<li><em>Reporting:</em> In the "Switch operational report" updated the description of the parameter "Maximum number of records" to "Maximum number of records (ports)" to indicate that this relates to the number of ports/interfaces queried, and not to the number of switches. (#291813)</li>
+</ul>
+<h1 id="usp-network-authentication-system-162">USP Network Authentication System &reg; 16.2</h1>
+<p>Released 3 December 2025</p>
+<h2 id="platform-compatibility_4">Platform Compatibility</h2>
+<p>This release is compatible with the following platforms:</p>
+<ul>
+<li>Dell PowerEdge R660/R650/R640/R630/R620/R610</li>
+<li>VMware ESXi / Workstation</li>
+<li>Microsoft Hyper-V</li>
+<li>QEMU/KVM</li>
+<li>Oracle VirtualBox</li>
+</ul>
+<h2 id="changelog_4">Changelog</h2>
+<h3 id="enhancements_4">Enhancements</h3>
+<ul>
+<li><em>Monitoring:</em> Added options to make forwarding system authentication and local RADIUS server logs optional when configuring remote syslog server. This can be configured in the modern GUI on the "Peripheral Systems" configuration page. (#289779)</li>
+<li><em>RADIUS:</em> Add a new config property for setting the 802.1X Auth Fail VLAN configured on switches. This can be used for updating the endpoint record in the database in case of a RADIUS REJECT. (#291737)</li>
+<li><em>RADIUS:</em> Certificate authentication failures can now be logged to a dedicated log file when using the internal FreeRADIUS server (new option, off by default). The new logfile is located at <code>/var/log/radius/tls_failures.log</code> and will be rotated weekly for up to four weeks. If syslog is enabled, this information will be forwarded to a remote syslog server as well. (#291772)</li>
+</ul>
+<h3 id="changes_2">Changes</h3>
+<ul>
+<li><em>Monitoring:</em> Removed non-functional NAS application count monitoring metric, graph and alerting (event 3301), including sending of the non-descriptive, not standardized trap SNMP trap .1.3.6.1.4.1.26458.7419.3.1, as it was not reliably possible for the NAC application to monitor itself and send events if it is not working properly. New separate, informative-only monitoring graphs for the USP NAS Core and WebUI services have been added to the GUI. (#291716)</li>
+</ul>
+<h3 id="bugfixes_3">Bugfixes</h3>
+<ul>
+<li><em>Backup:</em> Ensured that scheduled backups and file server settings are NOT synchronized during an authenticator synchronization, as it was in past releases. This is a regression introduced in release 16.0 (#291723)</li>
+<li><em>Logging:</em> <strong>CAUTION</strong> Fixed format of RADIUS server log lines whenthey are sent to a remote syslog server, as they contained duplicated date/time strings and had incorrect syslog program and facility values. This could lead to parsing errors on the receiving log collector. The program property is now set to <code>radiusd</code> and the facility is set to <code>daemon</code>. If you are using this feature and rely on the current format, you might need to adapt the parsing rules in your log collection system. (#291778)</li>
+<li><em>Modern GUI:</em> In the monitoring destination configuration page, events of debug severity or internal category are not shown anymore, as they are not intended to be configurable. (#291714)</li>
+<li><em>RADIUS:</em> Do not send automatic RADIUS disconnect messages as part of the policy decider check task in order to avoid policy handler abort connection events (#291802)</li>
+<li><em>RADIUS:</em> Fixed an issue where the endpoint node VLAN ID in the database was set to 0 during RADIUS MAC authentication (#291514)</li>
+<li><em>RADIUS:</em> Fixed some issues related to sending correct RADIUS disconnect messages (#291805)</li>
+<li><em>WebGUI:</em> Fixed an issue which made it possible to delete asset classes or asset types even if they were still used in an access rule policy. Such policies would not shown related entries anymore, which could potentially lead to confusing VLAN assignments. (#291733)</li>
+</ul>
+<h1 id="usp-network-authentication-system-161">USP Network Authentication System &reg; 16.1</h1>
+<p>Released 25 September 2025</p>
+<h2 id="platform-compatibility_5">Platform Compatibility</h2>
+<p>This release is compatible with the following platforms:</p>
+<ul>
+<li>Dell PowerEdge R660/R650/R640/R630/R620/R610</li>
+<li>VMware ESXi / Workstation</li>
+<li>Microsoft Hyper-V</li>
+<li>QEMU/KVM</li>
+<li>Oracle VirtualBox</li>
+</ul>
+<h2 id="changelog_5">Changelog</h2>
+<h3 id="features_1">Features</h3>
+<ul>
+<li><em>SNMP:</em> Added the possibility to receive SNMPv3 traps from netdevices which have SNMPv3 credentials configured for scanning. (#235235)</li>
+</ul>
+<h3 id="enhancements_5">Enhancements</h3>
+<ul>
+<li><em>RADIUS:</em> Added an option to enable auto-conversion from MAC to EAP identities when authenticating with a valid certificate and a related MAC identity already exists (#291457)</li>
+</ul>
+<h3 id="bugfixes_4">Bugfixes</h3>
+<ul>
+<li><em>Modern GUI:</em> Fixed a data refresh issue on the netdevice overview page which occurred when too many entries have been fetched. (#290791)</li>
+</ul>
+<h1 id="usp-network-authentication-system-160">USP Network Authentication System &reg; 16.0</h1>
+<p>Released 17 September 2025</p>
+<h2 id="platform-compatibility_6">Platform Compatibility</h2>
+<p>This release is compatible with the following platforms:</p>
+<ul>
+<li>Dell PowerEdge R660/R650/R640/R630/R620/R610</li>
+<li>VMware ESXi / Workstation</li>
+<li>Microsoft Hyper-V</li>
+<li>QEMU/KVM</li>
+<li>Oracle VirtualBox</li>
+</ul>
+<h2 id="changelog_6">Changelog</h2>
+<h3 id="features_2">Features</h3>
+<ul>
+<li><em>Modern GUI:</em> Added a restricted demo mode which allows to test the functionality of USP NAS without the need to provide a license. (#290510)</li>
+<li><em>Modern GUI:</em> Added event log viewer including full-text search (#289904)</li>
+<li><em>Modern GUI:</em> Added log file viewer (#213829)</li>
+<li><em>REST API:</em> Added the possibility to import the inventory (endpoints, netdevices, ...) via REST API. See the online REST API documentation for details. (#291501)</li>
+</ul>
+<h3 id="enhancements_6">Enhancements</h3>
+<ul>
+<li><em>Core:</em> Added support for enabling scanning of LAG interfaces (disabled by default). If enabled, these interface will be treated automatically as netport, except if their interface alias matches a customizable regular expression. (#290688)</li>
+<li><em>Core:</em> Added support for monitoring of ring infrastructures / highly redundant networks by adding an option to mark endpoints as double attached nodes (DAN) in the inventory and to mark network ports on switches as HSR ports. In either a case, no event log 1101 "MAC found on multiple devices" will be emitted when a device is seen as active on two different ports. (#290552)</li>
+<li><em>Core:</em> The switch scan now also detects the type of each interface. The type can be seen in the web GUI in the interface table on the netdevice details table, and is also included in the interface REST API response. (#291515)</li>
+<li><em>Core:</em> The time needed to scan a netdevice is now recorded and can be seen in the netdevice details page in the modern GUI and in the netdevice REST API response. (#291485)</li>
+<li><em>Data import:</em> When importing netdevice entries with SNMPv3 credentials using the CSV file importer, password(s) can now be omitted in the import file if a SNMP access profile matching the username is configured. (#290884)</li>
+<li><em>Logging:</em> A new event message 1185 is emitted when an endpoint has been automatically added to the inventory when performing a valid EAP authentication. (#291479)</li>
+<li><em>Logging:</em> Added a new informative event 1978 "Netdevice is assigned to multiple portgroups" when a user assigns a switch to more than one portgroups via the Web GUI (#291500)</li>
+<li><em>Logging:</em> If an SNMP scan fails, the log event entry now contains more details about the SNMP version and credentials (username/community) used to perform the scan (#290964)</li>
+<li><em>Logging:</em> When a new MAC address was found in the network, the event log message "New mac found" (1109) now also contains the location of the netdevice. (#291007)</li>
+<li><em>Modern GUI:</em> Added DNS zone transfer settings to application config management page (#289916)</li>
+<li><em>Modern GUI:</em> Added LDAP connection configuration page (#289917)</li>
+<li><em>Modern GUI:</em> Added VLAN table to netdevice detail view, listing the VLANs configured on each switch (#290186)</li>
+<li><em>Modern GUI:</em> Added a configuration setting to enable TLS 1.0/1.1 in the internal RADIUS server for backwards compatibility. (#290875)</li>
+<li><em>Modern GUI:</em> Added commonly used pre-defined filter presets for connection events, endpoints and netdevices overview pages (#291360)</li>
+<li><em>Modern GUI:</em> Added mechanism to detect when different users try to change settings on a specific page at the same time and prevent unintentional modifications (#290860)</li>
+<li><em>Modern GUI:</em> Added monitoring and alarming page which allows to define forwarding destinations for each log event (#289919)</li>
+<li><em>Modern GUI:</em> Added new tab for updating netport assignments on the netdevice detail page (#290202)</li>
+<li><em>Modern GUI:</em> Added option to bulk-edit and bulk-delete netdevices (#289801)</li>
+<li><em>Modern GUI:</em> Added option to configure OCSP settings of the internal RADIUS server. The OCSP configuration will now also allow to enable OCSP without overriding the certificate URL, so that different responders could be used based on the URL provided in the certificate. (#290876)</li>
+<li><em>Modern GUI:</em> Added option to define asset types and asset classes on-the-fly when adding/editing endpoints (#291276)</li>
+<li><em>Modern GUI:</em> Added option to export filtered table data to Excel/CSV based on the currently active filter, if available, or all data (#290740)</li>
+<li><em>Modern GUI:</em> Added possibility to configure alarming thresholds for selected events (#290319)</li>
+<li><em>Modern GUI:</em> Added possibility to create, restore and manage backups and schedule backup jobs (#289896)</li>
+<li><em>Modern GUI:</em> Added possibility to test DNS zone transfer configuration (#124146)</li>
+<li><em>Modern GUI:</em> Added remote system configuration page, which offers options to configure file servers, syslog server, mail server and SNMP trap receivers in one place. (#289897)</li>
+<li><em>Modern GUI:</em> Added system and network settings configuration page (#289922)</li>
+<li><em>Modern GUI:</em> Added user management page (#289923)</li>
+<li><em>Modern GUI:</em> Added vendor code update settings to application config management page (#290514)</li>
+<li><em>Modern GUI:</em> Ordered columns in Excel/CSV exports in a more sensible way (#290739)</li>
+<li><em>Modern GUI:</em> RADIUS probe user settings can be configured on the application settings page (#290793)</li>
+<li><em>Modern GUI:</em> Related log events can now be seen in a tab on endpoint and netdevice details pages (#290956)</li>
+<li><em>Monitoring:</em> Added SSL/TLS support to mail server settings used for scheduled reports and alarming (#290667)</li>
+<li><em>RADIUS:</em> Added configuration setting to enable checks against an expired CRL when using the internal RADIUS server. (#291478)</li>
+<li><em>RADIUS:</em> Added option to send disconnect request to selected endpoints in order to trigger RADIUS re-authentication (#291032)</li>
+<li><em>RADIUS:</em> Added support for configuring ECDH curves for the internal RADIUS server. The curves prime256v1, secp384r1, secp521r1 are now enabled by default and can be configured on the application configuration page. (#291439)</li>
+<li><em>RADIUS:</em> When a RADIUS accounting request contains information about the current IP address of the endpoint (Attribute 8 Framed-IP-Address) the record  in the database will be updated accordingly. Similarly, the VLAN ID will be updated if the RADIUS accounting request contains the related VLAN information (Attributes Tunnel-Type, Tunnel-Medium-Type, Tunnel-Private-Group-ID). The event "Radius Accounting Endpoint updated" (1151) will contain this information if provided. (#290963)</li>
+<li><em>RADIUS:</em> When auto-adding a new RADIUS netdevice to the inventory based on its subnet, the device name is set according to the <code>NAS-Identifier</code> RADIUS attribute, if provided in the authentication request packet, if it is a valid hostname, and a netdevice with this name not already exists. (#289791)</li>
+<li><em>REST API:</em> Added new REST API properties for port group, access rule, access mode and many more and as well extended filter possibilities in endpoint, interface and netdevice APIs (#291205)</li>
+<li><em>REST API:</em> Added possibility to block endpoints through the REST API, enabling better integration into third-party inventory and security systems (#290701)</li>
+<li><em>REST API:</em> Added possibility to bulk-import endpoint details via REST API (#290470)</li>
+<li><em>REST API:</em> Added possibility to bulk-import endpoint inventory via REST API (#290672)</li>
+<li><em>REST API:</em> Added possibility to bulk-import netdevices via REST API (#290216)</li>
+<li><em>REST API:</em> Added possibility to bulk-import netports via REST API (#290217)</li>
+<li><em>REST API:</em> Added possibility to bulk-import portgroup assignments via REST API (#290218)</li>
+<li><em>REST API:</em> Added possibility to temporarily register and authorize an endpoint through the REST API (#290716)</li>
+<li><em>REST API:</em> Added status change timestamp to endpoint REST API response (#290872)</li>
+<li><em>REST API:</em> Improved endpoint REST API performance (#291204)</li>
+<li><em>Traditional GUI:</em> Netdevice scan fine-tuning options are now available on the application configuration page in the SNMP section. (#291470)</li>
+<li><em>Traditional GUI:</em> The VLAN ID is now shown on access profile configuration pages (#289593)</li>
+<li><em>Traditional GUI:</em> The global access control setting is now displayed in the policy widget in the dashboard (#289593)</li>
+</ul>
+<h3 id="changes_3">Changes</h3>
+<ul>
+<li><em>Backup:</em> Backup/restore handling is now directly implemented in the USP NAS app and no longer requires dedicated support and scheduling in the operating system (#290671)</li>
+<li><em>Backup:</em> Backups and scheduled reports are copied to configured remote servers using a Java-based SSH library instead of using programs from the underlying operating system. (#289868)</li>
+<li><em>Core:</em> Added a dedicated <code>updated</code> field to interface table in order to keep an accurate timestamp of when the entry was last updated. In the past, the last scan time was used which is not always the correct value for this use case. (#291526)</li>
+<li><em>Core:</em> On new installations, only switch interfaces of the standard "Ethernet CSMA/CD" type are scanned during a switch scan; other types can be enabled via configuration property <code>nas.core.snmp.iftype.whitelist</code> as needed. (#291515)</li>
+<li><em>Core:</em> Removed leftover code and database fields related to obsolete endpoint VLAN settings and asset status (#289594)</li>
+<li><em>Core:</em> Removed leftover database fields related to obsolete guest, default, MAC-bypass and VoIP VLAN configuration in access profiles, as well as  guest VLAN setting in temporary endpoint register dialog. (#289593)</li>
+<li><em>Core:</em> When setting up a new USP NAS instance, the DNS zone transfer configuration no longer contains any default zones to avoid unnecessary error events in the log. (#290133)</li>
+<li><em>Data import:</em> Removed obsolete, broken feature "Assign import data source as tenant of the endpoint" (#291148)</li>
+<li><em>Licensing:</em> Activating the internal RADIUS server no longer requires a license module. In the traditional GUI, the option to enable the internal RADIUS server has been moved to the "RADIUS / 802.1X" section of the application configuration page. (#291147)</li>
+<li><em>Licensing:</em> License module checks have been cleaned up: Scheduled report and CSV export no longer need a dedicated license option, obsolete MobileIron, XML Webservice and NAS Basic modules have been removed. (#290072)</li>
+<li><em>Licensing:</em> Removed license module check for VLAN management feature, it is now enabled by default (#291148)</li>
+<li><em>Licensing:</em> Updated license count algorithm for endpoints (need to be registered and active within last 90 days) and enforce check for maximum licensed endpoints in the modern GUI. (#290733)</li>
+<li><em>Logging:</em> Removed log event NO_TRAPS_FROM_DEVICE (1214) and related monitoring configuration. There are many cases where switches do not (regularly) receive traps, and this notification just unnecessarily fills the log files. (#291304)</li>
+<li><em>Modern GUI:</em> Removed option to assign portgroups to netdevices directly in the netdevice overview (for UI performance reasons) (#291425)</li>
+<li><em>REST-API:</em> <strong>BREAKING</strong> The naming in the data structure of the <em>netdevices</em>, <em>interfaces</em> and <em>endpoints REST APIs</em> has been standardized. All property names and filter parameters are now written in <em>camel case</em> instead of a mix of snake case and camel case. Also, some properties have been renamed to more sensible names. Please consult the migration guide and the online REST API documentation for more details. (#291205)</li>
+<li><em>Traditional GUI:</em> "Last jobs" are no longer displayed on the system state page in the traditional GUI. Instead, a link is provided to see the last appliance related events in the new log viewer. (#290979)</li>
+<li><em>Traditional GUI:</em> Removed manual DNS zone transfer button from legacy GUI dashboard (#289916)</li>
+</ul>
+<h3 id="bugfixes_5">Bugfixes</h3>
+<ul>
+<li><em>Core</em>: Fixed an issue where the netdevice status was set to OK (green indicator in the Web GUI) when it received an SNMP trap or RADIUS request, even though an SNMP scan issue exists at that time, and the error status should be visible with a red indicator in the Web GUI. (#291487)</li>
+<li><em>Core:</em> Fixed an error log message which occurred when attempting to check a node whose netdevice no longer exists in the inventory (#291152)</li>
+<li><em>Core:</em> Fixed an issue where VLAN names were not stored in the database during switch scan (#291076)</li>
+<li><em>Core:</em> Fixed an issue where the error status "OID Scan error" was set instead of "no matching adapter" during switch scan when no matching adapter was found. (#291490)</li>
+<li><em>Core:</em> Fixed an issue where the warning event 2030 "No layer 3 information found on device" was logged erroneously during ARP scan of a newly added router device. If a router adapter cannot be determined (due to connection issue or missing support), a error event 3009 "No matching adaptor found for device" will now be logged. (#291497)</li>
+<li><em>Core:</em> The "last scan" time of a netdevice will now be updated even when a "missing netports" error is reported, as the actual scan was concluded successfully. (#291115)</li>
+<li><em>Core:</em> When the USP NAS Core service is restarted during an active switch scan, the scan status flag of netdevices where a scan was in progress is now properly reset, in order to not indicate an incorrect scan status in the web GUI. (#291496)</li>
+<li><em>Data import:</em> Auto-generated WLAN netdevice records are now replaced in case of a data import entry with the same IP address, analogous to RADIUS authentication devices. This fixes a regression introduced in USP NAS 15.3. (#291523)</li>
+<li><em>Logging:</em> <strong>CAUTION</strong> The event and alert NO_NETPORT_DEFINED_ON_NETDEVICE (2090) is now only emitted the first time such an issue has been detected on a netdevice during switch scan, and not every time a device is scanned. The Web GUI and REST API offer appropriate filters to find out which devices currently are lacking a netport configuration. (#291486)</li>
+<li><em>Logging:</em> The log event NO_SNMP_COMMUNICATION_WITH_DEVICE is no longer triggered for netdevices with status "Missing netports", as the SNMP communication was actually successful in this case. The severity level of this event has been changed from INFO to WARNING. (#291239)</li>
+<li><em>Modern GUI:</em> Add missing event log handler for events triggered in the new GUI (e.g. user login/logout) so that the logs are correctly written to the database (#291182)</li>
+<li><em>Modern GUI:</em> Fixed a display issue with long values in the first-time setup wizard summary view (#289854)</li>
+<li><em>Modern GUI:</em> Fixed an issue where certain licensable features did not appear in the GUI when updating a license which contains this feature (#290722)</li>
+<li><em>Modern GUI:</em> Fixed an issue where endpoints appeared again multiple times in the overview if multiple port groups were assigned. (#291441)</li>
+<li><em>Modern GUI:</em> Quick filter on endpoint, connection events and netdevice overview pages does now search in all applicable records (#290320)</li>
+<li><em>RADIUS:</em> A VLAN enforcement via RADIUS will no longer update the default VLAN set in the interface table in the USP NAS database as VLAN assignment via RADIUS are session-based and do not alter the configuration on the switch itself. (#291525)</li>
+<li><em>RADIUS:</em> Added missing configuration setting to enable checks against the local CRL file when using the internal RADIUS server. (#291467)</li>
+<li><em>RADIUS:</em> Fixed an issue which prevented endpoints authenticating with certificates from being auto-inventoried when a previously deleted related MAC based entry was still in the database. (#290728)</li>
+<li><em>RADIUS:</em> Removed unnecessary check for configured netport on switch when performing RADIUS authentication (#291512)</li>
+<li><em>SAB:</em> Improved system service status detection in the SAB API, which in some rare instances has led to false-positive alerts when checking the NAS Core service status check via SNMP (#291187)</li>
+</ul>
+<h1 id="usp-network-authentication-system-154">USP Network Authentication System &reg; 15.4</h1>
+<p>Released 13 August 2025</p>
+<h2 id="platform-compatibility_7">Platform Compatibility</h2>
+<p>This release is compatible with the following platforms:</p>
+<ul>
+<li>Dell PowerEdge R660/R650/R640/R630/R620/R610</li>
+<li>VMware ESXi / Workstation</li>
+<li>Microsoft Hyper-V</li>
+<li>QEMU/KVM</li>
+<li>Oracle VirtualBox</li>
+</ul>
+<h2 id="changelog_7">Changelog</h2>
+<h3 id="enhancements_7">Enhancements</h3>
+<ul>
+<li><em>RADIUS:</em> Added log event <code>RADIUS_NETDEVICE_ADDED (1935)</code> which is triggered when a new netdevice from a RADIUS subnet is automatically added to the inventory (#291230)</li>
+</ul>
+<h3 id="changes_4">Changes</h3>
+<ul>
+<li><em>Logging:</em> <strong>CAUTION</strong> Added missing vendor name and event exception to connection event message which is sent to syslog, email and SNMP trap receivers. The message contains two new fields <code>exceptiontype</code> and <code>vendor</code>, so existing log collection systems might need to be adapted. (#291246)</li>
+<li><em>Logging:</em> Added an optional trace log file for USP NAS Core and changed the log level of certain log statements (e.g. task start/finish) to "trace" in order to reduce verbosity. This will significantly reduce the size of the debug log and  make it easier to find relevant entries when debugging an issue. The trace log can be enabled by starting USP NAS core with the Java option <code>-Dtrace.logging.enabled=true</code>. The debug log events <code>CONFIG_UPDATED (1009)</code>, <code>START_CMDQUEUE_CHECK (1925)</code> and <code>CMDQUEUE_CHECK_COMPLETED (1926)</code> have been removed. (#291232)</li>
+<li><em>REST-API:</em> <strong>CAUTION</strong> Soft-deleted netdevices are no longer included in the netdevice REST API response. The related filter parameters <code>deletedBefore</code> and <code>deletedAfter</code> have been removed. The interface REST API response will also no longer contain records belonging to soft-deleted netdevices. (#290834)</li>
+</ul>
+<h3 id="bugfixes_6">Bugfixes</h3>
+<ul>
+<li><em>Data import:</em> When importing netdevices via CSV, the switch adapter is no longer reset. This prevents extended switch scans after each full import. (#291249)</li>
+<li><em>Legacy GUI:</em> Fixed broken icon link to add an endpoint temporarily in the connection events table (#291227)</li>
+<li><em>Modern GUI:</em> Fix downloading server certificate file as well as creating CSRs when using a certificate based on a elliptic curve private key. (#291287)</li>
+<li><em>RADIUS:</em> Fix reading and writing elliptic curve-based private key files when updating the FreeRADIUS configuration during USP NAS Core startup. (#291287)</li>
+<li><em>RADIUS:</em> Fixed an issue in RADIUS request processing where a connection abort event with error type "Object missing in context" was logged when the related netdevice was of class SWITCH and had no netports assigned. Now the proper error type "No netport defined" will be logged and shown in connection events. (#291231)</li>
+<li><em>RADIUS:</em> Fixed an issue where no connection abort events were shown for EAP requests in case of a RADIUS secret mismatch (#291220)</li>
+<li><em>RADIUS:</em> Fixed an logging issue in the RADIUS message authentication validator in case of a shared secret mismatch. It no longer fails silently without creating a connection abort event when it is the first time a client device gets connected to a specific interface. When the netdevice is unknown and not part of a configured RADIUS subnet or out of scope, a RADIUS_AUTHENTICATOR_OUT_OF_SCOPE log event is created instead. (#291172)</li>
+<li><em>REST-API:</em> If a netdevice has been soft-deleted, its ID and the related interface index are no longer included in the results of the endpoint REST API query (#291203)</li>
+<li><em>Upgrade:</em> Fixed an issue in properly assigning AES + SHA-2 SNMP access profiles during database migration when upgrading from USP NAS &lt; 15.x (#291244)</li>
+</ul>
+<h1 id="usp-network-authentication-system-153">USP Network Authentication System &reg; 15.3</h1>
+<p>Released 17 June 2025</p>
+<h2 id="platform-compatibility_8">Platform Compatibility</h2>
+<p>This release is compatible with the following platforms:</p>
+<ul>
+<li>Dell PowerEdge R650/R640/R630/R620/R610</li>
+<li>VMware ESXi / Workstation</li>
+<li>Microsoft Hyper-V</li>
+<li>QEMU/KVM</li>
+<li>Oracle VirtualBox</li>
+</ul>
+<h2 id="changelog_8">Changelog</h2>
+<h3 id="enhancements_8">Enhancements</h3>
+<ul>
+<li><strong>New GUI:</strong> The data import failure report download button is also shown for successful imports, in case some entries contain failures (#290858)</li>
+<li>Added duration value to CSV data import success event log message (#290878)</li>
+<li>Improved CSV data import error messages: Event CSV_IMPORT_NOT_VALID ("Too many erroneous entries, CSV import aborted") now contains the threshold value used, event CSV_IMPORT_NOT_PERFORMED ("Record count is too low compared to last import from same source") contains the current count, last count and validation threshold used, and the event message is no longer nested into a CSV_IMPORT_ERROR error.  (#290858)</li>
+</ul>
+<h3 id="changes_5">Changes</h3>
+<ul>
+<li>Ensured that syslog messages sent by USP NAS applications have a trailing newline at the end, to ensure proper processing by certain syslog servers. The newline was removed in release 14.0 due to a replacement of the logging framework. If you are using USP NAS with a remote syslog server, we advise to validate the proper reception of log message sent by USP NAS. (#290890)</li>
+<li>If a WLAN AP/controller is being auto-added via RADIUS request subnet match, it will now get the device class WLAN instead of Generic RADIUS auth. device. This will ensure it is scanned in the correct way in case an SNMP access profile is defined. (#290840)</li>
+<li>When auto-adding via RADIUS request subnet match, no "fake" Generic Radius adapter is set anymore. The adapter will be set by the normal switch scan process, and the WebGUI will now show the correct status of the newly added netdevice. (#290068)</li>
+</ul>
+<h3 id="bugfixes_7">Bugfixes</h3>
+<ul>
+<li><strong>New GUI:</strong> Improved the performance of bulk-deleting large amounts of soft-deleted netdevices via the web GUI ("Deleted Netdevices" page) (#290985)</li>
+<li>Changed the id column of the endpoint details table to be an identity column instead of using global ids, in order to avoid conflicts and race conditions when dealing with large data imports. (#290955)</li>
+<li>Fixed a data migration issue during release upgrade which occurred when no RADIUS subnets were defined (#290906)</li>
+<li>Fixed an issue in the portgroup mapping CSV data importer where a mapping was unintentionally assigned to an single interface by interface index, when using a wildcard character as interface name (%) to assign the portgroup to the entire netdevice. (#291001)</li>
+<li>Fixed an issue where an EAP cache registered endpoint did not get removed, as intended, when an invalid certificate was supplied (#290841)</li>
+<li>Fixed an issue which caused some syslog server settings (protocol, format) to be reset to their default value during release upgrade (#290891)</li>
+<li>Fixed an issue which prevented the interface alias uplink matcher to work correctly with multiple devices. It is now also ensured that manually defined netports are never overwritten or removed by the uplink matcher. (#290954)</li>
+<li>Fixed an issue with scanning netdevices using SNMPv3 when multiple users with different credentials are configured (#291108)</li>
+<li>Fixed event log message RADIUS_SERVER_REJECT(1171) so that it does again contain proper information on why a certificate was rejected by the internal RADIUS server during authentication. (#241761)</li>
+<li>Fixed incorrect error count in data import. This could happed under certain circumstances when dealing with duplicate entries in the import file (#290878)</li>
+<li>Fixed the netdevice CSV data importer so that the default SNMP access profile is assigned to an entry if it requires SNMP but has empty community/username fields (#290877)</li>
+</ul>
+<h1 id="usp-network-authentication-system-152">USP Network Authentication System &reg; 15.2</h1>
+<p>Released 6 May 2025</p>
+<h2 id="platform-compatibility_9">Platform Compatibility</h2>
+<p>This release is compatible with the following platforms:</p>
+<ul>
+<li>Dell PowerEdge R650/R640/R630/R620/R610</li>
+<li>VMware ESXi / Workstation</li>
+<li>Microsoft Hyper-V</li>
+<li>QEMU/KVM</li>
+<li>Oracle VirtualBox</li>
+</ul>
+<h2 id="changelog_9">Changelog</h2>
+<h3 id="enhancements_9">Enhancements</h3>
+<ul>
+<li><strong>New GUI:</strong> Improved UX of create/edit netdevice form: Fixed some validation issues, removed unnecessary confirmation dialogs, reordered and grouped inputs more logically and added explanation of the various properties.  (#290838)</li>
+<li><strong>New GUI:</strong> It is now possible to manually set the location of netdevices of type "Generic RADIUS authentication device". (#290838)</li>
+<li>Added new field <code>status_changed</code> in <code>node</code> table which contains the timestamp of the status change (active, inactive, disconnected, ...) of each network node entry. (#290438)</li>
+<li>Improved performance and lowered memory usage of REST API calls (endpoints, netdevices, interfaces) when dealing with large datasets (#290861)</li>
+</ul>
+<h3 id="bugfixes_8">Bugfixes</h3>
+<ul>
+<li><strong>New GUI:</strong> Fixed an issue where some entries were listed multiple times in certain circumstances on the endpoint overview page. (#290847)</li>
+<li><strong>New GUI:</strong> On the connection event page, fixed broken EAP username filter, and ensured that when filtering for client name, both network and inventory-based FQDN are considered (#290837)</li>
+<li><strong>New GUI:</strong> On the endpoint and netdevice overview pages, the source filter no longer includes sources of deleted entries. (#290862)</li>
+<li><strong>New GUI:</strong> On the endpoint overview page, entries are again sorted by last event. (#290845)</li>
+<li><strong>New GUI:</strong> Show case-insensitive netport auto-assignment on netdevice interface page (#290833)</li>
+<li>Fixed a regression which prevented a proper system configuration and network interface name migration, when upgrading directly from older USP NAS releases (&lt;14.0) (#290859)</li>
+<li>Fixed an issue where a workspace change was created when restoring policy or full backups, due to an accidentally emptied profile rule table. Newly created backup files will no longer have this issue. (#290835)</li>
+</ul>
+<h1 id="usp-network-authentication-system-151">USP Network Authentication System &reg; 15.1</h1>
+<p>Released 30 April 2025</p>
+<h2 id="platform-compatibility_10">Platform Compatibility</h2>
+<p>This release is compatible with the following platforms:</p>
+<ul>
+<li>Dell PowerEdge R650/R640/R630/R620/R610</li>
+<li>VMware ESXi / Workstation</li>
+<li>Microsoft Hyper-V</li>
+<li>QEMU/KVM</li>
+<li>Oracle VirtualBox</li>
+</ul>
+<h2 id="changelog_10">Changelog</h2>
+<h3 id="enhancements_10">Enhancements</h3>
+<ul>
+<li><strong>New GUI:</strong> Added link to regex online reference documentation on application settings page (#290737)</li>
+<li><strong>New GUI:</strong> Extended the SNMP trap input form description on the application settings page to clarify that empty SNMP trap communities are allowed (in such a case, all traps will be accepted). (#290794)</li>
+<li>Avoid system reboot when restoring app backup; only reboot automatically when restoring full or system settings backup (#290690)</li>
+<li>Include access mode / access rule related to the netdevice in the endpoint REST API response (#290790)</li>
+<li>Include assigned portgroup names in netdevice REST API response (#290788)</li>
+<li>Paginate certificate list after 25 entries instead of 10 (traditional GUI) (#290756)</li>
+<li>RADIUS auth. devices are included in the 'number of switches' graph on the status page. A dedicated graph for the number of WLAN access points has been added as well. (#290797)</li>
+<li>Regex-based uplink-detection is now case-insensitive by default (#290737)</li>
+</ul>
+<h3 id="bugfixes_9">Bugfixes</h3>
+<ul>
+<li><strong>New GUI:</strong> Allow to set empty SNMP trap community string in application settings page (#290796)</li>
+<li><strong>New GUI:</strong> Fixed a display issue on the dashboard with the HA authenticator name on smaller screens (#290782)</li>
+<li><strong>New GUI:</strong> Fixed an issue where table filter presets could not be saved for LDAP-based users (#290738)</li>
+<li><strong>New GUI:</strong> Fixed an issue with changing the scheduled script history retention setting in the configuration page (#290800)</li>
+<li><strong>New GUI:</strong> Fixed display issues on the scheduled script overview page caused by invalid cron schedule expressions (#290777)</li>
+<li><strong>New GUI:</strong> Fixed various table scroll issues on radius subnets, certificates, scheduled scripts overview and data import pages (#290780)</li>
+<li><strong>New GUI:</strong> Shorten long location string, if needed, on netdevice overview page to avoid display issues (#290781)</li>
+<li>Added housekeeping mechanism to delete old SAB job logs (backup/restore/update) in order to not grow indefinitely (#290823)</li>
+<li>Exclude keep-alive requests (HA authenticator, probe user) from RADIUS statistics charts and counters (#290439)</li>
+<li>Fixed a data migration issue which may occur during upgrade to version 15.0 when CA certificates with non-unique aliases have been configured. Also, if multiple CA certificate entries have the same actual certificate data, their properties are now merged into one entry instead of keeping separate entries. (#290756)</li>
+<li>Fixed a dependency issue which prevented the tshark command line tool to work properly (#290792)</li>
+<li>Fixed an issue related to scheduled scripts with type "inventory importer" where the value for the changed-by field was written incorrectly in the resulting CSV file (#290795)</li>
+<li>Fixed an issue with processing RADIUS packets with segmented EAP message attributes (#290727)</li>
+<li>Fixed an issue with reading script contents in the script editor when different line endings were used (#290774)</li>
+<li>Improved Excel/CSV export memory consumption and set record limits to avoid Web GUI crashes when dealing with large tables (#290776)</li>
+<li>Improved memory usage of interface REST API query with large datasets (#290846)</li>
+<li>When setting up a new system, no alert should be generated for license change, as it's the first time a license is loaded (#290729)</li>
+</ul>
+<h1 id="usp-network-authentication-system-150">USP Network Authentication System &reg; 15.0</h1>
+<p>Released 30 March 2025</p>
+<h2 id="platform-compatibility_11">Platform Compatibility</h2>
+<p>This release is compatible with the following platforms:</p>
+<ul>
+<li>Dell PowerEdge R650/R640/R630/R620/R610</li>
+<li>VMware ESXi / Workstation</li>
+<li>Microsoft Hyper-V</li>
+<li>QEMU/KVM</li>
+<li>Oracle VirtualBox</li>
+</ul>
+<h2 id="changelog_11">Changelog</h2>
+<h3 id="features_3">Features</h3>
+<ul>
+<li><strong>New GUI:</strong> Add possibility to download data tables as Excel and CSV files in new GUI (#289554)</li>
+<li><strong>New GUI:</strong> Basic configuration can be configured in the new GUI. (#253630)</li>
+<li><strong>New GUI:</strong> Enhanced information about past data imports displayed in import status table (#289529)</li>
+<li><strong>New GUI:</strong> RADIUS subnets can be defined in the new GUI. A portgroup and/or a SNMP access profile can be selected for each subnet. This enables setting SNMPv3 access credentials for auto-inventorying RADIUS authentication devices. (#256424)</li>
+<li><strong>New GUI:</strong> SNMP access profiles can be configured in the new GUI and assigned to netdevices. (#289672)</li>
+<li><strong>New GUI:</strong> Scheduled scripts can be added, edited and run in the new GUI. It is no longer required to edit script contents via command line. Script files which were stored in the file system are automatically migrated to the database. (#289637)</li>
+</ul>
+<h3 id="enhancements_11">Enhancements</h3>
+<ul>
+<li><strong>New GUI</strong>: A new SNMP access profile can be defined on-the-fly when adding/editing a netdevice (#290322)</li>
+<li><strong>New GUI</strong>: ARP table is now available on netdevice detail page if device class is router (#290177)</li>
+<li><strong>New GUI</strong>: An "Operating figures" widget has been added to the dashboard (#289799)</li>
+<li><strong>New GUI</strong>: CA certificates can be configured in the new GUI. Each CA certificate can be used for both peripheral systems and RADIUS at the same time. (#290389)</li>
+<li><strong>New GUI</strong>: Display which portgroup a netdevice is assigned to on the netdevice overview and details page (#290373)</li>
+<li><strong>New GUI</strong>: In router ARP table view, the MAC vendor is shown if available, as well as the asset type and class (if the related endpoint is registered) (#290176)</li>
+<li><strong>New GUI</strong>: Server certificate can be changed in the new GUI (#290391)</li>
+<li><strong>New GUI:</strong> Add option to reload NAS core directly after configuration value change (#290318)</li>
+<li><strong>New GUI:</strong> Added maintenance page with options to restart USP NAS services or reboot the system (#286317)</li>
+<li><strong>New GUI:</strong> Added possibility to update software image in new GUI, via maintenance page. (#289900)</li>
+<li><strong>New GUI:</strong> Login with an LDAP-backed user is now possible via the modern GUI. (#289805)</li>
+<li><strong>New GUI:</strong> The operating mode ("daemon mode") can be easily changed from the dashboard of the new GUI. A notification is shown in the sidebar if the mode is set to off. (#289662)</li>
+<li>Added an interface for scheduled jython scripts to send emails. See the related template for an example. (#290233)</li>
+<li>Added option to limit the number of scheduled script history log entries to keep (#290302)</li>
+<li>Added registered endpoint asset ID to Endpoint REST API response (#290630)</li>
+<li>Added scheduled script template for netdevice import, demonstrating how entries can be generated which use SNMPv2 or SNMPv3 credentials (#290197)</li>
+<li>Hardware vendor name is now included in connection event (#289793)</li>
+<li>Improved RADIUS connection chart in dashboard, showing more data points by default (#290437)</li>
+<li>Include assigned portgroup names in interface REST API response (#290249)</li>
+<li>Include netport flag in interface REST API response (#289792)</li>
+<li>On the page where netdevices can be  added to a portgroup, show the netdevice location if available. (#290185)</li>
+<li>Scheduled script error message is visible in script history, in case script run failed (#290471)</li>
+</ul>
+<h3 id="changes_6">Changes</h3>
+<ul>
+<li><strong>BREAKING:</strong> Removed MobileIron Fetch API functionality. We advise to use a custom scheduled script instead. (#290074)</li>
+<li><strong>BREAKING:</strong> Sending emails using SAB CLI methods is no longer possible. Scheduled scripts might need to be adapted. See the migration guide for an alternative solution. (#290233)</li>
+<li>Added global SNMP access profiles which replace SNMP community/username/password settings for netdevices. SNMP credentials in existing netdevice entries will be migrated to the new access profiles. Credentials provided in netdevice imports will be matched to existing access profiles. A new field is availble in netdevice imports to specify the desired SNMP access profile name. (#289672)</li>
+<li>Emails (scheduled reports) are being sent directly by the USP NAS application instead of using the operating system mail service (postfix). (#289866)</li>
+<li>In the netdevice REST API, the query filter parameter  <code>snmpVersion</code> has been replaced by <code>snmpAccessProfileId</code> which references the assigned SNMP access profile. The response will now contain the fields <code>snmpAccessProfileId</code>, <code>snmpAccessProfileName</code>, <code>snmpVersion</code>, <code>snmpAuthenticationAlgorithm</code>, <code>snmpEncryptionAlgorithm</code>. (#290220)</li>
+<li>It is now possible to change the NAS Core daemon mode without requiring workspace activation (#290355)</li>
+<li>Remove various tools from the USP Appliance OS base image to reduce space: postfix, gdb, ethtool, hwinfo, dstat, wpa_supplicant (eapol_test), sysstat, tmux (#212698)</li>
+<li>Standardized SAB CLI API log file names to be similar to NAC application logs (debug.log, info.log, ...) (#290628)</li>
+<li>The menu entry "Core configuration" is now called "Application configuration" (#5688)</li>
+<li>Updated Angular UI framework to version 18 (#258137)</li>
+<li>Updated several third-party libraries to fix reported security vulnerabilities (CVE-2024-52317, CVE-2023-5072, CVE-2024-38821, CVE-2024-1597, CVE-2024-22243, CVE-2024-22259, CVE-2024-22262, CVE-2024-38809) (#290248)</li>
+</ul>
+<h3 id="bugfixes_10">Bugfixes</h3>
+<ul>
+<li><strong>New GUI</strong>: Allow RADIUS authentication netdevices to be assigned to a portgropup, instead of switches only (#290373)</li>
+<li><strong>New GUI:</strong> Fixed an issue where filter criteria info is lost on page refresh (#289853)</li>
+<li><strong>New GUI:</strong> Improved performance of endpoint view (last connection event time is now stored in endpoint node table) (#290372)</li>
+<li>Added 'Generic RADIUS Device' to the list of selectable switch adapters in netdevice filter (#289962)</li>
+<li>Correct network type is shown in connection event in case the netdevice is of type RADIUS authentication type (#290012)</li>
+<li>Fixed an error which occurred when processing a RADIUS request belonging to a soft-deleted auto-inventoried RADIUS authentication device. (#290597)</li>
+<li>Fixed an issue where a "Switch adaptor class loading failed (GenericRadiusAdaptor)" message was logged for generic RADIUS authentication devices (#289962)</li>
+<li>Fixed an issue where certain regular expressions for uplink detection could not be read correctly from the configuration when scanning netdevices (#290647)</li>
+<li>Fixed an issue where data sources of deleted inventoried endpoints were shown as an option in the table filter on the registered endpoints page (#290584)</li>
+<li>Fixed an issue which prevented Netdevices from correctly being written to CSV import files in scheduled scripts which are using the "netdevice" import type (#290147)</li>
+<li>Fixed an issue with properly updating the table ID sequence when restoring a backup. (#290662)</li>
+<li>Fixed event log message MAC_IN_MULTIPLE_VLANS being logged unnecessarily. (#290519)</li>
+<li>Fixed some issues in data import event log messages (prevent nested messages, always show simple filename without path) (#290610)</li>
+<li>Improved exception handling in connection event logger (#290649)</li>
+<li>In case no DNS servers for zone transfer are configured, don't show a warning (WARN_DNS_IMPORT_FAILED) in the log file. (#290406)</li>
+<li>In case of an invalid uplink regex configuration, log error and continue, instead of crashing the entire netdevice scanner task. (#290646)</li>
+<li>Profiler default datasets are only imported when really needed (license module enabled and table empty) (#289969)</li>
+<li>When configuring a network interface statically via console, set default gateway and DNS servers to static as well, if they have been previously configured to use DHCP. (#289789)</li>
+<li>Whitespace is now removed from interface alias when scanning switches and storing switch interface information into the database. This should prevent certain issues with uplink detection from port tags. (#290587)</li>
+</ul>
+<h3 id="documentation">Documentation</h3>
+<ul>
+<li>Added USP NAS Quick Setup Guide (#290511)</li>
+<li>Added list of known compatible network equipment vendors and models to documentation (#289957)</li>
+<li>The USP NAS Migration guide, which describes how to handle potentially breaking changes during major upgrades, can now be accessed from the NAS WebGUI (#290171)</li>
+</ul>
+<h1 id="usp-network-authentication-system-142">USP Network Authentication System &reg; 14.2</h1>
+<p>Released 11 March 2025</p>
+<h2 id="platform-compatibility_12">Platform Compatibility</h2>
+<p>This release is compatible with the following platforms:</p>
+<ul>
+<li>Dell PowerEdge R650/R640/R630/R620/R610</li>
+<li>VMware ESXi / Workstation</li>
+<li>Microsoft Hyper-V</li>
+<li>QEMU/KVM</li>
+<li>Oracle VirtualBox</li>
+</ul>
+<h2 id="changelog_12">Changelog</h2>
+<h3 id="bugfixes_11">Bugfixes</h3>
+<ul>
+<li>Fixed an issue where endpoints were not recognized on some Cisco Switches (VTP MIB) when using SNMPv3, because the VLAN context was not properly applied when scanning the bridge table. (#290629)</li>
+</ul>
+<h1 id="usp-network-authentication-system-141">USP Network Authentication System &reg; 14.1</h1>
+<p>Released 17 February 2025</p>
+<h2 id="platform-compatibility_13">Platform Compatibility</h2>
+<p>This release is compatible with the following platforms:</p>
+<ul>
+<li>Dell PowerEdge R650/R640/R630/R620/R610</li>
+<li>VMware ESXi / Workstation</li>
+<li>Microsoft Hyper-V</li>
+<li>QEMU/KVM</li>
+<li>Oracle VirtualBox</li>
+</ul>
+<h2 id="changelog_13">Changelog</h2>
+<h3 id="enhancements_12">Enhancements</h3>
+<ul>
+<li>Added filter by ifalias (contains string) for interface REST API (#290252)</li>
+<li>WebGUI default admin user password can be reset via console menu (#290174)</li>
+</ul>
+<h3 id="changes_7">Changes</h3>
+<ul>
+<li>Re-added <code>id</code> property in the interface REST API response (#290252)</li>
+</ul>
+<h3 id="bugfixes_12">Bugfixes</h3>
+<ul>
+<li><strong>BACKPORTED:</strong> When configuring a network interface statically via console, set default gateway and DNS servers to static as well, if they have been previously configured to use DHCP. (#290547)</li>
+<li>Added missing changed-by field in the endpoint REST API and legacy GUI endpoint details view (#290267)</li>
+<li>Corrected improper RADIUS accounting backend service default port (should be 1815 but was 1) (#290548)</li>
+<li>Ensure REST API cannot be accessed when the related user account is disabled, locked or expired (#290223)</li>
+<li>Ensure internal DHCP server is only enabled on Dell hardware, in order to provide a debug console interface. (#289785)</li>
+<li>First-time setup wizard will be marked as completed when setting up the NAS through the legacy GUI (#290183)</li>
+<li>Fixed a data type issue with the netdevice id filter in the interface REST API (#290252)</li>
+<li>Fixed a problem in the connection events view of the new GUI which occurs when records do not contain (EAP) authentication time data (e.g. after upgrade from older releases) (#290361)</li>
+<li>Fixed an issue related to database upgrade when updating from an older release, which caused the update to take much longer than intended. (#290363)</li>
+<li>Fixed an issue where the NAS Core RADIUS service was not started properly if the RADIUS accounting service was disabled (#290489)</li>
+<li>Fixed month number in RADIUS connection chart on new dashboard (#290245)</li>
+<li>Improved performance of endpoint REST API queries, especially in cases where lots of endpoint details are stored in the database (#290225)</li>
+<li>Removed obsolete GUI configuration settings related to LDAP, which could cause validation errors (#290219)</li>
+<li>Show warning in the GUI if the deprecated "VLAN assignment with default VLAN" is still set as access control mode (#290203)</li>
+</ul>
+<h1 id="usp-network-authentication-system-140">USP Network Authentication System &reg; 14.0</h1>
+<p>Released 18 November 2024</p>
+<h2 id="platform-compatibility_14">Platform Compatibility</h2>
+<p>This release is compatible with the following platforms:</p>
+<ul>
+<li>Dell PowerEdge R650/R640/R630/R620/R610</li>
+<li>VMware ESXi / Workstation</li>
+<li>Microsoft Hyper-V</li>
+<li>QEMU/KVM</li>
+<li>Oracle VirtualBox</li>
+</ul>
+<h2 id="changelog_14">Changelog</h2>
+<h3 id="features_4">Features</h3>
+<ul>
+<li><strong>New GUI:</strong> A new first-time setup experience has been added, guiding the admin user through the first steps in setting up the USP NAS appliance system (#200314)</li>
+<li><strong>New GUI:</strong> Added endpoint attributes management view with a unified approach to manage asset types, asset classes and tenants (#258281)</li>
+<li><strong>New GUI:</strong> Added enhanced netdevice detail view, with associated endpoints, ports and related connection events sub-views. (#258277)</li>
+<li><strong>New GUI:</strong> Added improved connection events page with customizable property filter, quick filter, auto-refresh and infinite scrolling. (#228553)</li>
+<li><strong>New GUI:</strong> Added improved netdevice overview page with customizable property filter, quick filter, auto-refresh and infinite scrolling. (#258276)</li>
+<li><strong>New GUI:</strong> Added inventory import page with detail view for each import type. (#243512)</li>
+<li><strong>New GUI:</strong> Added possibility to delete endpoint register permanently or restore them from the "recycle bin" (#289386)</li>
+<li><strong>New GUI:</strong> Added simplified modernized dashboard (#258284)</li>
+<li><strong>New GUI:</strong> Added view listing all temporarily approved endpoints. Approvals can be revoked, renewed, or the endpoint could be permanently added directly from this view. (#258278)</li>
+<li><strong>New GUI:</strong> Endpoint-certificate information is displayed in the USP NAS Web GUI endpoint details page, if available. (#241762)</li>
+<li><strong>New GUI:</strong> Endpoints can be temporarily approved directly from the connection events view page (#258278)</li>
+<li>Added automatic detection of uplinks from the port-tags (ifalias) using regular expressions (see "Core Configuration" -&gt; "Import" -&gt; "Regular expression to match and assign uplinks automatically from ifalias") (#243519)</li>
+<li>Added status REST API (<code>/status</code>) which provides some basic runtime information about the USP NAS appliance system and application (#289773)</li>
+<li>Added system label setting, which can be used to indicate the purpose of each instance (e.g. Test, Prod, ...). A color can be chosen for the label as well. (#232945)</li>
+<li>FreeRADIUS stores endpoint client certificates in the USP NAS database (table endpoint_certificate) for further analysis and display in the Web GUI. (#249650)</li>
+</ul>
+<h3 id="enhancements_13">Enhancements</h3>
+<ul>
+<li><strong>New GUI:</strong> A customer feedback button has been added (#258289)</li>
+<li><strong>New GUI:</strong> Added license management page (#286316)</li>
+<li><strong>New GUI:</strong> Current hostname and system label are shown in the new sidebar. (#251827)</li>
+<li><strong>New GUI:</strong> Help and FAQ documentation are available directly via the help button in page header. (#112559)</li>
+<li><strong>New GUI:</strong> Show warning in dashboard if USP NAS core is not running (#289864)</li>
+<li>A script template has been added which can be used for updating the CRL used by FreeRADIUS authentication (#241756)</li>
+<li>A specific log message is created when updating to a new NAS release. This can be forwarded to monitoring system, similar to other alerts. The new message has identifier 1022 and text 'USP Network Authentication System application version changed.'. The current and previous versions will be appended. (#253870)</li>
+<li>A system hardware summary has been added to the appliance system info page in NAS Web GUI. This information is also shown when logging in to the CLI via SSH. (#228730)</li>
+<li>Added a "changed-by" field for inventory. This can be set via endpoint import files, and it is automatically set by the Web GUI when a user makes changes to a registered endpoint entry. The value of this field is displayed on the endpoint details page in the new GUI. (#289407)</li>
+<li>Added list of open-source components used in building USP NAS to the documentation (#228732)</li>
+<li>Added navigation elements to switch between current and next-generation GUI (#258287)</li>
+<li>Added option to configure NAS Core Java heap space size. To set an upper limit of 4096 MB for example, execute the CLI command <code>sab applications:config:set_configuration application=nas-core variable=max_mem value=4096m</code> (requires restart of NAS Core service). (#213831)</li>
+<li>Added option to configure system DNS server via CLI console menu. (#289766)</li>
+<li>Added possibility to set all ports of as switch as portgroup by using a wildcard character '*' in the ifname column of PORTGROUP import files (#286171)</li>
+<li>Added rate limit filter for requests to the USP NAS WebGUI. The max number of requests allowed per minute can be configured on the Web GUI configuration page. The filter can be disabled by setting the configuration values to 0. (#256193)</li>
+<li>Documented usage patterns for EAP username matching in GUI (#290086)</li>
+<li>Extended CSV import with option for setting UTF8 charset; this can be configured on the core configuration page. (#289565)</li>
+<li>Extended remote syslog options. It is now possible to use TCP instead of UDP as transport protocol (UDP remains the default), and to use IETF (RFC5424) instead of BSD (RFC3164) message format (BSD remains the default).  (#244484)</li>
+<li>Highlight in GUI if switch adapter does not support reading or moving VLANs (e.g. Generic Bridge MIB) (#290104)</li>
+<li>Improved validation of backup files when attempting to restore a backup. If opening a backup file fails, the error will display the reason (e.g. incompatible version, missing metadata, wrong decryption key, etc.) (#230919)</li>
+<li>Include additional graphs in "NAS application" and "operating system" status views. This includes graphs related to netdevices, RADIUS authentication as well as application and database performance. (#228590)</li>
+<li>Internal network range (default 172.17.0.0/16) used by the Docker service can now be changed via SAB CLI to avoid conflicts with existing networks. Execute <code>sab docker help</code> to see the available options for customizing docker on the appliance. (#228086)</li>
+<li>It is now possible to set the community string of the local SNMP server on the system settings page (this was previously only possible via CLI). The local SNMP server can be queried for system status data which can be used for monitoring of the health of the USP NAS system. (#245264)</li>
+<li>Log events are created for scheduled backups, indicating if the backup was successful or if an error happened. The log message 1601 "Automatic backup executed successfully." has been added and can be configured in the alarming settings. (#286309)</li>
+<li>Log events are created when performing an authenticator sync, indicating if the sync was successful or if an error happened. The log message 1600 "Authenticator sync executed successfully." has been added and can be configured in the alarming settings. (#272981)</li>
+<li>Log packet details in debug log if no response packet from RADIUS backend has been received (#289312)</li>
+<li>Scheduled scripts and config are now part of "application configuration" backup archive (#241757)</li>
+<li>Show MAC vendor in connected endpoints table on netdevice details page (#290120)</li>
+<li>System audit log events (e.g. SSH logins) are now forwarded to a remote syslog server (if configured) (#233044)</li>
+<li>System-LDAP login (nslcd) logs are now stored in a dedicated logfile <code>/var/log/nslcd.log</code> (#251576)</li>
+<li>The number of RADIUS authentication devices is shown on the dashboard, and the list of active switch adapters now also includes adapters in use by RADIUS authentication devices. (#289798)</li>
+<li>Threshold values are now included in hardware and OS alarm messages, along with the current value (#273020)</li>
+<li>Updated vendor database file. The dataset is now automatically updated with every release. (#240940)</li>
+<li>Web server version is now hidden in response headers and error pages. (#258323)</li>
+<li>When collecting endpoint details via X.509 attributes during EAP authentication, set their source to 'EAP' (#289872)</li>
+</ul>
+<h3 id="changes_8">Changes</h3>
+<ul>
+<li><strong>BREAKING:</strong> API keys for REST-API users need to be generated again via the user management page in the USP NAS WebGUI, and any existing keys in client scripts need to be replaced with this new key. (#289261)</li>
+<li><strong>BREAKING:</strong> Alerting messages sent via SNMP trap might now display a different agent address (source address) depending on the appliance network setup as the logic to determine the primary address has been improved; the primary IP address is based on the subnet which contains the default gateway. (#271028)</li>
+<li><strong>BREAKING:</strong> Removed data fetch scripts functionality. Scheduled scripts should be used instead. (#271246)</li>
+<li><strong>BREAKING:</strong> Removed legacy WSDL/SOAP-based inventory XML webservice; it is recommended to use the new REST API instead (#255450)</li>
+<li><strong>BREAKING:</strong> The REST API responses have been extended and slightly changed: In the Endpoint API, the <code>id</code> field has been removed as it might be ambiguous, the <code>netdevice_id</code> and the <code>ifindex</code> are now a number instead of a string, a typo has been fixed in the <code>defaultvlan</code> field (from <code>defaulvlan</code>), the field <code>inventoried</code> has been added, and entries are now sorted by MAC address. A <code>source</code> query parameter has been added to filter endpoints by inventory source and a <code>inventoried</code> query parameter has been added do filter endpoints based on if they are in the inventory or not. In the Netdevice API, the fields <code>snmpversion</code>, <code>devicetype</code> (Switch adapter) and <code>description</code> have been added, the <code>inscope</code> value is now a number, and entries are now sorted by device name. In the Interface API, the <code>id</code> field has been removed, and entries are now sorted by <code>netdevice_id</code>, <code>ifindex</code> and <code>ifname</code>. (#289723)</li>
+<li><strong>BREAKING:</strong> The application name used in syslog messages (BSD format) has been changed in order to comply with RFC 3164 (<code>program[pid]: message text</code>). This means that log messages begin now with <code>uspnascore[PID]:</code> instead of <code>usp-nas-core</code> and <code>uspnaswebui[PID]:</code> instead of <code>usp-nas-webui</code> (PID being an arbitrary number). (#244484)</li>
+<li><strong>BREAKING:</strong> Updated log4j logging framework for NAS core and GUI to latest major version. This leads to the following changes in Syslog messages sent from NAS: The full hostname (FQDN) is now used as sender instead of the base hostname, and an unnecessary newline character has been removed from the end of log messages. Scheduled scripts using log4j (<code>org.apache.log4j.Logger</code>) need to be adapted (see the new Jython template for logging). (#258020)</li>
+<li>Adapted SAB CLI methods related to back up, restore and update to use a 'file' parameter (requiring an absolute path) instead of an 'url' parameter, and adapted interfaces and paths accordingly in other NAS components. (#233682)</li>
+<li>Add option for endpoint restrictions to USP NAS license (#289427)</li>
+<li>Adjust PDF/HTML documentation theme to match new USP corporate branding (#277927)</li>
+<li>Default vendor database remote update URL is now using HTTPS. It is highly recommended to set the URL to https://standards-oui.ieee.org/oui.txt on existing installations. (#240940)</li>
+<li>Disabled TRACE method on WebGUI application server to prevent unwanted information disclosure.  (#258323)</li>
+<li>Firewall rules now follow a whitelist approach, any ports not in the list if allowed ports are blocked by default on new installations. To add an exception, use the SAB CLI, for example <code>sab network:firewall:set_rule type=input protocol=udp port=11812 action=accept comment=Example</code> (#212941)</li>
+<li>Generate secure random JWT secret on first GUI startup. This key is used to generate the access token when accessing the API.  (#289261)</li>
+<li>Implemented new database migration mechanism which provides more flexibility and does not rely on NAS release versions number schema. (#213838)</li>
+<li>Legacy reports removed: Endpoints connected in a VLAN, Number of known, unknown and new unknown endpoints, MAC Tracker, Port activation diagram, Access control statistic, Authorization chart, System overview, Log report 802.1X authentications (#241946)</li>
+<li>Removed creating unused PostgreSQL standby database on new installations (#212838)</li>
+<li>Removed non-functional FreeRADIUS: 'Allow all' feature until a better solution is found (#289861)</li>
+<li>Removed obsolete GUI password expiration feature (#233331)</li>
+<li>Removed obsolete and unused housekeeping script related methods from SAB CLI tool as well as the /data/transfer/logrotate directory (#245295)</li>
+<li>Removed obsolete and unused local SNMPD script functionality from SAB CLI tool (#245663)</li>
+<li>Removed obsolete link speed and duplex mode from network configuration (#241951)</li>
+<li>The ability to define a VLAN for a specific device has been removed. The VLAN assignment is done exclusively via access profiles. (#289553)</li>
+<li>The access control "default VLAN" has been removed. This is not relevant for RADIUS authentication. (#289553)</li>
+<li>The display of the asset status of a device has been removed because it has no functional relevance. (#289553)</li>
+<li>The specific configuration for guest, default, MAC-bypass and VoIP access has been removed from the access profile. In the future, these will be assigned in a standardized manner using their own access profile. (#289553)</li>
+<li>Updated implementation of SNMP trap and email alert sending functionality by using Java-based libraries instead of shell scripts for better portability. (#271028)</li>
+<li>Updated openSSH to version 9.8_p1 to address CVE-2024-6387 (regreSSHion) (#289546)</li>
+<li>Updated to latest 5.10 Linux kernel version (#289374)</li>
+</ul>
+<h3 id="bugfixes_13">Bugfixes</h3>
+<ul>
+<li>Added character-set detection for scheduled scripts when they are displayed in the GUI. This fixes an issue where some scripts appeared as empty when viewing their content. (#289653)</li>
+<li>Added missing FQDN of registered endpoints in connection-events log (#242678)</li>
+<li>Asset type and asset class information in endpoints REST API is now properly displayed (#289722)</li>
+<li>Corrected netdevice import field names in related syslog messages (added missing columns for deprecated fields) (#242677)</li>
+<li>Device scan of WLAN devices is only attempted when SNMP reads are enabled (previously they were scanned regardless of this setting) (#290103)</li>
+<li>Endpoints which are only in the inventory but have not yet been observed in the network are now included in the endpoint REST API response as well.  (#289723)</li>
+<li>Ensure Web GUI SSL certificate is synchronized and activated during authenticator synchronization (#286767)</li>
+<li>Ensured a matching status bubble is always shown in the netdevice overview; added conditions for the case where communication with a switch with netports already defined fails or where an undefined state is detected. (#253113)</li>
+<li>Ensured that RADIUS accounting request are forwarded from an authenticator to the master system in transparent HA setups. (#256387)</li>
+<li>Error messages in GUI do no longer automatically vanish after a few seconds. (#249437)</li>
+<li>Fix an issue in vendor lookup for "invalid port config" log messages in case of the port configuration enforcement feature being enabled. (#289497)</li>
+<li>Fixed a NPE when logging into the GUI with a pending workspace activation but no workspace admin set in the database. (#289762)</li>
+<li>Fixed an issue where RADIUS authentication devices were not assigned automatically to a portgroup specified in the RADIUS subnet configuration. (#250576)</li>
+<li>Fixed an issue where a guilty endpoint was displayed based on a deprecated/old entry of another node which was connected on the same port (#286172)</li>
+<li>Fixed an issue where time used for EAP-authentication has been stored as negative value (milliseconds) (#289707)</li>
+<li>Fixed an issue which prevented some event logs being stored in the database after synchronization of authenticator instances (#289847)</li>
+<li>Fixed an issue which prevented some monitoring history entries  being stored in the database after synchronization of authenticator instances (#289857)</li>
+<li>Fixed an issue which prevented updating endpoint inventory information in certain circumstances (e.g. when using '\' in a form field) (#289950)</li>
+<li>Fixed detection of ports on SFP module on Alcatel OS6900-T40 switches. (#289600)</li>
+<li>Fixed reset root password functionality in console menu (#289703)</li>
+<li>Fixed switch scan for Extreme (210 Series QBridge MIB) switches (#289641)</li>
+<li>Fixed typo in default value of database field <code>nas.node.epc_action</code> which was previously set to <code>UNDEFINIED</code> (#248819)</li>
+<li>Fixes a configuration loading issue which resulted in not processing RADIUS requests when enabling the internal FreeRADIUS server for the first time. (#289871)</li>
+<li>Identifier of proxy request extended with hash to avoid potential ambiguous identification of proxy response packets. (#289354)</li>
+<li>Improved error handling in scheduled script runner and fixed an issue in determining the proper script engine in certain circumstances. (#289951)</li>
+<li>Mark scheduled scripts which are marked as still running during (re)start of USP NAS core as failed, to prevent long-running stale script states in certain error conditions. (#286820)</li>
+<li>Regex for Netdevice import extended for maintenance mode and snmp v3 SHA 224, 256, 384, 512 authentications (#289247)</li>
+<li>Remove unnecessary calls to system API during RADIUS MAC authentication processing (#232924)</li>
+<li>Removed duplicate field 'EAP Identity' in 'Registered endpoints' table in GUI; added 'Authentication' field instead. (#289361)</li>
+<li>Removed obsolete 'isolated' access profile from dashboard and portgroup entries in policy manager (#289955)</li>
+<li>Reworked status bubbles in netdevice overview. Netdevices which are monitored ("in scope") but without SNMP scanning enabled (due to SNMP read setting disabled or maintenance mode enabled) are now shown with a blue indicator bubble. (#282274)</li>
+</ul>
+<h3 id="documentation_1">Documentation</h3>
+<ul>
+<li>Added documentation about recently added features (#170743)</li>
+<li>Extended documentation about the various backup types (#289729)</li>
+<li>The REST API documentation has been extended to describe each action, its parameters and response values. The documentation can be accessed from the help menu of the new GUI. (#289723)</li>
+</ul>
+<h1 id="usp-network-authentication-system-5134">USP Network Authentication System &reg; 5.13.4</h1>
+<p>Released 9 March 2025</p>
+<h2 id="platform-compatibility_15">Platform Compatibility</h2>
+<p>This release is compatible with the following platforms:</p>
+<ul>
+<li>Dell PowerEdge R650/R640/R630/R620/R610</li>
+<li>VMware ESXi / Workstation</li>
+<li>Microsoft Hyper-V</li>
+<li>QEMU/KVM</li>
+<li>Oracle VirtualBox</li>
+</ul>
+<h2 id="changelog_15">Changelog</h2>
+<h3 id="enhancements_14">Enhancements</h3>
+<ul>
+<li>Enable configuring SNMPv3 with authNoPriv SHA256 authentication (#290226)</li>
+</ul>
+<h3 id="bugfixes_14">Bugfixes</h3>
+<ul>
+<li>Add check for duplicates during netport import and remove them if necessary (#289655)</li>
+<li>Fixed a regression introduced in 5.13.2 affecting the scanning of Huawei netdevices when upgrading form a previous USP NAS version. (#289807)</li>
+<li>Fixed an issue in the Cisco VTP switch adapter which might lead to wrong MAC addresses being seen on specific interfaces in some situations (MAC address marked as static in 802.1d bridge table). (#290500)</li>
+<li>Fixed an issue in the adapter detection with Cisco VTP MIB compatible switches in certain circumstances (the Generic Bridge MIB Adapter was chosen instead of the Cisco VTP MIB Adapter) (#290528)</li>
+<li>Fixed an issue where duplicated portgroup interface mappings where shown in the GUI, and ensured that such mappings are stored in the database containing interface index AND name, if available. (#289721)</li>
+<li>Fixed an issue where endpoints were not recognized on some Cisco Switches (VTP MIB) when using SNMPv3, because the VLAN context was not properly applied when scanning the bridge table. (#289719)</li>
+<li>Fixed null-pointer exception during scan of onway devices (#289809)</li>
+</ul>
+<h1 id="usp-network-authentication-system-5133">USP Network Authentication System &reg; 5.13.3</h1>
+<p>Released 6 August 2024</p>
+<h2 id="platform-compatibility_16">Platform Compatibility</h2>
+<p>This release is compatible with the following platforms:</p>
+<ul>
+<li>Dell PowerEdge R650</li>
+<li>Dell PowerEdge R640</li>
+<li>Dell PowerEdge R630</li>
+<li>Dell PowerEdge R620</li>
+<li>Dell PowerEdge R610</li>
+<li>VMware ESXi / Workstation</li>
+<li>Microsoft Hyper-V</li>
+<li>VirtualBox 6.x/7.x</li>
+</ul>
+<h2 id="changelog_16">Changelog</h2>
+<h3 id="enhancements_15">Enhancements</h3>
+<ul>
+<li><strong>BACKPORTED:</strong> Added possibility to set all ports of as switch as portgroup by using a wildcard character '*'</li>
+</ul>
+<h3 id="bugfixes_15">Bugfixes</h3>
+<ul>
+<li>Fixed certificate key-length detection for non-RSA keys in WebGUI SSL certificate management view (#289533)</li>
+<li>Fixed issue with connected endpoints not properly recognized on some Alcatel switches (OmniSwitch 6855-U24X/6855-14) (#289580)</li>
+<li>Scan error on Cisco switches in the query of the cdp-MIB fixed (CiscoVtpMibAdaptor) (#289521)</li>
+</ul>
+<h1 id="usp-network-authentication-system-5132">USP Network Authentication System &reg; 5.13.2</h1>
+<p>Released 7 May 2024</p>
+<h2 id="platform-compatibility_17">Platform Compatibility</h2>
+<p>This release is compatible with the following platforms:</p>
+<ul>
+<li>Dell PowerEdge R650</li>
+<li>Dell PowerEdge R640</li>
+<li>Dell PowerEdge R630</li>
+<li>Dell PowerEdge R620</li>
+<li>Dell PowerEdge R610</li>
+<li>VMware ESXi / Workstation</li>
+<li>Microsoft Hyper-V</li>
+<li>VirtualBox 6.x/7.x</li>
+</ul>
+<h2 id="changelog_17">Changelog</h2>
+<h3 id="enhancements_16">Enhancements</h3>
+<ul>
+<li>Added QBridge-MIB switch adapter for Hirschmann devices (#289257)</li>
+</ul>
+<h3 id="changes_9">Changes</h3>
+<ul>
+<li>When using the RADIUS server module (FreeRADIUS), the server certificate sent to clients includes now the CA certificate chain, in case any matching CA certificates have been added via USP NAS GUI certificate management. This solves some issues with 802.1x authentication when using Android phones. (#284718)</li>
+</ul>
+<h3 id="bugfixes_16">Bugfixes</h3>
+<ul>
+<li>Enable caching of local SNMPv3 engine ID to avoid performance-intensive re-creation on every request. (#286423)</li>
+<li>Fixed an issue with MAC address parsing (which resulted in 00-00-00-00-00-00 being reported) during port detection when scanning certain switches (e.g. Hirschmann) (#289257)</li>
+<li>Fixed detection/scanning issues in OnWay switch adapter (#255817)</li>
+<li>Fixed endpoint REST API query to not consider data which has been deleted in the inventory. (#289291)</li>
+<li>Fixed exception handling during switch scan in relation to dot1xPAE MIB, ensuring switch can does not abort in certain cases. (#285030)</li>
+<li>Fixed number of netdevices displayed on NAS WebGUI Policy Manager -&gt; Portgroup page (#256388)</li>
+<li>Fixes applied in the switch-report. Netports are now displayed corretly and authorization state of invenorized endpoints have been fixed. (#282278)</li>
+<li>Removed ID from netdevice scope filter label used on netdevices page in NAS Web GUI (#270735)</li>
+</ul>
+<h1 id="usp-network-authentication-system-5131">USP Network Authentication System &reg; 5.13.1</h1>
+<p>Released 22 January 2024</p>
+<h2 id="platform-compatibility_18">Platform Compatibility</h2>
+<p>This release is compatible with the following platforms:</p>
+<ul>
+<li>Dell PowerEdge R650</li>
+<li>Dell PowerEdge R640</li>
+<li>Dell PowerEdge R630</li>
+<li>Dell PowerEdge R620</li>
+<li>Dell PowerEdge R610</li>
+<li>VMware ESXi / Workstation</li>
+<li>Microsoft Hyper-V</li>
+<li>VirtualBox 6.x/7.x</li>
+</ul>
+<h2 id="changelog_18">Changelog</h2>
+<h3 id="features_5">Features</h3>
+<ul>
+<li>Added Maintenance mode for Netdevices. In this mode, SNMP queries are not executed, but RADIUS requests are still processed. The maintenance mode corresponds to an inscope value of "2" in netdevice import files. (#200191)</li>
+<li>Added initial default policy configuration for new installations. (#241970)</li>
+<li>Added log messages for scheduled scripts (start, success, failure) which can be configured for alarming (#255970)</li>
+<li>Added possibility to change maximum backup directory storage size for daily housekeeping process via CLI. Run 'sab housekeeping help' on the command line to see available actions and options. To change the size e.g. to 50 GB, run 'sab housekeeping:set_rule path=/data/transfer/backup max-size=50g' (#217126)</li>
+<li>Added possibility to define SNMPv2 community for RADIUS subnet (#217101)</li>
+<li>Added switch adaptor for Huawei S6730-H28Y4C and S8700-10 devices (#233755)</li>
+<li>Client IP address has been added to login/logout event log messages (#224446)</li>
+<li>Disk size used by backup files is shown on backup download page (#217126)</li>
+<li>Docker logs and status info are now part of the system dump (#218057)</li>
+<li>Enabled access log for USP NAS GUI web server (#218427)</li>
+<li>Extended REST-API with additional data: "endpoints" extended with array of endpointdetails, "netdevices" extended with SNMP-Version, Adaptor-info and description. (#238738)</li>
+<li>Extension for TimetraSwitchAdaptor to support "NOKIA SAS" Types (#225037)</li>
+<li>Overwrite source-field for imports with scheduled scripts using parameter "importSource" (#239240)</li>
+<li>Portgroup source is displayed in GUI (#213830)</li>
+<li>The MD5-hash check in the importer will also work with .md5 checksum files which contain only the checksum string (#212747)</li>
+</ul>
+<h3 id="changes_10">Changes</h3>
+<ul>
+<li>Added scheduled script config, port config and node profiling tables to database backup. (#220130)</li>
+<li>Caching-timout and max-request config values increased to avoid dropping requests in case of authentication peaks or duplicate requests (#252268)</li>
+<li>Color-highlight deleted endpoint in endpoint detail view (#228528)</li>
+<li>Don't show PolicyChange events for RADIUS authentication in Connection Events view anymore (#200312)</li>
+<li>Implemented new SNMP library which supports SNMPv3 with SHA-2 algorithms (#200297)</li>
+<li>Updated release notes document style and handling (#212882)</li>
+</ul>
+<h3 id="bugfixes_17">Bugfixes</h3>
+<ul>
+<li>Add log rotation for FreeRADIUS log file to prevent it from growing indefinitely (#218424)</li>
+<li>Added debounce delay to search field in Endpoint details view page to reduce backend database overload when typing into that field (#218421)</li>
+<li>Added missing authentication time (duration) to connection event syslog messages (#229249)</li>
+<li>Added missing feedback when trying to save multiple temporary approvals of an endpoint (given "Allow to temporarily approve an endpoint more than once" is enabled) (#228740)</li>
+<li>Check of downtime fixed on Authenticator. If downtime is less than 3 hours an Authenticator will not be set to OFF-Mode, according to behaviour of Master. (#253866)</li>
+<li>Docker service will only be started when really needed (#229108)</li>
+<li>Ensured portgroup mapping source is stored properly when managing portgroup assignments in GUI (#229021)</li>
+<li>Ensured that cron job logs are again written to the correct log file (cron.log) (#226630)</li>
+<li>Exchange of certificates from an existing endpoint to another existing endpoint of type "EAP Identity WLAN" fixed (#253336)</li>
+<li>Exclude docker runtime files from system update savepoint, reducing the time and disk space needed during system update in case docker is being used. (#249499)</li>
+<li>Extended power supply hardware check to detect AC loss, and not only absence/malfunction of the power supply itself (#256389)</li>
+<li>Fixed XML webservice functionality which was broken in the 5.13.0 release (#253494)</li>
+<li>Fixed a misconfiguration in the system LDAP authentication related to a setting which caused LDAP requests every time the GUI executed a SAB system API query, potentially slowing down the GUI and creating lots of LDAP traffic. (#251734)</li>
+<li>Fixed a switch adapter detection issue in the Alcatel TiMetra switch adaptor (#228291)</li>
+<li>Fixed an issue where the VLAN ID was cut short in the Switch report in some cases (#223811)</li>
+<li>Fixed an issue where the system LDAP configuration was not correctly applied to the system after a change in the GUI or CLI (#226577)</li>
+<li>Fixed broken file download icons in GUI (#229400)</li>
+<li>Fixed detection/scanning issues in OnWay switch adapter (#255817)</li>
+<li>Fixed execution of daily file cleanup job (old backups files, reports, imports etc) (#215302)</li>
+<li>Fixed handling of proxy request from authenticator (#232439)</li>
+<li>Fixed issue with duplicated netports during inventory import by properly matching index and port names (#253872)</li>
+<li>Fixed outdated logrotate configuration which led to certain log files not being rotated on new installations of USP NAS 5.13.x (#254464)</li>
+<li>Fixed potential netdevice duplicates when importing RADIUSAUTH devices (#255360)</li>
+<li>Fixed retrieval of system alert messages in USP NAS core when running in authenticator mode (#256401)</li>
+<li>Fixed system memory diagram total size (#218091)</li>
+<li>Fixed vlan field size in log table to accommodate entries related to Alcatel Timetra netdevices (#253882)</li>
+<li>Fixed wrong file permissions of firewall rules script (#254460)</li>
+<li>HA menu items are only shown if appropriate license is active (#230937)</li>
+<li>If scheduled Jython scripts don't set the exitCode variable, a proper error is now logged, instead of leaving the script execution in an undefined state. (#255970)</li>
+<li>Improved SAB system API config writer to properly handle certain system LDAP authentication filter values (#252010)</li>
+<li>Improved performance of REST API queries (#230939)</li>
+<li>Increased fileserver public key text field size in GUI (#214748)</li>
+<li>LDAP login of GUI administrator user validates username now case-insensitive (#252018)</li>
+<li>Properly support for non-RSA SSH server keys when updating known host keys for remote backup fileservers. (#214680)</li>
+<li>Removed an unnecessary recurring warning in log files related to discontinued MPP server monitoring (#222442)</li>
+<li>Removed leftover firewall rules from legacy HA (#218084)</li>
+<li>Removed leftover monitoring configuration from legacy HA setup to avoid getting related errors in the logfiles. (#218080)</li>
+<li>Switch adapter list on dashboard does now also show RADIUS Authentication devices (#228595)</li>
+<li>The MD5-hash check in the importer does now accept hashes in uppercase letters as well (#212747)</li>
+<li>The identity type of the inventory (MAC/EAP-LAN/EAP-WLAN) is now displayed in the node details page. (#213258)</li>
+<li>The template for MAC-flooding cleanup script and csvToMail has been fixed with regards to sending reports by mail (using USP SAB CLI instead of jython mail function which no longer works) (#239562)</li>
+</ul>
+<h1 id="usp-network-authentication-system-5130">USP Network Authentication System &reg; 5.13.0</h1>
+<p>Released 31 July 2023</p>
+<h2 id="platform-compatibility_19">Platform Compatibility</h2>
+<p>This release is compatible with the following platforms:</p>
+<ul>
+<li>Dell PowerEdge R650</li>
+<li>Dell PowerEdge R640</li>
+<li>Dell PowerEdge R630</li>
+<li>Dell PowerEdge R620</li>
+<li>Dell PowerEdge R610</li>
+<li>VMware ESXi / Workstation</li>
+<li>Microsoft Hyper-V</li>
+<li>VirtualBox 6.x/7.x</li>
+</ul>
+<h2 id="changelog_19">Changelog</h2>
+<h3 id="features_6">Features</h3>
+<ul>
+<li>Added OnWay switch adapter (#153811)</li>
+<li>Added RADIUS EAP configuration switch called "Allow All", which, if enabled, forces the USP NAS to returns an ACCEPT response, even in the case of an invalid certificate. (#133165)</li>
+<li>Added additional log output to SAB logs related to process runtime, user and locking behaviour (#222586)</li>
+<li>Added possibility to specify completely custom RADIUS attribute values using HEX notation (e.g. 1b0600000005 defines the session timeout attribute (27) with value length 6 and value 5) (#204203)</li>
+<li>Added support for certificate-based authentication with RADIUS EAP for devices with certain old TPM chips based on version 1.2 and specification 1.16. Support for these devices can be enabled by running an older, compatible version of FreeRADIUS and OpenSSL in a docker container, instead of the regular FreeRADIUS system service. (#157531)</li>
+<li>Added support for the USP NAS appliance image to be deployed on AWS EC2 and Azure (#156257)</li>
+<li>Authenticator sync time can now be defined as cron schedule to allow more flexibility (#175893)</li>
+<li>Enable collection of x509 Attributes in Database (endpoint details) (#196084)</li>
+<li>Implemented a REST API which allows to fetch endpoint details in an automated and standardized manner (#133160)</li>
+<li>Source code revision information is displayed on system info page. (#170784)</li>
+<li>Updated Linux system kernel to 5.10 LTS version, with added support for Dell PowerEdge R650 (#150177)</li>
+</ul>
+<h3 id="changes_11">Changes</h3>
+<ul>
+<li>Accounting-STOP requests trigger a DISCONNECT event (#207920)</li>
+<li>Blocked Java JMX/RMI ports on local firewall for external access (only local access is allowed anyways, but Java still creates publicly open ports which can be confusing) (#212521)</li>
+<li>Console configuration menu now works with UTF-8 character encoding (#193674)</li>
+<li>EAP-inventorise algorithm has been changed: Avoid overwrite of MAC-Identities by EAP. The EAP-Identities are now classified in EAP-LAN and EAP-WLAN. (#200185)</li>
+<li>Ensure authenticator status commands don't have to wait for other commands to finish (#222586)</li>
+<li>Layer3 scan is now disabled on USP NAS Authenticator instances (#220091)</li>
+<li>RADIUS Auth Device which is auto-generated will be overwritten with Device from Inventory. If a netdevice of type SWITCH, SWITCH/ROUTER or RADIUSAUTH is imported from CSV import, it will overwrite an existing RADIUS Auth device. (#135586)</li>
+<li>Removed legacy HA functionality which has been superseded by master-authenticator architecture (#133180)</li>
+<li>Removed memtest86+ from appliance boot menu as it is not needed in virtual environments and our supported hardware brings its own diagnostics utility (#137346)</li>
+<li>Replace PostgreSQL temp tables with alternative solution for better stability and performance (#170214)</li>
+<li>Standardized, tested and documented scheduled script templates, and removed obsolete scripts (#124406)</li>
+<li>The default value for RADIUS accounting is set to ENABLED ALL for the netdevice import interface (#218085)</li>
+<li>Update base operating system packages (#171264)</li>
+<li>Updated third-party libraries to fix reported vulnerabilities and bugs (#133193)</li>
+<li>Updated vulnerable version of cron-utils 9.1.5 (CVE-2021-41269) (#128694)</li>
+</ul>
+<h3 id="bugfixes_18">Bugfixes</h3>
+<ul>
+<li>Added missing support for Diffie-Hellman-Group14-SHA1 algorithm for SFTP connections (#124944)</li>
+<li>Automatic portgroup assignment for RADIUS auth devices fixed (#208182)</li>
+<li>Avoid setting a tunnel attribute with a negative value (#156582)</li>
+<li>Corrected PostgreSQL version check during appliance update (#137722)</li>
+<li>Deleted Netdevices no longer show up in the portgroup view (#149577)</li>
+<li>Dot1x port might not be detected correctly on Alcatel devices. (#153783)</li>
+<li>EAP username patterns are now included in backup (#220051)</li>
+<li>Ensure SSH server is running properly after hostname change (#195726)</li>
+<li>Error detecting connected devices in GenericQBridge Switch-Adaptor (#212155)</li>
+<li>Fix handling requests with Authenticator ip on Master (#200302)</li>
+<li>Fixed an issue where the system log was full of nslcd-related error messages on first boot (#156635)</li>
+<li>Fixed an issue with a delayed system configuration update (#183014)</li>
+<li>Fixed an issue with restoring system configuration when network routing settings are present. (#191665)</li>
+<li>Fixed database logging error concerning NULL characters in the log message (#193470)</li>
+<li>Fixed inconsistencies in endpoint status reports and updated documentation accordingly (#133195)</li>
+<li>Fixed incorrect VLAN on Alcatel 801 adaptor (add missing OID conversion for 801 switch type) (#137299)</li>
+<li>Fixed issues when adding and updating certain RADIUS attribute types in the GUI (#204203)</li>
+<li>Fixed log exception when validating RADIUS message authenticator attribute and username attribute is no valid MAC address (#212310)</li>
+<li>Fixed order of network interfaces in CLI and GUI (#171257)</li>
+<li>For EAP-Authentication the specific 802.1X vlan is applied instead of MAC-Auth vlan (#128127)</li>
+<li>Link down traps were not processed on RADIUS AUTH devices (#207920)</li>
+<li>Link to customer portal on help page now points to USP Connect. (#138802)</li>
+<li>Network interfaces on virtual machines are renamed properly to new format during appliance upgrade from older versions (&lt;5.11). (#137353)</li>
+<li>Non-existing network interfaces are now properly cleaned up from system configuration (#217203)</li>
+<li>Persist portgroup source value when activating workspace. This fixes an issue where a portgroup full import does not properly delete removed entries. On existing installations, a manual cleanup of all portgroup-netdevice entries with source NULL might be required before a full import in order to have a clean portgroup dataset. (#109408)</li>
+<li>Prevent multiple authenticator sync processes to run at the same time on a USP NAS authenticator instances to prevent race conditions. (#222586)</li>
+<li>Properly show reboot screen after restoring backup file (#192182)</li>
+<li>Remove Warning for RADIUS Accounting with wrong device class (#154669)</li>
+<li>Removed a warning about using proprietary JKS keystore during first boot; a PKCS#12 keystore is now used by default (#137352)</li>
+<li>Removed invalid entries from profiler database (#193490)</li>
+<li>The validation for 'Remote vendor update file path' also accepts values starting with https:// (#216050)</li>
+<li>Trusted certificates are now properly stored in system SSL CA certificate store (used for LDAPS-based system login) (#205987)</li>
+</ul>
+<h3 id="documentation_2">Documentation</h3>
+<ul>
+<li>Added topic regarding the cases in which an endpoint counts as connected (#133184)</li>
+</ul>
+<h1 id="usp-network-authentication-system-5120">USP Network Authentication System &reg; 5.12.0</h1>
+<p>Released 16. September 2022</p>
+<h2 id="changelog_20">Changelog</h2>
+<ul>
+<li>Feature: Bulk-onboarding view available to inventorise endpoints in a bulk operation</li>
+<li>Feature: CSR generation/certificate renewal in Web-Management console</li>
+<li>Feature: Authentication time available in Connection-Events</li>
+<li>Feature: Option to send reject on MAC-Auth block decision available</li>
+<li>Feature: HyperV Gen2 support</li>
+<li>Feature: Global configuration of SNMPv3 as fallback</li>
+<li>Feature: HTML- and PDF-based documentation is available directly in the web GUI help page</li>
+<li>Feature: FAQ Based documentation</li>
+<li>Feature: CSV-Import for RADIUSAUTH devices available</li>
+<li>Feature: Added support for Aruba 25xx/19XX and HP 54XX switches</li>
+<li>Feature: Add portgroup edit button for Support User on switch page</li>
+<li>Feature: Extend Radius attributes with configurable parameters</li>
+<li>Bugfix: DNS zone is displayed in DNS-zone alert</li>
+<li>Bugfix: Radius Attributes now included in backup</li>
+<li>Bugfix: Radius Attribute length fixed</li>
+<li>Bugfix: Display of blockvlan in connection events fixed</li>
+<li>Bugfix: invalid hardware events on vm-environment removed</li>
+<li>Bugfix: Update syslog-ng configuration template to match installed software version</li>
+<li>Bugfix: FreeRADIUS Certificate formatting error with certain imported / migrated certificates fixed</li>
+<li>Bugfix: Layer3 information for ArubaCX devices is now available</li>
+<li>Bugfix: VendorSpecific Radius Attribute does now allow to set value of integer type</li>
+<li>Bugfix: Delayed compress of logfiles during daily rotation to avoid unnecessary alarm messages</li>
+</ul>
+<h1 id="usp-network-authentication-system-5110">USP Network Authentication System &reg; 5.11.0</h1>
+<p>Released 26. January 2022</p>
+<h2 id="changelog_21">Changelog</h2>
+<ul>
+<li>Feature: Multiple LDAP configurations can run concurrently</li>
+<li>Feature: New configuration to avoid MAC-Authentication for MAC-Addresses in EAP-Identity</li>
+<li>Feature: Manage SSL server and trust certificates from one central screen</li>
+<li>Feature: Handle change of EngineID in snmpv3</li>
+<li>Feature: Improvement in logging and error handling</li>
+<li>Feature: Configuration sync for HA</li>
+<li>Feature: Performance improvement in EndpointImport Task</li>
+<li>Feature: Performance improvement in Radius Auth</li>
+<li>Feature: Removed hostname from full backup</li>
+<li>Feature: Test function for LDAP configuration</li>
+<li>Feature: Connect to unix system via LDAP login</li>
+<li>Feature: Add single switch to portgroup (also available for support role)</li>
+<li>Feature: Show content of active scheduled scripts</li>
+<li>Feature: Automatically update RADIUS flags on netdevice interface on RADIUS auth</li>
+<li>Feature: Manually reset RADIUS flags on netdevice</li>
+<li>Change: MAC Bypass for SNMP authenticated Ports removed</li>
+<li>Bugfix: Display error in Endpointdetails view for entries without macaddress has been fixed</li>
+<li>Bugfix: Duplication for import error log removed</li>
+</ul>
+<h1 id="usp-network-authentication-system-5100">USP Network Authentication System &reg; 5.10.0</h1>
+<p>Released 28. October 2021</p>
+<h2 id="changelog_22">Changelog</h2>
+<ul>
+<li>Feature: Admin can force login if another admin is still logged in</li>
+<li>Feature: Scheduled Scripts management in WEBGUI</li>
+<li>Feature: Import files can be uploaded without MD5 file</li>
+<li>Feature: New useful links added in the Endpoint detail view</li>
+<li>Feature: Additional information in portconfig logs</li>
+<li>Feature: New 'EAP Username' column and search criteria in Endpoint detail view</li>
+<li>Feature: Network interface is editable even if there is only one interface</li>
+<li>Feature: Info in connection event when there is a RADIUS secret mismatch</li>
+<li>Feature: HA Partner key can be added even if there is no HA configuration available</li>
+<li>Feature: NO-VLAN option for accessprofile</li>
+<li>Feature: New VLAN MIB for vlan detection on ALCATEL switches has been added</li>
+<li>Bugfix: Performance issue in Endpointdetails fixed</li>
+<li>Bugfix: Special characters are now allowed in ssh password</li>
+<li>Bugfix: Special characters are now allowed in ssl certificate passphrase</li>
+<li>Bugfix: Healthcheck for RADIUS authenticator fixed</li>
+<li>Bugfix: Display error in the notifications detail view fixed</li>
+<li>Bugfix: Error on EAP cache update for empty mac address fixed</li>
+<li>Bugfix: Policy-Readonly role removes permissions from support role fixed</li>
+<li>Bugfix: Netdevices with LAYER3 type are excluded for RADIUS Authentication</li>
+<li>Bugfix: Portconfig check using ifname has been fixed</li>
+</ul>
+<h1 id="usp-network-authentication-system-590">USP Network Authentication System &reg; 5.9.0</h1>
+<p>Released 15. June 2021</p>
+<h2 id="changelog_23">Changelog</h2>
+<ul>
+<li>Feature: Policy definition based on EAP username pattern</li>
+<li>Feature: EAP Identity inventory Management in GUI</li>
+<li>Feature: ARP resolution for EAP authenticated endpoints</li>
+<li>Feature: Extended default configurations for GUI-filter</li>
+<li>Feature: Alcatel RADIUS port detection for MAC-AUTH added</li>
+<li>Feature: RADIUS log available in syslog</li>
+<li>Feature: Cron-based script scheduler</li>
+<li>Change: The format for syslog messages has been modified</li>
+<li>Change: MAC vendor list updated</li>
+<li>Bugfix: Decryption of RADIUS shared secret fixed for internal RADIUS server</li>
+<li>Bugfix: Decryption of password for LDAP bind fixed</li>
+<li>Bugfix: Default sort order changed in connection events from action colum to timestamp</li>
+<li>Bugfix: Rotation for system-log fixed</li>
+<li>Bugfix: Date selection fixed in log reports</li>
+</ul>
+<h1 id="usp-network-authentication-system-580">USP Network Authentication System &reg; 5.8.0</h1>
+<p>Released 30. October 2020</p>
+<h2 id="changelog_24">Changelog</h2>
+<ul>
+<li>Feature: New devicetype RADIUSAUTH available for RADIUS only authentications</li>
+<li>Feature: RADIUSAUTH-Netdevice may be auto-generated from defined ip-range</li>
+<li>Feature: Detail-view for LAYER3 device with ARP-table available in WEBGUI</li>
+<li>Feature: Detail-view for WLAN device with connected endpoints available in WEBGUI</li>
+<li>Feature: ALCATEL Adaptor extended with VLAN ids from mobile ports</li>
+<li>Feature: The database Logging/Statistics have been extended</li>
+<li>Feature: Audit-Log scripts are configurable in WEBGUI</li>
+<li>Change: Plaintext password fields replaced in WEBGUI</li>
+<li>Change: Cleanup of no-trap-received warning messages</li>
+<li>Change: Initial RADIUS config changed</li>
+<li>Bugfix: Scheduling of FULLBACKUP without log fixed</li>
+<li>Bugfix: Disconnected(INACTIVE) devices removed from Switch-Overview</li>
+<li>Bugfix: Reading of VLANs on ALCATEL mobile ports</li>
+<li>Bugfix: Performance issue on endpointdetails-table fixed</li>
+<li>Bugfix: Positive false log-message 3038 fixed (Exception in policy engine)</li>
+</ul>
+<h1 id="usp-network-authentication-system-570">USP Network Authentication System &reg; 5.7.0</h1>
+<p>Released 31. May 2020</p>
+<h2 id="changelog_25">Changelog</h2>
+<ul>
+<li>Feature: Connection-events available on syslog</li>
+<li>Feature: Additional full-backup type without log table</li>
+<li>Feature: Alcatel Adaptor extended for specific dot1x MIB</li>
+<li>Feature: Reject event added to connection-event view</li>
+<li>Feature: Switch-Adaptor reset function in WebGUI</li>
+<li>Feature: Inventory import interface extended for valid-until field</li>
+<li>Change: Network interface information removed from full-backup</li>
+<li>Change: Feasible check removed from nortel adaptors for every scan (performance improvement)</li>
+<li>Bugfix: Message 1111 removed for RADIUS ports</li>
+<li>Bugfix: Policy-Change events removed for RADIUS ports</li>
+<li>Bugfix: Snmp writes removed in authenticator mode (on periodic Policy-Recheck)</li>
+<li>Bugfix: Prevent sync on authenticator if master is in OFF-Mode</li>
+<li>Bugfix: Internal trap port fixed for alerting</li>
+<li>Bugfix: Syslog port fixed for application events</li>
+<li>Bugfix: Profil-Matching fixed with eapusername</li>
+<li>Bugfix: Filename for RADIUS log fixed</li>
+</ul>
+<h1 id="usp-network-authentication-system-560">USP Network Authentication System &reg; 5.6.0</h1>
+<p>Released 15. January 2020</p>
+<h2 id="changelog_26">Changelog</h2>
+<ul>
+<li>Feature: New Web-GUI user role policy-readonly</li>
+<li>Feature: Syslog port customizable</li>
+<li>Feature: Mail port customizable</li>
+<li>Feature: Ssh port customizable</li>
+<li>Change: Web-GUI role support extended with readonly view on portgroups and policy-manager</li>
+<li>Change: Potential shared secret mismatch added to INFO-log</li>
+<li>Bugfix: Labeling fixed in Radius Attribute page</li>
+<li>Bugfix: IEEE vendor link fixed for vendor code update</li>
+<li>Bugfix: Starting of open vm tools fixed</li>
+</ul>
+<h1 id="usp-network-authentication-system-550">USP Network Authentication System &reg; 5.5.0</h1>
+<p>Released 15. October 2019</p>
+<h2 id="changelog_27">Changelog</h2>
+<ul>
+<li>Feature: Flexible RADIUS attribute assignment</li>
+<li>Feature: Import interface for endpoint details (CSV)</li>
+<li>Feature: Import interface for dns/ip mapping (CSV)</li>
+<li>Feature: Netdevice import interface extended with L3-Mode (IPV6)</li>
+<li>Feature: Column separator configurable in import-files</li>
+<li>Bugfix: Adding DB user in SAB fixed</li>
+<li>Bugfix: Netdevice import fixed (missing L3 column)</li>
+<li>Bugfix: Radius subsystem failure on reboot</li>
+</ul>
+<h1 id="usp-network-authentication-system-540">USP Network Authentication System &reg; 5.4.0</h1>
+<p>Released 18. July 2019</p>
+<h2 id="changelog_28">Changelog</h2>
+<ul>
+<li>Feature: IPv6 support for endpoints</li>
+<li>Feature: Configurable authenticator health-ping period</li>
+<li>Feature: Alerting for frozen-xid</li>
+<li>Feature: SAR (Alcatel/Nokia) Layer3-Adapter extended to read vprn ARP tables (snmp v2c)</li>
+<li>Change: Regex for SAR (Alcatel/Nokia) extended</li>
+<li>Change: Menu-entry for corrupt ports view recovered</li>
+<li>Bugfix: Inconsistent Authenticator state fixed</li>
+<li>Bugfix: Frozen-xid overflow in db fixed</li>
+</ul>
+<h1 id="usp-network-authentication-system-530">USP Network Authentication System &reg; 5.3.0</h1>
+<p>Released 13. February 2019</p>
+<h2 id="changelog_29">Changelog</h2>
+<ul>
+<li>Feature: Enhanced connection-view (details on authentication-protocols and authentication-types)</li>
+<li>Feature: Optimized layout of connection-view</li>
+<li>Feature: Switchdescription displayed in switch detail page</li>
+<li>Feature: HP/Aruba 2930 Series Adaptor</li>
+<li>Feature: Syslog messages enhanced with additional detail attributes</li>
+<li>Change: RADIUS-Reject event view removed. Reject events moved to connection-event view</li>
+<li>Change: Fallback on source-ip for RADIUS-Packet added</li>
+<li>Bugfix: Deletion failure of vlan in GUI fixed</li>
+<li>Bugfix: incomplete inventory failure reports fixed</li>
+<li>Bugfix: IP-extracting error for snmpv2/3 traps fixed</li>
+<li>Bugfix: pattern matching for Alcatel adapter fixed</li>
+<li>Bugfix: Division by zero-log for empty import files (delta-import) fixed</li>
+<li>Bugfix: Handling of PERMISSIVE mode for RADIUS-Reject on Mac Authentication fixed</li>
+</ul>
+<h1 id="usp-network-authentication-system-520">USP Network Authentication System &reg; 5.2.0</h1>
+<p>Released 30. Juli 2018</p>
+<h2 id="changelog_30">Changelog</h2>
+<ul>
+<li>Feature: Authenticator Module</li>
+<li>Feature: ARP table queries optimized (by factor 4)</li>
+<li>Feature: Automatic access-decision cleanup on endpoint/netdevice deletion</li>
+<li>Feature: Support for SNMPv3 Traps</li>
+<li>Feature: Automatic zip of reports sent by email</li>
+<li>Change: Scheduled reports are send by email in zip-format</li>
+<li>Bugfix: Link for culprit endpoint fixed</li>
+<li>Bugfix: Ignore CDP information has no effect</li>
+<li>Bugfix: Portconfig import fixed (Case-insensitiv)</li>
+<li>Bugfix: Radius statistic counter fixed</li>
+</ul>
+<h1 id="usp-network-authentication-system-512-4152">USP Network Authentication System &reg; 5.1.2 (4.15.2)</h1>
+<p>Released 29. Januar 2018</p>
+<h2 id="changelog_31">Changelog</h2>
+<ul>
+<li>Bugfix: Performance fix for common name based authentication (802.1x)</li>
+<li>Bugfix: Filter on report download fixed</li>
+<li>Bugfix: Filter for netdevice status fixed</li>
+</ul>
+<h1 id="usp-network-authentication-system-511-4151">USP Network Authentication System &reg; 5.1.1 (4.15.1)</h1>
+<p>Released 17. Januar 2018</p>
+<h2 id="changelog_32">Changelog</h2>
+<ul>
+<li>Bugfix: HA init failure fixed (64bit only)</li>
+</ul>
+<h1 id="usp-network-authentication-system-510-4150">USP Network Authentication System &reg; 5.1.0 (4.15.0)</h1>
+<p>Released 24. November 2017</p>
+<h2 id="changelog_33">Changelog</h2>
+<ul>
+<li>Feature: Common name based authentication (802.1x)</li>
+<li>Feature: Option to disable connection events for re-checks</li>
+<li>Feature: Radius Accounting support for switches</li>
+<li>Feature: Display portconfig in endpoint/switch status pages</li>
+<li>Feature: Port configuration enforcement</li>
+<li>Bugfix: EAP Message missing in RMA Access Accepts</li>
+<li>Bugfix: Null-pointer fixed in Alcatel adaptor</li>
+<li>Bugfix: Regex validation for profiling pattern fixed</li>
+<li>Bugfix: Error on empty pattern string in profiling fixed</li>
+<li>Bugfix: Ifname update fixed (incorrect ifname on switch replacement)</li>
+<li>Bugfix: Vlan field extended for serviceId (Alcatel SAR)</li>
+</ul>
+<h1 id="usp-network-authentication-system-4x-series">USP Network Authentication System &reg; 4.x-Series</h1>
+<h2 id="414-30-july-2017">4.14 - 30. July 2017</h2>
+<ul>
+<li>Feature: Extended endpoint profile definition (device vendor, DNS name)</li>
+<li>Feature: Automatic system mode management after restart</li>
+<li>Feature: Radius Accounting support for switches</li>
+<li>Feature: Support for Radius polling</li>
+<li>Feature: Port configuration enforcement</li>
+<li>Feature: CSV import interface for port configuration</li>
+<li>Feature: CSV import interface for portgroups</li>
+<li>Change: Set default for new registered endpoints to "authorized" instead of "unauthorized"</li>
+<li>Change: Syslog used for alerting has been extended for using 3rd-party logging applications</li>
+<li>Bugfix: Reset knownhosts file on fileserver change or reset</li>
+<li>Bugfix: Customized db user missing in backup</li>
+<li>Bugfix: Nullpointer fix for H3C switch adaptor</li>
+<li>Bugfix: Fixed error on network setting save function</li>
+<li>Bugfix: Backup folder for fetch scripts fixed</li>
+<li>Bugfix: Missing menu-entries for reporting role fixed</li>
+</ul>
+<h2 id="4132-19-december-2016">4.13.2 - 19. December 2016</h2>
+<ul>
+<li>Feature: Integrated Radius server which supports EAP-TLS and OCSP</li>
+<li>Feature: Generate additional info when CSV import has failed</li>
+<li>Feature: Save source/timestamp for endpoint arp updates (client ip address)</li>
+<li>Change: Limit HTTP verbs to GET and POST only</li>
+<li>Change: Disabled all SSL protocols lower than TLSv1.1</li>
+<li>Change: Enforce HTTPS for all resources</li>
+<li>Change: Set "secure" flag in every cookie</li>
+<li>Change: Set "httpOnly" flag in every cookie</li>
+<li>Bugfix: Avoid session fixation, every successful authentication now generates new session ID</li>
+<li>Bugfix: Fixed Endpoint report CSV output which now correctly shows only one line per endpoint</li>
+<li>Bugfix: Log of potential network port fixed</li>
+<li>Bugfix: Updated Apache commons library which was vulnerable</li>
+<li>Bugfix: Fixed RADIUS packet flush delay</li>
+<li>Bugfix: Fixed update timestamp for DISCONNECTED endpoints</li>
+</ul>
+<h2 id="4130-29-july-2016">4.13.0 - 29. July 2016</h2>
+<ul>
+<li>Feature: Responsive GUI</li>
+<li>Feature: Endpoint Profiling</li>
+<li>Feature: USP NAS service monitoring over SNMP</li>
+<li>Feature: RMA (Radius Mac Authentication) support for Alcatel Omniswitch added</li>
+<li>Feature: RMA (Radius Mac Authentication) support for Avaya Switches added</li>
+<li>Feature: Support for VRF-tables on Avaya Routers added</li>
+<li>Bugfix: Avoid false low diskspace alerts</li>
+<li>Bugfix: Eliminate net port duplicates on import</li>
+<li>Bugfix: Improve GUI responsiveness after '3303' notifications</li>
+<li>Bugfix: For scheduled reports form add missing Submit button on IE11</li>
+<li>Bugfix: No access decisions are reported in PERMISSIVE mode</li>
+<li>Bugfix: Handle admin duplicate logon check case-insensitive</li>
+</ul>
+<h2 id="4120-17-august-2015">4.12.0 - 17. August 2015</h2>
+<ul>
+<li>Feature: Performance improvement for connection event view</li>
+<li>Feature: Major overall performance improvements</li>
+<li>Feature: Radius MAC Authentication support added for Fortiwifi devices</li>
+<li>Bugfix: Import abort fixed in case of wrong number of columns or special characters in device description</li>
+<li>Bugfix: Index cleanup fixed for temporary database tables</li>
+</ul>
+<h2 id="4110-22-april-2015">4.11.0 - 22. April 2015</h2>
+<ul>
+<li>Feature: Connection event view where all connects, disconnects and policy checks are listed and can be filtered</li>
+<li>Feature: Netdevice status info view where the current state of a netdevice is listed: all ports, all connected
+  endpoints</li>
+<li>Feature: Global configuration added for enabling Radius MAC Authentication when the MAC address is present in the
+  attribute 'User-Name' only</li>
+<li>Feature: Configuration of alternative record separator for the CSV import files</li>
+<li>Change: USP NAS installations without a valid license file will only display the basic setup menus</li>
+<li>Change: Due to some size limitations, we changed some views to be viewed on fullscreen. Minimal supported screen
+  resolution is still 1024x768</li>
+<li>Bugfix: Avoid unique constraint errors after a restore</li>
+<li>Bugfix: Updated OpenSSL components to version 1.0.1l-r1</li>
+<li>Bugfix: HA shared IP now usable with different NIC identifier on each system (problem occurred on VM-HW high
+  availability setups)</li>
+</ul>
+<h2 id="4101-14-november-2014">4.10.1 - 14. November 2014</h2>
+<ul>
+<li>Feature: Inventory webservice for retrieving inventory information about switches and endpoints</li>
+</ul>
+<h2 id="4100-29-october-2014">4.10.0 - 29. October 2014</h2>
+<ul>
+<li>Feature: CA certificate upload for trusted CA certificates which must be used for SSL/HTTPS connections to other
+  systems like e.g. MobileIron or LDAPS</li>
+<li>Feature: 802.1X Disconnect Message for already connected wired devices. Used when the policy of an already connected
+  endpoint changes</li>
+<li>Feature: 802.1X multi-auth (each individual endpoint on port has to authenticate itself) and multi-domain (VoIP phone
+  and data endpoint have to authenticate individually. The multi-domain is only supported when the VoIP security feature
+  in USP NAS is enabled too)</li>
+<li>Feature: Radius accounting service will always return an ACK message, even if USP NAS is not processing the request</li>
+<li>Feature: Log out of scope Radius requests as a warning</li>
+<li>Feature: Show warning in GUI when operating mode is in OFF state</li>
+<li>Bugfix: Don't enforce VLAN assignment on 802.1X ports when handling MAC notifications</li>
+<li>Bugfix: Radius MAC authentication logging now use the correct VLAN</li>
+<li>Bugfix: Don't reset active MAC bypasses during HA shutdown on the passive appliance</li>
+<li>Bugfix: Set correct VLAN after blocking a device with MAC bypass on 802.1X port</li>
+<li>Bugfix: Ignore Radius requests from devices without configured netports</li>
+<li>Bugfix: Asset types and classes can be edited from their overview pages</li>
+<li>Bugfix: Don't handle MAC Notification coming from 802.1X ports</li>
+</ul>
+<h2 id="492-18-june-2014">4.9.2 - 18. June 2014</h2>
+<ul>
+<li>Feature: ifAlias/ifDescription added</li>
+<li>Feature: List of rejected 802.1X devices added in menu "Support"</li>
+<li>Feature: Ignore MAC notifications from netports</li>
+<li>Feature: Ignore SNMP traps and MAC notifications from switches which don't have a configured netport yet</li>
+<li>Feature: HP A5000 series switch adapter now supports ports in access mode</li>
+<li>Feature: CSV inventory importer updated to be more fail-safe when there are empty fields in a row</li>
+<li>Feature: SNMP communication exceptions for router devices are now displayed on the status column (red bubble) on the
+  netdevice overview</li>
+<li>Feature: VoIP endpoint detection updated to be more accurate</li>
+<li>Change: Info message UNHANDLED_RADIUS_ACCOUNTING_REQUEST changed to debug message because it was flooding the info log
+  with no purpose</li>
+<li>Change: VLAN zones are no longer automatically enabled for MPP and WAP/FAP</li>
+<li>Change: Renamed 802.1X to 802.1X in reports</li>
+<li>Change: Don't alert the EPC non-compliant message in GUI</li>
+<li>Change: Ethernet interface naming changed due to a component update on the OS</li>
+<li>Bugfix: HP A5000 series switch adapter get correct VLAN trunk information</li>
+<li>Bugfix: Endpoints learnt from a Radius accounting device (without authorization) will now be disconnected correctly
+  after 24 hours</li>
+<li>Bugfix: CSV netports import fixed when there is an empty ifIndex</li>
+<li>Bugfix: RMA with the access control block VLAN functions now properly</li>
+<li>Bugfix: Set node state correctly to disconnected on Radius Access-Reject</li>
+<li>Bugfix: Radius failover no longer produces faulty Access-Request packets which are producing errors on the backend
+  Radius server</li>
+<li>Bugfix: Radius failover will be triggered more exactly after an Access-Request timeout</li>
+<li>Bugfix: Disconnects of WLAN endpoints are no longer producing side effects when a second WLAN endpoint was reusing the
+  same virtual ifIndex</li>
+<li>Bugfix: Disconnects of WLAN endpoints are no longer producing side effects when a second WLAN endpoint was reusing the
+  same virtual ifIndex</li>
+<li>Bugfix: Several reports fixed</li>
+<li>Bugfix: Don't set MAC bypasses when there is an ongoing Radius communication with a Radius backend which is currently
+  not responding (timeout which triggers a failover)</li>
+<li>Bugfix: Remote vendor update task fixed</li>
+<li>Bugfix: Don't log potential netport when USP NAS is searching for the correct switch adapter</li>
+<li>Bugfix: Don't log DNS_ERRENOUS_RECORDS_DETECTED when the counter is 0 (zero)</li>
+<li>Bugfix: WAC/FAP no longer produces warnings about missing traps</li>
+<li>Bugfix: MobileIron compliant flag is now interpreted correctly</li>
+<li>Bugfix: OpenSSL component updated to version 1.0.1h due to heartbleed and other OpenSSL bugs. OpenSSL is used in
+  internal tools only and not exposed to external interfaces.</li>
+</ul>
+<h2 id="491-4-february-2014">4.9.1 - 4. February 2014</h2>
+<ul>
+<li>Feature: Radius MAC authentication feature for wired access added</li>
+<li>Feature: Radius proxy, accounting and MAC authentication services can be started and stopped individually</li>
+<li>Feature: Registered and authorized flags now displayed in the node details view</li>
+<li>Bugfix: HP A5000 series switches are now fully supported for the feature VLAN assignment</li>
+<li>Bugfix: Automatic backup scheduler fixed</li>
+<li>Bugfix: Endpoint report and system overview report now correctly take count of the configured netports</li>
+<li>Bugfix: Added missing Mobile Iron states</li>
+<li>Bugfix: Scan all in netdevices overview will now take account of the desired filter</li>
+</ul>
+<h2 id="490-10-december-2013">4.9.0 - 10. December 2013</h2>
+<ul>
+<li>Feature: Radius MAC authentication feature for WLAN added</li>
+<li>Feature: WTP/LWAP zones for overriding VLAN IDs for different WTPs added</li>
+<li>Feature: Wireless Access Controller and Fat Access Points can now be grouped together in portgroups</li>
+<li>Bugfix: Corrupt port fix in access control mode Block-VLAN</li>
+<li>Bugfix: Performance optimizations for every GUI request</li>
+<li>Bugfix: Use referrer in LDAP requests to resolve complete subtrees when searching for users or roles</li>
+<li>Bugfix: Initial state of a Switch or Switch/Router netdevice is orange when adding it to the list</li>
+<li>Bugfix: A VLAN which is defined for an endpoint will new overwrite the guest, MAC bypass VLAN</li>
+</ul>
+<h2 id="4821-48395-18-july-2013">4.8.2.1 (4.8.39.5) 18. July 2013</h2>
+<ul>
+<li>Bugfix: DNS gracecount check is case-insensitive, add log message if an enforcement is done because of this feature</li>
+<li>Bugfix: Import file permissions fixed after HA start</li>
+<li>Bugfix: HA initialization for large systems</li>
+<li>Bugfix: Backup for very large systems (larger than 4GB)</li>
+<li>Bugfix: Optimized access to log table</li>
+<li>Bugfix: Adapter updates for 3Com 4400/OfficeConnect 9 (fix detection of adapter), 3Com NJ225/NJ226 (enable VLAN), H3C
+  S5820X (fixed mapping)</li>
+<li>Bugfix: Make report parameter case-insensitive</li>
+<li>Bugfix: Optimize Radius Requests for 802.11 devices</li>
+<li>Bugfix: Optimize forecast if a lot of portgroups are used</li>
+<li>Bugfix: Optimize status view</li>
+<li>Bugfix: Access profile, VLAN definition is not dependent on global work mode</li>
+<li>Bugfix: Fix manual decisions in VoIP security mode</li>
+<li>Bugfix: Misc. GUI fixes</li>
+<li>Bugfix: Configuration added to enable/disable the automatic registration of 802.1X authenticated endpoints</li>
+</ul>
+<h2 id="482-48372837-6-april-2013">4.8.2 (4.8.37/2.8.37) 6. April 2013</h2>
+<ul>
+<li>Feature: Shared IP for HA cluster</li>
+<li>Feature: VoIP security feature now supports the VLAN assignment access control mode</li>
+<li>Feature: Upload a license file while a HA cluster is active will distribute the license file on both nodes</li>
+<li>Feature: Minor GUI and usability updates</li>
+<li>Bugfix: Radius proxy server sanity checks</li>
+<li>Bugfix: MobileIron data fetcher can now handle single device objects (before: only an array of devices)</li>
+<li>Bugfix: Radius accounting for wireless devices use virtual ifIndex</li>
+<li>Bugfix: Empty SNMP community allowed</li>
+<li>Bugfix: Import regex for network devices</li>
+<li>Bugfix: Health view</li>
+<li>Bugfix: Netdevice CSV import now handles WLAN devices correctly (according to import specification v2.16)</li>
+<li>Bugfix: Forecast speed improvements</li>
+<li>Bugfix: 802.1X improvements</li>
+<li>Bugfix: Endpoint details now show the correct access mode from the connection point</li>
+</ul>
+<h2 id="4812-4825428254-24-january-2013">4.8.1.2 (4.8.25.4/2.8.25.4), 24. January 2013</h2>
+<ul>
+<li>Feature: Show WLAN endpoints in support overview when they are not authorized</li>
+<li>Feature: Updated filter in support overview with the following filter criteria: Netdevice class, MAC bypass,
+  enforcement type and ACL filter ID</li>
+<li>Feature: Two H3C switch adapter added (H3C Huawei and H3C HP)</li>
+<li>Feature: 3Com NJ2000 adapter added</li>
+<li>Feature: Daily vendor update task added which can get the vendors from a local file or directly from
+  standards.ieee.org</li>
+<li>Feature: H3C MAC notification handling added</li>
+<li>Feature: Performance update for general MAC notification handling without SNMP lookup on the switch</li>
+<li>Feature: Fully implement RFC 2324</li>
+<li>Feature: Updated reports for endpoint devices with several filters</li>
+<li>Feature: Scheduled reports can be sent as email or copied on a scp/sftp server</li>
+<li>Bugfix: Back link if another administrator is already logged in, points now to the correct login page</li>
+<li>Bugfix: Forecast improvements</li>
+<li>Bugfix: Radius accounting response</li>
+<li>Bugfix: Cleanup temporary db data after file import is done</li>
+<li>Bugfix: Report CSV export</li>
+<li>Bugfix: Always convert role names from LDAP to lower case</li>
+<li>Bugfix: Fixed timestamp in autogenerated import file from data fetch script</li>
+</ul>
+<h2 id="480-4814128141-29-october-2012">4.8.0 (4.8.14.1/2.8.14.1), 29. October 2012</h2>
+<ul>
+<li>Feature: Major performance update</li>
+<li>Feature: Generic data script fetching interface added</li>
+<li>Feature: Mobile Iron EPC information added in the endpoints details view</li>
+<li>Feature: WLAN ACL filter mapping added</li>
+<li>Feature: WLAN RADIUS accounting added</li>
+<li>Feature: Updated 802.1X enforcement with WLAN handling</li>
+<li>Feature: EPC information will always be imported and persisted in the database</li>
+<li>Feature: Add all ports of a switch if it's added to a portgroup</li>
+<li>Feature: Automatically detected asset types/asset classes and tenants can now be selected for usage in new views</li>
+<li>Feature: Portgroup assignments are now available in the forecast view</li>
+<li>Feature: Updated portgroup GUI</li>
+<li>Feature: New report 'Switch operation report'</li>
+<li>Feature: Minor updates for GUI look &amp; feel</li>
+<li>Bugfix: Invalid license files are ignored</li>
+<li>Bugfix: Several bugfixes in reports</li>
+</ul>
+<h2 id="470-4722748-30-april-2012">4.7.0 (4.7.2/2.7.48), 30. April 2012</h2>
+<ul>
+<li>Feature: Additional endpoint details added. They can be imported with inventory import and displayed on the endpoint
+  details page</li>
+<li>Feature: Mobile Iron EPC fetcher added</li>
+<li>Bugfix: Forecast improvements</li>
+</ul>
+<h2 id="4647-2746-11-april-2012">4.6.47 (2.7.46), 11. April 2012</h2>
+<ul>
+<li>Feature: Reports are role-dependent, remove obsolete Reports</li>
+<li>Feature: Helpdesk role users have now a tenant capability</li>
+<li>Feature: SNMPv3 encryption parameter DES/AES added</li>
+<li>Feature: More statistic data</li>
+<li>Feature: Scheduled reports added</li>
+<li>Feature: MobileIron inventory fetcher added</li>
+<li>Bugfix: Trap Forwarding was not working correctly</li>
+<li>Bugfix: Filter on client device overview was not showing</li>
+<li>Bugfix: DNS Import ignore records which are not rfc conform (hostname length)</li>
+<li>System update</li>
+</ul>
+<h2 id="4627-2726-4-january-2012">4.6.27 (2.7.26), 4. January 2012</h2>
+<ul>
+<li>Bugfix: Performance improvements for Forecast and support Overview pages</li>
+<li>Bugfix: Improved ScannerTask logging</li>
+<li>Bugfix: Security checks in the GUI for delete operations</li>
+</ul>
+<h2 id="4624-2723-06-december-2011">4.6.24 (2.7.23), 06. December 2011</h2>
+<ul>
+<li>Feature: New Switch Adapter for Nortel 4500 series and MICROSENS</li>
+<li>Bugfix: Fixed Vendor Report</li>
+<li>Bugfix: Editing a switch does not reset the access control variant</li>
+<li>Bugfix: CDP information is read correctly on all ports</li>
+</ul>
+<h2 id="4622-2721-30-november-2011">4.6.22 (2.7.21), 30. November 2011</h2>
+<ul>
+<li>Bugfix: After adding a router or switch, the NetDevice list disappears</li>
+<li>Bugfix: Repeated updating of a switch could cause this switch in the VLAN zone was no longer displayed</li>
+</ul>
+<h2 id="4620-2719-25-november-2011">4.6.20 (2.7.19), 25. November 2011</h2>
+<ul>
+<li>Feature: USP NAS Standard Edition shows a simplified Policy Manager</li>
+<li>Feature: Simplified configuration of the access controller (port shutdown, port block, Vlan Move)</li>
+<li>Feature: Filter on the Support overview and the NetDevice list can be a hidden</li>
+<li>Feature: Internationalized GUI (eng/ger)</li>
+<li>Feature: Vendor codes updated</li>
+</ul>
+<h2 id="464-274-3-october-2011">4.6.4 (2.7.4), 3. October 2011</h2>
+<ul>
+<li>Feature: Possibility to minimize the rule editor if you do not need tenants</li>
+</ul>
+<h2 id="463-273-14-september-2011">4.6.3 (2.7.3), 14. September 2011</h2>
+<ul>
+<li>Bugfix: An access profile can be deleted only if it is no longer referenced</li>
+<li>Bugfix: Check for invalid host name (HA)</li>
+<li>Feature: Multiple devices on a port are moved to a defined VLAN due the VLAN priority. Before the VLAN was randomly
+  selected.</li>
+</ul>
+<h2 id="460-270-16-august-2011">4.6.0 (2.7.0), 16. August 2011</h2>
+<ul>
+<li>Feature: Policy Manager for simplified policy definitions. A distinction is made between WLAN, Port groups, tenants
+  and global policies.</li>
+<li>Feature: New access-control and health editor for editing a simplified and consolidated overview of the rule</li>
+<li>Feature: Intuitive assignment of clients to network devices and port groups. Per port group can be given only one
+  client. The assignment of switches to a port group is only possible if the network device has assigned the same port
+  as the client group</li>
+<li>Feature: Menu simplifies and eliminates unnecessary menus. Thus, now is a more intuitive operation possible</li>
+<li>Feature: Optimized Appliance business logic</li>
+<li>Bugfix: Status Overview is loaded noticeably faster when HA is not active</li>
+<li>Bugfix: MAC bypass report shows only fields that contain relevant information</li>
+</ul>
+<h2 id="45149-26148-21-juni-2011">4.5.14.9 (2.6.14.8), 21. Juni 2011</h2>
+<ul>
+<li>Bugfix: ARP Scans werden nun die ARP Tabelle und die IP-Net-to-Media Tabelle abrufen und die Resultate zusammenfassen</li>
+</ul>
+<h2 id="45148-26147-10-juni-2011">4.5.14.8 (2.6.14.7), 10. Juni 2011</h2>
+<ul>
+<li>Bugfix: Backup und Restore der VLAN Zonen funktioniert nun</li>
+<li>Bugfix: MPP Decisions werden nun abgespeichert und die gesperrten Geräte werden in der Supportübersicht angezeigt</li>
+<li>Bugfix: MPP Profile von verschiedenen MPP's generieren keine Errors mehr beim Aufstarten von NAS</li>
+<li>Bugfix: Supportübersicht zeigt nun einen "Inventar aktual." Link an, falls ein Gerät schon inventarisiert ist</li>
+</ul>
+<h2 id="45145-26144-13-mai-2011">4.5.14.5 (2.6.14.4), 13. Mai 2011</h2>
+<ul>
+<li>Feature: NAS Capacity Report.</li>
+<li>Bugfix: Zeige keine Endgeräte mehr in der Supportübersicht, die an potenziellen Netports gesehen werden.</li>
+</ul>
+<h2 id="45142-26142-03-mai-2011">4.5.14.2 (2.6.14.2), 03. Mai 2011</h2>
+<ul>
+<li>Feature: Unterstützung von Cisco VoIP-Phones (Handling der CDP-Info).</li>
+<li>Feature: Implementation der Option "Security" beim Handling von VoIP-Geräten.</li>
+<li>Feature: Suchfunktion für Helpdesk von Inventarisierten Endgeräten.</li>
+<li>Bugfix: Korrektur Forecast bei nicht erfassten Netports</li>
+</ul>
+<h2 id="4513-2613-20-april-2011">4.5.13 (2.6.13), 20. April 2011</h2>
+<ul>
+<li>Feature: NAS Kennzahlen Report.</li>
+<li>Feature: Report-Kategorien überarbeitet.</li>
+<li>Feature: Default Source Filter kann konfiguriert werden.</li>
+<li>Feature: NetDevices können neu auch via IP-Adresse gesucht werden.</li>
+<li>Feature: Portgruppen Detailansicht und Netport Detailansicht konsolidiert.</li>
+<li>Bugfix: Layer 3 Scan Warnung wird auf der NAS Statusseite nicht mehr angezeigt und kann auch nicht mehr konfiguriert
+  werden</li>
+<li>Bugfix: User können bei aktiven Lizenz-Modulen das Passwort wieder ändern.</li>
+</ul>
+<h2 id="4512-2612-25-february-2011">4.5.12 (2.6.12), 25. February 2011</h2>
+<ul>
+<li>Feature: HTML Links in der Core Status Seite.</li>
+<li>Feature: Netdevice-Filter erweitert.</li>
+</ul>
+<h2 id="4510-269-14-february-2011">4.5.10 (2.6.9), 14. February 2011</h2>
+<ul>
+<li>Bugfix: Beim RESTRICTIVE Betriebsmodus und dem Shutdown Switch-Betriebsmodus wurde das manchmal auftretende
+  Port-Flapping (Port geht auf-zu-auf-zu usw.) gefixt.</li>
+<li>Bugfix: Reports überarbeitet/optimiert.</li>
+</ul>
+<h2 id="459-268-2-february-2011">4.5.9 (2.6.8), 2. February 2011</h2>
+<ul>
+<li>Feature: DNS Name Enforcing kann nun global eingeschaltet werden. Angeschlossene Geräte müssen dabei im Netz den DNS
+  Namen erhalten wie er im Inventar Import daherkommt, ansonsten werden sie gesperrt.</li>
+<li>Feature: Endgeräte Detail Ansicht erweitert und direkt anwählbar aus dem Menu</li>
+<li>Feature: Portgruppen, VLAN und MPP Zonen können umbenannt werden.</li>
+<li>Feature: Session Timeouts können pro Benutzerrolle einzeln definiert werden</li>
+<li>Bugfix: Verbesserungen beim Inventar Import - dieser wird bis zu 10x schneller durchgeführt.</li>
+</ul>
+<h2 id="457-266-12-january-2011">4.5.7 (2.6.6), 12. January 2011</h2>
+<ul>
+<li>Bugfix: Verbesserte SNMPv2 Fehlerbehandlung</li>
+<li>Bugfix: Diverse Verbesserungen für Switch-Adaptoren</li>
+<li>Bugfix: Aktualisierte SNMP Library</li>
+<li>Bugfix: Backup/Restore: Workspace Daten werden nun auch gesichert/restored</li>
+</ul>
+<h2 id="456-265-15-december-2010">4.5.6 (2.6.5), 15. December 2010</h2>
+<ul>
+<li>Feature: Gerätetyp und Geräteklasse für temporäre Geräte definierbar</li>
+<li>Feature: 802.1X Report</li>
+<li>Feature: Mac-Bypass Report</li>
+<li>Bugfix: MAC Notification Tasks werden nicht mehr verworfen wenn schon ein anderer MAC Notification Task am laufen ist</li>
+<li>Bugfix: Restore von ungültigen Backups verursachen keine falschen Fehlermeldungen mehr</li>
+<li>Bugfix: Verschiedene HA Verbesserungen</li>
+<li>Bugfix: Beim Löschen eines Switches werden die zugehörigen Netports nun ebenfalls gelöscht. Dies verhindert auch
+  falsche Access Profil Verwendungen.</li>
+<li>Bugfix: EAP Status Informationen (802.1X) gehen bei einem Scan nicht mehr verloren</li>
+</ul>
+<h2 id="4435-2532-26-november-2010">4.4.35 (2.5.32), 26. November 2010</h2>
+<ul>
+<li>Feature: Zwei neue Zugangsarten hinzugefügt: produktiver Zugang (MAC Bypass) und produktiver Zugang (802.1X)</li>
+<li>Feature: SNMP v3 für Switches und Router über das GUI aktivierbar (nur Scan ohne Trap)</li>
+<li>Feature: 802.1X Widget erweitert, Anzahl unbekannte Response Meldungen werden angezeigt.</li>
+<li>Feature: VoIP-Port Blocking über Konfiguration aktivierbar</li>
+<li>Bugfix: Multiselektboxen werden beim Klick auf den Zurück-Button in einem Report mit den zuvor ausgewählten Werten
+  selektiert</li>
+</ul>
+<h2 id="4432-2529-12-november-2010">4.4.32 (2.5.29), 12. November 2010</h2>
+<ul>
+<li>Bugfix: NAS Reports werden schneller generiert</li>
+<li>Bugfix: Passwortänderungen funktionieren wieder</li>
+<li>Bugfix: Diverse MPP Fixes (GUI Anzeige, GUI Aktionen, GUI Export, SSL Verbindung, Aktualisieren der Profile)</li>
+<li>Bugfix: MPP für Wired Node funktioniert</li>
+</ul>
+<h2 id="4430-2527-5-november-2010">4.4.30 (2.5.27), 5. November 2010</h2>
+<ul>
+<li>Feature: SSL Support für XML RPC Webservice (MPP Schnittstelle)</li>
+<li>Feature: Erweiterte Aktionen für MPP NetDevices im Webui (Profile ID's, Force Profile ID rescan)</li>
+<li>Bugfix: Alle Passwörter in den Properties Files werden verschlüsselt</li>
+<li>Bugfix: Endgeräte Report zeigt auch bei Geräten, die über das GUI erfasst wurden, die (Geräte)klasse an.</li>
+</ul>
+<h2 id="4429-2526-2-november-2010">4.4.29 (2.5.26), 2. November 2010</h2>
+<ul>
+<li>Bugfix: Datenbank Diskrepanzen zwischen einem aktualisierten NAS und einer Neuinstallation wurden behoben</li>
+<li>Bugfix: Input Validation für "zu überwachende Netzwerkinterfaces" wurde angepasst, ein Input ist nun benötigt. Ein
+  leerer String war erlaubt, führte beim Speichern jedoch zu einem Fehler.</li>
+<li>Bugfix: DNS Hostnamen können nun bis 255 Zeichen lang sein (war vorher nur 80 Zeichen)</li>
+<li>Bugfix: Rücksprung bei Paging. Alle Übersichtsseiten speichern nun die aktuelle Sortierung und aktuelle Seite - wenn
+  ein Eintrag bearbeitet wird erleichtert dies die Arbeit enorm.</li>
+<li>Bugfix: MPP Updates</li>
+</ul>
+<h2 id="4427-2524-19-october-2010">4.4.27 (2.5.24), 19. October 2010</h2>
+<ul>
+<li>Feature: Forecast Drill-Down für Regeln und Geräte</li>
+<li>Feature: Cisco Port Channels werden wie Netports behandelt. Alle MAC-Adressen der Port Channels (und allen VLAN's)
+  werden nicht mehr in den Reports angezeigt und berücksichtigt. Ein aktives Setzen des Port Channels als Netport ist
+  nicht notwendig.</li>
+<li>Feature: Globale Konfiguration zum Ein- und Ausschalten von mehrmaligem temporären Freigaben in der Supportübersicht</li>
+<li>Feature: Modul Wireless überwachung (MPP)</li>
+<li>Bugfix: Report "Traps von Geräten ausserhalb des NAS Scope" zeigt wenn möglich nun die IP-Adresse und den Port des
+  Traps an</li>
+<li>Bugfix: HP Switch Adapter entfernt einen Port nun automatisch aus der VLAN Egress Liste (tagged VLAN's) beim VLAN
+  Setzen.</li>
+<li>Bugfix: MAC Bypass wird auch auf einem Port ohne konfiguriertes Voice VLAN und mit Control Direction All erstellt</li>
+<li>Bugfix: Log Meldung MAC_ON_MULTIPLE_DEVICES zeigt anstatt der NetdeviceId den Namen und IP-Adresse des Netdevices an</li>
+<li>Bugfix: EPC Monitoring wird nur durchgeführt, wenn das Modul aktiviert wurde</li>
+<li>Bugfix: Monitoring optionen werden nur angezeigt, wenn das Modul aktiviert wurde</li>
+</ul>
+<h2 id="4424-2521-17-september-2010">4.4.24 (2.5.21), 17. September 2010</h2>
+<ul>
+<li>Feature: MAC Bypass bei Access Reject (kann über Core Config global ein oder ausgeschaltet werden. Default: aus).</li>
+<li>Bugfix: Problem mit automatischem Backup und uppercaseScheduler Namen fixed</li>
+<li>Bugfix: Probleme mit Closed Health Issues behoben (SOLL Wert==IST Wert im GUI)</li>
+<li>Bugfix: Full Import Size Check diverse Bugs</li>
+<li>Bugfix: VLAN Flipping beim Einstecken eines verbotenen Gerätes an einem Port, bei dem vorgängig ein Erlaubtes,
+  registriertes Gerät angeschlossen war.</li>
+<li>Bugfix: Port Block oder VLAN Move wird nur durchgeführt, wenn Netports vorhanden sind, die keinen Deleted Timestamp
+  haben resp. der Deleted Timestamp in der Zukunft liegt</li>
+</ul>
+<h2 id="4423-2518-10-september-2010">4.4.23 (2.5.18), 10. September 2010</h2>
+<ul>
+<li>Bugfix: viele EPC Updates</li>
+<li>Bugfix: Access-Decision korrigiert wenn der Port down ist</li>
+<li>Bugfix: Fix SNMP Trap Daemon</li>
+<li>Bugfix: Update Problem mit DHCP Server behoben</li>
+<li>Bugfix: Problem mit grossen Portgruppen behoben</li>
+</ul>
+<h2 id="4420-2516-23-august-2010">4.4.20 (2.5.16), 23. August 2010</h2>
+<ul>
+<li>Feature: Modul EPC (End Point Compliance)</li>
+</ul>
+<h2 id="4417-2513-9-august-2010">4.4.17 (2.5.13), 9. August 2010</h2>
+<ul>
+<li>Bugfix: überprüfe dot1x Port Status bei MAC Notification Task</li>
+</ul>
+<h2 id="4412-258-2-august-2010">4.4.12 (2.5.8), 2. August 2010</h2>
+<ul>
+<li>Bugfix: Extreme Networks Adapter VLAN Setzen auf 12.4 Firmware</li>
+</ul>
+<h2 id="4326-2339-31-march-2010">4.3.26 (2.3.39), 31. March 2010</h2>
+<ul>
+<li>Feature: Login: User mit den Rollen admin, helpdesk oder support werden automatisch auf die Core-Status Seite
+  weitergeleitet</li>
+<li>Feature: Netdevice: Neuer Blockmechanismus "COMPLIANTVLAN" hinzugefügt</li>
+<li>Feature: SNMP Error View: Listen können exportiert werden, Paging aktiviert</li>
+<li>Feature: CliNG funktioniert (überwachung NAS-Threads)</li>
+<li>Feature: DNS und Radius Konfiguration verbessert</li>
+<li>Bugfix: USP Reports angepasst für NG Build (2x Endgeräte Report)</li>
+<li>Bugfix: User mit der Rolle "monitoring" können sich wieder einloggen</li>
+<li>Bugfix: NAS Alerting funktionierte nicht, wenn SNMP Trap-Forwarding aktiviert wurde</li>
+<li>Bugfix: Radius Server Konfiguration, Passwort kann Sonderzeichen enthalten</li>
+<li>Bugfix: Gleichzeitiges Login von mehreren Clients konnte zu einer JSP Exception führen</li>
+<li>Bugfix: Portgroup edit, Tabellen werden per Default nach Namen sortiert</li>
+<li>Bugfix: NAS TRAPD, Logfile wird nicht neu erstellt bei einem Restart - vereinfacht debugging</li>
+</ul>
+<h2 id="4322-2335-11-february-2010">4.3.22 (2.3.35), 11. February 2010</h2>
+<ul>
+<li>Feature: DB Anpassungen für neue PostgreSQL Version</li>
+<li>Bugfix: Monitoring Tabelle wurde 2x angezeigt, wenn der User die Rolle Administrator und Support hatte</li>
+</ul>
+<h2 id="4321-2334-2-february-2010">4.3.21 (2.3.34), 2. February 2010</h2>
+<ul>
+<li>Feature: Regel übersicht: Default Sortierung nach Priorität</li>
+<li>Feature: Forecast: Ansicht auf 2 Spalten, kein Scrollen mehr.</li>
+<li>Feature: Alert: Wenn ein automatisches Backup fehlschlägt, wird ein Alert generiert</li>
+<li>Bugfix: PDF Export Netdevice Liste: HTML Tag (wbr) erscheint nicht mehr im Export</li>
+<li>Bugfix: Inkonsistente ResultSet handhabung korrigiert (DAO)</li>
+</ul>
+<h2 id="4320-2333-26-january-2010">4.3.20 (2.3.33), 26. January 2010</h2>
+<ul>
+<li>Feature: NAS Core Task können überwacht werden (wird noch nicht aktiv überwacht)</li>
+<li>Feature: NAS Monitoring, RRD Bilder können als PDF exportiert werden</li>
+<li>Feature: MAC Notification Enterasys</li>
+<li>Feature: SNMP Location von Router anzeigen</li>
+<li>Feature: Disconnect Nodes nach einem NetPort Import</li>
+<li>Feature: System State Dump kann via Web-GUI exportiert werden</li>
+<li>Feature: NAS Logging Einstellungen, nach der Konfiguration einzelner Log Systeme (Syslog, SMTP, SNMP) kann eine
+  Testnachricht verschickt werden</li>
+<li>Bugfix: Backup: wenn ein automatisches Backup fehlschlägt, wird dies korrekt erkannt.</li>
+<li>Bugfix: Backup: Textkorrekturen im automatischen Backup-GUI</li>
+<li>Bugfix: Restore von ungültigen backup wird gestoppt</li>
+<li>Bugfix: Restore: Sequenz ID gefixt</li>
+<li>Bugfix: Restore: ein Restore überschreibt HA Konfiguration nicht mehr</li>
+<li>Bugfix: Reports: MAC-Adresse Parameter-Felder bei Reports gleich behandeln wie bei Inventarisierung (js)</li>
+<li>Bugfix: Reports: Endgerätereport zeigt nun auch Geräte an, wenn keine Port-Gruppe ausgewählt wurde</li>
+<li>Bugfix: Logrotate: Aufgrund eines Schreibfehlers wurden die nas-core Logfiles nicht rotiert.</li>
+<li>Bugfix: HA: nas-webui Log wird nicht mehr gelöscht bei einem Restart von Tomcat. Wichtig bei HA</li>
+<li>Bugfix: Shutdown von nas-trapd funktioniert per stop</li>
+<li>Bugfix: SAB Registry schreibt keine doppelten Einträge mehr</li>
+<li>Bugfix: Monitoring: Links werden auf der Core-Status-Seite nur noch für die Rollen Administrator und Support angezeigt</li>
+<li>Bugfix: SSH Zugriff: Im GUI wird ein Text angezeigt, bei dem klar wird, dass wenn ein leeres Passwort angegeben wird,
+  das momentan gültige übernommen wird</li>
+<li>Bugfix: Login Exceptions (account locked/expired) wurden nicht richtig angezeigt</li>
+<li>Bugfix: Reset korrupte VLAN's</li>
+<li>Bugfix: Neue Regel hinzufügen: keine Entität - Exception</li>
+<li>Bugfix: SAB Alerts konnten "verloren" gehen, wenn viele Alerts gleichzeitig geschickt wurden</li>
+</ul>
+<h2 id="4316-2330-11-january-2010">4.3.16 (2.3.30), 11. January 2010</h2>
+<ul>
+<li>Bugfix: Sys Standort und Sys Location Angaben sind nicht mehr zwingend</li>
+<li>Bugfix: Backup: Reset DB Sequenzzähler nach Restore</li>
+<li>Bugfix: Backup: VLAN Tabellen werden auch gesichert/restored</li>
+<li>Bugfix: VLAN Aktivierung war nicht möglich</li>
+<li>Bugfix: "Back"-Button in "VLAN Mapping definieren" ist falsch benannt. Anstelle 'Zurück zu VLAN Zonen Verwaltung'
+  heisst es nun 'Zurück zu VLAN Mapping'</li>
+<li>Bugfix: Gast-VLAN setzen funktionierte wieder mit VLAN ID oder mit VLAN Namen</li>
+<li>Bugfix: HA: falsche Alert Meldungen</li>
+<li>Bugfix: HA: Job "HA Entfernen" kann immer ausgeführt werden</li>
+<li>Bugfix: Monitoring Task crashte bei langen Hostnamen</li>
+<li>Bugfix: Monitoring, Alert Datum war in der Detailansicht im 12h Format</li>
+<li>Bugfix: Maske zum Erfassen eines temporären Gerätes hat eine falsche Beschreibung beim Feld Gast-VLAN gehabt</li>
+<li>Bugfix: Automatisches Backup nahm leeren Namen an</li>
+<li>Bugfix: Endgerätereport zeigte nichts an, wenn keine Portgruppen definiert waren (INNER JOIN statt LEFT JOIN auf die
+  Tabelle portgroup_netdevice)</li>
+<li>Bugfix: Inventar bearbeiten von EAP_CACHED Source funktioniert mit MS_CHAP nicht, da dort der Clientname =
+  DOMAIN\USERNAME ist und der Bearbeiten-Link mit dem Clientnamen aufgerufen wird</li>
+<li>Bugfix: Userrolle monitoring bekommt beim Login nur eine Fehlerseite, Redirect auf nasHealthCheck.html gemacht</li>
+<li>Bugfix: MAC Bypass Delay Config wieder in Core Config eingefügt</li>
+<li>Bugfix: MAC Bypass wird nicht entfernt, wenn ein DownTrap von einem 802.1X Port kommt</li>
+<li>Bugfix: Default VLAN auf 802.1X Port nach dem Ausziehen des Gerätes funktioniert nicht</li>
+<li>Bugfix: Default VLAN bei MACBypass funktioniert ebenfalls nicht</li>
+<li>Bugfix: Traphandling von UP-Traps welche vor MacNotification (DOWN) kommen. Nun wird der Node nicht mehr auf
+  disconnected gestellt, wenn er bereits an einem anderen Switch gesehen wurde</li>
+<li>Bugfix: Automatischer Backup wird in System-Info nicht aufgelistet</li>
+<li>Bugfix: SNMP Daemon ist nun mit SNMP v1 erreichbar (nur v2c ging davor)</li>
+<li>Bugfix: SNMP Daemon rapportiert 'komischen' Systemtyp 'the USP Appliance System'. Neu ist 'USP Appliance System'</li>
+<li>Bugfix: Scheduled Backup Form, DNS Einstellungen Form, Radius Einstellen Form: fix "null ist ein Pflichtfeld" errors</li>
+<li>Bugfix: HA: Backup/Restore fixes, HA Daten auf backup excluden (#4353), Fehlermeldung, wenn DB nicht läuft</li>
+<li>Bugfix: SNMP Alarming versendet wieder Traps</li>
+</ul>
+<h2 id="4311-2328-4-january-2010">4.3.11 (2.3.28), 4. January 2010</h2>
+<ul>
+<li>Feature: Alcatel Switch Integriert</li>
+<li>Feature: Diff-Upgrade Mechanismus für DB-Scripts</li>
+<li>Feature: Neue Config Seite für Einschaltung von Compliant VLAN's</li>
+<li>Bugfix: Berechtigungen Read-Only Rollen</li>
+<li>Bugfix: Portgruppenupdate bei grossen Switches fixed</li>
+<li>Bugfix: HA: Backup/Restore Funktionen sind auf einer passiven Appliance nicht mehr möglich</li>
+<li>Bugfix: HA: Bevor HA gestartet wird, wird überprüft ob die Konfiguration auf beiden Appliances übereinstimmt (
+  aktiv/passiv, hot stby oder cold stby)</li>
+<li>Bugfix: HA: nas-core Log wird nicht mehr gelöscht bei einem restart von nas-core. Wichtig bei HA</li>
+<li>Bugfix: Minor Changes (#4329:not closed input streams, #4309:nas ha: "job ha entfernen" fehlerhaft, #4348: update
+  commons-pool)</li>
+</ul>
+<h2 id="437">4.3.7</h2>
+<ul>
+<li>Bugfix: VLAN Setzen Enterasys Router Matrix N1</li>
+<li>Bugfix: DB-Timeout für GUI und Reporting</li>
+</ul>
+<h2 id="432">4.3.2</h2>
+<ul>
+<li>Feature: Unterstützung Enterasys Router Matrix N1</li>
+<li>Feature: High Availability Hot-Standby Modus</li>
+<li>Feature: Definition von VLAN Zonen in GUI integriert</li>
+<li>Feature: VLAN Mapping von VLAN-Namen und VLAN-ID</li>
+<li>Feature: Es können mehrere Interfaces für HA verwendet werden</li>
+<li>Feature: Radius Failover</li>
+<li>Feature: Setzen von Default VLAN's auf Down-Ports</li>
+</ul>
+<h2 id="426">4.2.6</h2>
+<ul>
+<li>Feature: High Availability Cold-Standby Modus</li>
+<li>Feature: Unterstützung Extreme Network Switches</li>
+</ul>
+<h2 id="4125">4.1.25</h2>
+<ul>
+<li>Feature: Neues GUI zum Definieren von DNS Zonen</li>
+<li>Feature: Verschlüsseln des DB-Passworts für Enterprise Version</li>
+<li>Bugfix: DNS Import gefixt</li>
+</ul>
+<h2 id="4124">4.1.24</h2>
+<ul>
+<li>Feature: Zusätzliche Benutzer-Admin Rolle eingeführt</li>
+<li>Bugfix: MAC Notifications</li>
+<li>Bugfix: Update des Node Status</li>
+<li>Bugfix: Weiterleitung Monitoring User auf Monitoring Seite</li>
+<li>Bugfix: Port Down-Up Problem bei VLAN-Move</li>
+<li>Bugfix: VoIP-Problem</li>
+</ul>
+<h2 id="4120">4.1.20</h2>
+<ul>
+<li>Feature: Konfigurierbares AutoPVID. Global einschaltbar über die Konfiguration</li>
+<li>Feature: Compliant VLAN Modus</li>
+<li>Bugfix: Enterasys Switchadapter</li>
+<li>Bugfix: Inventar-Deltaimport welcher Zeilen ohne MAC-Adresse nun korrekt rejected.</li>
+<li>Bugfix: Layer3 Scan</li>
+</ul>
+<h2 id="410">4.1.0</h2>
+<ul>
+<li>Feature: Monitoring überwachung der Hardware, des Betriebssystems und der NAS Applikation</li>
+<li>Feature: Alarming bei Problemen betreffend der Hardware, des Betriebssystems und der NAS Applikation</li>
+<li>Feature: Support SMTP Auth für Alarming eMails</li>
+<li>Feature: Tabellensortierung wird während einer Session gespeichert</li>
+<li>Feature: Reporting:</li>
+<li>Report: Out of Scope Traps</li>
+<li>Report: Inventarisierte/ nicht inventarisierte Geräte</li>
+<li>Report: Anzahl bekannte, unbekannte und neu unbekannte Geräte</li>
+<li>Report: Systemübersicht: Anzahl Full-Imports, Delta-Imports, DNS Zone Transfers, OOS-Traps, Errors pro Tag</li>
+<li>Report: Systemauslastungsgrafik</li>
+<li>Report: Statistik Autorisierung (Gemäss SBB Spez.)</li>
+<li>Report: Autorisierungsgrafik</li>
+<li>Report: Endgeräte im Netz: Erweiterung mit Portgruppenfilter.</li>
+<li>Report: Nicht-autorisierte Geräte am Netz: Auflistung aller Systeme, die abgewiesen wurden (Mac, Netzkomponente, Port,
+  Zeitpunkt).</li>
+<li>Reporting: Gesperrte Ports über einen selektiven Zeitraum</li>
+<li>Reporting: "Unused Ports": Sämtliche Ports, die im Scope sind, aber an denen keine MAC-Adresse gesehen wird</li>
+<li>Bugfix: Verbesserte Webserver Stabilität</li>
+<li>Bugfix: Persistente Passwort änderungen</li>
+</ul>
+<h2 id="4033">4.0.33</h2>
+<ul>
+<li>Feature: Konfiguration VLAN-Move/Port-Block pro Switch</li>
+<li>Feature: HP Switch-Adaptor</li>
+<li>Feature: Layer3 Info-Scan</li>
+<li>Feature: Sen-Ddelay für Alerts kann konfiguriert werden (Alerts werden nur beim ersten Auftreten innerhalb einer
+  Periode versendet)</li>
+</ul>
+<h2 id="4031">4.0.31</h2>
+<ul>
+<li>Feature: Backup/Restore über Webui</li>
+<li>Feature: Pre- und Postskripts für Update Mechanismus</li>
+<li>Bugfix: "file not found" nach factory reset</li>
+<li>Bugfix: Postgres: ASCII zu utf8</li>
+<li>Bugfix: SCSI CDROM Treiber</li>
+<li>Bugfix: eth2 nach Reboot nicht gesetzt</li>
+<li>Bugfix: Aufteilung Datensicherung / Export</li>
+<li>Bugfix: Ethernet Interfaces erscheinen erst verzögert nach Reboot</li>
+<li>Bugfix: Update schreibt initrd nicht korrekt</li>
+<li>Bugfix: Hostname wird nun auch in /etc/hosts eingetragen</li>
+<li>Bugfix: dhcpd stop/start via SAB</li>
+<li>Bugfix: nas-core stop beendet nicht alle Prozesse</li>
+<li>Bugfix: Shutdown nicht möglich</li>
+</ul>
+<h2 id="4029">4.0.29</h2>
+<ul>
+<li>Feature: Neue Seite für das Definieren von Portgruppen</li>
+<li>Feature: Logische Gruppierung in Konfigurationsseite</li>
+<li>Feature: Workspace Aktivierung asynchron</li>
+<li>Feature: Migration Read-Only Rolle auf NAS4<ul>
+<li>Feature: Neue Rolle Useradmin eingeführt. Der bisherige Administrator kann keine Benutzer mehr
+  erstellen/ändern/löschen</li>
+</ul>
+</li>
+<li>Feature: Integration LDAP User Authentisierung</li>
+<li>Bugfix: Der Link für das Freigeben nach einer restriktiven Blockierung und anschliessender temporärer Freigabe
+  verschwindet gänzlich, auch wenn das Gerät aus der Registertabelle gelöscht wird.</li>
+<li>Bugfix: Wenn ein Netdevice logisch gelöscht wird, so wird kein Cleanup der zu diesem Netdevice gehörigen
+  Access-Decisions gemacht. Dies ist insofern ein Problem, als die Permissiven Pending Decisions für immer gelten und
+  deshalb kein Ablaufdatum haben.</li>
+<li>Bugfix: Das GUI sollte auf der Alarming Seite keine GUI Meldungen anzeigen die mit <code>x9xx</code> gematcht werden können, da
+  diese standardmässig keinen Alarm auslösen können.</li>
+<li>Bugfix: Im Config GUI kann kein leerer String für Trap Community gesetzt werden</li>
+<li>Bugfix: NAS-DB Restart - NAS Gui hat keinen Zugriff auf die db mehr (kein reconnect)</li>
+<li>Bugfix: Reaktivierung von Switches über Full-Update nicht möglich</li>
+<li>Bugfix: Wenn ein Netdevice mit dem Hostnamen: abc.host.ch. erfasst werden möchte, wird dies nicht zugelassen, dies ist
+  jedoch die korrekte Schreibweise. Dazu muss die Validierungs-Regex angepasst werden.</li>
+<li>Bugfix: Gerät temp. freigeben, variable Zeitspanne wird ignoriert</li>
+<li>Bugfix: nas core config, parse error</li>
+<li>Bugfix: nas core config: NPE nach Session Timeout</li>
+</ul>
+<h2 id="4020">4.0.20</h2>
+<ul>
+<li>Feature: Erweiterte Filter im Inventar der Endgeräte</li>
+<li>Feature: Es werden mehr infos zu den Switches im GUI angezeigt (Standort)</li>
+<li>Feature: Konfiguration für das "Block Port Enforce" ist auch über GUI möglich</li>
+<li>Feature: Datenimport akzeptiert beliebige Gerätetypen und Geräteklassen</li>
+<li>Feature: Appliance Menu überarbeitet</li>
+<li>Bugfix: Netports werden korrekt gelöscht</li>
+<li>Bugfix: Problem beim Editieren des Passworts gefixt (Browser-Cache: Plaintext überschrieb DB-Hash)</li>
+<li>Bugfix: Alerting GUI: Internal Messages wurden eliminiert</li>
+<li>Bugfix: BO Link aus Hilfeseite entfernt</li>
+<li>Bugfix: Das doppelte Erfassen von Netdevices wird verhindert</li>
+<li>Bugfix: Beim Löschen eines Netports werden die daran betroffenen Nodes auf DISCONNECTED gesetzt</li>
+<li>Bugfix: Blocking Time kann angepasst werden</li>
+<li>Bugfix: Versenden von Alerting Traps/E-mails gefixt</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>
