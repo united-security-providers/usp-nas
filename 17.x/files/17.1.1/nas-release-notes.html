@@ -128,6 +128,7 @@
 				line-height: 1.5;
 				background: #ffffff;
 				border-radius: 10px;
+                box-shadow: 0px 0px 15px lightgray;
 			}
 
 			#content li, #content p {
@@ -223,6 +224,60 @@
 				<h1 class="title">USP Network Authentication System<sup>&reg;</sup> Release Notes</h1>
 			</header>
 			<div id="content">
+<h1 id="uspnetworkauthenticationsystemreg17.1">USP Network Authentication System &reg; 17.1</h1>
+
+<p>Released 7 April 2026</p>
+
+<h2 id="platformcompatibility">Platform Compatibility</h2>
+
+<p>This release is compatible with the following platforms:</p>
+
+<ul>
+<li>Dell PowerEdge R660/R650/R640/R630/R620/R610</li>
+<li>VMware ESXi / Workstation</li>
+<li>Microsoft Hyper-V</li>
+<li>QEMU/KVM</li>
+<li>Oracle VirtualBox</li>
+</ul>
+
+<h2 id="changelog">Changelog</h2>
+
+<h3 id="enhancements">Enhancements</h3>
+
+<ul>
+<li><em>Core:</em> Added SNMP query caching for netdevice scan. This is enabled by default, but can be disabled, if desired, in the application settings. (#291981)</li>
+<li><em>Core:</em> Added an automatic connection test before each netdevice scan via SNMP. The test is done by attempting to read the system description of the affected device. This way, the scan will abort much earlier if the device cannot be reached, instead of trying to connect using each available switch adapter. This new feature is enabled by default, but can be disabled in the application configuration if desired. (#291976)</li>
+<li><em>Core:</em> Improved SNMP scan performance by reusing existing connections (#291980)</li>
+<li><em>Logging:</em> Added a new log event &#8220;Switch scan is taking longer than configured scan interval&#8221; with ID 1215. This check will be executed once per hour. (#291116)</li>
+<li><em>Logging:</em> Added log events for proxy mode change on authenticator instances: Info Event 1800 &#8220;Transparent proxy mode is now active on authenticator.&#8221; and Warning Event 2313 &#8220;No response received from master, local proxy mode is now active on authenticator.&#8221; (#291579)</li>
+<li><em>Logging:</em> The serial number of client certificates is now included in connection events in case of EAP TLS authentication. (#292157)</li>
+<li><em>Modern GUI:</em> Added possibility to disable unused switch adapters via the netdevice settings page. This can speed up initial netdevice scans (adapter detection). Aditionally, on the dashboard the number of monitored netdevices without adapter is included in the switch adapter list. The netdevice filter now also allows for filtering for devices without adapter. (#292152)</li>
+<li><em>Modern GUI:</em> It is now visible in the GUI when a netdevice is in the scan queue or when a scan is in progress. The last scan duration is now indicated separately for switches (layer 2 scan) and routers (ARP scan) in the GUI, the Excel export and the REST API. (#292287)</li>
+<li><em>Modern GUI:</em> Show netdevice scan errors and recent RADIUS rejects in the operating figures widget on the dashboard (#292211)</li>
+</ul>
+
+<h3 id="changes">Changes</h3>
+
+<ul>
+<li><em>Legacy GUI:</em> The scanner roundtrip value on the status page now includes RADIUS authentication devices and WLAN access points, and also takes into account netdevices with missing netports. (#292209)</li>
+</ul>
+
+<h3 id="bugfixes">Bugfixes</h3>
+
+<ul>
+<li><em>Core:</em> The time a switch/router is scanned next is now set at the end of the scan, not when the netdevice is added to the scan queue. (#292287)</li>
+<li><em>High availability:</em> The import history is no longer synchronized to authenticator instances. (#292291)</li>
+<li><em>Logging:</em> A &#8220;communication error&#8221; message is now logged for all unreachable netdevices (timeout, wrong credentials) instead of a &#8220;No switch adapter was found&#8221; message (#291636)</li>
+<li><em>Logging:</em> The event &#8220;No SNMP communication with the device&#8221; is no longer logged on HA authenticator instances, as such a system does not perform SNMP scans anyways. This prevents emitting of unnecessary alarming events. (#292184)</li>
+<li><em>Modern GUI:</em> Added missing &#8220;total scan duration&#8221; value to operating figures dialog on the dashboard (#292209)</li>
+<li><em>Modern GUI:</em> Added missing LAG Interface monitoring configuration to application settings page (#292149)</li>
+<li><em>Modern GUI:</em> Fixed an issue on the &#8220;Application configuration&#8221; page preventing the setting &#8220;Check certificates against local CRL&#8221; to be changed. (#292145)</li>
+<li><em>Modern GUI:</em> Fixed an issue with the date import details page which was loading slowly when large import files were used (#292386)</li>
+<li><em>Monitoring:</em> Fixed calculation of scanner roundtrip time. It is now based on the total scan duration value of all monitored netdevices. (#291116)</li>
+<li><em>Policy:</em> Fixed an issue when looking up interface-specific policy group assignments when evaluating an authentication request in the policy engine. (#292334)</li>
+<li><em>RADIUS:</em> Fixed an issue in the configuration of the local FreeRADIUS server, related to the TLS failure log introduced in Release 16.2. FreeRADIUS was unable to start when the dockerized variant was used, as this is an older version of the RADIUS server software which is not compatible with certain new configuration statements. (#292255)</li>
+</ul>
+
 <h1 id="uspnetworkauthenticationsystemreg17.0">USP Network Authentication System &reg; 17.0</h1>
 
 <p>Released 13 February 2026</p>
@@ -296,9 +351,33 @@
 <li><em>SAB:</em> Fixed error in system configuration updater which occurred after appliance upgrade when static routes have been configured (#291926)</li>
 </ul>
 
+<h1 id="uspnetworkauthenticationsystemreg16.7">USP Network Authentication System &reg; 16.7</h1>
+
+<p>Released 18 March 2026</p>
+
+<h2 id="platformcompatibility">Platform Compatibility</h2>
+
+<p>This release is compatible with the following platforms:</p>
+
+<ul>
+<li>Dell PowerEdge R660/R650/R640/R630/R620/R610</li>
+<li>VMware ESXi / Workstation</li>
+<li>Microsoft Hyper-V</li>
+<li>QEMU/KVM</li>
+<li>Oracle VirtualBox</li>
+</ul>
+
+<h2 id="changelog">Changelog</h2>
+
+<h3 id="bugfixes">Bugfixes</h3>
+
+<ul>
+<li><em>REST API:</em> Fixed a database query error in the Interface REST API which occurred in case of a rare duplication issue in the netports table. (#292297)</li>
+</ul>
+
 <h1 id="uspnetworkauthenticationsystemreg16.6">USP Network Authentication System &reg; 16.6</h1>
 
-<p>Released 9 February 2026</p>
+<p>Released 13 February 2026</p>
 
 <h2 id="platformcompatibility">Platform Compatibility</h2>
 
@@ -2578,6 +2657,59 @@
 <li>Bugfix: Blocking Time kann angepasst werden</li>
 <li>Bugfix: Versenden von Alerting Traps/E-mails gefixt</li>
 </ul>
+<h1 id="uspnetworkauthenticationsystemreg17.1">USP Network Authentication System &reg; 17.1</h1>
+
+<p>Released 7 April 2026</p>
+
+<h2 id="platformcompatibility">Platform Compatibility</h2>
+
+<p>This release is compatible with the following platforms:</p>
+
+<ul>
+<li>Dell PowerEdge R660/R650/R640/R630/R620/R610</li>
+<li>VMware ESXi / Workstation</li>
+<li>Microsoft Hyper-V</li>
+<li>QEMU/KVM</li>
+<li>Oracle VirtualBox</li>
+</ul>
+
+<h2 id="changelog">Changelog</h2>
+
+<h3 id="enhancements">Enhancements</h3>
+
+<ul>
+<li><em>Core:</em> Added SNMP query caching for netdevice scan. This is enabled by default, but can be disabled, if desired, in the application settings. (#291981)</li>
+<li><em>Core:</em> Added an automatic connection test before each netdevice scan via SNMP. The test is done by attempting to read the system description of the affected device. This way, the scan will abort much earlier if the device cannot be reached, instead of trying to connect using each available switch adapter. This new feature is enabled by default, but can be disabled in the application configuration if desired. (#291976)</li>
+<li><em>Core:</em> Improved SNMP scan performance by reusing existing connections (#291980)</li>
+<li><em>Logging:</em> Added a new log event &#8220;Switch scan is taking longer than configured scan interval&#8221; with ID 1215. This check will be executed once per hour. (#291116)</li>
+<li><em>Logging:</em> Added log events for proxy mode change on authenticator instances: Info Event 1800 &#8220;Transparent proxy mode is now active on authenticator.&#8221; and Warning Event 2313 &#8220;No response received from master, local proxy mode is now active on authenticator.&#8221; (#291579)</li>
+<li><em>Logging:</em> The serial number of client certificates is now included in connection events in case of EAP TLS authentication. (#292157)</li>
+<li><em>Modern GUI:</em> Added possibility to disable unused switch adapters via the netdevice settings page. This can speed up initial netdevice scans (adapter detection). Aditionally, on the dashboard the number of monitored netdevices without adapter is included in the switch adapter list. The netdevice filter now also allows for filtering for devices without adapter. (#292152)</li>
+<li><em>Modern GUI:</em> It is now visible in the GUI when a netdevice is in the scan queue or when a scan is in progress. The last scan duration is now indicated separately for switches (layer 2 scan) and routers (ARP scan) in the GUI, the Excel export and the REST API. (#292287)</li>
+<li><em>Modern GUI:</em> Show netdevice scan errors and recent RADIUS rejects in the operating figures widget on the dashboard (#292211)</li>
+</ul>
+
+<h3 id="changes">Changes</h3>
+
+<ul>
+<li><em>Legacy GUI:</em> The scanner roundtrip value on the status page now includes RADIUS authentication devices and WLAN access points, and also takes into account netdevices with missing netports. (#292209)</li>
+</ul>
+
+<h3 id="bugfixes">Bugfixes</h3>
+
+<ul>
+<li><em>Core:</em> The time a switch/router is scanned next is now set at the end of the scan, not when the netdevice is added to the scan queue. (#292287)</li>
+<li><em>High availability:</em> The import history is no longer synchronized to authenticator instances. (#292291)</li>
+<li><em>Logging:</em> A &#8220;communication error&#8221; message is now logged for all unreachable netdevices (timeout, wrong credentials) instead of a &#8220;No switch adapter was found&#8221; message (#291636)</li>
+<li><em>Logging:</em> The event &#8220;No SNMP communication with the device&#8221; is no longer logged on HA authenticator instances, as such a system does not perform SNMP scans anyways. This prevents emitting of unnecessary alarming events. (#292184)</li>
+<li><em>Modern GUI:</em> Added missing &#8220;total scan duration&#8221; value to operating figures dialog on the dashboard (#292209)</li>
+<li><em>Modern GUI:</em> Added missing LAG Interface monitoring configuration to application settings page (#292149)</li>
+<li><em>Modern GUI:</em> Fixed an issue on the &#8220;Application configuration&#8221; page preventing the setting &#8220;Check certificates against local CRL&#8221; to be changed. (#292145)</li>
+<li><em>Modern GUI:</em> Fixed an issue with the date import details page which was loading slowly when large import files were used (#292386)</li>
+<li><em>Monitoring:</em> Fixed calculation of scanner roundtrip time. It is now based on the total scan duration value of all monitored netdevices. (#291116)</li>
+<li><em>Policy:</em> Fixed an issue when looking up interface-specific policy group assignments when evaluating an authentication request in the policy engine. (#292334)</li>
+<li><em>RADIUS:</em> Fixed an issue in the configuration of the local FreeRADIUS server, related to the TLS failure log introduced in Release 16.2. FreeRADIUS was unable to start when the dockerized variant was used, as this is an older version of the RADIUS server software which is not compatible with certain new configuration statements. (#292255)</li>
+</ul>
 <h1 id="uspnetworkauthenticationsystemreg17.0">USP Network Authentication System &reg; 17.0</h1>
 
 <p>Released 13 February 2026</p>
@@ -2650,9 +2782,32 @@
 <li><em>Reporting:</em> Fixed broken SQL query in report &#8220;Blocked endpoints&#8221; (#291627)</li>
 <li><em>SAB:</em> Fixed error in system configuration updater which occurred after appliance upgrade when static routes have been configured (#291926)</li>
 </ul>
+<h1 id="uspnetworkauthenticationsystemreg16.7">USP Network Authentication System &reg; 16.7</h1>
+
+<p>Released 18 March 2026</p>
+
+<h2 id="platformcompatibility">Platform Compatibility</h2>
+
+<p>This release is compatible with the following platforms:</p>
+
+<ul>
+<li>Dell PowerEdge R660/R650/R640/R630/R620/R610</li>
+<li>VMware ESXi / Workstation</li>
+<li>Microsoft Hyper-V</li>
+<li>QEMU/KVM</li>
+<li>Oracle VirtualBox</li>
+</ul>
+
+<h2 id="changelog">Changelog</h2>
+
+<h3 id="bugfixes">Bugfixes</h3>
+
+<ul>
+<li><em>REST API:</em> Fixed a database query error in the Interface REST API which occurred in case of a rare duplication issue in the netports table. (#292297)</li>
+</ul>
 <h1 id="uspnetworkauthenticationsystemreg16.6">USP Network Authentication System &reg; 16.6</h1>
 
-<p>Released 9 February 2026</p>
+<p>Released 13 February 2026</p>
 
 <h2 id="platformcompatibility">Platform Compatibility</h2>
 
@@ -4900,7 +5055,7 @@
 </ul>
 			</div>
 			<footer id="footer">
-				&copy; United Security Providers AG
+				&copy; <a href="https://www.united-security-providers.ch/">United Security Providers AG</a>
 			</footer>
 		</div>
 	</body>

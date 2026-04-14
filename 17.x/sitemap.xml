@@ -2,22 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://docs.united-security-providers.ch/usp-nas/latest/</loc>
-         <lastmod>2026-03-24</lastmod>
+         <lastmod>2026-04-14</lastmod>
     </url>
     <url>
          <loc>https://docs.united-security-providers.ch/usp-nas/latest/html-documentation/</loc>
-         <lastmod>2026-03-24</lastmod>
+         <lastmod>2026-04-14</lastmod>
     </url>
     <url>
          <loc>https://docs.united-security-providers.ch/usp-nas/latest/pdf-documentation/</loc>
-         <lastmod>2026-03-24</lastmod>
+         <lastmod>2026-04-14</lastmod>
     </url>
     <url>
          <loc>https://docs.united-security-providers.ch/usp-nas/latest/release-notes/</loc>
-         <lastmod>2026-03-24</lastmod>
+         <lastmod>2026-04-14</lastmod>
     </url>
     <url>
-         <loc>https://docs.united-security-providers.ch/usp-nas/latest/files/17.0.6/nas-docs-17.0.6-releasenotes/</loc>
-         <lastmod>2026-03-24</lastmod>
+         <loc>https://docs.united-security-providers.ch/usp-nas/latest/files/17.1.1/nas-docs-17.1.1-releasenotes/</loc>
+         <lastmod>2026-04-14</lastmod>
     </url>
 </urlset>
