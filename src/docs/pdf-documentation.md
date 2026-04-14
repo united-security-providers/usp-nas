@@ -2,8 +2,8 @@
 
 - [USP NAS Users Guide]
 - [USP NAS Installation Guide]
-- [USP NAS Import Specification]
 - [USP NAS Migration Guide]
+- [USP NAS Import Specification]
 
 
 [USP NAS Users Guide]: files/%NAS_VERSION%/nas-guide.pdf
