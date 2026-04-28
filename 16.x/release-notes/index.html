@@ -20,7 +20,7 @@
         
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../favicon.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
     
     
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#usp-network-authentication-system-166" class="md-skip">
+        <a href="#usp-network-authentication-system-167" class="md-skip">
           Skip to content
         </a>
       
@@ -360,7 +360,7 @@
   <span class="md-ellipsis">
     
   
-    NAS Documentation
+    Documentation
   
 
     
@@ -376,7 +376,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    NAS Documentation
+    Documentation
   
 
           </label>
@@ -527,8 +527,8 @@
 
 
 
-<h1 id="usp-network-authentication-system-166">USP Network Authentication System &reg; 16.6</h1>
-<p>Released 13 February 2026</p>
+<h1 id="usp-network-authentication-system-167">USP Network Authentication System &reg; 16.7</h1>
+<p>Released 28 April 2026</p>
 <h2 id="platform-compatibility">Platform Compatibility</h2>
 <p>This release is compatible with the following platforms:</p>
 <ul>
@@ -541,12 +541,11 @@
 <h2 id="changelog">Changelog</h2>
 <h3 id="bugfixes">Bugfixes</h3>
 <ul>
-<li><em>Legacy GUI:</em> Fixed permission check for user with role "Support" so that it is now allowed to reset a switch adapter if needed. (#292096)</li>
-<li><em>REST API:</em> Fixed an issue where endpoint details were not included in the REST API for endpoints which have not yet been seen in the network. (#292095)</li>
-<li><em>REST API:</em> Fixed an issue where endpoint details were not included in the REST API in case of MAC authenticated endpoints (#292079)</li>
+<li><em>RADIUS:</em> Fixed a memory leak and improved performance and resource usage in RADIUS accounting request handling (#292472)</li>
+<li><em>REST API:</em> Fixed a database query error in the Interface REST API which occurred in case of a rare duplication issue in the netports table. (#292297)</li>
 </ul>
-<h1 id="usp-network-authentication-system-165">USP Network Authentication System &reg; 16.5</h1>
-<p>Released 20 January 2026</p>
+<h1 id="usp-network-authentication-system-166">USP Network Authentication System &reg; 16.6</h1>
+<p>Released 13 February 2026</p>
 <h2 id="platform-compatibility_1">Platform Compatibility</h2>
 <p>This release is compatible with the following platforms:</p>
 <ul>
@@ -557,21 +556,14 @@
 <li>Oracle VirtualBox</li>
 </ul>
 <h2 id="changelog_1">Changelog</h2>
-<h3 id="enhancements">Enhancements</h3>
-<ul>
-<li><em>RADIUS:</em> Added RADIUS enforcement configuration for Alcatel Q-Bridge MIB adaptor (#291977)</li>
-</ul>
-<h3 id="changes">Changes</h3>
-<ul>
-<li><em>Modern GUI:</em> Updated Apache Tika content detection library (used during file uploads) to address a vulnerability reported as critical (CVE-2025-66516) (#291968)</li>
-</ul>
 <h3 id="bugfixes_1">Bugfixes</h3>
 <ul>
-<li><em>Backup:</em> Fixed an issue preventing large backup files to be restored via GUI (process was aborted due to max. process runtime of one minute). This is a regression introduced in 16.0 (#291964)</li>
-<li><em>Modern GUI:</em> Fixed an issue on the LDAP configuration page which did not update LDAP system settings properly. (#291967)</li>
+<li><em>Legacy GUI:</em> Fixed permission check for user with role "Support" so that it is now allowed to reset a switch adapter if needed. (#292096)</li>
+<li><em>REST API:</em> Fixed an issue where endpoint details were not included in the REST API for endpoints which have not yet been seen in the network. (#292095)</li>
+<li><em>REST API:</em> Fixed an issue where endpoint details were not included in the REST API in case of MAC authenticated endpoints (#292079)</li>
 </ul>
-<h1 id="usp-network-authentication-system-164">USP Network Authentication System &reg; 16.4</h1>
-<p>Released 12 January 2026</p>
+<h1 id="usp-network-authentication-system-165">USP Network Authentication System &reg; 16.5</h1>
+<p>Released 20 January 2026</p>
 <h2 id="platform-compatibility_2">Platform Compatibility</h2>
 <p>This release is compatible with the following platforms:</p>
 <ul>
@@ -582,13 +574,21 @@
 <li>Oracle VirtualBox</li>
 </ul>
 <h2 id="changelog_2">Changelog</h2>
-<h3 id="enhancements_1">Enhancements</h3>
+<h3 id="enhancements">Enhancements</h3>
 <ul>
-<li><em>RADIUS:</em> Added RADIUS enforcement configuration for Alcatel 8021Q Bridge MIB adaptor (#291905)</li>
-<li><em>RADIUS:</em> Added more MAC address patterns to the dynamic RADIUS enforcement disconnect adapter, in order to support a wider variant of switch models. (#291902)</li>
+<li><em>RADIUS:</em> Added RADIUS enforcement configuration for Alcatel Q-Bridge MIB adaptor (#291977)</li>
 </ul>
-<h1 id="usp-network-authentication-system-163">USP Network Authentication System &reg; 16.3</h1>
-<p>Released 18 December 2025</p>
+<h3 id="changes">Changes</h3>
+<ul>
+<li><em>Modern GUI:</em> Updated Apache Tika content detection library (used during file uploads) to address a vulnerability reported as critical (CVE-2025-66516) (#291968)</li>
+</ul>
+<h3 id="bugfixes_2">Bugfixes</h3>
+<ul>
+<li><em>Backup:</em> Fixed an issue preventing large backup files to be restored via GUI (process was aborted due to max. process runtime of one minute). This is a regression introduced in 16.0 (#291964)</li>
+<li><em>Modern GUI:</em> Fixed an issue on the LDAP configuration page which did not update LDAP system settings properly. (#291967)</li>
+</ul>
+<h1 id="usp-network-authentication-system-164">USP Network Authentication System &reg; 16.4</h1>
+<p>Released 12 January 2026</p>
 <h2 id="platform-compatibility_3">Platform Compatibility</h2>
 <p>This release is compatible with the following platforms:</p>
 <ul>
@@ -599,21 +599,13 @@
 <li>Oracle VirtualBox</li>
 </ul>
 <h2 id="changelog_3">Changelog</h2>
-<h3 id="enhancements_2">Enhancements</h3>
+<h3 id="enhancements_1">Enhancements</h3>
 <ul>
-<li><em>Data import:</em> Added a configuration option to allow/dissalow the creation of SNMP access profiles during netdevice import for records which have the same SNMPv3 username but different passwords. By default this is allowed (current behaviour). In some circumstances, it may be desired to prevent this, e.g. when importing records without passwords. In this case, they need to match an existing profile. If during the same import new profiles get created which share the same username but have different passwords, importing subsequent records without password might fail. (#291861)</li>
-<li><em>Monitoring:</em> Added monitoring datastores and graphs for FreeRADIUS server as well as PostgreSQL database memory and CPU time. Additionally, the graphs for NAS Core and WebUI heap memory are now shown in the GUI as well. (#291829)</li>
+<li><em>RADIUS:</em> Added RADIUS enforcement configuration for Alcatel 8021Q Bridge MIB adaptor (#291905)</li>
+<li><em>RADIUS:</em> Added more MAC address patterns to the dynamic RADIUS enforcement disconnect adapter, in order to support a wider variant of switch models. (#291902)</li>
 </ul>
-<h3 id="bugfixes_2">Bugfixes</h3>
-<ul>
-<li><em>Core:</em> Added a workaround for detecting 802.1X RADIUS ports on Extreme 200 switches to mitigate a bug in the switch MIB (#291806)</li>
-<li><em>Core:</em> Fixed RADIUS 802.1X detection on Dell EMC N-Series switches by adding a dedicated switch adapter for these models (#291817)</li>
-<li><em>Core:</em> OnWay switch adaptor is now also compatible with newer versions of CarlOS switch firmware (4 and later) (#291818)</li>
-<li><em>RADIUS:</em> When a RADIUS accounting requests includes a VLAN ID (contained in a <code>Tunnel-Private-Group-ID</code> attribute) it will be registered in the endpoint database record regardless if the <code>Tunnel-Type</code> and <code>Tunnel-Medium-Type</code> attributes are present or not, as certain switches only send the <code>Tunnel-Private-Group-ID</code>. (#291819)</li>
-<li><em>Reporting:</em> In the "Switch operational report" updated the description of the parameter "Maximum number of records" to "Maximum number of records (ports)" to indicate that this relates to the number of ports/interfaces queried, and not to the number of switches. (#291813)</li>
-</ul>
-<h1 id="usp-network-authentication-system-162">USP Network Authentication System &reg; 16.2</h1>
-<p>Released 3 December 2025</p>
+<h1 id="usp-network-authentication-system-163">USP Network Authentication System &reg; 16.3</h1>
+<p>Released 18 December 2025</p>
 <h2 id="platform-compatibility_4">Platform Compatibility</h2>
 <p>This release is compatible with the following platforms:</p>
 <ul>
@@ -624,6 +616,31 @@
 <li>Oracle VirtualBox</li>
 </ul>
 <h2 id="changelog_4">Changelog</h2>
+<h3 id="enhancements_2">Enhancements</h3>
+<ul>
+<li><em>Data import:</em> Added a configuration option to allow/dissalow the creation of SNMP access profiles during netdevice import for records which have the same SNMPv3 username but different passwords. By default this is allowed (current behaviour). In some circumstances, it may be desired to prevent this, e.g. when importing records without passwords. In this case, they need to match an existing profile. If during the same import new profiles get created which share the same username but have different passwords, importing subsequent records without password might fail. (#291861)</li>
+<li><em>Monitoring:</em> Added monitoring datastores and graphs for FreeRADIUS server as well as PostgreSQL database memory and CPU time. Additionally, the graphs for NAS Core and WebUI heap memory are now shown in the GUI as well. (#291829)</li>
+</ul>
+<h3 id="bugfixes_3">Bugfixes</h3>
+<ul>
+<li><em>Core:</em> Added a workaround for detecting 802.1X RADIUS ports on Extreme 200 switches to mitigate a bug in the switch MIB (#291806)</li>
+<li><em>Core:</em> Fixed RADIUS 802.1X detection on Dell EMC N-Series switches by adding a dedicated switch adapter for these models (#291817)</li>
+<li><em>Core:</em> OnWay switch adaptor is now also compatible with newer versions of CarlOS switch firmware (4 and later) (#291818)</li>
+<li><em>RADIUS:</em> When a RADIUS accounting requests includes a VLAN ID (contained in a <code>Tunnel-Private-Group-ID</code> attribute) it will be registered in the endpoint database record regardless if the <code>Tunnel-Type</code> and <code>Tunnel-Medium-Type</code> attributes are present or not, as certain switches only send the <code>Tunnel-Private-Group-ID</code>. (#291819)</li>
+<li><em>Reporting:</em> In the "Switch operational report" updated the description of the parameter "Maximum number of records" to "Maximum number of records (ports)" to indicate that this relates to the number of ports/interfaces queried, and not to the number of switches. (#291813)</li>
+</ul>
+<h1 id="usp-network-authentication-system-162">USP Network Authentication System &reg; 16.2</h1>
+<p>Released 3 December 2025</p>
+<h2 id="platform-compatibility_5">Platform Compatibility</h2>
+<p>This release is compatible with the following platforms:</p>
+<ul>
+<li>Dell PowerEdge R660/R650/R640/R630/R620/R610</li>
+<li>VMware ESXi / Workstation</li>
+<li>Microsoft Hyper-V</li>
+<li>QEMU/KVM</li>
+<li>Oracle VirtualBox</li>
+</ul>
+<h2 id="changelog_5">Changelog</h2>
 <h3 id="enhancements_3">Enhancements</h3>
 <ul>
 <li><em>Monitoring:</em> Added options to make forwarding system authentication and local RADIUS server logs optional when configuring remote syslog server. This can be configured in the modern GUI on the "Peripheral Systems" configuration page. (#289779)</li>
@@ -634,7 +651,7 @@
 <ul>
 <li><em>Monitoring:</em> Removed non-functional NAS application count monitoring metric, graph and alerting (event 3301), including sending of the non-descriptive, not standardized trap SNMP trap .1.3.6.1.4.1.26458.7419.3.1, as it was not reliably possible for the NAC application to monitor itself and send events if it is not working properly. New separate, informative-only monitoring graphs for the USP NAS Core and WebUI services have been added to the GUI. (#291716)</li>
 </ul>
-<h3 id="bugfixes_3">Bugfixes</h3>
+<h3 id="bugfixes_4">Bugfixes</h3>
 <ul>
 <li><em>Backup:</em> Ensured that scheduled backups and file server settings are NOT synchronized during an authenticator synchronization, as it was in past releases. This is a regression introduced in release 16.0 (#291723)</li>
 <li><em>Logging:</em> <strong>CAUTION</strong> Fixed format of RADIUS server log lines whenthey are sent to a remote syslog server, as they contained duplicated date/time strings and had incorrect syslog program and facility values. This could lead to parsing errors on the receiving log collector. The program property is now set to <code>radiusd</code> and the facility is set to <code>daemon</code>. If you are using this feature and rely on the current format, you might need to adapt the parsing rules in your log collection system. (#291778)</li>
@@ -646,30 +663,6 @@
 </ul>
 <h1 id="usp-network-authentication-system-161">USP Network Authentication System &reg; 16.1</h1>
 <p>Released 25 September 2025</p>
-<h2 id="platform-compatibility_5">Platform Compatibility</h2>
-<p>This release is compatible with the following platforms:</p>
-<ul>
-<li>Dell PowerEdge R660/R650/R640/R630/R620/R610</li>
-<li>VMware ESXi / Workstation</li>
-<li>Microsoft Hyper-V</li>
-<li>QEMU/KVM</li>
-<li>Oracle VirtualBox</li>
-</ul>
-<h2 id="changelog_5">Changelog</h2>
-<h3 id="features">Features</h3>
-<ul>
-<li><em>SNMP:</em> Added the possibility to receive SNMPv3 traps from netdevices which have SNMPv3 credentials configured for scanning. (#235235)</li>
-</ul>
-<h3 id="enhancements_4">Enhancements</h3>
-<ul>
-<li><em>RADIUS:</em> Added an option to enable auto-conversion from MAC to EAP identities when authenticating with a valid certificate and a related MAC identity already exists (#291457)</li>
-</ul>
-<h3 id="bugfixes_4">Bugfixes</h3>
-<ul>
-<li><em>Modern GUI:</em> Fixed a data refresh issue on the netdevice overview page which occurred when too many entries have been fetched. (#290791)</li>
-</ul>
-<h1 id="usp-network-authentication-system-160">USP Network Authentication System &reg; 16.0</h1>
-<p>Released 17 September 2025</p>
 <h2 id="platform-compatibility_6">Platform Compatibility</h2>
 <p>This release is compatible with the following platforms:</p>
 <ul>
@@ -680,6 +673,30 @@
 <li>Oracle VirtualBox</li>
 </ul>
 <h2 id="changelog_6">Changelog</h2>
+<h3 id="features">Features</h3>
+<ul>
+<li><em>SNMP:</em> Added the possibility to receive SNMPv3 traps from netdevices which have SNMPv3 credentials configured for scanning. (#235235)</li>
+</ul>
+<h3 id="enhancements_4">Enhancements</h3>
+<ul>
+<li><em>RADIUS:</em> Added an option to enable auto-conversion from MAC to EAP identities when authenticating with a valid certificate and a related MAC identity already exists (#291457)</li>
+</ul>
+<h3 id="bugfixes_5">Bugfixes</h3>
+<ul>
+<li><em>Modern GUI:</em> Fixed a data refresh issue on the netdevice overview page which occurred when too many entries have been fetched. (#290791)</li>
+</ul>
+<h1 id="usp-network-authentication-system-160">USP Network Authentication System &reg; 16.0</h1>
+<p>Released 20 April 2026</p>
+<h2 id="platform-compatibility_7">Platform Compatibility</h2>
+<p>This release is compatible with the following platforms:</p>
+<ul>
+<li>Dell PowerEdge R660/R650/R640/R630/R620/R610</li>
+<li>VMware ESXi / Workstation</li>
+<li>Microsoft Hyper-V</li>
+<li>QEMU/KVM</li>
+<li>Oracle VirtualBox</li>
+</ul>
+<h2 id="changelog_7">Changelog</h2>
 <h3 id="features_1">Features</h3>
 <ul>
 <li><em>Modern GUI:</em> Added a restricted demo mode which allows to test the functionality of USP NAS without the need to provide a license. (#290510)</li>
@@ -739,6 +756,7 @@
 <li><em>Traditional GUI:</em> Netdevice scan fine-tuning options are now available on the application configuration page in the SNMP section. (#291470)</li>
 <li><em>Traditional GUI:</em> The VLAN ID is now shown on access profile configuration pages (#289593)</li>
 <li><em>Traditional GUI:</em> The global access control setting is now displayed in the policy widget in the dashboard (#289593)</li>
+<li>Added option to send disconnect RADIUS packet to netdevice (#291033)</li>
 </ul>
 <h3 id="changes_2">Changes</h3>
 <ul>
@@ -756,11 +774,11 @@
 <li><em>Licensing:</em> Updated license count algorithm for endpoints (need to be registered and active within last 90 days) and enforce check for maximum licensed endpoints in the modern GUI. (#290733)</li>
 <li><em>Logging:</em> Removed log event NO_TRAPS_FROM_DEVICE (1214) and related monitoring configuration. There are many cases where switches do not (regularly) receive traps, and this notification just unnecessarily fills the log files. (#291304)</li>
 <li><em>Modern GUI:</em> Removed option to assign portgroups to netdevices directly in the netdevice overview (for UI performance reasons) (#291425)</li>
-<li><em>REST-API:</em> <strong>BREAKING</strong> The naming in the data structure of the <em>netdevices</em>, <em>interfaces</em> and <em>endpoints REST APIs</em> has been standardized. All property names and filter parameters are now written in <em>camel case</em> instead of a mix of snake case and camel case. Also, some properties have been renamed to more sensible names. Please consult the migration guide and the online REST API documentation for more details. (#291205)</li>
+<li><em>REST API:</em> <strong>BREAKING</strong> The naming in the data structure of the <em>netdevices</em>, <em>interfaces</em> and <em>endpoints REST APIs</em> has been standardized. All property names and filter parameters are now written in <em>camel case</em> instead of a mix of snake case and camel case. Also, some properties have been renamed to more sensible names. Please consult the migration guide and the online REST API documentation for more details. (#291205)</li>
 <li><em>Traditional GUI:</em> "Last jobs" are no longer displayed on the system state page in the traditional GUI. Instead, a link is provided to see the last appliance related events in the new log viewer. (#290979)</li>
 <li><em>Traditional GUI:</em> Removed manual DNS zone transfer button from legacy GUI dashboard (#289916)</li>
 </ul>
-<h3 id="bugfixes_5">Bugfixes</h3>
+<h3 id="bugfixes_6">Bugfixes</h3>
 <ul>
 <li><em>Core</em>: Fixed an issue where the netdevice status was set to OK (green indicator in the Web GUI) when it received an SNMP trap or RADIUS request, even though an SNMP scan issue exists at that time, and the error status should be visible with a red indicator in the Web GUI. (#291487)</li>
 <li><em>Core:</em> Fixed an error log message which occurred when attempting to check a node whose netdevice no longer exists in the inventory (#291152)</li>
@@ -785,7 +803,7 @@
 </ul>
 <h1 id="usp-network-authentication-system-154">USP Network Authentication System &reg; 15.4</h1>
 <p>Released 13 August 2025</p>
-<h2 id="platform-compatibility_7">Platform Compatibility</h2>
+<h2 id="platform-compatibility_8">Platform Compatibility</h2>
 <p>This release is compatible with the following platforms:</p>
 <ul>
 <li>Dell PowerEdge R660/R650/R640/R630/R620/R610</li>
@@ -794,7 +812,7 @@
 <li>QEMU/KVM</li>
 <li>Oracle VirtualBox</li>
 </ul>
-<h2 id="changelog_7">Changelog</h2>
+<h2 id="changelog_8">Changelog</h2>
 <h3 id="enhancements_6">Enhancements</h3>
 <ul>
 <li><em>RADIUS:</em> Added log event <code>RADIUS_NETDEVICE_ADDED (1935)</code> which is triggered when a new netdevice from a RADIUS subnet is automatically added to the inventory (#291230)</li>
@@ -805,7 +823,7 @@
 <li><em>Logging:</em> Added an optional trace log file for USP NAS Core and changed the log level of certain log statements (e.g. task start/finish) to "trace" in order to reduce verbosity. This will significantly reduce the size of the debug log and  make it easier to find relevant entries when debugging an issue. The trace log can be enabled by starting USP NAS core with the Java option <code>-Dtrace.logging.enabled=true</code>. The debug log events <code>CONFIG_UPDATED (1009)</code>, <code>START_CMDQUEUE_CHECK (1925)</code> and <code>CMDQUEUE_CHECK_COMPLETED (1926)</code> have been removed. (#291232)</li>
 <li><em>REST-API:</em> <strong>CAUTION</strong> Soft-deleted netdevices are no longer included in the netdevice REST API response. The related filter parameters <code>deletedBefore</code> and <code>deletedAfter</code> have been removed. The interface REST API response will also no longer contain records belonging to soft-deleted netdevices. (#290834)</li>
 </ul>
-<h3 id="bugfixes_6">Bugfixes</h3>
+<h3 id="bugfixes_7">Bugfixes</h3>
 <ul>
 <li><em>Data import:</em> When importing netdevices via CSV, the switch adapter is no longer reset. This prevents extended switch scans after each full import. (#291249)</li>
 <li><em>Legacy GUI:</em> Fixed broken icon link to add an endpoint temporarily in the connection events table (#291227)</li>
@@ -819,7 +837,7 @@
 </ul>
 <h1 id="usp-network-authentication-system-153">USP Network Authentication System &reg; 15.3</h1>
 <p>Released 17 June 2025</p>
-<h2 id="platform-compatibility_8">Platform Compatibility</h2>
+<h2 id="platform-compatibility_9">Platform Compatibility</h2>
 <p>This release is compatible with the following platforms:</p>
 <ul>
 <li>Dell PowerEdge R650/R640/R630/R620/R610</li>
@@ -828,7 +846,7 @@
 <li>QEMU/KVM</li>
 <li>Oracle VirtualBox</li>
 </ul>
-<h2 id="changelog_8">Changelog</h2>
+<h2 id="changelog_9">Changelog</h2>
 <h3 id="enhancements_7">Enhancements</h3>
 <ul>
 <li><strong>New GUI:</strong> The data import failure report download button is also shown for successful imports, in case some entries contain failures (#290858)</li>
@@ -841,7 +859,7 @@
 <li>If a WLAN AP/controller is being auto-added via RADIUS request subnet match, it will now get the device class WLAN instead of Generic RADIUS auth. device. This will ensure it is scanned in the correct way in case an SNMP access profile is defined. (#290840)</li>
 <li>When auto-adding via RADIUS request subnet match, no "fake" Generic Radius adapter is set anymore. The adapter will be set by the normal switch scan process, and the WebGUI will now show the correct status of the newly added netdevice. (#290068)</li>
 </ul>
-<h3 id="bugfixes_7">Bugfixes</h3>
+<h3 id="bugfixes_8">Bugfixes</h3>
 <ul>
 <li><strong>New GUI:</strong> Improved the performance of bulk-deleting large amounts of soft-deleted netdevices via the web GUI ("Deleted Netdevices" page) (#290985)</li>
 <li>Changed the id column of the endpoint details table to be an identity column instead of using global ids, in order to avoid conflicts and race conditions when dealing with large data imports. (#290955)</li>
@@ -857,7 +875,7 @@
 </ul>
 <h1 id="usp-network-authentication-system-152">USP Network Authentication System &reg; 15.2</h1>
 <p>Released 6 May 2025</p>
-<h2 id="platform-compatibility_9">Platform Compatibility</h2>
+<h2 id="platform-compatibility_10">Platform Compatibility</h2>
 <p>This release is compatible with the following platforms:</p>
 <ul>
 <li>Dell PowerEdge R650/R640/R630/R620/R610</li>
@@ -866,7 +884,7 @@
 <li>QEMU/KVM</li>
 <li>Oracle VirtualBox</li>
 </ul>
-<h2 id="changelog_9">Changelog</h2>
+<h2 id="changelog_10">Changelog</h2>
 <h3 id="enhancements_8">Enhancements</h3>
 <ul>
 <li><strong>New GUI:</strong> Improved UX of create/edit netdevice form: Fixed some validation issues, removed unnecessary confirmation dialogs, reordered and grouped inputs more logically and added explanation of the various properties.  (#290838)</li>
@@ -874,7 +892,7 @@
 <li>Added new field <code>status_changed</code> in <code>node</code> table which contains the timestamp of the status change (active, inactive, disconnected, ...) of each network node entry. (#290438)</li>
 <li>Improved performance and lowered memory usage of REST API calls (endpoints, netdevices, interfaces) when dealing with large datasets (#290861)</li>
 </ul>
-<h3 id="bugfixes_8">Bugfixes</h3>
+<h3 id="bugfixes_9">Bugfixes</h3>
 <ul>
 <li><strong>New GUI:</strong> Fixed an issue where some entries were listed multiple times in certain circumstances on the endpoint overview page. (#290847)</li>
 <li><strong>New GUI:</strong> On the connection event page, fixed broken EAP username filter, and ensured that when filtering for client name, both network and inventory-based FQDN are considered (#290837)</li>
@@ -886,7 +904,7 @@
 </ul>
 <h1 id="usp-network-authentication-system-151">USP Network Authentication System &reg; 15.1</h1>
 <p>Released 30 April 2025</p>
-<h2 id="platform-compatibility_10">Platform Compatibility</h2>
+<h2 id="platform-compatibility_11">Platform Compatibility</h2>
 <p>This release is compatible with the following platforms:</p>
 <ul>
 <li>Dell PowerEdge R650/R640/R630/R620/R610</li>
@@ -895,7 +913,7 @@
 <li>QEMU/KVM</li>
 <li>Oracle VirtualBox</li>
 </ul>
-<h2 id="changelog_10">Changelog</h2>
+<h2 id="changelog_11">Changelog</h2>
 <h3 id="enhancements_9">Enhancements</h3>
 <ul>
 <li><strong>New GUI:</strong> Added link to regex online reference documentation on application settings page (#290737)</li>
@@ -907,7 +925,7 @@
 <li>RADIUS auth. devices are included in the 'number of switches' graph on the status page. A dedicated graph for the number of WLAN access points has been added as well. (#290797)</li>
 <li>Regex-based uplink-detection is now case-insensitive by default (#290737)</li>
 </ul>
-<h3 id="bugfixes_9">Bugfixes</h3>
+<h3 id="bugfixes_10">Bugfixes</h3>
 <ul>
 <li><strong>New GUI:</strong> Allow to set empty SNMP trap community string in application settings page (#290796)</li>
 <li><strong>New GUI:</strong> Fixed a display issue on the dashboard with the HA authenticator name on smaller screens (#290782)</li>
@@ -929,7 +947,7 @@
 </ul>
 <h1 id="usp-network-authentication-system-150">USP Network Authentication System &reg; 15.0</h1>
 <p>Released 30 March 2025</p>
-<h2 id="platform-compatibility_11">Platform Compatibility</h2>
+<h2 id="platform-compatibility_12">Platform Compatibility</h2>
 <p>This release is compatible with the following platforms:</p>
 <ul>
 <li>Dell PowerEdge R650/R640/R630/R620/R610</li>
@@ -938,7 +956,7 @@
 <li>QEMU/KVM</li>
 <li>Oracle VirtualBox</li>
 </ul>
-<h2 id="changelog_11">Changelog</h2>
+<h2 id="changelog_12">Changelog</h2>
 <h3 id="features_2">Features</h3>
 <ul>
 <li><strong>New GUI:</strong> Add possibility to download data tables as Excel and CSV files in new GUI (#289554)</li>
@@ -987,7 +1005,7 @@
 <li>Updated Angular UI framework to version 18 (#258137)</li>
 <li>Updated several third-party libraries to fix reported security vulnerabilities (CVE-2024-52317, CVE-2023-5072, CVE-2024-38821, CVE-2024-1597, CVE-2024-22243, CVE-2024-22259, CVE-2024-22262, CVE-2024-38809) (#290248)</li>
 </ul>
-<h3 id="bugfixes_10">Bugfixes</h3>
+<h3 id="bugfixes_11">Bugfixes</h3>
 <ul>
 <li><strong>New GUI</strong>: Allow RADIUS authentication netdevices to be assigned to a portgropup, instead of switches only (#290373)</li>
 <li><strong>New GUI:</strong> Fixed an issue where filter criteria info is lost on page refresh (#289853)</li>
@@ -1017,22 +1035,6 @@
 </ul>
 <h1 id="usp-network-authentication-system-142">USP Network Authentication System &reg; 14.2</h1>
 <p>Released 11 March 2025</p>
-<h2 id="platform-compatibility_12">Platform Compatibility</h2>
-<p>This release is compatible with the following platforms:</p>
-<ul>
-<li>Dell PowerEdge R650/R640/R630/R620/R610</li>
-<li>VMware ESXi / Workstation</li>
-<li>Microsoft Hyper-V</li>
-<li>QEMU/KVM</li>
-<li>Oracle VirtualBox</li>
-</ul>
-<h2 id="changelog_12">Changelog</h2>
-<h3 id="bugfixes_11">Bugfixes</h3>
-<ul>
-<li>Fixed an issue where endpoints were not recognized on some Cisco Switches (VTP MIB) when using SNMPv3, because the VLAN context was not properly applied when scanning the bridge table. (#290629)</li>
-</ul>
-<h1 id="usp-network-authentication-system-141">USP Network Authentication System &reg; 14.1</h1>
-<p>Released 17 February 2025</p>
 <h2 id="platform-compatibility_13">Platform Compatibility</h2>
 <p>This release is compatible with the following platforms:</p>
 <ul>
@@ -1043,6 +1045,22 @@
 <li>Oracle VirtualBox</li>
 </ul>
 <h2 id="changelog_13">Changelog</h2>
+<h3 id="bugfixes_12">Bugfixes</h3>
+<ul>
+<li>Fixed an issue where endpoints were not recognized on some Cisco Switches (VTP MIB) when using SNMPv3, because the VLAN context was not properly applied when scanning the bridge table. (#290629)</li>
+</ul>
+<h1 id="usp-network-authentication-system-141">USP Network Authentication System &reg; 14.1</h1>
+<p>Released 17 February 2025</p>
+<h2 id="platform-compatibility_14">Platform Compatibility</h2>
+<p>This release is compatible with the following platforms:</p>
+<ul>
+<li>Dell PowerEdge R650/R640/R630/R620/R610</li>
+<li>VMware ESXi / Workstation</li>
+<li>Microsoft Hyper-V</li>
+<li>QEMU/KVM</li>
+<li>Oracle VirtualBox</li>
+</ul>
+<h2 id="changelog_14">Changelog</h2>
 <h3 id="enhancements_11">Enhancements</h3>
 <ul>
 <li>Added filter by ifalias (contains string) for interface REST API (#290252)</li>
@@ -1052,7 +1070,7 @@
 <ul>
 <li>Re-added <code>id</code> property in the interface REST API response (#290252)</li>
 </ul>
-<h3 id="bugfixes_12">Bugfixes</h3>
+<h3 id="bugfixes_13">Bugfixes</h3>
 <ul>
 <li><strong>BACKPORTED:</strong> When configuring a network interface statically via console, set default gateway and DNS servers to static as well, if they have been previously configured to use DHCP. (#290547)</li>
 <li>Added missing changed-by field in the endpoint REST API and legacy GUI endpoint details view (#290267)</li>
@@ -1071,7 +1089,7 @@
 </ul>
 <h1 id="usp-network-authentication-system-140">USP Network Authentication System &reg; 14.0</h1>
 <p>Released 18 November 2024</p>
-<h2 id="platform-compatibility_14">Platform Compatibility</h2>
+<h2 id="platform-compatibility_15">Platform Compatibility</h2>
 <p>This release is compatible with the following platforms:</p>
 <ul>
 <li>Dell PowerEdge R650/R640/R630/R620/R610</li>
@@ -1080,7 +1098,7 @@
 <li>QEMU/KVM</li>
 <li>Oracle VirtualBox</li>
 </ul>
-<h2 id="changelog_14">Changelog</h2>
+<h2 id="changelog_15">Changelog</h2>
 <h3 id="features_3">Features</h3>
 <ul>
 <li><strong>New GUI:</strong> A new first-time setup experience has been added, guiding the admin user through the first steps in setting up the USP NAS appliance system (#200314)</li>
@@ -1169,7 +1187,7 @@
 <li>Updated openSSH to version 9.8_p1 to address CVE-2024-6387 (regreSSHion) (#289546)</li>
 <li>Updated to latest 5.10 Linux kernel version (#289374)</li>
 </ul>
-<h3 id="bugfixes_13">Bugfixes</h3>
+<h3 id="bugfixes_14">Bugfixes</h3>
 <ul>
 <li>Added character-set detection for scheduled scripts when they are displayed in the GUI. This fixes an issue where some scripts appeared as empty when viewing their content. (#289653)</li>
 <li>Added missing FQDN of registered endpoints in connection-events log (#242678)</li>
@@ -1211,7 +1229,7 @@
 </ul>
 <h1 id="usp-network-authentication-system-5134">USP Network Authentication System &reg; 5.13.4</h1>
 <p>Released 9 March 2025</p>
-<h2 id="platform-compatibility_15">Platform Compatibility</h2>
+<h2 id="platform-compatibility_16">Platform Compatibility</h2>
 <p>This release is compatible with the following platforms:</p>
 <ul>
 <li>Dell PowerEdge R650/R640/R630/R620/R610</li>
@@ -1220,12 +1238,12 @@
 <li>QEMU/KVM</li>
 <li>Oracle VirtualBox</li>
 </ul>
-<h2 id="changelog_15">Changelog</h2>
+<h2 id="changelog_16">Changelog</h2>
 <h3 id="enhancements_13">Enhancements</h3>
 <ul>
 <li>Enable configuring SNMPv3 with authNoPriv SHA256 authentication (#290226)</li>
 </ul>
-<h3 id="bugfixes_14">Bugfixes</h3>
+<h3 id="bugfixes_15">Bugfixes</h3>
 <ul>
 <li>Add check for duplicates during netport import and remove them if necessary (#289655)</li>
 <li>Fixed a regression introduced in 5.13.2 affecting the scanning of Huawei netdevices when upgrading form a previous USP NAS version. (#289807)</li>
@@ -1237,31 +1255,6 @@
 </ul>
 <h1 id="usp-network-authentication-system-5133">USP Network Authentication System &reg; 5.13.3</h1>
 <p>Released 6 August 2024</p>
-<h2 id="platform-compatibility_16">Platform Compatibility</h2>
-<p>This release is compatible with the following platforms:</p>
-<ul>
-<li>Dell PowerEdge R650</li>
-<li>Dell PowerEdge R640</li>
-<li>Dell PowerEdge R630</li>
-<li>Dell PowerEdge R620</li>
-<li>Dell PowerEdge R610</li>
-<li>VMware ESXi / Workstation</li>
-<li>Microsoft Hyper-V</li>
-<li>VirtualBox 6.x/7.x</li>
-</ul>
-<h2 id="changelog_16">Changelog</h2>
-<h3 id="enhancements_14">Enhancements</h3>
-<ul>
-<li><strong>BACKPORTED:</strong> Added possibility to set all ports of as switch as portgroup by using a wildcard character '*'</li>
-</ul>
-<h3 id="bugfixes_15">Bugfixes</h3>
-<ul>
-<li>Fixed certificate key-length detection for non-RSA keys in WebGUI SSL certificate management view (#289533)</li>
-<li>Fixed issue with connected endpoints not properly recognized on some Alcatel switches (OmniSwitch 6855-U24X/6855-14) (#289580)</li>
-<li>Scan error on Cisco switches in the query of the cdp-MIB fixed (CiscoVtpMibAdaptor) (#289521)</li>
-</ul>
-<h1 id="usp-network-authentication-system-5132">USP Network Authentication System &reg; 5.13.2</h1>
-<p>Released 7 May 2024</p>
 <h2 id="platform-compatibility_17">Platform Compatibility</h2>
 <p>This release is compatible with the following platforms:</p>
 <ul>
@@ -1275,27 +1268,18 @@
 <li>VirtualBox 6.x/7.x</li>
 </ul>
 <h2 id="changelog_17">Changelog</h2>
-<h3 id="enhancements_15">Enhancements</h3>
+<h3 id="enhancements_14">Enhancements</h3>
 <ul>
-<li>Added QBridge-MIB switch adapter for Hirschmann devices (#289257)</li>
-</ul>
-<h3 id="changes_8">Changes</h3>
-<ul>
-<li>When using the RADIUS server module (FreeRADIUS), the server certificate sent to clients includes now the CA certificate chain, in case any matching CA certificates have been added via USP NAS GUI certificate management. This solves some issues with 802.1x authentication when using Android phones. (#284718)</li>
+<li><strong>BACKPORTED:</strong> Added possibility to set all ports of as switch as portgroup by using a wildcard character '*'</li>
 </ul>
 <h3 id="bugfixes_16">Bugfixes</h3>
 <ul>
-<li>Enable caching of local SNMPv3 engine ID to avoid performance-intensive re-creation on every request. (#286423)</li>
-<li>Fixed an issue with MAC address parsing (which resulted in 00-00-00-00-00-00 being reported) during port detection when scanning certain switches (e.g. Hirschmann) (#289257)</li>
-<li>Fixed detection/scanning issues in OnWay switch adapter (#255817)</li>
-<li>Fixed endpoint REST API query to not consider data which has been deleted in the inventory. (#289291)</li>
-<li>Fixed exception handling during switch scan in relation to dot1xPAE MIB, ensuring switch can does not abort in certain cases. (#285030)</li>
-<li>Fixed number of netdevices displayed on NAS WebGUI Policy Manager -&gt; Portgroup page (#256388)</li>
-<li>Fixes applied in the switch-report. Netports are now displayed corretly and authorization state of invenorized endpoints have been fixed. (#282278)</li>
-<li>Removed ID from netdevice scope filter label used on netdevices page in NAS Web GUI (#270735)</li>
+<li>Fixed certificate key-length detection for non-RSA keys in WebGUI SSL certificate management view (#289533)</li>
+<li>Fixed issue with connected endpoints not properly recognized on some Alcatel switches (OmniSwitch 6855-U24X/6855-14) (#289580)</li>
+<li>Scan error on Cisco switches in the query of the cdp-MIB fixed (CiscoVtpMibAdaptor) (#289521)</li>
 </ul>
-<h1 id="usp-network-authentication-system-5131">USP Network Authentication System &reg; 5.13.1</h1>
-<p>Released 22 January 2024</p>
+<h1 id="usp-network-authentication-system-5132">USP Network Authentication System &reg; 5.13.2</h1>
+<p>Released 7 May 2024</p>
 <h2 id="platform-compatibility_18">Platform Compatibility</h2>
 <p>This release is compatible with the following platforms:</p>
 <ul>
@@ -1309,6 +1293,40 @@
 <li>VirtualBox 6.x/7.x</li>
 </ul>
 <h2 id="changelog_18">Changelog</h2>
+<h3 id="enhancements_15">Enhancements</h3>
+<ul>
+<li>Added QBridge-MIB switch adapter for Hirschmann devices (#289257)</li>
+</ul>
+<h3 id="changes_8">Changes</h3>
+<ul>
+<li>When using the RADIUS server module (FreeRADIUS), the server certificate sent to clients includes now the CA certificate chain, in case any matching CA certificates have been added via USP NAS GUI certificate management. This solves some issues with 802.1x authentication when using Android phones. (#284718)</li>
+</ul>
+<h3 id="bugfixes_17">Bugfixes</h3>
+<ul>
+<li>Enable caching of local SNMPv3 engine ID to avoid performance-intensive re-creation on every request. (#286423)</li>
+<li>Fixed an issue with MAC address parsing (which resulted in 00-00-00-00-00-00 being reported) during port detection when scanning certain switches (e.g. Hirschmann) (#289257)</li>
+<li>Fixed detection/scanning issues in OnWay switch adapter (#255817)</li>
+<li>Fixed endpoint REST API query to not consider data which has been deleted in the inventory. (#289291)</li>
+<li>Fixed exception handling during switch scan in relation to dot1xPAE MIB, ensuring switch can does not abort in certain cases. (#285030)</li>
+<li>Fixed number of netdevices displayed on NAS WebGUI Policy Manager -&gt; Portgroup page (#256388)</li>
+<li>Fixes applied in the switch-report. Netports are now displayed corretly and authorization state of invenorized endpoints have been fixed. (#282278)</li>
+<li>Removed ID from netdevice scope filter label used on netdevices page in NAS Web GUI (#270735)</li>
+</ul>
+<h1 id="usp-network-authentication-system-5131">USP Network Authentication System &reg; 5.13.1</h1>
+<p>Released 22 January 2024</p>
+<h2 id="platform-compatibility_19">Platform Compatibility</h2>
+<p>This release is compatible with the following platforms:</p>
+<ul>
+<li>Dell PowerEdge R650</li>
+<li>Dell PowerEdge R640</li>
+<li>Dell PowerEdge R630</li>
+<li>Dell PowerEdge R620</li>
+<li>Dell PowerEdge R610</li>
+<li>VMware ESXi / Workstation</li>
+<li>Microsoft Hyper-V</li>
+<li>VirtualBox 6.x/7.x</li>
+</ul>
+<h2 id="changelog_19">Changelog</h2>
 <h3 id="features_4">Features</h3>
 <ul>
 <li>Added Maintenance mode for Netdevices. In this mode, SNMP queries are not executed, but RADIUS requests are still processed. The maintenance mode corresponds to an inscope value of "2" in netdevice import files. (#200191)</li>
@@ -1336,7 +1354,7 @@
 <li>Implemented new SNMP library which supports SNMPv3 with SHA-2 algorithms (#200297)</li>
 <li>Updated release notes document style and handling (#212882)</li>
 </ul>
-<h3 id="bugfixes_17">Bugfixes</h3>
+<h3 id="bugfixes_18">Bugfixes</h3>
 <ul>
 <li>Add log rotation for FreeRADIUS log file to prevent it from growing indefinitely (#218424)</li>
 <li>Added debounce delay to search field in Endpoint details view page to reduce backend database overload when typing into that field (#218421)</li>
@@ -1382,7 +1400,7 @@
 </ul>
 <h1 id="usp-network-authentication-system-5130">USP Network Authentication System &reg; 5.13.0</h1>
 <p>Released 31 July 2023</p>
-<h2 id="platform-compatibility_19">Platform Compatibility</h2>
+<h2 id="platform-compatibility_20">Platform Compatibility</h2>
 <p>This release is compatible with the following platforms:</p>
 <ul>
 <li>Dell PowerEdge R650</li>
@@ -1394,7 +1412,7 @@
 <li>Microsoft Hyper-V</li>
 <li>VirtualBox 6.x/7.x</li>
 </ul>
-<h2 id="changelog_19">Changelog</h2>
+<h2 id="changelog_20">Changelog</h2>
 <h3 id="features_5">Features</h3>
 <ul>
 <li>Added OnWay switch adapter (#153811)</li>
@@ -1427,7 +1445,7 @@
 <li>Updated third-party libraries to fix reported vulnerabilities and bugs (#133193)</li>
 <li>Updated vulnerable version of cron-utils 9.1.5 (CVE-2021-41269) (#128694)</li>
 </ul>
-<h3 id="bugfixes_18">Bugfixes</h3>
+<h3 id="bugfixes_19">Bugfixes</h3>
 <ul>
 <li>Added missing support for Diffie-Hellman-Group14-SHA1 algorithm for SFTP connections (#124944)</li>
 <li>Automatic portgroup assignment for RADIUS auth devices fixed (#208182)</li>
@@ -1468,7 +1486,7 @@
 </ul>
 <h1 id="usp-network-authentication-system-5120">USP Network Authentication System &reg; 5.12.0</h1>
 <p>Released 16. September 2022</p>
-<h2 id="changelog_20">Changelog</h2>
+<h2 id="changelog_21">Changelog</h2>
 <ul>
 <li>Feature: Bulk-onboarding view available to inventorise endpoints in a bulk operation</li>
 <li>Feature: CSR generation/certificate renewal in Web-Management console</li>
@@ -1495,7 +1513,7 @@
 </ul>
 <h1 id="usp-network-authentication-system-5110">USP Network Authentication System &reg; 5.11.0</h1>
 <p>Released 26. January 2022</p>
-<h2 id="changelog_21">Changelog</h2>
+<h2 id="changelog_22">Changelog</h2>
 <ul>
 <li>Feature: Multiple LDAP configurations can run concurrently</li>
 <li>Feature: New configuration to avoid MAC-Authentication for MAC-Addresses in EAP-Identity</li>
@@ -1518,7 +1536,7 @@
 </ul>
 <h1 id="usp-network-authentication-system-5100">USP Network Authentication System &reg; 5.10.0</h1>
 <p>Released 28. October 2021</p>
-<h2 id="changelog_22">Changelog</h2>
+<h2 id="changelog_23">Changelog</h2>
 <ul>
 <li>Feature: Admin can force login if another admin is still logged in</li>
 <li>Feature: Scheduled Scripts management in WEBGUI</li>
@@ -1543,7 +1561,7 @@
 </ul>
 <h1 id="usp-network-authentication-system-590">USP Network Authentication System &reg; 5.9.0</h1>
 <p>Released 15. June 2021</p>
-<h2 id="changelog_23">Changelog</h2>
+<h2 id="changelog_24">Changelog</h2>
 <ul>
 <li>Feature: Policy definition based on EAP username pattern</li>
 <li>Feature: EAP Identity inventory Management in GUI</li>
@@ -1562,7 +1580,7 @@
 </ul>
 <h1 id="usp-network-authentication-system-580">USP Network Authentication System &reg; 5.8.0</h1>
 <p>Released 30. October 2020</p>
-<h2 id="changelog_24">Changelog</h2>
+<h2 id="changelog_25">Changelog</h2>
 <ul>
 <li>Feature: New devicetype RADIUSAUTH available for RADIUS only authentications</li>
 <li>Feature: RADIUSAUTH-Netdevice may be auto-generated from defined ip-range</li>
@@ -1582,7 +1600,7 @@
 </ul>
 <h1 id="usp-network-authentication-system-570">USP Network Authentication System &reg; 5.7.0</h1>
 <p>Released 31. May 2020</p>
-<h2 id="changelog_25">Changelog</h2>
+<h2 id="changelog_26">Changelog</h2>
 <ul>
 <li>Feature: Connection-events available on syslog</li>
 <li>Feature: Additional full-backup type without log table</li>
@@ -1603,7 +1621,7 @@
 </ul>
 <h1 id="usp-network-authentication-system-560">USP Network Authentication System &reg; 5.6.0</h1>
 <p>Released 15. January 2020</p>
-<h2 id="changelog_26">Changelog</h2>
+<h2 id="changelog_27">Changelog</h2>
 <ul>
 <li>Feature: New Web-GUI user role policy-readonly</li>
 <li>Feature: Syslog port customizable</li>
@@ -1617,7 +1635,7 @@
 </ul>
 <h1 id="usp-network-authentication-system-550">USP Network Authentication System &reg; 5.5.0</h1>
 <p>Released 15. October 2019</p>
-<h2 id="changelog_27">Changelog</h2>
+<h2 id="changelog_28">Changelog</h2>
 <ul>
 <li>Feature: Flexible RADIUS attribute assignment</li>
 <li>Feature: Import interface for endpoint details (CSV)</li>
@@ -1630,7 +1648,7 @@
 </ul>
 <h1 id="usp-network-authentication-system-540">USP Network Authentication System &reg; 5.4.0</h1>
 <p>Released 18. July 2019</p>
-<h2 id="changelog_28">Changelog</h2>
+<h2 id="changelog_29">Changelog</h2>
 <ul>
 <li>Feature: IPv6 support for endpoints</li>
 <li>Feature: Configurable authenticator health-ping period</li>
@@ -1643,7 +1661,7 @@
 </ul>
 <h1 id="usp-network-authentication-system-530">USP Network Authentication System &reg; 5.3.0</h1>
 <p>Released 13. February 2019</p>
-<h2 id="changelog_29">Changelog</h2>
+<h2 id="changelog_30">Changelog</h2>
 <ul>
 <li>Feature: Enhanced connection-view (details on authentication-protocols and authentication-types)</li>
 <li>Feature: Optimized layout of connection-view</li>
@@ -1661,7 +1679,7 @@
 </ul>
 <h1 id="usp-network-authentication-system-520">USP Network Authentication System &reg; 5.2.0</h1>
 <p>Released 30. Juli 2018</p>
-<h2 id="changelog_30">Changelog</h2>
+<h2 id="changelog_31">Changelog</h2>
 <ul>
 <li>Feature: Authenticator Module</li>
 <li>Feature: ARP table queries optimized (by factor 4)</li>
@@ -1676,7 +1694,7 @@
 </ul>
 <h1 id="usp-network-authentication-system-512-4152">USP Network Authentication System &reg; 5.1.2 (4.15.2)</h1>
 <p>Released 29. Januar 2018</p>
-<h2 id="changelog_31">Changelog</h2>
+<h2 id="changelog_32">Changelog</h2>
 <ul>
 <li>Bugfix: Performance fix for common name based authentication (802.1x)</li>
 <li>Bugfix: Filter on report download fixed</li>
@@ -1684,13 +1702,13 @@
 </ul>
 <h1 id="usp-network-authentication-system-511-4151">USP Network Authentication System &reg; 5.1.1 (4.15.1)</h1>
 <p>Released 17. Januar 2018</p>
-<h2 id="changelog_32">Changelog</h2>
+<h2 id="changelog_33">Changelog</h2>
 <ul>
 <li>Bugfix: HA init failure fixed (64bit only)</li>
 </ul>
 <h1 id="usp-network-authentication-system-510-4150">USP Network Authentication System &reg; 5.1.0 (4.15.0)</h1>
 <p>Released 24. November 2017</p>
-<h2 id="changelog_33">Changelog</h2>
+<h2 id="changelog_34">Changelog</h2>
 <ul>
 <li>Feature: Common name based authentication (802.1x)</li>
 <li>Feature: Option to disable connection events for re-checks</li>

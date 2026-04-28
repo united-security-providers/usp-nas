@@ -223,6 +223,31 @@
 				<h1 class="title">USP Network Authentication System<sup>&reg;</sup> Release Notes</h1>
 			</header>
 			<div id="content">
+<h1 id="uspnetworkauthenticationsystemreg16.7">USP Network Authentication System &reg; 16.7</h1>
+
+<p>Released 28 April 2026</p>
+
+<h2 id="platformcompatibility">Platform Compatibility</h2>
+
+<p>This release is compatible with the following platforms:</p>
+
+<ul>
+<li>Dell PowerEdge R660/R650/R640/R630/R620/R610</li>
+<li>VMware ESXi / Workstation</li>
+<li>Microsoft Hyper-V</li>
+<li>QEMU/KVM</li>
+<li>Oracle VirtualBox</li>
+</ul>
+
+<h2 id="changelog">Changelog</h2>
+
+<h3 id="bugfixes">Bugfixes</h3>
+
+<ul>
+<li><em>RADIUS:</em> Fixed a memory leak and improved performance and resource usage in RADIUS accounting request handling (#292472)</li>
+<li><em>REST API:</em> Fixed a database query error in the Interface REST API which occurred in case of a rare duplication issue in the netports table. (#292297)</li>
+</ul>
+
 <h1 id="uspnetworkauthenticationsystemreg16.6">USP Network Authentication System &reg; 16.6</h1>
 
 <p>Released 13 February 2026</p>
@@ -428,7 +453,7 @@
 
 <h1 id="uspnetworkauthenticationsystemreg16.0">USP Network Authentication System &reg; 16.0</h1>
 
-<p>Released 17 September 2025</p>
+<p>Released 20 April 2026</p>
 
 <h2 id="platformcompatibility">Platform Compatibility</h2>
 
@@ -506,6 +531,7 @@
 <li><em>Traditional GUI:</em> Netdevice scan fine-tuning options are now available on the application configuration page in the SNMP section. (#291470)</li>
 <li><em>Traditional GUI:</em> The VLAN ID is now shown on access profile configuration pages (#289593)</li>
 <li><em>Traditional GUI:</em> The global access control setting is now displayed in the policy widget in the dashboard (#289593)</li>
+<li>Added option to send disconnect RADIUS packet to netdevice (#291033)</li>
 </ul>
 
 <h3 id="changes">Changes</h3>
@@ -525,7 +551,7 @@
 <li><em>Licensing:</em> Updated license count algorithm for endpoints (need to be registered and active within last 90 days) and enforce check for maximum licensed endpoints in the modern GUI. (#290733)</li>
 <li><em>Logging:</em> Removed log event NO_TRAPS_FROM_DEVICE (1214) and related monitoring configuration. There are many cases where switches do not (regularly) receive traps, and this notification just unnecessarily fills the log files. (#291304)</li>
 <li><em>Modern GUI:</em> Removed option to assign portgroups to netdevices directly in the netdevice overview (for UI performance reasons) (#291425)</li>
-<li><em>REST-API:</em> <strong>BREAKING</strong> The naming in the data structure of the <em>netdevices</em>, <em>interfaces</em> and <em>endpoints REST APIs</em> has been standardized. All property names and filter parameters are now written in <em>camel case</em> instead of a mix of snake case and camel case. Also, some properties have been renamed to more sensible names. Please consult the migration guide and the online REST API documentation for more details. (#291205)</li>
+<li><em>REST API:</em> <strong>BREAKING</strong> The naming in the data structure of the <em>netdevices</em>, <em>interfaces</em> and <em>endpoints REST APIs</em> has been standardized. All property names and filter parameters are now written in <em>camel case</em> instead of a mix of snake case and camel case. Also, some properties have been renamed to more sensible names. Please consult the migration guide and the online REST API documentation for more details. (#291205)</li>
 <li><em>Traditional GUI:</em> &#8220;Last jobs&#8221; are no longer displayed on the system state page in the traditional GUI. Instead, a link is provided to see the last appliance related events in the new log viewer. (#290979)</li>
 <li><em>Traditional GUI:</em> Removed manual DNS zone transfer button from legacy GUI dashboard (#289916)</li>
 </ul>
@@ -2505,6 +2531,30 @@
 <li>Bugfix: Blocking Time kann angepasst werden</li>
 <li>Bugfix: Versenden von Alerting Traps/E-mails gefixt</li>
 </ul>
+<h1 id="uspnetworkauthenticationsystemreg16.7">USP Network Authentication System &reg; 16.7</h1>
+
+<p>Released 28 April 2026</p>
+
+<h2 id="platformcompatibility">Platform Compatibility</h2>
+
+<p>This release is compatible with the following platforms:</p>
+
+<ul>
+<li>Dell PowerEdge R660/R650/R640/R630/R620/R610</li>
+<li>VMware ESXi / Workstation</li>
+<li>Microsoft Hyper-V</li>
+<li>QEMU/KVM</li>
+<li>Oracle VirtualBox</li>
+</ul>
+
+<h2 id="changelog">Changelog</h2>
+
+<h3 id="bugfixes">Bugfixes</h3>
+
+<ul>
+<li><em>RADIUS:</em> Fixed a memory leak and improved performance and resource usage in RADIUS accounting request handling (#292472)</li>
+<li><em>REST API:</em> Fixed a database query error in the Interface REST API which occurred in case of a rare duplication issue in the netports table. (#292297)</li>
+</ul>
 <h1 id="uspnetworkauthenticationsystemreg16.6">USP Network Authentication System &reg; 16.6</h1>
 
 <p>Released 13 February 2026</p>
@@ -2704,7 +2754,7 @@
 </ul>
 <h1 id="uspnetworkauthenticationsystemreg16.0">USP Network Authentication System &reg; 16.0</h1>
 
-<p>Released 17 September 2025</p>
+<p>Released 20 April 2026</p>
 
 <h2 id="platformcompatibility">Platform Compatibility</h2>
 
@@ -2782,6 +2832,7 @@
 <li><em>Traditional GUI:</em> Netdevice scan fine-tuning options are now available on the application configuration page in the SNMP section. (#291470)</li>
 <li><em>Traditional GUI:</em> The VLAN ID is now shown on access profile configuration pages (#289593)</li>
 <li><em>Traditional GUI:</em> The global access control setting is now displayed in the policy widget in the dashboard (#289593)</li>
+<li>Added option to send disconnect RADIUS packet to netdevice (#291033)</li>
 </ul>
 
 <h3 id="changes">Changes</h3>
@@ -2801,7 +2852,7 @@
 <li><em>Licensing:</em> Updated license count algorithm for endpoints (need to be registered and active within last 90 days) and enforce check for maximum licensed endpoints in the modern GUI. (#290733)</li>
 <li><em>Logging:</em> Removed log event NO_TRAPS_FROM_DEVICE (1214) and related monitoring configuration. There are many cases where switches do not (regularly) receive traps, and this notification just unnecessarily fills the log files. (#291304)</li>
 <li><em>Modern GUI:</em> Removed option to assign portgroups to netdevices directly in the netdevice overview (for UI performance reasons) (#291425)</li>
-<li><em>REST-API:</em> <strong>BREAKING</strong> The naming in the data structure of the <em>netdevices</em>, <em>interfaces</em> and <em>endpoints REST APIs</em> has been standardized. All property names and filter parameters are now written in <em>camel case</em> instead of a mix of snake case and camel case. Also, some properties have been renamed to more sensible names. Please consult the migration guide and the online REST API documentation for more details. (#291205)</li>
+<li><em>REST API:</em> <strong>BREAKING</strong> The naming in the data structure of the <em>netdevices</em>, <em>interfaces</em> and <em>endpoints REST APIs</em> has been standardized. All property names and filter parameters are now written in <em>camel case</em> instead of a mix of snake case and camel case. Also, some properties have been renamed to more sensible names. Please consult the migration guide and the online REST API documentation for more details. (#291205)</li>
 <li><em>Traditional GUI:</em> &#8220;Last jobs&#8221; are no longer displayed on the system state page in the traditional GUI. Instead, a link is provided to see the last appliance related events in the new log viewer. (#290979)</li>
 <li><em>Traditional GUI:</em> Removed manual DNS zone transfer button from legacy GUI dashboard (#289916)</li>
 </ul>
