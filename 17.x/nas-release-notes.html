@@ -224,6 +224,38 @@
 				<h1 class="title">USP Network Authentication System<sup>&reg;</sup> Release Notes</h1>
 			</header>
 			<div id="content">
+<h1 id="uspnetworkauthenticationsystemreg17.3">USP Network Authentication System &reg; 17.3</h1>
+
+<p>Released 19 May 2026</p>
+
+<h2 id="platformcompatibility">Platform Compatibility</h2>
+
+<p>This release is compatible with the following platforms:</p>
+
+<ul>
+<li>Dell PowerEdge R660/R650/R640/R630/R620/R610</li>
+<li>VMware ESXi / Workstation</li>
+<li>Microsoft Hyper-V</li>
+<li>QEMU/KVM</li>
+<li>Oracle VirtualBox</li>
+</ul>
+
+<h2 id="changelog">Changelog</h2>
+
+<h3 id="enhancements">Enhancements</h3>
+
+<ul>
+<li><em>Modern GUI:</em> Added some small improvements to the script editor: keyboard shortcuts for saving and executing scripts, and navigation buttons to switch between editor and script history (#292592)</li>
+<li><em>Monitoring:</em> Added graphs for open file handles as well as NAS Core threads to improve detection of resource leaks (#292656)</li>
+</ul>
+
+<h3 id="bugfixes">Bugfixes</h3>
+
+<ul>
+<li><em>Core:</em> Fixed a memory leak which occurred when there were scan failures of netdevices configured with SNMPv3. The leak could lead to a high number of threads and a starvation of file handles after a while. This is a regression introduced in 17.1 while optimizing the performance of SNMP scans. (#292652)</li>
+<li><em>RADIUS:</em> Fixed an issue where data collected from endpoint certificates was not properly displayed in the web GUI if there was a mismatch between commonName and EAP username. (#292588)</li>
+</ul>
+
 <h1 id="uspnetworkauthenticationsystemreg17.2">USP Network Authentication System &reg; 17.2</h1>
 
 <p>Released 27 April 2026</p>
@@ -2687,6 +2719,37 @@
 <li>Bugfix: Beim Löschen eines Netports werden die daran betroffenen Nodes auf DISCONNECTED gesetzt</li>
 <li>Bugfix: Blocking Time kann angepasst werden</li>
 <li>Bugfix: Versenden von Alerting Traps/E-mails gefixt</li>
+</ul>
+<h1 id="uspnetworkauthenticationsystemreg17.3">USP Network Authentication System &reg; 17.3</h1>
+
+<p>Released 19 May 2026</p>
+
+<h2 id="platformcompatibility">Platform Compatibility</h2>
+
+<p>This release is compatible with the following platforms:</p>
+
+<ul>
+<li>Dell PowerEdge R660/R650/R640/R630/R620/R610</li>
+<li>VMware ESXi / Workstation</li>
+<li>Microsoft Hyper-V</li>
+<li>QEMU/KVM</li>
+<li>Oracle VirtualBox</li>
+</ul>
+
+<h2 id="changelog">Changelog</h2>
+
+<h3 id="enhancements">Enhancements</h3>
+
+<ul>
+<li><em>Modern GUI:</em> Added some small improvements to the script editor: keyboard shortcuts for saving and executing scripts, and navigation buttons to switch between editor and script history (#292592)</li>
+<li><em>Monitoring:</em> Added graphs for open file handles as well as NAS Core threads to improve detection of resource leaks (#292656)</li>
+</ul>
+
+<h3 id="bugfixes">Bugfixes</h3>
+
+<ul>
+<li><em>Core:</em> Fixed a memory leak which occurred when there were scan failures of netdevices configured with SNMPv3. The leak could lead to a high number of threads and a starvation of file handles after a while. This is a regression introduced in 17.1 while optimizing the performance of SNMP scans. (#292652)</li>
+<li><em>RADIUS:</em> Fixed an issue where data collected from endpoint certificates was not properly displayed in the web GUI if there was a mismatch between commonName and EAP username. (#292588)</li>
 </ul>
 <h1 id="uspnetworkauthenticationsystemreg17.2">USP Network Authentication System &reg; 17.2</h1>
 
