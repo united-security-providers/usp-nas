@@ -224,6 +224,38 @@
 				<h1 class="title">USP Network Authentication System<sup>&reg;</sup> Release Notes</h1>
 			</header>
 			<div id="content">
+<h1 id="uspnetworkauthenticationsystemreg17.4">USP Network Authentication System &reg; 17.4</h1>
+
+<p>Released 1 June 2026</p>
+
+<h2 id="platformcompatibility">Platform Compatibility</h2>
+
+<p>This release is compatible with the following platforms:</p>
+
+<ul>
+<li>Dell PowerEdge R660/R650/R640/R630/R620/R610</li>
+<li>VMware ESXi / Workstation</li>
+<li>Microsoft Hyper-V</li>
+<li>QEMU/KVM</li>
+<li>Oracle VirtualBox</li>
+</ul>
+
+<h2 id="changelog">Changelog</h2>
+
+<h3 id="enhancements">Enhancements</h3>
+
+<ul>
+<li><em>RADIUS:</em> Added NAS-Filter-Rule (92) RADIUS attribute to the list of RADIUS attributes in the policy rule manager. This attribute can be used to dynamically assign Access Control Lists (ACLs) or traffic filtering rules to a user or device session. Additionally, removed RADIUS attributes from the list which cannot be set as Access-Accept attributes. (#292701)</li>
+</ul>
+
+<h3 id="bugfixes">Bugfixes</h3>
+
+<ul>
+<li><em>Core:</em> Improved error handling when specifying an invalid RADIUS attribute value in the policy manager. In case of an invalid attribute value, a new event &#8220;Invalid configuration in policy&#8221; (2307) will be logged, and an alert will be shown on the dashboard of the Web GUI. (#292702)</li>
+<li><em>SNMP:</em> Fixed an incorrect (too high) count of MAC addresses on a port in case a MAC address is present in multiple VLANs. (#292699)</li>
+<li><em>SNMP:</em> Fixed an issue in detecting endpoints and VLANs on some switches (e.g. certain Ubiquiti UniFi models) which do not provide a port-ifindex or VLAN mapping. An alternative approach is used to detect the learned MAC addresses and available VLAN IDs. (#292697)</li>
+</ul>
+
 <h1 id="uspnetworkauthenticationsystemreg17.3">USP Network Authentication System &reg; 17.3</h1>
 
 <p>Released 19 May 2026</p>
@@ -2719,6 +2751,37 @@
 <li>Bugfix: Beim Löschen eines Netports werden die daran betroffenen Nodes auf DISCONNECTED gesetzt</li>
 <li>Bugfix: Blocking Time kann angepasst werden</li>
 <li>Bugfix: Versenden von Alerting Traps/E-mails gefixt</li>
+</ul>
+<h1 id="uspnetworkauthenticationsystemreg17.4">USP Network Authentication System &reg; 17.4</h1>
+
+<p>Released 1 June 2026</p>
+
+<h2 id="platformcompatibility">Platform Compatibility</h2>
+
+<p>This release is compatible with the following platforms:</p>
+
+<ul>
+<li>Dell PowerEdge R660/R650/R640/R630/R620/R610</li>
+<li>VMware ESXi / Workstation</li>
+<li>Microsoft Hyper-V</li>
+<li>QEMU/KVM</li>
+<li>Oracle VirtualBox</li>
+</ul>
+
+<h2 id="changelog">Changelog</h2>
+
+<h3 id="enhancements">Enhancements</h3>
+
+<ul>
+<li><em>RADIUS:</em> Added NAS-Filter-Rule (92) RADIUS attribute to the list of RADIUS attributes in the policy rule manager. This attribute can be used to dynamically assign Access Control Lists (ACLs) or traffic filtering rules to a user or device session. Additionally, removed RADIUS attributes from the list which cannot be set as Access-Accept attributes. (#292701)</li>
+</ul>
+
+<h3 id="bugfixes">Bugfixes</h3>
+
+<ul>
+<li><em>Core:</em> Improved error handling when specifying an invalid RADIUS attribute value in the policy manager. In case of an invalid attribute value, a new event &#8220;Invalid configuration in policy&#8221; (2307) will be logged, and an alert will be shown on the dashboard of the Web GUI. (#292702)</li>
+<li><em>SNMP:</em> Fixed an incorrect (too high) count of MAC addresses on a port in case a MAC address is present in multiple VLANs. (#292699)</li>
+<li><em>SNMP:</em> Fixed an issue in detecting endpoints and VLANs on some switches (e.g. certain Ubiquiti UniFi models) which do not provide a port-ifindex or VLAN mapping. An alternative approach is used to detect the learned MAC addresses and available VLAN IDs. (#292697)</li>
 </ul>
 <h1 id="uspnetworkauthenticationsystemreg17.3">USP Network Authentication System &reg; 17.3</h1>
 
