@@ -223,6 +223,48 @@
 				<h1 class="title">USP Network Authentication System<sup>&reg;</sup> Release Notes</h1>
 			</header>
 			<div id="content">
+<h1 id="uspnetworkauthenticationsystemreg16.8">USP Network Authentication System &reg; 16.8</h1>
+
+<p>Released 7 July 2026</p>
+
+<h2 id="platformcompatibility">Platform Compatibility</h2>
+
+<p>This release is compatible with the following platforms:</p>
+
+<ul>
+<li>Dell PowerEdge R660/R650/R640/R630/R620/R610</li>
+<li>VMware ESXi / Workstation</li>
+<li>Microsoft Hyper-V</li>
+<li>QEMU/KVM</li>
+<li>Oracle VirtualBox</li>
+</ul>
+
+<h2 id="changelog">Changelog</h2>
+
+<h3 id="enhancements">Enhancements</h3>
+
+<ul>
+<li><em>API:</em> Added <code>cached</code> parameter to Endpoint API. This allows to fetch endpoint data based on a cached state created every day at 02:00. This speeds up fetching the data via REST API in very large deployments. (#292640)</li>
+<li><em>Logging:</em> A new log event #3309 &#8220;Internal RADIUS server is not running.&#8221; has been added. A background task verifies every 5 minutes if the internal RADIUS server, if enabled, is running. If it is stopped, the new log event is emitted. (#292923)</li>
+</ul>
+
+<h3 id="changes">Changes</h3>
+
+<ul>
+<li><em>Logging:</em> Log events with a duration property will now write the duration value as milliseconds instead of a human-readable string. This will make it easier to filter and analyze the event logs in a SIEM. This affects the events 1501/1521 &#8220;CSV import done&#8221;, 1603 &#8220;Backup restored&#8221;, 1561 &#8220;Scheduled script finished successfully&#8221;. (#292949)</li>
+<li><em>Logging:</em> Removed info log events 1401 (&#8220;Layer3-Scan will be initiated&#8221;) and 1402 (&#8220;Layer3-Scan completed&#8221;), as they unnecessarily fill up the log table, especially on larger installations. Debug log entries will be written instead. (#292796)</li>
+</ul>
+
+<h3 id="bugfixes">Bugfixes</h3>
+
+<ul>
+<li><em>HA:</em> The high-availability heartbeat check now validates that the internal RADIUS server, if enabled, is running. If it is not available, it will not respond to the authenticator, therefore triggering the authenticator to switch to &#8220;local mode&#8221; and take over RADIUS authentication until the issue is solved at the master. The same applies to the RADIUS probe/tracker user responder. It will no longer answer requests as long as the internal RADIUS server, if enabled, is not running. (#292924)</li>
+<li><em>Logging:</em> Ensured that the event log message #1151 &#8220;Radius Accounting Endpoint updated&#8221; only is emitted when there were actual changes to the endpoint record. This will reduce the log size significantly if RADIUS accounting is used. (#292797)</li>
+<li><em>Modern GUI:</em> Improved performance of the event log viewer when the log table is huge (#292808)</li>
+<li><em>RADIUS:</em> Fixed an issue which caused NAS core to log events &#8220;Radius backend server is not reachable&#8221; when receiving duplicate EAP packets. This was related to a partially randomly generated proxy state AVP when forwarding the packet to the backend RADIUS server, which led to issues when trying to match the response to the request packet. (#292814)</li>
+<li><em>RADIUS:</em> When updating VLAN and/or client IP information based on data in a RADIUS accounting request, the database is now only updated if there was an actual change. This reduces the database load in larger environments. This change means that the &#8220;client ip updated&#8221; attribute on the endpoint record will only be updated if the IP address did change. (#292812)</li>
+</ul>
+
 <h1 id="uspnetworkauthenticationsystemreg16.7">USP Network Authentication System &reg; 16.7</h1>
 
 <p>Released 28 April 2026</p>
@@ -2530,6 +2572,47 @@
 <li>Bugfix: Beim Löschen eines Netports werden die daran betroffenen Nodes auf DISCONNECTED gesetzt</li>
 <li>Bugfix: Blocking Time kann angepasst werden</li>
 <li>Bugfix: Versenden von Alerting Traps/E-mails gefixt</li>
+</ul>
+<h1 id="uspnetworkauthenticationsystemreg16.8">USP Network Authentication System &reg; 16.8</h1>
+
+<p>Released 7 July 2026</p>
+
+<h2 id="platformcompatibility">Platform Compatibility</h2>
+
+<p>This release is compatible with the following platforms:</p>
+
+<ul>
+<li>Dell PowerEdge R660/R650/R640/R630/R620/R610</li>
+<li>VMware ESXi / Workstation</li>
+<li>Microsoft Hyper-V</li>
+<li>QEMU/KVM</li>
+<li>Oracle VirtualBox</li>
+</ul>
+
+<h2 id="changelog">Changelog</h2>
+
+<h3 id="enhancements">Enhancements</h3>
+
+<ul>
+<li><em>API:</em> Added <code>cached</code> parameter to Endpoint API. This allows to fetch endpoint data based on a cached state created every day at 02:00. This speeds up fetching the data via REST API in very large deployments. (#292640)</li>
+<li><em>Logging:</em> A new log event #3309 &#8220;Internal RADIUS server is not running.&#8221; has been added. A background task verifies every 5 minutes if the internal RADIUS server, if enabled, is running. If it is stopped, the new log event is emitted. (#292923)</li>
+</ul>
+
+<h3 id="changes">Changes</h3>
+
+<ul>
+<li><em>Logging:</em> Log events with a duration property will now write the duration value as milliseconds instead of a human-readable string. This will make it easier to filter and analyze the event logs in a SIEM. This affects the events 1501/1521 &#8220;CSV import done&#8221;, 1603 &#8220;Backup restored&#8221;, 1561 &#8220;Scheduled script finished successfully&#8221;. (#292949)</li>
+<li><em>Logging:</em> Removed info log events 1401 (&#8220;Layer3-Scan will be initiated&#8221;) and 1402 (&#8220;Layer3-Scan completed&#8221;), as they unnecessarily fill up the log table, especially on larger installations. Debug log entries will be written instead. (#292796)</li>
+</ul>
+
+<h3 id="bugfixes">Bugfixes</h3>
+
+<ul>
+<li><em>HA:</em> The high-availability heartbeat check now validates that the internal RADIUS server, if enabled, is running. If it is not available, it will not respond to the authenticator, therefore triggering the authenticator to switch to &#8220;local mode&#8221; and take over RADIUS authentication until the issue is solved at the master. The same applies to the RADIUS probe/tracker user responder. It will no longer answer requests as long as the internal RADIUS server, if enabled, is not running. (#292924)</li>
+<li><em>Logging:</em> Ensured that the event log message #1151 &#8220;Radius Accounting Endpoint updated&#8221; only is emitted when there were actual changes to the endpoint record. This will reduce the log size significantly if RADIUS accounting is used. (#292797)</li>
+<li><em>Modern GUI:</em> Improved performance of the event log viewer when the log table is huge (#292808)</li>
+<li><em>RADIUS:</em> Fixed an issue which caused NAS core to log events &#8220;Radius backend server is not reachable&#8221; when receiving duplicate EAP packets. This was related to a partially randomly generated proxy state AVP when forwarding the packet to the backend RADIUS server, which led to issues when trying to match the response to the request packet. (#292814)</li>
+<li><em>RADIUS:</em> When updating VLAN and/or client IP information based on data in a RADIUS accounting request, the database is now only updated if there was an actual change. This reduces the database load in larger environments. This change means that the &#8220;client ip updated&#8221; attribute on the endpoint record will only be updated if the IP address did change. (#292812)</li>
 </ul>
 <h1 id="uspnetworkauthenticationsystemreg16.7">USP Network Authentication System &reg; 16.7</h1>
 
