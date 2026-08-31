@@ -226,7 +226,7 @@
 			<div id="content">
 <h1 id="uspnetworkauthenticationsystemreg18.0">USP Network Authentication System &reg; 18.0</h1>
 
-<p>Released 21 August 2026</p>
+<p>Released 28 August 2026</p>
 
 <h2 id="platformcompatibility">Platform Compatibility</h2>
 
@@ -245,7 +245,7 @@
 <h3 id="features">Features</h3>
 
 <ul>
-<li><em>Modern GUI:</em> Added possibility to manage endpoint attributes. Endpoints can be filtered based on endpoint attributes. Client certificate properties (subject, issuer, serial, EKU and other well-known extended attributes) are automatically added as attributes, if the setting &#8220;Collect data from endpoint certificates during authentication&#8221; is enabled. CSV import of inventory data which includes attributes (&#8220;additional information&#8221;) is processed much faster than in the past. (#286824)</li>
+<li><em>Modern GUI:</em> Added possibility to manage endpoint attributes. Endpoints can be filtered based on endpoint attributes. Client certificate properties (subject, issuer, serial, EKU and other well-known extended attributes) are automatically added as attribute if the setting &#8220;Collect data from endpoint certificates during authentication&#8221; is enabled. CSV import of inventory data which includes attributes (&#8220;additional information&#8221;) is processed much faster than in the past. (#286824)</li>
 <li><em>Policy:</em> Endpoint policy profiles for authentication can now include conditions with endpoint attributes. This allows creating rules matching registered endpoints which have specific attributes assigned. (#292173)</li>
 <li><em>Scripting:</em> Added possibility to execute a script as part of the policy evaluation process. This allows, for example, requesting additional information about a client device from an external API for deciding if the client should be allowed into the network or not. (#292382)</li>
 <li><em>Scripting:</em> Added the possibility to execute a script during authentication after a policy decision. This allows, e.g., to run a webhook to send the data about an authenticated or blocked client to a remote HTTP API. (#292383)</li>
@@ -259,15 +259,18 @@
 <li><em>Logging:</em> Added new daily checks for the current server certificate. Warning event 2314 is logged when the server certificate is about to expire, and error event 3310 is logged when the server certificate has expired. A related alerting notification will be shown on the dashboard in the GUI. (#290719)</li>
 <li><em>Logging:</em> Client certificate expiration date is now included in connection events. (#293201)</li>
 <li><em>Logging:</em> The name of the issuing CA is now shown in connection events of type &#8220;RADIUS server reject&#8221;. This applies to environments where the client supplies an intermediate certificate which is not trusted by the server. (#293199)</li>
-<li><em>Modern GUI:</em> Added application configuration to enable RADIUS disconnect service, and only show the endpoint disconnect action button if this feature is enabled. (#293224)</li>
+<li><em>Modern GUI:</em> Added application configuration to enable the RADIUS disconnect service. Only show the endpoint disconnect action button if this feature is enabled. (#293224)</li>
 <li><em>Modern GUI:</em> Added basic/advanced/expert mode switcher to the application settings page to highlight the most important settings for new users while giving advanced and expert users more control. (#293040)</li>
+<li><em>Modern GUI:</em> Added possibility to clone policy group rules (#293301)</li>
 <li><em>Modern GUI:</em> Added possibility to clone policy groups (#293192)</li>
 <li><em>Modern GUI:</em> In the certificate renewal dialog, add an option to select if the private key should be renewed or not. (#290620)</li>
 <li><em>Modern GUI:</em> It is now possible to manage static routes via the Web GUI (previously only possible via CLI) (#291340)</li>
 <li><em>Modern GUI:</em> Visually highlight new records on the connection events page. (#292916)</li>
 <li><em>Modern GUI:</em> When temporarily registering an endpoint, the expiration date can now be selected. (#291138)</li>
-<li><em>Policy:</em> Add catch-all endpoint profile to policy manager to simplify policy designs (#293265)</li>
+<li><em>Policy:</em> Add a catch-all endpoint profile to policy manager to simplify policy designs (#293265)</li>
+<li><em>Policy:</em> Added the possibility to use endpoint attribute values in policy rules when assigning a VLAN or ACL. (#293288)</li>
 <li><em>RADIUS:</em> Added a configuration option to enable discarding of RADIUS packets without a <code>Message-Authenticator</code> attribute. This helps to mitigate vulnerabilities like Blast-RADIUS (CVE&#8211;2024&#8211;3596) which could be exploited by a man-in-the-middle attacker. (#292990)</li>
+<li><em>RADIUS:</em> Improved error logging for rejected EAP-TLS authentication. The exception type in the connection event now distinguishes between an untrusted client certificate and a client which does not trust the server certificate. (#293179)</li>
 <li><em>Scripting:</em> Setting a schedule for a script is now optional. (#292381)</li>
 <li><em>System:</em> The max. memory used by the USP NAS Core and WebGUI services can now be configured via the web GUI (&#8220;System&#8221; → &#8220;Expert settings&#8221;) (#291520)</li>
 <li><em>Web GUI:</em> Added an application configuration option to configure TLS 1.3 for the internal RADIUS server. Note that TLS 1.3 might not be supported by many clients yet. (#292535)</li>
@@ -283,19 +286,19 @@
 <li><em>Legacy GUI:</em> Removed pages from legacy GUI for functionality which is covered by the modern GUI. Managing the traditional policy engine is still available in the legacy GUI (#292086)</li>
 <li><em>Logging:</em> Updated the internal structure of the event log database table, so log entries can be stored more compactly and filtering can be improved. (#292728)</li>
 <li><em>OS:</em> Removed boot menu options &#8220;Restore old image&#8221; and &#8220;Reset to factory defaults&#8221; to reduce disk space and complexity. These features are no longer that relevant as most installations run in virtual environments with snapshot capability. (#292991)</li>
-<li><em>OS:</em> Update base Linux operating system packages to the latest versions. This includes new versions of OpenSSL (3.5), Python (3.14), FreeRADIUS (3.2), OpenSSH (10.3), PostgreSQL (16.14) and Syslog-NG (4.10). (#228594)</li>
 <li><em>OS:</em> Updated Linux OS Kernel to version 6.12.103 to fix various reported vulnerabilities (e.g., CVE&#8211;2026&#8211;31431, CVE&#8211;2026&#8211;43284, CVE&#8211;2026&#8211;43500) (#292598)</li>
+<li><em>OS:</em> Updated base Linux operating system packages to the latest versions. This includes new versions of OpenSSL (3.5), Python (3.14), FreeRADIUS (3.2), OpenSSH (10.3), PostgreSQL (16.14) and Syslog-NG (4.10). (#228594)</li>
+<li><em>Profiling:</em> Removed legacy endpoint profiling (profiles and profile rules). The new endpoint attributes can be used instead. DHCP fingerprinting is still supported and will receive continued support in the future. (#291681)</li>
 </ul>
 
 <h3 id="bugfixes">Bugfixes</h3>
 
 <ul>
 <li><em>Data import:</em> Fixed an issue where the endpoint property &#8220;authorized&#8221; was not imported correctly in case no other data of the affected entry was changed. (#293186)</li>
-<li><em>Modern GUI:</em> Improve listing connection events for netdevices by adding a dedicated index on the connection events table. (#293185)</li>
+<li><em>Modern GUI:</em> Improved performance of listing connection events for a given netdevice by adding a dedicated index on the connection events table. (#293185)</li>
 <li><em>OS:</em> Fixed an issue related to updating OS kernel and bootloader on UEFI systems (e.g., Hyper-V Gen2). (#292985)</li>
 <li><em>Policy:</em> It is now possible to set the reject action in a policy rule when the endpoint profile has no inventory condition (#293130)</li>
-<li><em>RADIUS:</em> Fixed another issue with parsing a RADIUS accounting packet with an Acct-Terminate-Cause attribute. The extended attribute values 19 - 23 are now correctly understood. (#293269)</li>
-<li><em>RADIUS:</em> Improved error logging for rejected EAP-TLS authentication. The exception type in the connection event now distinguishes between an untrusted client certificate and a client which does not trust the server certificate. (#293179)</li>
+<li><em>RADIUS:</em> Fixed another issue with parsing a RADIUS accounting packet with an Acct-Terminate-Cause attribute. The extended attribute values 19–23 are now correctly understood. (#293269)</li>
 <li><em>Scripting:</em> In scheduled scripts, import data (<code>list</code> variable) is now only processed if the script exit code (<code>exitCode</code>) is 0 (success). (#292719)</li>
 </ul>
 
@@ -2921,7 +2924,7 @@
 </ul>
 <h1 id="uspnetworkauthenticationsystemreg18.0">USP Network Authentication System &reg; 18.0</h1>
 
-<p>Released 21 August 2026</p>
+<p>Released 28 August 2026</p>
 
 <h2 id="platformcompatibility">Platform Compatibility</h2>
 
@@ -2940,7 +2943,7 @@
 <h3 id="features">Features</h3>
 
 <ul>
-<li><em>Modern GUI:</em> Added possibility to manage endpoint attributes. Endpoints can be filtered based on endpoint attributes. Client certificate properties (subject, issuer, serial, EKU and other well-known extended attributes) are automatically added as attributes, if the setting &#8220;Collect data from endpoint certificates during authentication&#8221; is enabled. CSV import of inventory data which includes attributes (&#8220;additional information&#8221;) is processed much faster than in the past. (#286824)</li>
+<li><em>Modern GUI:</em> Added possibility to manage endpoint attributes. Endpoints can be filtered based on endpoint attributes. Client certificate properties (subject, issuer, serial, EKU and other well-known extended attributes) are automatically added as attribute if the setting &#8220;Collect data from endpoint certificates during authentication&#8221; is enabled. CSV import of inventory data which includes attributes (&#8220;additional information&#8221;) is processed much faster than in the past. (#286824)</li>
 <li><em>Policy:</em> Endpoint policy profiles for authentication can now include conditions with endpoint attributes. This allows creating rules matching registered endpoints which have specific attributes assigned. (#292173)</li>
 <li><em>Scripting:</em> Added possibility to execute a script as part of the policy evaluation process. This allows, for example, requesting additional information about a client device from an external API for deciding if the client should be allowed into the network or not. (#292382)</li>
 <li><em>Scripting:</em> Added the possibility to execute a script during authentication after a policy decision. This allows, e.g., to run a webhook to send the data about an authenticated or blocked client to a remote HTTP API. (#292383)</li>
@@ -2954,15 +2957,18 @@
 <li><em>Logging:</em> Added new daily checks for the current server certificate. Warning event 2314 is logged when the server certificate is about to expire, and error event 3310 is logged when the server certificate has expired. A related alerting notification will be shown on the dashboard in the GUI. (#290719)</li>
 <li><em>Logging:</em> Client certificate expiration date is now included in connection events. (#293201)</li>
 <li><em>Logging:</em> The name of the issuing CA is now shown in connection events of type &#8220;RADIUS server reject&#8221;. This applies to environments where the client supplies an intermediate certificate which is not trusted by the server. (#293199)</li>
-<li><em>Modern GUI:</em> Added application configuration to enable RADIUS disconnect service, and only show the endpoint disconnect action button if this feature is enabled. (#293224)</li>
+<li><em>Modern GUI:</em> Added application configuration to enable the RADIUS disconnect service. Only show the endpoint disconnect action button if this feature is enabled. (#293224)</li>
 <li><em>Modern GUI:</em> Added basic/advanced/expert mode switcher to the application settings page to highlight the most important settings for new users while giving advanced and expert users more control. (#293040)</li>
+<li><em>Modern GUI:</em> Added possibility to clone policy group rules (#293301)</li>
 <li><em>Modern GUI:</em> Added possibility to clone policy groups (#293192)</li>
 <li><em>Modern GUI:</em> In the certificate renewal dialog, add an option to select if the private key should be renewed or not. (#290620)</li>
 <li><em>Modern GUI:</em> It is now possible to manage static routes via the Web GUI (previously only possible via CLI) (#291340)</li>
 <li><em>Modern GUI:</em> Visually highlight new records on the connection events page. (#292916)</li>
 <li><em>Modern GUI:</em> When temporarily registering an endpoint, the expiration date can now be selected. (#291138)</li>
-<li><em>Policy:</em> Add catch-all endpoint profile to policy manager to simplify policy designs (#293265)</li>
+<li><em>Policy:</em> Add a catch-all endpoint profile to policy manager to simplify policy designs (#293265)</li>
+<li><em>Policy:</em> Added the possibility to use endpoint attribute values in policy rules when assigning a VLAN or ACL. (#293288)</li>
 <li><em>RADIUS:</em> Added a configuration option to enable discarding of RADIUS packets without a <code>Message-Authenticator</code> attribute. This helps to mitigate vulnerabilities like Blast-RADIUS (CVE&#8211;2024&#8211;3596) which could be exploited by a man-in-the-middle attacker. (#292990)</li>
+<li><em>RADIUS:</em> Improved error logging for rejected EAP-TLS authentication. The exception type in the connection event now distinguishes between an untrusted client certificate and a client which does not trust the server certificate. (#293179)</li>
 <li><em>Scripting:</em> Setting a schedule for a script is now optional. (#292381)</li>
 <li><em>System:</em> The max. memory used by the USP NAS Core and WebGUI services can now be configured via the web GUI (&#8220;System&#8221; → &#8220;Expert settings&#8221;) (#291520)</li>
 <li><em>Web GUI:</em> Added an application configuration option to configure TLS 1.3 for the internal RADIUS server. Note that TLS 1.3 might not be supported by many clients yet. (#292535)</li>
@@ -2978,19 +2984,19 @@
 <li><em>Legacy GUI:</em> Removed pages from legacy GUI for functionality which is covered by the modern GUI. Managing the traditional policy engine is still available in the legacy GUI (#292086)</li>
 <li><em>Logging:</em> Updated the internal structure of the event log database table, so log entries can be stored more compactly and filtering can be improved. (#292728)</li>
 <li><em>OS:</em> Removed boot menu options &#8220;Restore old image&#8221; and &#8220;Reset to factory defaults&#8221; to reduce disk space and complexity. These features are no longer that relevant as most installations run in virtual environments with snapshot capability. (#292991)</li>
-<li><em>OS:</em> Update base Linux operating system packages to the latest versions. This includes new versions of OpenSSL (3.5), Python (3.14), FreeRADIUS (3.2), OpenSSH (10.3), PostgreSQL (16.14) and Syslog-NG (4.10). (#228594)</li>
 <li><em>OS:</em> Updated Linux OS Kernel to version 6.12.103 to fix various reported vulnerabilities (e.g., CVE&#8211;2026&#8211;31431, CVE&#8211;2026&#8211;43284, CVE&#8211;2026&#8211;43500) (#292598)</li>
+<li><em>OS:</em> Updated base Linux operating system packages to the latest versions. This includes new versions of OpenSSL (3.5), Python (3.14), FreeRADIUS (3.2), OpenSSH (10.3), PostgreSQL (16.14) and Syslog-NG (4.10). (#228594)</li>
+<li><em>Profiling:</em> Removed legacy endpoint profiling (profiles and profile rules). The new endpoint attributes can be used instead. DHCP fingerprinting is still supported and will receive continued support in the future. (#291681)</li>
 </ul>
 
 <h3 id="bugfixes">Bugfixes</h3>
 
 <ul>
 <li><em>Data import:</em> Fixed an issue where the endpoint property &#8220;authorized&#8221; was not imported correctly in case no other data of the affected entry was changed. (#293186)</li>
-<li><em>Modern GUI:</em> Improve listing connection events for netdevices by adding a dedicated index on the connection events table. (#293185)</li>
+<li><em>Modern GUI:</em> Improved performance of listing connection events for a given netdevice by adding a dedicated index on the connection events table. (#293185)</li>
 <li><em>OS:</em> Fixed an issue related to updating OS kernel and bootloader on UEFI systems (e.g., Hyper-V Gen2). (#292985)</li>
 <li><em>Policy:</em> It is now possible to set the reject action in a policy rule when the endpoint profile has no inventory condition (#293130)</li>
-<li><em>RADIUS:</em> Fixed another issue with parsing a RADIUS accounting packet with an Acct-Terminate-Cause attribute. The extended attribute values 19 - 23 are now correctly understood. (#293269)</li>
-<li><em>RADIUS:</em> Improved error logging for rejected EAP-TLS authentication. The exception type in the connection event now distinguishes between an untrusted client certificate and a client which does not trust the server certificate. (#293179)</li>
+<li><em>RADIUS:</em> Fixed another issue with parsing a RADIUS accounting packet with an Acct-Terminate-Cause attribute. The extended attribute values 19–23 are now correctly understood. (#293269)</li>
 <li><em>Scripting:</em> In scheduled scripts, import data (<code>list</code> variable) is now only processed if the script exit code (<code>exitCode</code>) is 0 (success). (#292719)</li>
 </ul>
 <h1 id="uspnetworkauthenticationsystemreg17.5">USP Network Authentication System &reg; 17.5</h1>
