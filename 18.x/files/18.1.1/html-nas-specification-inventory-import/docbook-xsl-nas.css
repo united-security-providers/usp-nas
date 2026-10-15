@@ -1,0 +1,24 @@
+/*
+  CSS stylesheet for XHTML produced by DocBook XSL stylesheets.
+*/
+
+html body {
+    background-image: url("USP-NAS-SpacePortal-Background.png");
+}
+
+.section > p, .chapter > p {
+    max-width: 900px;
+    text-align: justify;
+    line-height: 1.4;
+}
+
+p.simpara, .chapter .listitem {
+    max-width: 900px;
+    line-height: 1.4;
+}
+
+.mediaobject img {
+    padding: 10px;
+    background: white;
+    border: 1px solid #255583;
+}

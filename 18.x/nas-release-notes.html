@@ -224,6 +224,106 @@
 				<h1 class="title">USP Network Authentication System<sup>&reg;</sup> Release Notes</h1>
 			</header>
 			<div id="content">
+<h1 id="uspnetworkauthenticationsystemreg18.1">USP Network Authentication System &reg; 18.1</h1>
+
+<p>Released 15 October 2026</p>
+
+<h2 id="platformcompatibility">Platform Compatibility</h2>
+
+<p>This release is compatible with the following platforms:</p>
+
+<ul>
+<li>Dell PowerEdge R660/R650/R640/R630/R620</li>
+<li>VMware ESXi / Workstation</li>
+<li>Microsoft Hyper-V</li>
+<li>QEMU/KVM</li>
+<li>Oracle VirtualBox</li>
+</ul>
+
+<h2 id="changelog">Changelog</h2>
+
+<h3 id="features">Features</h3>
+
+<ul>
+<li><em>Certificates:</em> Added the option to configure renewal of the server certificate using the CMP protocol. (#293215)</li>
+<li><em>Modern GUI:</em> Added option for OpenID Connect based user authentication. OIDC providers can be configured on the user management page. (#293557)</li>
+<li><em>Policy:</em> Added client device AD group membership lookup via LDAP. This can be added as a condition to an endpoint profile in the policy manager. (#293225)</li>
+<li><em>RADIUS:</em> Added option to configure an LDAP profile for RADIUS-based user-password authentication. (#293205)</li>
+</ul>
+
+<h3 id="enhancements">Enhancements</h3>
+
+<ul>
+<li><em>Backup:</em> Added option to recreate file server private keys. (#293318)</li>
+<li><em>Backup:</em> When restoring a backup file through the first time setup wizard, a new option lets you choose of you want to import the original private keys (e.g. of file server profiles) or create new ones. (#293318)</li>
+<li><em>Data import:</em> Imports created by scheduled scripts now appear in the import history as pending right away, and for scripts and REST API uploads the total number of records is shown from the start. Enhancement: <em>Data import:</em> The JSON bulk upload endpoints now return the complete import job, including its status and number of records. (#293507)</li>
+<li><em>Data import:</em> New import files are now processed within seconds of being written to the import directory, instead of at the next periodic import run. The periodic run remains as a fallback. This can be configured in the application settings (expert mode) (#293507)</li>
+<li><em>Logging:</em> Added option to forward sudo log to syslog server (#293468)</li>
+<li><em>Logging:</em> Connection event logs now contain a field <code>eaptype</code> indicating the type of EAP authentication request, e.g., TLS or PEAP. (#290250)</li>
+<li><em>Logging:</em> Connection events now contain a field indicating which endpoint profiles matched and which not, and for what reason, during policy evaluation. (#293469)</li>
+<li><em>Logging:</em> In case of a client-side certificate error because of a configured policy (e.g., server name, EKU requirements), a dedicated error reason <code>RADIUS_SERVER_CERT_NOT_TRUSTED_BY_CLIENT_POLICY</code> is now logged in the connection event. (#293509)</li>
+<li><em>Modern GUI:</em> Added password policy settings to application configuration page. This allows to specify password length and complexity requirements for local user accounts. (#293465)</li>
+<li><em>Modern GUI:</em> Added the possibility to configure IPv6 via web GUI (#293455)</li>
+<li><em>Modern GUI:</em> Improved audit logging when editing policy objects in the Web GUI. (#293392)</li>
+<li><em>Modern GUI:</em> Show trunk/STP root port information in interfaces table and interfaces API (#293489)</li>
+<li><em>Monitoring:</em> Added graphs for connection event statistics (#293598)</li>
+<li><em>Policy:</em> Added condition for EAP type (TLS or PEAP) to endpoint profiles used in the new policy manager (#293570)</li>
+<li><em>RADIUS:</em> Add option to enable PEAP MSCHAPv2 in FreeRADIUS settings. The USP NAS Appliance needs to be joined to Active Directory for AD-based user authentication. The USP NAS user guide has more information about this feature. (#293566)</li>
+<li><em>REST API:</em> Added API method to trigger a disconnect (and reauthentication) of an endpoint specified either by MAC address or IP address. (#293515)</li>
+<li><em>REST API:</em> Data import job status can now be fetched via REST API. Please consult the API documentation for details. (#293503)</li>
+<li><em>SNMP:</em> Added automatic netport detection using LLDP neighbor discovery (#293412)</li>
+<li><em>SNMP:</em> Added automatic netport detection using trunk port information (e.g. Cisco IOS switches) (#293413)</li>
+<li><em>Scripting:</em> Added Jython script template demonstrating the use of nmap to scan endpoints tagged with a specific attribute for open ports/services, storing the result as another attribute which can be used for policy decisions. (#293467)</li>
+<li><em>Scripting:</em> Added a script template for a jython script which reads the managed devices and their compliance state from Microsoft Intune (Microsoft Graph API, deviceManagement/managedDevices) and adds it as attributes to the endpoints already registered in USP NAS (#293580)</li>
+<li><em>Scripting:</em> Added inventory import script template for VMware vSphere/ESXi hosts. It can import information about virtual machines like VM name, IP, Hostname, network adapter, power state etc. into the USP NAS endpoint inventory. (#293517)</li>
+<li><em>Scripting:</em> Added script template for Microsoft SCCM endpoint information retrieval using SCCM SQL server reporting views. (#293425)</li>
+<li><em>Scripting:</em> Added script template for inventory fetch from Cisco ACI (APIC) API. It queries the REST API of a Cisco APIC, fetches the endpoints learned by the ACI fabric and creates a client/endpoint data import file. For each endpoint (MAC address), its ACI context is stored as endpoint attributes for tenant, application profile, EPG, encapsulation (VLAN), leaf switch(es), port, IP addresses (#293521)</li>
+</ul>
+
+<h3 id="changes">Changes</h3>
+
+<ul>
+<li><em>Core:</em> Updated thirdparty dependencies to fix several reported vulnerabilities (#293498)</li>
+<li><em>Logging:</em> Removed the <code>timestamp</code> property from log events RADIUS_SERVER_ACCEPT (1170) and RADIUS_SERVER_REJECT (1171), as this is redundant information. (#293373)</li>
+<li><em>Modern GUI:</em> Local user session are terminated when the associate account is deleted, disabled or permissions have been changed. (#293606)</li>
+<li><em>Modern GUI:</em> REST API tokens can be generated with an optional validity in days. A REST API token is only accepted if it is the current token of the user and neither expired nor revoked, replaced tokens are no longer valid. User admins can revoke an active REST API token. (#293606)</li>
+<li><em>Modern GUI:</em> The LDAP server configuration page is now located as a sub-tab on the &#8220;User management&#8221; page in the web GUI (#293205)</li>
+<li><em>Reporting:</em> Updated JasperReports library to new major release 7, as the previous version was no longer maintained. (#293501)</li>
+<li><em>Web GUI:</em> Migrated most remaining configuration settings from the legacy GUI to the modern GUI (#293290)</li>
+</ul>
+
+<h3 id="bugfixes">Bugfixes</h3>
+
+<ul>
+<li><em>Core:</em> Fixed reading MAC addresses and VLANs from Cisco Nexus 9000 switches (#293444)</li>
+<li><em>Data import:</em> Fixed an issue where the endpoint property “attributes” was not imported correctly in case no other data of the affected entry was changed. (#293443)</li>
+<li><em>Data import:</em> Imports uploaded via the REST API or the web GUI no longer get a new import history entry when the NAS core processes them, so the import job ID returned by the API remains valid. (#293507)</li>
+<li><em>Data import:</em> Imports whose checksum file is uploaded before the data file has finished uploading, e.g. when both are copied in parallel via SSH, no longer fail. They are processed as soon as the upload is complete. (#293507)</li>
+<li><em>Modern GUI:</em> Added as missing check for the current user password when a local user wants to change their password. (#293605)</li>
+<li><em>Modern GUI:</em> Added missing Content Security Policy (CSP) header. (#293607)</li>
+<li><em>Modern GUI:</em> Added missing RADIUS accounting and disconnect statistics to modern GUI dashboard (#292474)</li>
+<li><em>Modern GUI:</em> Fixed a XSS vulnerability in the log viewer. (#293603)</li>
+<li><em>Modern GUI:</em> Fixed a potential path traversal vulnerability in the backup file download mechanism. (#293376)</li>
+<li><em>Modern GUI:</em> Fixed a reflected XSS vulnerability in the filter API. (#293604)</li>
+<li><em>Modern GUI:</em> Fixed an input validation and command execution vulnerability in the monitoring page, which would allow OS command injection through crafted HTTP API parameters. (#293545)</li>
+<li><em>Modern GUI:</em> Updated filter and table data loading speed on endpoint page (#293458)</li>
+<li><em>Monitoring:</em> Fixed an issue where HA health check RADIUS packets were shown as discarded proxy responses on the authenticator. (#293383)</li>
+<li><em>Monitoring:</em> Fixed statistic graphs which showed an hourly average of packets instead of a rate/second. Also other charts, where a hourly average was used instead of the value according to the current measure interval, were fixed. (#293389)</li>
+<li><em>Policy engine:</em> Fixed several issues in the policy engine: corrected encoding of vendor specific RADIUS response attributes, fixed an unintended caching when replacing placeholder in attributes, and ensured temporarily allowed endpoints are immediately rejected when their validity expires. (#293594)</li>
+<li><em>RADIUS:</em> Added User-Password attribute to master health check packet, so that the HA ping also works correctly when MAC authentication password validation is enabled. (#293381)</li>
+<li><em>RADIUS:</em> Fix NumberFormatException in debug log when handling RADIUS MAC authentication REJECT responses (#293344)</li>
+<li><em>RADIUS:</em> HA Authenticator systems answer RADIUS probe/tracking user requests now directly instead of forwarding these to the master system, in order to reduce unnecessary roundtrips and decrease network and system load. (#293382)</li>
+<li><em>RADIUS:</em> RADIUS accounting requests sent by a switch as part of its RADIUS server tracking feature (e.g., Cisco Catalyst) are now correctly handled and no longer emit a INVALID_RADIUS_ACCOUNTING_REQUEST log event. This reduces unnecessary noise in the event log. (#293372)</li>
+<li><em>RADIUS:</em> RADIUS probe user response packets no longer include all attributes sent with the request packet, only the necessary ones. (#293379)</li>
+<li><em>REST API:</em> Optimized SQL queries for large datasets, changed response to streaming mode, and added support for gzipped response data (based on <code>Accept-Encoding</code> request header) (#293458)</li>
+</ul>
+
+<h3 id="documentation">Documentation</h3>
+
+<ul>
+<li>Added German translations of installation and user guides. (#293463)</li>
+</ul>
+
 <h1 id="uspnetworkauthenticationsystemreg18.0">USP Network Authentication System &reg; 18.0</h1>
 
 <p>Released 31 August 2026</p>
@@ -2921,6 +3021,105 @@
 <li>Bugfix: Beim Löschen eines Netports werden die daran betroffenen Nodes auf DISCONNECTED gesetzt</li>
 <li>Bugfix: Blocking Time kann angepasst werden</li>
 <li>Bugfix: Versenden von Alerting Traps/E-mails gefixt</li>
+</ul>
+<h1 id="uspnetworkauthenticationsystemreg18.1">USP Network Authentication System &reg; 18.1</h1>
+
+<p>Released 15 October 2026</p>
+
+<h2 id="platformcompatibility">Platform Compatibility</h2>
+
+<p>This release is compatible with the following platforms:</p>
+
+<ul>
+<li>Dell PowerEdge R660/R650/R640/R630/R620</li>
+<li>VMware ESXi / Workstation</li>
+<li>Microsoft Hyper-V</li>
+<li>QEMU/KVM</li>
+<li>Oracle VirtualBox</li>
+</ul>
+
+<h2 id="changelog">Changelog</h2>
+
+<h3 id="features">Features</h3>
+
+<ul>
+<li><em>Certificates:</em> Added the option to configure renewal of the server certificate using the CMP protocol. (#293215)</li>
+<li><em>Modern GUI:</em> Added option for OpenID Connect based user authentication. OIDC providers can be configured on the user management page. (#293557)</li>
+<li><em>Policy:</em> Added client device AD group membership lookup via LDAP. This can be added as a condition to an endpoint profile in the policy manager. (#293225)</li>
+<li><em>RADIUS:</em> Added option to configure an LDAP profile for RADIUS-based user-password authentication. (#293205)</li>
+</ul>
+
+<h3 id="enhancements">Enhancements</h3>
+
+<ul>
+<li><em>Backup:</em> Added option to recreate file server private keys. (#293318)</li>
+<li><em>Backup:</em> When restoring a backup file through the first time setup wizard, a new option lets you choose of you want to import the original private keys (e.g. of file server profiles) or create new ones. (#293318)</li>
+<li><em>Data import:</em> Imports created by scheduled scripts now appear in the import history as pending right away, and for scripts and REST API uploads the total number of records is shown from the start. Enhancement: <em>Data import:</em> The JSON bulk upload endpoints now return the complete import job, including its status and number of records. (#293507)</li>
+<li><em>Data import:</em> New import files are now processed within seconds of being written to the import directory, instead of at the next periodic import run. The periodic run remains as a fallback. This can be configured in the application settings (expert mode) (#293507)</li>
+<li><em>Logging:</em> Added option to forward sudo log to syslog server (#293468)</li>
+<li><em>Logging:</em> Connection event logs now contain a field <code>eaptype</code> indicating the type of EAP authentication request, e.g., TLS or PEAP. (#290250)</li>
+<li><em>Logging:</em> Connection events now contain a field indicating which endpoint profiles matched and which not, and for what reason, during policy evaluation. (#293469)</li>
+<li><em>Logging:</em> In case of a client-side certificate error because of a configured policy (e.g., server name, EKU requirements), a dedicated error reason <code>RADIUS_SERVER_CERT_NOT_TRUSTED_BY_CLIENT_POLICY</code> is now logged in the connection event. (#293509)</li>
+<li><em>Modern GUI:</em> Added password policy settings to application configuration page. This allows to specify password length and complexity requirements for local user accounts. (#293465)</li>
+<li><em>Modern GUI:</em> Added the possibility to configure IPv6 via web GUI (#293455)</li>
+<li><em>Modern GUI:</em> Improved audit logging when editing policy objects in the Web GUI. (#293392)</li>
+<li><em>Modern GUI:</em> Show trunk/STP root port information in interfaces table and interfaces API (#293489)</li>
+<li><em>Monitoring:</em> Added graphs for connection event statistics (#293598)</li>
+<li><em>Policy:</em> Added condition for EAP type (TLS or PEAP) to endpoint profiles used in the new policy manager (#293570)</li>
+<li><em>RADIUS:</em> Add option to enable PEAP MSCHAPv2 in FreeRADIUS settings. The USP NAS Appliance needs to be joined to Active Directory for AD-based user authentication. The USP NAS user guide has more information about this feature. (#293566)</li>
+<li><em>REST API:</em> Added API method to trigger a disconnect (and reauthentication) of an endpoint specified either by MAC address or IP address. (#293515)</li>
+<li><em>REST API:</em> Data import job status can now be fetched via REST API. Please consult the API documentation for details. (#293503)</li>
+<li><em>SNMP:</em> Added automatic netport detection using LLDP neighbor discovery (#293412)</li>
+<li><em>SNMP:</em> Added automatic netport detection using trunk port information (e.g. Cisco IOS switches) (#293413)</li>
+<li><em>Scripting:</em> Added Jython script template demonstrating the use of nmap to scan endpoints tagged with a specific attribute for open ports/services, storing the result as another attribute which can be used for policy decisions. (#293467)</li>
+<li><em>Scripting:</em> Added a script template for a jython script which reads the managed devices and their compliance state from Microsoft Intune (Microsoft Graph API, deviceManagement/managedDevices) and adds it as attributes to the endpoints already registered in USP NAS (#293580)</li>
+<li><em>Scripting:</em> Added inventory import script template for VMware vSphere/ESXi hosts. It can import information about virtual machines like VM name, IP, Hostname, network adapter, power state etc. into the USP NAS endpoint inventory. (#293517)</li>
+<li><em>Scripting:</em> Added script template for Microsoft SCCM endpoint information retrieval using SCCM SQL server reporting views. (#293425)</li>
+<li><em>Scripting:</em> Added script template for inventory fetch from Cisco ACI (APIC) API. It queries the REST API of a Cisco APIC, fetches the endpoints learned by the ACI fabric and creates a client/endpoint data import file. For each endpoint (MAC address), its ACI context is stored as endpoint attributes for tenant, application profile, EPG, encapsulation (VLAN), leaf switch(es), port, IP addresses (#293521)</li>
+</ul>
+
+<h3 id="changes">Changes</h3>
+
+<ul>
+<li><em>Core:</em> Updated thirdparty dependencies to fix several reported vulnerabilities (#293498)</li>
+<li><em>Logging:</em> Removed the <code>timestamp</code> property from log events RADIUS_SERVER_ACCEPT (1170) and RADIUS_SERVER_REJECT (1171), as this is redundant information. (#293373)</li>
+<li><em>Modern GUI:</em> Local user session are terminated when the associate account is deleted, disabled or permissions have been changed. (#293606)</li>
+<li><em>Modern GUI:</em> REST API tokens can be generated with an optional validity in days. A REST API token is only accepted if it is the current token of the user and neither expired nor revoked, replaced tokens are no longer valid. User admins can revoke an active REST API token. (#293606)</li>
+<li><em>Modern GUI:</em> The LDAP server configuration page is now located as a sub-tab on the &#8220;User management&#8221; page in the web GUI (#293205)</li>
+<li><em>Reporting:</em> Updated JasperReports library to new major release 7, as the previous version was no longer maintained. (#293501)</li>
+<li><em>Web GUI:</em> Migrated most remaining configuration settings from the legacy GUI to the modern GUI (#293290)</li>
+</ul>
+
+<h3 id="bugfixes">Bugfixes</h3>
+
+<ul>
+<li><em>Core:</em> Fixed reading MAC addresses and VLANs from Cisco Nexus 9000 switches (#293444)</li>
+<li><em>Data import:</em> Fixed an issue where the endpoint property “attributes” was not imported correctly in case no other data of the affected entry was changed. (#293443)</li>
+<li><em>Data import:</em> Imports uploaded via the REST API or the web GUI no longer get a new import history entry when the NAS core processes them, so the import job ID returned by the API remains valid. (#293507)</li>
+<li><em>Data import:</em> Imports whose checksum file is uploaded before the data file has finished uploading, e.g. when both are copied in parallel via SSH, no longer fail. They are processed as soon as the upload is complete. (#293507)</li>
+<li><em>Modern GUI:</em> Added as missing check for the current user password when a local user wants to change their password. (#293605)</li>
+<li><em>Modern GUI:</em> Added missing Content Security Policy (CSP) header. (#293607)</li>
+<li><em>Modern GUI:</em> Added missing RADIUS accounting and disconnect statistics to modern GUI dashboard (#292474)</li>
+<li><em>Modern GUI:</em> Fixed a XSS vulnerability in the log viewer. (#293603)</li>
+<li><em>Modern GUI:</em> Fixed a potential path traversal vulnerability in the backup file download mechanism. (#293376)</li>
+<li><em>Modern GUI:</em> Fixed a reflected XSS vulnerability in the filter API. (#293604)</li>
+<li><em>Modern GUI:</em> Fixed an input validation and command execution vulnerability in the monitoring page, which would allow OS command injection through crafted HTTP API parameters. (#293545)</li>
+<li><em>Modern GUI:</em> Updated filter and table data loading speed on endpoint page (#293458)</li>
+<li><em>Monitoring:</em> Fixed an issue where HA health check RADIUS packets were shown as discarded proxy responses on the authenticator. (#293383)</li>
+<li><em>Monitoring:</em> Fixed statistic graphs which showed an hourly average of packets instead of a rate/second. Also other charts, where a hourly average was used instead of the value according to the current measure interval, were fixed. (#293389)</li>
+<li><em>Policy engine:</em> Fixed several issues in the policy engine: corrected encoding of vendor specific RADIUS response attributes, fixed an unintended caching when replacing placeholder in attributes, and ensured temporarily allowed endpoints are immediately rejected when their validity expires. (#293594)</li>
+<li><em>RADIUS:</em> Added User-Password attribute to master health check packet, so that the HA ping also works correctly when MAC authentication password validation is enabled. (#293381)</li>
+<li><em>RADIUS:</em> Fix NumberFormatException in debug log when handling RADIUS MAC authentication REJECT responses (#293344)</li>
+<li><em>RADIUS:</em> HA Authenticator systems answer RADIUS probe/tracking user requests now directly instead of forwarding these to the master system, in order to reduce unnecessary roundtrips and decrease network and system load. (#293382)</li>
+<li><em>RADIUS:</em> RADIUS accounting requests sent by a switch as part of its RADIUS server tracking feature (e.g., Cisco Catalyst) are now correctly handled and no longer emit a INVALID_RADIUS_ACCOUNTING_REQUEST log event. This reduces unnecessary noise in the event log. (#293372)</li>
+<li><em>RADIUS:</em> RADIUS probe user response packets no longer include all attributes sent with the request packet, only the necessary ones. (#293379)</li>
+<li><em>REST API:</em> Optimized SQL queries for large datasets, changed response to streaming mode, and added support for gzipped response data (based on <code>Accept-Encoding</code> request header) (#293458)</li>
+</ul>
+
+<h3 id="documentation">Documentation</h3>
+
+<ul>
+<li>Added German translations of installation and user guides. (#293463)</li>
 </ul>
 <h1 id="uspnetworkauthenticationsystemreg18.0">USP Network Authentication System &reg; 18.0</h1>
 
