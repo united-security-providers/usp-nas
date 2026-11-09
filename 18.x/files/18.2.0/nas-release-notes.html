@@ -224,6 +224,57 @@
 				<h1 class="title">USP Network Authentication System<sup>&reg;</sup> Release Notes</h1>
 			</header>
 			<div id="content">
+<h1 id="uspnetworkauthenticationsystemreg18.2">USP Network Authentication System &reg; 18.2</h1>
+
+<p>Released 9 November 2026</p>
+
+<h2 id="platformcompatibility">Platform Compatibility</h2>
+
+<p>This release is compatible with the following platforms:</p>
+
+<ul>
+<li>Dell PowerEdge R660/R650/R640/R630/R620</li>
+<li>VMware ESXi / Workstation</li>
+<li>Microsoft Hyper-V</li>
+<li>QEMU/KVM</li>
+<li>Oracle VirtualBox</li>
+</ul>
+
+<h2 id="changelog">Changelog</h2>
+
+<h3 id="enhancements">Enhancements</h3>
+
+<ul>
+<li><em>OS:</em> SSH server algorithms can now be configured, with presets for secure, default or insecure algorithms (for compatibility with legacy clients). The standard setting is &#8220;default&#8221;. If you are still requiring the <code>diffie-hellman-group14-sha1</code> key exchange algorithm, change this setting to &#8220;insecure&#8221;. (#193638)</li>
+<li><em>RADIUS:</em> Added connection event abort type <code>RADIUS_SERVER_TLS_UNEXPECTED_MESSAGE</code> indicating the RADIUS server rejecting an EAP-TLS handshake message that arrived out of sequence. (#293816)</li>
+</ul>
+
+<h3 id="changes">Changes</h3>
+
+<ul>
+<li><em>Firewall:</em> Block ICMP timestamp requests/responses to mitigate potential information disclosure. (#293791)</li>
+<li><em>OS:</em> Updated CA certificates to address CVE&#8211;2026&#8211;111943 (eMudhra) (#293803)</li>
+<li><em>OS:</em> Updated Linux kernel to address a TCP vulnerability that can allow remote code execution (CVE&#8211;2026&#8211;98432) (#293750)</li>
+<li><em>OS:</em> Updated OpenJDK to 11.0.32.1 to address CVE&#8211;2026&#8211;114820 (eMudhra) (#293803)</li>
+<li><em>OS:</em> Updated OpenSSH to 10.5 to address several CVEs (#293790)</li>
+<li><em>OS:</em> Updated OpenSSL to 3.5.9 to address several minor vulnerabilities (#293803)</li>
+<li><em>OS:</em> Updated PHP to 8.2.35 to address CVE&#8211;2026&#8211;109618, CVE&#8211;2026&#8211;109619 (PHP2Shell). Note that PHP is only used in shell scripts and not running as a web server component. (#293803)</li>
+<li><em>Web GUI:</em> Updated Apache Tomcat web server to 9.0.123 (#293801)</li>
+</ul>
+
+<h3 id="bugfixes">Bugfixes</h3>
+
+<ul>
+<li><em>Data import:</em> Ensured that endpoint attribute values written into data import CSV files by the scripting engine do not contain newlines which would break the CSV import of the affected entries. (#293639)</li>
+<li><em>Data import:</em> When importing inventory data, validation now checks and reports that location and owner values cannot be longer than 100 characters, instead of logging a SQL database exception. (#293817)</li>
+<li><em>Legacy GUI:</em> Fixed an issue with listing netdevices in the legacy GUI due to the inclusion of a new Cisco Nexus switch adapter in USP NAS 18.1 (#293819)</li>
+<li><em>Logging:</em> Fixed a sometimes incorrect port group name in connection events when the legacy policy engine is used and multiple port groups are assigned to a switch. (#293825)</li>
+<li><em>Logging:</em> Fixed policy chain aborts caused by missing context objects not being logged as connection events (#293831)</li>
+<li><em>OS:</em> Fixed location of shell utilities for transfer user when using SCP (#293813)</li>
+<li><em>Scripting:</em> Fixed resource use and leaks in scripting engine and optimized runtime (#293832)</li>
+<li><em>Web GUI:</em> Fixed an error on the connection events page when the quick filter is used and auto refresh is enabled (#293755)</li>
+</ul>
+
 <h1 id="uspnetworkauthenticationsystemreg18.1">USP Network Authentication System &reg; 18.1</h1>
 
 <p>Released 15 October 2026</p>
@@ -3021,6 +3072,56 @@
 <li>Bugfix: Beim Löschen eines Netports werden die daran betroffenen Nodes auf DISCONNECTED gesetzt</li>
 <li>Bugfix: Blocking Time kann angepasst werden</li>
 <li>Bugfix: Versenden von Alerting Traps/E-mails gefixt</li>
+</ul>
+<h1 id="uspnetworkauthenticationsystemreg18.2">USP Network Authentication System &reg; 18.2</h1>
+
+<p>Released 9 November 2026</p>
+
+<h2 id="platformcompatibility">Platform Compatibility</h2>
+
+<p>This release is compatible with the following platforms:</p>
+
+<ul>
+<li>Dell PowerEdge R660/R650/R640/R630/R620</li>
+<li>VMware ESXi / Workstation</li>
+<li>Microsoft Hyper-V</li>
+<li>QEMU/KVM</li>
+<li>Oracle VirtualBox</li>
+</ul>
+
+<h2 id="changelog">Changelog</h2>
+
+<h3 id="enhancements">Enhancements</h3>
+
+<ul>
+<li><em>OS:</em> SSH server algorithms can now be configured, with presets for secure, default or insecure algorithms (for compatibility with legacy clients). The standard setting is &#8220;default&#8221;. If you are still requiring the <code>diffie-hellman-group14-sha1</code> key exchange algorithm, change this setting to &#8220;insecure&#8221;. (#193638)</li>
+<li><em>RADIUS:</em> Added connection event abort type <code>RADIUS_SERVER_TLS_UNEXPECTED_MESSAGE</code> indicating the RADIUS server rejecting an EAP-TLS handshake message that arrived out of sequence. (#293816)</li>
+</ul>
+
+<h3 id="changes">Changes</h3>
+
+<ul>
+<li><em>Firewall:</em> Block ICMP timestamp requests/responses to mitigate potential information disclosure. (#293791)</li>
+<li><em>OS:</em> Updated CA certificates to address CVE&#8211;2026&#8211;111943 (eMudhra) (#293803)</li>
+<li><em>OS:</em> Updated Linux kernel to address a TCP vulnerability that can allow remote code execution (CVE&#8211;2026&#8211;98432) (#293750)</li>
+<li><em>OS:</em> Updated OpenJDK to 11.0.32.1 to address CVE&#8211;2026&#8211;114820 (eMudhra) (#293803)</li>
+<li><em>OS:</em> Updated OpenSSH to 10.5 to address several CVEs (#293790)</li>
+<li><em>OS:</em> Updated OpenSSL to 3.5.9 to address several minor vulnerabilities (#293803)</li>
+<li><em>OS:</em> Updated PHP to 8.2.35 to address CVE&#8211;2026&#8211;109618, CVE&#8211;2026&#8211;109619 (PHP2Shell). Note that PHP is only used in shell scripts and not running as a web server component. (#293803)</li>
+<li><em>Web GUI:</em> Updated Apache Tomcat web server to 9.0.123 (#293801)</li>
+</ul>
+
+<h3 id="bugfixes">Bugfixes</h3>
+
+<ul>
+<li><em>Data import:</em> Ensured that endpoint attribute values written into data import CSV files by the scripting engine do not contain newlines which would break the CSV import of the affected entries. (#293639)</li>
+<li><em>Data import:</em> When importing inventory data, validation now checks and reports that location and owner values cannot be longer than 100 characters, instead of logging a SQL database exception. (#293817)</li>
+<li><em>Legacy GUI:</em> Fixed an issue with listing netdevices in the legacy GUI due to the inclusion of a new Cisco Nexus switch adapter in USP NAS 18.1 (#293819)</li>
+<li><em>Logging:</em> Fixed a sometimes incorrect port group name in connection events when the legacy policy engine is used and multiple port groups are assigned to a switch. (#293825)</li>
+<li><em>Logging:</em> Fixed policy chain aborts caused by missing context objects not being logged as connection events (#293831)</li>
+<li><em>OS:</em> Fixed location of shell utilities for transfer user when using SCP (#293813)</li>
+<li><em>Scripting:</em> Fixed resource use and leaks in scripting engine and optimized runtime (#293832)</li>
+<li><em>Web GUI:</em> Fixed an error on the connection events page when the quick filter is used and auto refresh is enabled (#293755)</li>
 </ul>
 <h1 id="uspnetworkauthenticationsystemreg18.1">USP Network Authentication System &reg; 18.1</h1>
 
