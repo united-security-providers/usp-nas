@@ -22,6 +22,6 @@ completely brand agnostic and without the need for agents.
 * Active/passive High-availability (licensable module)
 * Guest portal (add-on, licensable module)
 
-# Downloads
+## Downloads
 
 The downloadable installation and update images, as well as the latest release notes, can be accessed with your customer account on our [service portal](https://service.united-security-providers.ch/).
