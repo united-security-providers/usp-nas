@@ -107,7 +107,7 @@ cd nas-docs
 downloadFromNexus $NAS_VERSION com.usp.nas nas-docs zip bundle
 
 # Download release notes markdown
-downloadFromNexus $NAS_VERSION com.usp.nas nas-docs md releasenotes
+# downloadFromNexus $NAS_VERSION com.usp.nas nas-docs md releasenotes
 
 rm -f *.zip
 rm -f *.jar
@@ -121,11 +121,11 @@ cd $DIR
 
 # Copy base markdown files from sources
 cp -R src/docs ./docs
-cp build/nas-docs/nas-release-notes.html ./docs/
+#cp build/nas-docs/nas-release-notes.html ./docs/
 
 mkdir -p ./docs/files/$NAS_VERSION
 cp -r ./build/nas-docs/* ./docs/files/$NAS_VERSION/
-cp ./build/nas-docs/nas-docs-$NAS_VERSION-releasenotes.md ./docs/release-notes.md
+#cp ./build/nas-docs/nas-docs-$NAS_VERSION-releasenotes.md ./docs/release-notes.md
 
 # Replace version placeholders in all markdown files
 for file in ./docs/*; do

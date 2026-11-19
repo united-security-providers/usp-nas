@@ -50,7 +50,7 @@ markdown_extensions:
   - pymdownx.superfences
 nav:
   - Welcome: 'index.md'
-  - Release Notes: 'release-notes.md'
+  # - Release Notes: 'release-notes.md'
   - Documentation:
     - HTML: 'html-documentation.md'
     - PDF: 'pdf-documentation.md'
